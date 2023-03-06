@@ -111,12 +111,13 @@ watch(
         data-placement="bottom">
         野麓YELU CAMP
       </RouterLink>
+      <!-- 以下是RWD時顯示 -->
       <RouterLink class="navbar-brand d-block d-md-none" :class="
         props.transparent || props.dark
           ? 'text-white'
           : 'font-weight-bolder ms-sm-3'
       " to="/" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom">
-        Material Design
+       野麓YELU CAMP
       </RouterLink>
       <a href="https://www.creative-tim.com/product/vue-material-kit-pro"
         class="btn btn-sm bg-gradient-success mb-0 ms-auto d-lg-none d-block">Buy Now</a>
@@ -129,7 +130,11 @@ watch(
         </span>
       </button>
 
-
+<!-- RWD: 	
+  lg:生效範圍992px以上 ; md:生效範圍768px以上 ; sm:生效範圍576px以上
+  .d-block: Visible on all 
+  .d-none: Hidden on all不顯示於網頁上但存於DOM
+  例如:d-none d-lg-block:lg寬度時顯示,其餘尺寸none(代表小於992px即隱藏) ;  -->
 
 
 
@@ -357,60 +362,41 @@ watch(
             <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-xl mt-0 mt-lg-3"
               aria-labelledby="dropdownMenuPages">
               <div class="row d-none d-lg-block">
+              <!-- <div class="row d-none d-lg-flex"> -->
                 <div class="col-12 px-4 py-2">
                   <div class="row">
                     <div class="position-relative">
-                      <div class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
-                        北部
-                      </div>
-                      <!-- test -->
                       <RouterLink :to="{ name: 'test' }" class="dropdown-item border-radius-md">
-                        <span>Test</span>
-                      </RouterLink>
-                      <div class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
-                        中部
-                      </div>
-                      <div class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
-                        南部
-                      </div>
-                      <div class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
-                        東部
-                      </div>
-
-                      <div class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-0 mt-3">
-                        Account
-                      </div>
-                      <RouterLink :to="{ name: 'signin-basic' }" class="dropdown-item border-radius-md">
-                        <span>Sign In</span>
-                      </RouterLink>
-
+                        <span>活動首頁</span>
+                      </RouterLink> 
+                      <RouterLink :to="{ name: 'test' }" class="dropdown-item border-radius-md">
+                        <span>活動搜尋</span>
+                      </RouterLink> 
+                      <RouterLink :to="{ name: 'test' }" class="dropdown-item border-radius-md">
+                        <span>熱門活動</span>
+                      </RouterLink> 
                     </div>
                   </div>
                 </div>
               </div>
 
-
               <!-- 以下是為了設定RWD -->
               <div class="d-lg-none">
                 <div class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-0">
-                  Landing Pages
+                  當地活動
                 </div>
                 <RouterLink :to="{ name: 'about' }" class="dropdown-item border-radius-md">
-                  <span>About Us</span>
+                  <span>活動首頁</span>
                 </RouterLink>
                 <RouterLink :to="{ name: 'contactus' }" class="dropdown-item border-radius-md">
-                  <span>Contact Us</span>
+                  <span>活動搜尋</span>
                 </RouterLink>
                 <RouterLink :to="{ name: 'author' }" class="dropdown-item border-radius-md">
-                  <span>Author</span>
+                  <span>熱門活動</span>
                 </RouterLink>
-                <div class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-0 mt-3">
-                  Account
-                </div>
-                <RouterLink :to="{ name: 'signin-basic' }" class="dropdown-item border-radius-md">
-                  <span>Sign In</span>
-                </RouterLink>
-              </div>
+
+              </div> 
+
             </div>
           </li>
 
@@ -477,44 +463,14 @@ watch(
           </li>
 
           <!-- 導覽列第四個按鈕 -->
-          <li class="nav-item dropdown dropdown-hover mx-2">
-            <a role="button" class="nav-link ps-2 d-flex cursor-pointer align-items-center" :class="getTextColor()"
-              id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="material-icons opacity-6 me-2 text-md" :class="getTextColor()">dashboard</i>
+          <li class="nav-item mx-2">
+            <a role="button" class="nav-link ps-2 d-flex cursor-pointer align-items-center" :class="getTextColor()" aria-expanded="false">
+          <RouterLink :to="{ name: 'about' }" class="dropdown-item border-radius-md">
+                <i class="material-icons opacity-6 me-2 text-md" :class="getTextColor()">dashboard</i>
               露營商店
-              <img :src="getArrowColor()" alt="down-arrow" class="arrow ms-2 d-lg-block d-none" />
-              <img :src="getArrowColor()" alt="down-arrow" class="arrow ms-1 d-lg-none d-block ms-auto" />
+              </RouterLink>
             </a>
-            <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-xl mt-0 mt-lg-3"
-              aria-labelledby="dropdownMenuPages">
-              <div class="row d-none d-lg-block">
-                <div class="col-12 px-4 py-2">
-                  <div class="row">
-                    <div class="position-relative">
-                      <RouterLink :to="{ name: 'about' }" class="dropdown-item border-radius-md">
-                        <span>About Us</span>
-                      </RouterLink>
-                      <RouterLink :to="{ name: 'contactus' }" class="dropdown-item border-radius-md">
-                        <span>Contact Us</span>
-                      </RouterLink>
 
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- 以下是為了設定RWD -->
-              <div class="d-lg-none">
-                <div class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-0">
-                  露營商店
-                </div>
-                <RouterLink :to="{ name: 'about' }" class="dropdown-item border-radius-md">
-                  <span>About Us</span>
-                </RouterLink>
-                <RouterLink :to="{ name: 'contactus' }" class="dropdown-item border-radius-md">
-                  <span>Contact Us</span>
-                </RouterLink>
-              </div>
-            </div>
           </li>
 
 

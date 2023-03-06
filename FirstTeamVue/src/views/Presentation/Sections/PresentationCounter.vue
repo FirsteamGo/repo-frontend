@@ -5,42 +5,47 @@ import DefaultCounterCard from "../../../examples/cards/counterCards/DefaultCoun
 <template>
   <section class="pt-3 pb-4" id="count-stats">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-9 z-index-2 border-radius-xl mx-auto py-3">
-          <div class="row">
-            <div class="col-md-4 position-relative">
+      <div class="row" >
+        <div class="col-lg-9 z-index-2 border-radius-xl mx-auto py-3" >
+          <div class="row" >
+          <!-- 第一個icon -->
+            <div class="col-md-4 position-relative" style="text-align: center;">
+              <img src="/src/assets/img/icon/c01.png" style="width:100px; height:100px;" alt="main_logo" >
+              <div>
+                <h3>露營車</h3>
+               <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p>
+              </div>
+
               <DefaultCounterCard
-                color="success"
-                title="Coded Elements"
-                description="From buttons, to inputs, navbars, alerts or cards, you are
-                  covered"
-                :count="70"
-                suffix="+"
-                :duration="3000"
                 divider="vertical"
               />
+
             </div>
-            <div class="col-md-4 position-relative">
+            <!-- 第二個icon -->
+              <div class="col-md-4 position-relative" style="text-align: center;">
+              <img src="/src/assets/img/icon/c02.png" style="width:100px; height:100px;" alt="main_logo" >
+              <div>
+                <h3>懶人露營</h3>
+               <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p>
+              </div>
+
               <DefaultCounterCard
-                color="success"
-                title="Design Blocks"
-                description="Mix the sections, change the colors and unleash your
-                  creativity"
-                :count="15"
-                suffix="+"
-                :duration="3000"
-                divider="vertical"
-              />
+               divider="vertical"
+             />
+
             </div>
-            <div class="col-md-4">
-              <DefaultCounterCard
-                color="success"
-                title="Pages"
-                description="Save 3-4 weeks of work when you use our pre-made pages for
-                  your website"
-                :count="4"
-                :duration="3000"
-              />
+            <!-- 第三個icon -->
+            <div class="col-md-4 position-relative" style="text-align: center;">
+              <img src="/src/assets/img/icon/c03.png" style="width:100px; height:100px;" alt="main_logo" >
+              <div>
+                <h3>自搭露營</h3>
+               <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p>
+              </div>
+             
+              <DefaultCounterCard 
+               divider="vertical"
+             />
+
             </div>
           </div>
         </div>

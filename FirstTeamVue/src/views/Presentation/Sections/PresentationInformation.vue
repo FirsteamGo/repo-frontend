@@ -9,18 +9,19 @@ import DefaultInfoCard from "../../../examples/cards/infoCards/DefaultInfoCard.v
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-4 ms-auto me-auto p-lg-4 mt-lg-0 mt-4">
+          <!-- 卡片一帶四 -->
           <RotatingCard>
             <RotatingCardFront
               image="https://images.unsplash.com/photo-1569683795645-b62e50fbf103?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"
               icon="touch_app"
-              title="Feel the <br /> Material Kit"
+              title="熱門營區 <br /> Material Kit"
               description="All the Bootstrap components that you need in a development have been
         re-design with the new look."
             />
 
             <RotatingCardBack
               image="https://images.unsplash.com/photo-1498889444388-e67ea62c464b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1365&q=80"
-              title="Discover More"
+              title="點我看更多"
               description="You will save a lot of time going from prototyping to full-functional
                 code because all elements are implemented."
               :action="[
@@ -32,35 +33,38 @@ import DefaultInfoCard from "../../../examples/cards/infoCards/DefaultInfoCard.v
             />
           </RotatingCard>
         </div>
+
         <div class="col-lg-6 ms-auto">
           <div class="row justify-content-start">
+            <!-- 左上 -->
             <DefaultInfoCard
-              icon="content_copy"
-              title="Full Documentation"
-              description="Built by developers for developers. Check the foundation and
-                  you will find everything inside our documentation."
+              icon="location_on"
+              title="北部 "
+              description="新北 桃園 新竹"
+             
             />
+            <!-- 右上 -->
             <DefaultInfoCard
-              icon="flip_to_front"
-              title="Bootstrap 5 Ready"
-              description="The world’s most popular front-end open source toolkit,
-                  featuring Sass variables and mixins."
+              icon="location_on"
+              title="中部"
+              description="苗栗 南投 台中"
             />
           </div>
+
           <div class="row justify-content-start mt-5">
+            <!-- 左下 -->
             <DefaultInfoCard
               class="mt-3"
-              icon="price_change"
-              title="Save Time & Money"
-              description="Creating your design from scratch with dedicated designers can
-                be very expensive. Start with our Design System."
+              icon="location_on"
+              title="南部"
+              description="嘉義 台南 高雄"
             />
+            <!-- 右下 -->
             <DefaultInfoCard
               class="mt-3"
-              icon="devices"
-              title="Fully Responsive"
-              description="Regardless of the screen size, the website content will
-                  naturally fit the given resolution."
+              icon="location_on"
+              title="東部"
+              description="宜蘭 花蓮 台東"
             />
           </div>
         </div>
