@@ -13,14 +13,15 @@ import MaterialSocialButton from "@/components/MaterialSocialButton.vue";
 // sections
 import PresentationCounter from "./Sections/PresentationCounter.vue";
 import PresentationPages from "./Sections/PresentationPages.vue";
-import PresentationExample from "./Sections/PresentationExample.vue";
-import data from "./Sections/Data/designBlocksData";
+// import PresentationExample from "./Sections/PresentationExample.vue";
+// import data from "./Sections/Data/designBlocksData";
 import BuiltByDevelopers from "./Components/BuiltByDevelopers.vue";
 import PresentationTestimonials from "./Sections/PresentationTestimonials.vue";
 import PresentationInformation from "./Sections/PresentationInformation.vue";
 
 //images
-import vueMkHeader from "@/assets/img/vue-mk-header.jpg";
+// import vueMkHeader from "@/assets/img/vue-mk-header.jpg";
+import bg02 from "@/assets/img/bg/bg02.jpg";
 import wavesWhite from "@/assets/img/waves-white.svg";
 import logoBootstrap from "@/assets/img/logos/bootstrap5.jpg";
 import logoTailwind from "@/assets/img/logos/icon-tailwind.jpg";
@@ -50,9 +51,10 @@ onUnmounted(() => {
     </div>
   </div>
   <Header>
+    <!-- 首頁圖片/文字在這設定 -->
     <div
       class="page-header min-vh-75"
-      :style="`background-image: url(${vueMkHeader})`"
+      :style="`background-image: url(${bg02})`"
       loading="lazy"
     >
       <div class="container">
@@ -62,7 +64,7 @@ onUnmounted(() => {
               class="text-white pt-3 mt-n5 me-2"
               :style="{ display: 'inline-block ' }"
             >
-              Material Kit 2
+            YELU CAMP露營GO!
             </h1>
             <p class="lead text-white px-5 mt-3" :style="{ fontWeight: '500' }">
               Start the Development With Bootstrap 5 Design System inspired by
@@ -75,9 +77,10 @@ onUnmounted(() => {
   </Header>
 
   <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6">
+    <!-- import進來呈現的視覺 先後順序在這裡設定 -->
     <PresentationCounter />
     <PresentationInformation />
-    <PresentationExample :data="data" />
+    <!-- <PresentationExample :data="data" /> -->
     <PresentationPages />
     <BuiltByDevelopers />
 

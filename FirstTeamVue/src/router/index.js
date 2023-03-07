@@ -1,9 +1,22 @@
 import { createRouter, createWebHistory } from "vue-router";
 import PresentationView from "../views/Presentation/PresentationView.vue";
-import AboutView from "../views/LandingPages/AboutUs/AboutView.vue";
+
 //test
 import testView from "../views/LandingPages/test/test.vue";
 
+
+//yelupages
+import ActView from "@/views/YeluPages/Act/ActView.vue";
+import CampView from "@/views/YeluPages/Camp/CampView.vue";
+import MemberView from "@/views/YeluPages/Member/MemberView.vue";
+import SelfView from "@/views/YeluPages/Self/SelfView.vue";
+import SetView from "@/views/YeluPages/Set/SetView.vue";
+import ShopView from "@/views/YeluPages/Shop/ShopView.vue";
+
+
+
+
+import AboutView from "../views/LandingPages/AboutUs/AboutView.vue";
 import ContactView from "../views/LandingPages/ContactUs/ContactView.vue";
 import AuthorView from "../views/LandingPages/Author/AuthorView.vue";
 import SignInBasicView from "../views/LandingPages/SignIn/BasicView.vue";
@@ -27,12 +40,6 @@ import ElProgressBars from "../layouts/sections/elements/progress-bars/ProgressB
 import ElToggles from "../layouts/sections/elements/toggles/TogglesView.vue";
 import ElTypography from "../layouts/sections/elements/typography/TypographyView.vue";
 
-//axios
-// import vue from 'vue'
-// import vueaxios from 'vue-axios'
-// import axios from 'axios'
-//axios
-// vue.use(axios, vueaxios)
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -48,6 +55,36 @@ const router = createRouter({
       component: testView,
     },
     {
+      path: "/pages/Yelu-pages/act",
+      name: "act",
+      component: ActView,
+    },
+    {
+      path: "/pages/Yelu-pages/camp",
+      name: "camp",
+      component: CampView,
+    },
+    {
+      path: "/pages/Yelu-pages/member",
+      name: "member",
+      component: MemberView,
+    },
+    {
+      path: "/pages/Yelu-pages/self",
+      name: "self",
+      component: SelfView,
+    },
+    {
+      path: "/pages/Yelu-pages/set",
+      name: "set",
+      component: SetView,
+    },
+    {
+      path: "/pages/Yelu-pages/shop",
+      name: "shop",
+      component: ShopView,
+    },
+    {//landing-pages
       path: "/pages/landing-pages/about-us",
       name: "about",
       component: AboutView,
