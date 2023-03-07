@@ -4,9 +4,11 @@ import { onMounted, onUnmounted } from "vue";
 //example components
 import DefaultNavbar from "../../../examples/navbars/NavbarDefault.vue";
 import yelufooter from "../../../examples/footers/yelufooter.vue";
+import Breadcrumb from "./Sections/Breadcrumb.vue";
+import Layout from "./Sections/Layout.vue"
 
 //image
-import bg0 from "@/assets/img/bg9.jpg";
+import bg0 from "./img/01.jpeg";
 
 //dep
 import Typed from "typed.js";
@@ -59,12 +61,14 @@ onUnmounted(() => {
         <div class="row justify-content-center">
           <div class="col-lg-8 text-center mx-auto my-auto">
             <h1 class="text-white">
-              Title 
+              套裝行程 
             </h1>
            
             <p class="lead mb-4 text-white opacity-8">
-              We’re constantly trying to express ourselves and actualize our
-              dreams. If you have the opportunity to play this game
+              不用規劃，直接拎包入住! <br>
+              走進大自然，享受真正的自由！ <br>
+              離開城市，找到屬於自己的寧靜空間！ <br>
+              套裝行程，可以幫你完成你的夢想！ <br>
             </p>
             
            
@@ -73,11 +77,13 @@ onUnmounted(() => {
       </div>
     </div>
   </header>
-  <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
 
-    <!-- 記得這裡設定引入標籤 -->
-    <!-- <Information /> -->
- 
+
+ <Breadcrumb/>
+
+  <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">  
+   
+   <Layout/>
 
   </div>
   <yelufooter />
