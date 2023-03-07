@@ -12,7 +12,7 @@ import bg0 from "@/assets/img/bg9.jpg";
 import Typed from "typed.js";
 
 //sections 放置要引入的頁面
-// import Information from "./Sections/AboutInformation.vue";
+import step from "./Sections/step.vue";
 
 
 const body = document.getElementsByTagName("body")[0];
@@ -76,7 +76,7 @@ onUnmounted(() => {
   <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
 
     <!-- 記得這裡設定引入標籤 -->
-    <!-- <Information /> -->
+    <step />
  
 
   </div>
