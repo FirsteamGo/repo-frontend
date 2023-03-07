@@ -170,13 +170,13 @@ watch(
                       </div>
                     </a>
                     <div class="dropdown-menu mt-0 py-3 px-2 mt-3">
-                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'page-headers' }">
+                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
                         新北
                       </RouterLink>
-                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'page-features' }">
+                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
                         桃園
                       </RouterLink>
-                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'page-features' }">
+                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
                         新竹
                       </RouterLink>
                     </div>
@@ -197,14 +197,14 @@ watch(
                       </div>
                     </a>
                     <div class="dropdown-menu mt-0 py-3 px-2 mt-3">
-                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'navigation-navbars' }">
+                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
                         苗栗
                       </RouterLink>
-                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'navigation-navtabs' }">
+                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
                         南投
                       </RouterLink>
                       <RouterLink class="dropdown-item ps-3 border-radius-md mb-1"
-                        :to="{ name: 'navigation-pagination' }">
+                        :to="{ name: 'camp' }">
                         台中
                       </RouterLink>
                     </div>
@@ -225,13 +225,13 @@ watch(
                       </div>
                     </a>
                     <div class="dropdown-menu mt-0 py-3 px-2 mt-3">
-                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'inputareas-inputs' }">
+                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
                         嘉義
                       </RouterLink>
-                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'inputareas-forms' }">
+                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
                         台南
                       </RouterLink>
-                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'inputareas-forms' }">
+                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
                         高雄
                       </RouterLink>
                     </div>
@@ -252,13 +252,13 @@ watch(
                       </div>
                     </a>
                     <div class="dropdown-menu mt-0 py-3 px-2 mt-3">
-                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'ac-alerts' }">
+                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
                         宜蘭
                       </RouterLink>
-                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'ac-modals' }">
+                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
                         花蓮
                       </RouterLink>
-                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'ac-tooltips-popovers' }">
+                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
                         台東
                       </RouterLink>
                     </div>
@@ -278,13 +278,13 @@ watch(
                       </div>
                     </div>
                   </div>
-                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'page-headers' }">
+                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
                     新北
                   </RouterLink>
-                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'page-features' }">
+                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
                     桃園
                   </RouterLink>
-                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'page-features' }">
+                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
                     新竹
                   </RouterLink>
                   <div class="d-flex mb-2 mt-3">
@@ -297,13 +297,13 @@ watch(
                       </div>
                     </div>
                   </div>
-                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'navigation-navbars' }">
+                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
                     苗栗
                   </RouterLink>
-                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'navigation-navtabs' }">
+                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
                     南投
                   </RouterLink>
-                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'navigation-pagination' }">
+                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
                     台中
                   </RouterLink>
                   <div class="d-flex mb-2 mt-3">
@@ -316,13 +316,13 @@ watch(
                       </div>
                     </div>
                   </div>
-                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'inputareas-inputs' }">
+                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
                     嘉義
                   </RouterLink>
-                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'inputareas-forms' }">
+                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
                     台南
                   </RouterLink>
-                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'inputareas-forms' }">
+                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
                     高雄
                   </RouterLink>
                   <div class="d-flex mb-2 mt-3">
@@ -335,13 +335,13 @@ watch(
                       </div>
                     </div>
                   </div>
-                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'ac-alerts' }">
+                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
                     宜蘭
                   </RouterLink>
-                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'ac-modals' }">
+                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
                     花蓮
                   </RouterLink>
-                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'ac-tooltips-popovers' }">
+                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
                     台東
                   </RouterLink>
                 </div>
@@ -366,13 +366,13 @@ watch(
                 <div class="col-12 px-4 py-2">
                   <div class="row">
                     <div class="position-relative">
-                      <RouterLink :to="{ name: 'test' }" class="dropdown-item border-radius-md">
+                      <RouterLink :to="{ name: 'act' }" class="dropdown-item border-radius-md">
                         <span>活動首頁</span>
                       </RouterLink> 
-                      <RouterLink :to="{ name: 'test' }" class="dropdown-item border-radius-md">
+                      <RouterLink :to="{ name: 'act' }" class="dropdown-item border-radius-md">
                         <span>活動搜尋</span>
                       </RouterLink> 
-                      <RouterLink :to="{ name: 'test' }" class="dropdown-item border-radius-md">
+                      <RouterLink :to="{ name: 'act' }" class="dropdown-item border-radius-md">
                         <span>熱門活動</span>
                       </RouterLink> 
                     </div>
@@ -385,13 +385,13 @@ watch(
                 <div class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-0">
                   當地活動
                 </div>
-                <RouterLink :to="{ name: 'about' }" class="dropdown-item border-radius-md">
+                <RouterLink :to="{ name: 'act' }" class="dropdown-item border-radius-md">
                   <span>活動首頁</span>
                 </RouterLink>
-                <RouterLink :to="{ name: 'contactus' }" class="dropdown-item border-radius-md">
+                <RouterLink :to="{ name: 'act' }" class="dropdown-item border-radius-md">
                   <span>活動搜尋</span>
                 </RouterLink>
-                <RouterLink :to="{ name: 'author' }" class="dropdown-item border-radius-md">
+                <RouterLink :to="{ name: 'act' }" class="dropdown-item border-radius-md">
                   <span>熱門活動</span>
                 </RouterLink>
 
@@ -404,68 +404,56 @@ watch(
           <!-- 導覽列第三個按鈕 -->
           <li class="nav-item dropdown dropdown-hover mx-2">
             <a role="button" class="nav-link ps-2 d-flex cursor-pointer align-items-center" :class="getTextColor()"
-              id="dropdownMenuDocs" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="material-icons opacity-6 me-2 text-md" :class="getTextColor()">article</i>
-              行程挑選
+              id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="material-icons opacity-6 me-2 text-md" :class="getTextColor()">dashboard</i>
+              行程選擇
               <img :src="getArrowColor()" alt="down-arrow" class="arrow ms-2 d-lg-block d-none" />
               <img :src="getArrowColor()" alt="down-arrow" class="arrow ms-1 d-lg-none d-block ms-auto" />
             </a>
-            <div
-              class="dropdown-menu dropdown-menu-end dropdown-menu-animation dropdown-md mt-0 mt-lg-3 p-3 border-radius-lg"
-              aria-labelledby="dropdownMenuDocs">
-              <div class="d-none d-lg-block">
-                <ul class="list-group">
-                  <li class="nav-item list-group-item border-0 p-0">
-                    <a class="dropdown-item py-2 ps-3 border-radius-md"
-                      href=" https://www.creative-tim.com/learning-lab/vue/overview/material-kit/">
-                      <h6
-                        class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                        自選行程
-                      </h6>
-                      <span class="text-sm">All about overview, quick start, license and
-                        contents</span>
-                    </a>
-                  </li>
-                  <li class="nav-item list-group-item border-0 p-0">
-                    <a class="dropdown-item py-2 ps-3 border-radius-md"
-                      href=" https://www.creative-tim.com/learning-lab/vue/colors/material-kit/">
-                      <h6
-                        class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                        套裝行程
-                      </h6>
-                      <span class="text-sm">See our colors, icons and typography</span>
-                    </a>
-                  </li>
-                </ul>
+            <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-xl mt-0 mt-lg-3"
+              aria-labelledby="dropdownMenuPages">
+              <div class="row d-none d-lg-block">
+              <!-- <div class="row d-none d-lg-flex"> -->
+                <div class="col-12 px-4 py-2">
+                  <div class="row">
+                    <div class="position-relative">
+                      <RouterLink :to="{ name: 'self' }" class="dropdown-item border-radius-md">
+                        <span>自選行程</span>
+                      </RouterLink> 
+                      <RouterLink :to="{ name: 'set' }" class="dropdown-item border-radius-md">
+                        <span>套裝行程</span>
+                      </RouterLink> 
+                    
+                    </div>
+                  </div>
+                </div>
               </div>
 
               <!-- 以下是為了設定RWD -->
-              <div class="row d-lg-none">
-                <div class="col-md-12 g-0">
-                  <a class="dropdown-item py-2 ps-3 border-radius-md" href="./pages/about-us.html">
-                    <h6
-                      class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                      自選行程
-                    </h6>
-                    <span class="text-sm">All about overview, quick start, license and
-                      contents</span>
-                  </a>
-                  <a class="dropdown-item py-2 ps-3 border-radius-md" href="./pages/about-us.html">
-                    <h6
-                      class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                      套裝行程
-                    </h6>
-                    <span class="text-sm">See our colors, icons and typography</span>
-                  </a>
+              <div class="d-lg-none">
+                <div class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-0">
+                  行程選擇
                 </div>
-              </div>
+                <RouterLink :to="{ name: 'self' }" class="dropdown-item border-radius-md">
+                  <span>自選行程</span>
+                </RouterLink>
+                <RouterLink :to="{ name: 'set' }" class="dropdown-item border-radius-md">
+                  <span>套裝行程</span>
+                </RouterLink>
+              </div> 
+              
             </div>
           </li>
+         
+
+
 
           <!-- 導覽列第四個按鈕 -->
           <li class="nav-item mx-2">
-            <a role="button" class="nav-link ps-2 d-flex cursor-pointer align-items-center" :class="getTextColor()" aria-expanded="false">
-          <RouterLink :to="{ name: 'about' }" class="dropdown-item border-radius-md">
+            <!-- <a role="button" class="nav-link ps-2 d-flex cursor-pointer align-items-center" :class="getTextColor()" aria-expanded="false"> -->
+              <a role="button" class="nav-link ps-2 d-flex cursor-pointer align-items-center" :class="getTextColor()"
+              id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
+          <RouterLink :to="{ name: 'shop' }" class="dropdown-item border-radius-md">
                 <i class="material-icons opacity-6 me-2 text-md" :class="getTextColor()">dashboard</i>
               露營商店
               </RouterLink>
@@ -489,10 +477,10 @@ watch(
                 <div class="col-12 px-4 py-2">
                   <div class="row">
                     <div class="position-relative">
-                      <RouterLink :to="{ name: 'about' }" class="dropdown-item border-radius-md">
+                      <RouterLink :to="{ name: 'member' }" class="dropdown-item border-radius-md">
                         <span>會員中心</span>
                       </RouterLink>
-                      <RouterLink :to="{ name: 'contactus' }" class="dropdown-item border-radius-md">
+                      <RouterLink :to="{ name: 'member' }" class="dropdown-item border-radius-md">
                         <span>註冊新會員</span>
                       </RouterLink>
 
@@ -505,10 +493,10 @@ watch(
                 <div class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-0">
                   登入/註冊
                 </div>
-                <RouterLink :to="{ name: 'about' }" class="dropdown-item border-radius-md">
+                <RouterLink :to="{ name: 'member' }" class="dropdown-item border-radius-md">
                   <span>會員中心</span>
                 </RouterLink>
-                <RouterLink :to="{ name: 'contactus' }" class="dropdown-item border-radius-md">
+                <RouterLink :to="{ name: 'member' }" class="dropdown-item border-radius-md">
                   <span>註冊新會員</span>
                 </RouterLink>
               </div>
