@@ -20,7 +20,7 @@ defineProps({
     default: () => ({
       route: "javascript:;",
       color: "success",
-      //label: "Read more",
+      label: "活動詳細資訊",
     }),
   },
 });
