@@ -21,7 +21,7 @@ import PresentationInformation from "./Sections/PresentationInformation.vue";
 
 //images
 // import vueMkHeader from "@/assets/img/vue-mk-header.jpg";
-import bg9 from "@/assets/img/bg9.jpg";
+import bg02 from "@/assets/img/bg/bg02.jpg";
 import wavesWhite from "@/assets/img/waves-white.svg";
 import logoBootstrap from "@/assets/img/logos/bootstrap5.jpg";
 import logoTailwind from "@/assets/img/logos/icon-tailwind.jpg";
@@ -54,7 +54,7 @@ onUnmounted(() => {
     <!-- 首頁圖片/文字在這設定 -->
     <div
       class="page-header min-vh-75"
-      :style="`background-image: url(${bg9})`"
+      :style="`background-image: url(${bg02})`"
       loading="lazy"
     >
       <div class="container">
