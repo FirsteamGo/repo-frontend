@@ -143,7 +143,7 @@ watch(
           <li class="nav-item dropdown dropdown-hover mx-2">
             <a role="button" class="nav-link ps-2 d-flex cursor-pointer align-items-center" :class="getTextColor()"
               id="dropdownMenuBlocks" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="material-icons opacity-6 me-2 text-md" :class="getTextColor()">view_day</i>
+              <i class="material-icons opacity-6 me-2 text-md" :class="getTextColor()"><span class="material-symbols-outlined">home</span></i>
               營區預定
               <img :src="getArrowColor()" alt="down-arrow" class="arrow ms-2 d-lg-block d-none" />
               <img :src="getArrowColor()" alt="down-arrow" class="arrow ms-1 d-lg-none d-block ms-auto" />
@@ -162,7 +162,7 @@ watch(
                               class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
                               北部
                             </h6>
-                            <span class="text-sm">See all sections</span>
+                            <span class="text-sm">North District</span>
                           </div>
                           <img :src="downArrow" alt="down-arrow" class="arrow" />
                         </div>
@@ -189,7 +189,7 @@ watch(
                               class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
                               中部
                             </h6>
-                            <span class="text-sm">See all navigations</span>
+                            <span class="text-sm">Central District</span>
                           </div>
                           <img :src="downArrow" alt="down-arrow" class="arrow" />
                         </div>
@@ -217,7 +217,7 @@ watch(
                               class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
                               南部
                             </h6>
-                            <span class="text-sm">See all input areas</span>
+                            <span class="text-sm">South District</span>
                           </div>
                           <img :src="downArrow" alt="down-arrow" class="arrow" />
                         </div>
@@ -244,7 +244,7 @@ watch(
                               class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
                               東部
                             </h6>
-                            <span class="text-sm">See all examples</span>
+                            <span class="text-sm">East District</span>
                           </div>
                           <img :src="downArrow" alt="down-arrow" class="arrow" />
                         </div>
@@ -353,7 +353,7 @@ watch(
           <li class="nav-item dropdown dropdown-hover mx-2">
             <a role="button" class="nav-link ps-2 d-flex cursor-pointer align-items-center" :class="getTextColor()"
               id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="material-icons opacity-6 me-2 text-md" :class="getTextColor()">dashboard</i>
+              <i class="material-icons opacity-6 me-2 text-md" :class="getTextColor()">hiking</i>
               當地活動
               <img :src="getArrowColor()" alt="down-arrow" class="arrow ms-2 d-lg-block d-none" />
               <img :src="getArrowColor()" alt="down-arrow" class="arrow ms-1 d-lg-none d-block ms-auto" />
@@ -404,7 +404,7 @@ watch(
           <li class="nav-item dropdown dropdown-hover mx-2">
             <a role="button" class="nav-link ps-2 d-flex cursor-pointer align-items-center" :class="getTextColor()"
               id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="material-icons opacity-6 me-2 text-md" :class="getTextColor()">dashboard</i>
+              <i class="material-icons opacity-6 me-2 text-md" :class="getTextColor()">map</i>
               行程選擇
               <img :src="getArrowColor()" alt="down-arrow" class="arrow ms-2 d-lg-block d-none" />
               <img :src="getArrowColor()" alt="down-arrow" class="arrow ms-1 d-lg-none d-block ms-auto" />
@@ -453,7 +453,7 @@ watch(
               <a role="button" class="nav-link ps-2 d-flex cursor-pointer align-items-center" :class="getTextColor()"
               id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
           <RouterLink :to="{ name: 'shop' }" class="dropdown-item border-radius-md">
-                <i class="material-icons opacity-6 me-2 text-md" :class="getTextColor()">dashboard</i>
+                <i class="material-icons opacity-6 me-2  text-md" :class="getTextColor()">local_mall</i>
               露營商店
               </RouterLink>
             </a>
@@ -465,7 +465,7 @@ watch(
           <li class="nav-item dropdown dropdown-hover mx-2">
             <a role="button" class="nav-link ps-2 d-flex cursor-pointer align-items-center" :class="getTextColor()"
               id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="material-icons opacity-6 me-2 text-md" :class="getTextColor()">dashboard</i>
+              <i class="material-icons opacity-6 me-2 text-md" :class="getTextColor()">account_circle</i>
               登入/註冊
               <img :src="getArrowColor()" alt="down-arrow" class="arrow ms-2 d-lg-block d-none" />
               <img :src="getArrowColor()" alt="down-arrow" class="arrow ms-1 d-lg-none d-block ms-auto" />

@@ -6,13 +6,15 @@ import DefaultNavbar from "../../../examples/navbars/NavbarDefault.vue";
 import yelufooter from "../../../examples/footers/yelufooter.vue";
 
 //image
-import bg0 from "@/assets/img/bg9.jpg";
+import bg03 from "@/assets/img/bg/bg03.jpg";
 
 //dep
 import Typed from "typed.js";
 
 //sections 放置要引入的頁面
 import step from "./Sections/step.vue";
+import options from "./Sections/select.vue";
+
 
 
 const body = document.getElementsByTagName("body")[0];
@@ -48,18 +50,23 @@ onUnmounted(() => {
     }"
     transparent
   />
-  <header class="bg-gradient-dark">
+  <!-- <header class="bg-gradient-dark"> -->
+    <header >
+    <!-- <div
+      class="page-header min-vh-50"
+      :style="{ backgroundImage: `url(${bg03})` }"
+    > -->
     <div
-      class="page-header min-vh-50
-"
-      :style="{ backgroundImage: `url(${bg0})` }"
+      class="page-header min-vh-75"
+      :style="`background-image: url(${bg03})`"
+      loading="lazy"
     >
       <span class="mask bg-gradient-dark opacity-6"></span>
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-8 text-center mx-auto my-auto">
             <h1 class="text-white">
-              Title 
+              自選行程
             </h1>
            
             <p class="lead mb-4 text-white opacity-8">
@@ -77,6 +84,7 @@ onUnmounted(() => {
 
     <!-- 記得這裡設定引入標籤 -->
     <step />
+    <options />
  
 
   </div>
