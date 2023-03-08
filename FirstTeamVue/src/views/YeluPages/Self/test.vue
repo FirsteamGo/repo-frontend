@@ -37,8 +37,6 @@ export default {
 
 
 
-
-
 <style>
 .demo {
   font-family: sans-serif;

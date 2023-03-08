@@ -109,7 +109,7 @@ watch(
           : 'text-white font-weight-bolder ms-sm-3'
       ]" :to="{ name: 'presentation' }" rel="tooltip" title="Designed and Coded by Creative Tim"
         data-placement="bottom">
-        野麓YELU CAMP
+        <img src="../../assets/img/yelu.png" style="width: 50px; height: 50px;" alt="YELU">野麓YELU CAMP
       </RouterLink>
       <!-- 以下是RWD時顯示 -->
       <RouterLink class="navbar-brand d-block d-md-none" :class="
