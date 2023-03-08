@@ -12,62 +12,112 @@
                     <span style="text-align: center; display:block;">營區選擇</span>
                 </div>
                 </template>
-                <!-- 要研究下行寫法 -->
-                <!-- <div  v-for="o in 3" :key="o" class="text item">{{ '露營縣市 ' + o }} -->
-                <div  v-for="o in 3" :key="o" class="text item">{{ '露營縣市 ' + o }}
 
-            <!-- 選擇器 -->
-        <el-select v-model="value" class="m-2" placeholder="Select" >
-           
-            <el-option
-            v-for="item in options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-            />
-        </el-select>
-
+                    <!-- 選擇器1 -->
+                    <span>露營區域</span>
+                <el-select v-model="value" class="m-2" placeholder="請選擇" >
+                    <el-option v-for="item in option1" :key="item.value" :label="item.label" :value="item.value"/>
+                </el-select>
+                <p></p>
+                  <!-- 選擇器2 -->
+                  <span>露營縣市</span>
+                <el-select v-model="value" class="m-2" placeholder="請選擇" >
+                    <el-option v-for="item in option1" :key="item.value" :label="item.label" :value="item.value"/>
+                </el-select>
+                <p></p>
+                  <!-- 選擇器3 -->
+                <div class="demo-date-picker">
+                  <div class="block">
+                    <span class="demonstration">露營日期</span>
+                    <p></p>
+                    <el-date-picker
+                      v-model="date"
+                      type="daterange"
+                      range-separator="To"
+                      start-placeholder="開始日期"
+                      end-placeholder="結束日期"
+                      size="default"
+                    />
+                  </div>
+      
     </div>
-    <el-row class="mb-4 pt-4">
-    <el-button type="warning">立即搜尋</el-button>
-    <el-button type="info">點我看更多</el-button>
-</el-row>
+
+
+
+        <el-row class="mb-4 pt-4">
+        
+
+          <el-button type="warning" >立即搜尋</el-button>
+          <router-link :to="{ name: 'camp' }" >
+            <el-button type="info"  class="mx-4">點我看更多</el-button>
+          </router-link>
+        </el-row>
+
+
+    
+
+
+
     </el-card>
           </el-aside>
 
-          <el-main >放依照左側條件選擇後的頁面</el-main>
+
+<!-- 右側區塊 -->
+
+          <el-main >
+
+      
+          </el-main>
         </el-container>
       </el-container>
     </div>
+    
   </template>
   
 
  
   <script lang="ts" setup>
-  import { ref } from 'vue'
+  import { ref,} from 'vue'
   
+
+  //日期選擇
+  const date = ref('')
   const value = ref('')
-  
-  const options = [
+  const option1 = [
     {
-      value: 'Option1',
-      label: 'Option1',
+      value: '1',
+      label: '北部',
     },
     {
-      value: 'Option2',
-      label: 'Option2',
+      value: '2',
+      label: '中部',
     },
     {
-      value: 'Option3',
-      label: 'Option3',
+      value: '3',
+      label: '南部',
     },
    
   ]
 
+  // const option2 = [
+  //   {
+  //     value: '4',
+  //     label: '新北',
+  //   },
+  //   {
+  //     value: '5',
+  //     label: '桃園',
+  //   },
+  //   {
+  //     value: '6',
+  //     label: '新竹',
+  //   },
+   
+  // ]
 
 
- 
-  </script>
+
   
 
+  </script>
   

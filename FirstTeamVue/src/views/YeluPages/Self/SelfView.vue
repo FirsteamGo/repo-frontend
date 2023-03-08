@@ -41,6 +41,9 @@ onUnmounted(() => {
   body.classList.remove("bg-gray-200");
 });
 </script>
+
+
+
 <template>
   <DefaultNavbar
     :action="{

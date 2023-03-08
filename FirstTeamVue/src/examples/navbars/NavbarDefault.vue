@@ -419,6 +419,10 @@ watch(
                       <RouterLink :to="{ name: 'self' }" class="dropdown-item border-radius-md">
                         <span>自選行程</span>
                       </RouterLink> 
+                      <!-- 測試用頁面 -->
+                      <RouterLink :to="{ name: 'test' }" class="dropdown-item border-radius-md">
+                        <span>test</span>
+                      </RouterLink>
                       <RouterLink :to="{ name: 'set' }" class="dropdown-item border-radius-md">
                         <span>套裝行程</span>
                       </RouterLink> 
@@ -449,15 +453,12 @@ watch(
 
           <!-- 導覽列第四個按鈕 -->
           <li class="nav-item mx-2">
-            <!-- <a role="button" class="nav-link ps-2 d-flex cursor-pointer align-items-center" :class="getTextColor()" aria-expanded="false"> -->
-              <a role="button" class="nav-link ps-2 d-flex cursor-pointer align-items-center" :class="getTextColor()"
-              id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
+            <a role="button" class="nav-link ps-2 d-flex cursor-pointer align-items-center" :class="getTextColor()" aria-expanded="false">
           <RouterLink :to="{ name: 'shop' }" class="dropdown-item border-radius-md">
                 <i class="material-icons opacity-6 me-2  text-md" :class="getTextColor()">local_mall</i>
               露營商店
               </RouterLink>
             </a>
-
           </li>
 
 
