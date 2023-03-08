@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { ref, computed, reactive, onMounted } from 'vue'
-onMounted(() => {
-    changeList()
-})
+// onMounted(() => {
+//     changeList()
+// })
 
 
 const cityNorth = [
@@ -117,11 +117,11 @@ const changeOP = ref(1)
         <el-container>
             <el-header>
                 <span>地區</span>
-                <el-select v-model="value" @change="changecity(value)" class="m-2" placeholder="Select" size="large">
+                <el-select  v-model="" @change="changecity(value)" class="m-2" placeholder="Select" size="large">
                     <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
                 </el-select>
                 <span>縣市</span>
-                <el-select v-model="value1" class="m-2" placeholder="Select" size="large">
+                <el-select  v-model="" class="m-2" placeholder="Select" size="large">
                     <el-option v-for="item in cityList" :key="item.value" :label="item.label" :value="item.value" />
                 </el-select>
             </el-header>
