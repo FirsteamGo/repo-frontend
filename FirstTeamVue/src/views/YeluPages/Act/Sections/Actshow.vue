@@ -71,16 +71,16 @@ const images = reactive([
             <el-main>
                 <section class="py-3">
                     <div class="row">
-                        <div class="col-lg-3 col-md-12 col-12 ">
+                        <div class="col-lg-2 col-md-12 col-12 ">
                             <BackgroundBlogCard :image="tp" title="新北 桃園 新竹" description="所有你能想像的繁華都在這裡" />
                         </div>
-                        <div class="col-lg-3 col-sm-6">
+                        <div class="col-lg-2 col-sm-6">
                             <TransparentBlogCard :image="sukra" title="2023 福壽山農場千櫻園＆武陵農場賞花一日遊" description="" />
                         </div>
-                        <div class="col-lg-3 col-sm-6">
+                        <div class="col-lg-2 col-sm-6">
                             <TransparentBlogCard :image="flower" title="2023 九份老街＆野柳＆平溪十分一日遊" description="" />
                         </div>
-                        <div class="col-lg-3 col-sm-6">
+                        <div class="col-lg-2 col-sm-6">
                             <TransparentBlogCard :image="sun" title="2023 台灣桃園｜東眼山國家森林遊樂區" description="" />
                         </div>
                     </div>
@@ -100,16 +100,16 @@ const images = reactive([
             <el-main>
                 <section class="py-3">
                     <div class="row">
-                        <div class="col-lg-3 col-md-12 col-12 ">
+                        <div class="col-lg-2 col-md-12 col-12 ">
                             <BackgroundBlogCard :image="tc" title="政佑的家在這裡" description="" />
                         </div>
-                        <div class="col-lg-3 col-sm-6">
+                        <div class="col-lg-2 col-sm-6">
                             <TransparentBlogCard :image="sukra" title="2023 福壽山農場千櫻園＆武陵農場賞花一日遊" description="" />
                         </div>
-                        <div class="col-lg-3 col-sm-6">
+                        <div class="col-lg-2 col-sm-6">
                             <TransparentBlogCard :image="flower" title="2023 九份老街＆野柳＆平溪十分一日遊" description="" />
                         </div>
-                        <div class="col-lg-3 col-sm-6">
+                        <div class="col-lg-2 col-sm-6">
                             <TransparentBlogCard :image="sun" title="2023 台灣桃園｜東眼山國家森林遊樂區" description="" />
                         </div>
                     </div>
@@ -129,16 +129,16 @@ const images = reactive([
             <el-main>
                 <section class="py-3">
                     <div class="row">
-                        <div class="col-lg-3 col-md-12 col-12 ">
+                        <div class="col-lg-2 col-md-12 col-12 ">
                             <BackgroundBlogCard :image="tn" title="古色古香美食天地" description="" />
                         </div>
-                        <div class="col-lg-3 col-sm-6">
+                        <div class="col-lg-2 col-sm-6">
                             <TransparentBlogCard :image="sukra" title="2023 福壽山農場千櫻園＆武陵農場賞花一日遊" description="" />
                         </div>
-                        <div class="col-lg-3 col-sm-6">
+                        <div class="col-lg-2 col-sm-6">
                             <TransparentBlogCard :image="flower" title="2023 九份老街＆野柳＆平溪十分一日遊" description="" />
                         </div>
-                        <div class="col-lg-3 col-sm-6">
+                        <div class="col-lg-2 col-sm-6">
                             <TransparentBlogCard :image="sun" title="2023 台灣桃園｜東眼山國家森林遊樂區" description="" />
                         </div>
                     </div>
@@ -158,16 +158,16 @@ const images = reactive([
         <el-main>
             <section class="py-3">
                 <div class="row">
-                        <div class="col-lg-3 col-md-12 col-12 ">
+                        <div class="col-lg-2 col-md-12 col-12 ">
                             <BackgroundBlogCard :image="tt" title="望著美麗的深深太平洋" description="" />
                         </div>
-                        <div class="col-lg-3 col-sm-6">
+                        <div class="col-lg-2 col-sm-6">
                             <TransparentBlogCard :image="sukra" title="2023 福壽山農場千櫻園＆武陵農場賞花一日遊" description="" />
                         </div>
-                        <div class="col-lg-3 col-sm-6">
+                        <div class="col-lg-2 col-sm-6">
                             <TransparentBlogCard :image="flower" title="2023 九份老街＆野柳＆平溪十分一日遊" description="" />
                         </div>
-                        <div class="col-lg-3 col-sm-6">
+                        <div class="col-lg-2 col-sm-6">
                             <TransparentBlogCard :image="sun" title="2023 台灣桃園｜東眼山國家森林遊樂區" description="" />
                         </div>
                     </div>
@@ -178,14 +178,14 @@ const images = reactive([
 
     <div>
         <!-- <button @click="content = 'name'">Name</button>
-            <button @click="content = 'date'">Date</button>
-            <button @click="content = 'lessons'">Lessons</button>
-            <button @click="content = 'apply'">Apply</button>
-            <hr>
+                <button @click="content = 'date'">Date</button>
+                <button @click="content = 'lessons'">Lessons</button>
+                <button @click="content = 'apply'">Apply</button>
+                <hr>
 
-            <keep-alive>
-                <component :is="content"></component>
-            </keep-alive> -->
+                <keep-alive>
+                    <component :is="content"></component>
+                </keep-alive> -->
     </div>
 </template>
 <style scoped></style>
