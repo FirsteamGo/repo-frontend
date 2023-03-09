@@ -9,7 +9,7 @@
         <el-card :body-style="{ padding: '0px' }">
           <img
             src="@/assets/img/self/03.jpg"
-            class="image"
+            class="image" style="width: 200px;height: 200px;"
           />
           <div style="padding: 14px">
             <span>Yummy hamburger</span>

@@ -1,31 +1,18 @@
 
+
 <!-- 步驟條 -->
 <script  setup>
   // import card1 from '../Self/Sections/card.vue'
  
   </script>
 
-<script>
+<!-- <script>
   import step1 from '../Self/Sections/step1.vue'
   import step2 from '../Self/Sections/step2.vue'
   import step3 from '../Self/Sections/step3.vue'
   import { ref } from 'vue'
   
-  //助教幫寫
-  // const step_data = ref({
-  //   show_name: ""
-  // })
   
-  // const next = () => {
-  //   changeContent();
-  //   active.value++;
-  //   if (active.value > 2) active.value = 0
-  //   // if (active.value > 1) {
-  //   //   step_data.value.show_name = "data1"
-  //   // }else{
-    //   //   step_data.value.show_name = "data2"
-    //   // }    
-    // }
   const active = ref(0)
     
   export default {
@@ -54,10 +41,11 @@
         
     }
   }}
-</script>
+</script> -->
 
-<!-- 標籤組件 -->
-<!-- <script>
+
+ <!-- 標籤組件 -->
+<script>
   import step1 from '../Self/Sections/step1.vue'
   import step2 from '../Self/Sections/step2.vue'
   import step3 from '../Self/Sections/step3.vue'
@@ -77,24 +65,22 @@ export default {
     }
   }
 }
-</script> -->
+</script>
 
 <template>
 <!-- 步驟條 -->
-  <el-steps :active="active" finish-status="success" >
+  <!-- <el-steps :active="active" finish-status="success" >
     <el-step title="Step 1" />
     <el-step title="Step 2" />
     <el-step title="Step 3" />
   </el-steps>
   
   <el-button style="margin-top: 12px" @click="next" >Next step</el-button>
-  <!-- <el-button style="margin-top: 12px" @click="next" v-model="step_data">Next step {{step_data.show_name}}</el-button> -->
-  
-  <!-- <card1/> -->
-  <component :is="content"></component>
+
+  <component :is="content"></component> -->
 
   <!-- 標籤 -->
-  <!-- <div class="demo">
+  <div class="demo">
     <button
        v-for="tab in tabs"
        :key="tab"
@@ -104,7 +90,7 @@ export default {
      {{ tab }}
     </button>
 	  <component :is="currentTab" class="tab"></component>
-  </div> -->
+  </div>
 
 
 </template>

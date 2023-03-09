@@ -45,7 +45,7 @@ defineProps({
 </script>
 <template>
   <div class="text-center">
-    <h1 :class="`text-gradient text-${color ?? 'success'}`">
+    <h1 :class="`text-gradient text-${color ?? 'dark '}`">
       <CountTo :start-val="0" :end-val="count" :duration="duration" />{{
         suffix
       }}

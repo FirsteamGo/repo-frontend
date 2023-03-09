@@ -3,7 +3,7 @@ import DefaultCounterCard from "../../../examples/cards/counterCards/DefaultCoun
 </script>
 
 <template>
-  <section class="pt-3 pb-4" id="count-stats">
+  <section class="pt-3 pb-2" id="count-stats">
     <div class="container">
       <div class="row" >
         <div class="col-lg-9 z-index-2 border-radius-xl mx-auto py-3" >
@@ -14,13 +14,14 @@ import DefaultCounterCard from "../../../examples/cards/counterCards/DefaultCoun
               <div>
                 <h3>露營車</h3>
                 <h4>Recreational vehicles</h4>
-               <p> 直接上車就是你家</p>
-               <p>盡情享受這趟旅行</p>
+               <p>輕鬆暢遊山林</p>
+               <p>感受時尚舒適的自然輕旅行</p>
               </div>
 
-              <DefaultCounterCard
+              <hr class="vertical dark my-2" />
+              <!-- <DefaultCounterCard
                 divider="vertical"
-              />
+              /> -->
 
             </div>
             <!-- 第二個icon -->
@@ -30,13 +31,13 @@ import DefaultCounterCard from "../../../examples/cards/counterCards/DefaultCoun
                 <h3>懶人露營</h3>
                 <h4>Glamping</h4>
                <p>Glamorous奢華+Camping露營</p>
-               <p>什麼都不想帶 懶人專屬</p>
-               
+               <p>享受以自然為家的生活</p>
               </div>
 
-              <DefaultCounterCard
+              <hr class="vertical dark my-2" />
+              <!-- <DefaultCounterCard
                divider="vertical"
-             />
+             /> -->
 
             </div>
             <!-- 第三個icon -->
@@ -46,10 +47,10 @@ import DefaultCounterCard from "../../../examples/cards/counterCards/DefaultCoun
                 <h3>自搭露營</h3>
                 <h4>Camping</h4>
                <p>DIY高級玩家推薦</p>
-               <p> 探索其中樂趣</p>
+               <p>創造美好回憶的旅程</p>
               </div>
              
-              <DefaultCounterCard />
+              <!-- <DefaultCounterCard /> -->
 
             </div>
           </div>

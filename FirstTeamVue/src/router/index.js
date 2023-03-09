@@ -11,6 +11,8 @@ import SetView from "@/views/YeluPages/Set/SetView.vue";
 import ShopView from "@/views/YeluPages/Shop/ShopView.vue";
 //測試用頁面
 import test from "@/views/YeluPages/Self/test.vue";
+import test2 from "@/views/YeluPages/Self/test2.vue";
+
 
 
 
@@ -51,6 +53,11 @@ const router = createRouter({
       path: "/pages/landing-pages/test",
       name: "test",
       component: test,
+    },
+     {//test完刪除
+      path: "/pages/landing-pages/test2",
+      name: "test2",
+      component: test2,
     },
     {
       path: "/pages/Yelu-pages/act",

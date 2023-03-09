@@ -9,11 +9,11 @@ import imgSigninCover from "@/assets/img/signin-cover.png";
   <section class="py-5">
     <div class="container">
       <div class="row">
-        <div class="row text-center my-sm-5 mt-5">
+        <div class="row text-center my-sm-5 mt-3">
           <div class="col-lg-6 mx-auto ">
-            <MaterialBadge color="warning" class="mb-3">Popular Camp</MaterialBadge>
+            <MaterialBadge color="warning" class="mb-3">#Popular Camp</MaterialBadge>
             <h2 class="">熱門營區</h2>
-            <p class="lead">Personal memories will be blurred because of time, and common memories will be more precious because of time.</p>
+            <p class="lead">Personal memories will be blurred because of time.</p>
           </div>
         </div>
       </div>
@@ -22,17 +22,16 @@ import imgSigninCover from "@/assets/img/signin-cover.png";
       <div class="row d-flex justify-content-center">
         <div class="col-md-8 ">
           <div class="row mt-4 d-flex ">
-            <div class="col-md-6 mt-md-0 mt-5 ">
-            
+            <div class="col-md-6 mt-md-0 mt-5 my-4 ">  
               <ExampleCard
-                class="shadow-lg"
+                class="shadow-lg "
                 title="北部"
                 image="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/material-design-system/presentation/pages/contact.jpg"
                 route="camp"
               />
               <p> 新北 桃園 新竹</p>
             </div>
-            <div class="col-md-6 mt-md-0 mt-5">
+            <div class="col-md-6 mt-md-0 mt-15">
               <ExampleCard
                 class="shadow-lg"
                 title="中部"

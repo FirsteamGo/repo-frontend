@@ -109,8 +109,9 @@ watch(
           : 'text-white font-weight-bolder ms-sm-3'
       ]" :to="{ name: 'presentation' }" rel="tooltip" title="Designed and Coded by Creative Tim"
         data-placement="bottom">
-        <img src="../../assets/img/yelu.png" style="width: 50px; height: 50px;" alt="YELU">野麓YELU CAMP
+        <img src="../../assets/img/yelu.png" style="width: 50px; height: 50px;" alt="YELU">
       </RouterLink>
+      <span>野 麓YELU</span>
       <!-- 以下是RWD時顯示 -->
       <RouterLink
         class="navbar-brand d-block d-md-none"
@@ -124,7 +125,7 @@ watch(
         title="Designed and Coded by Creative Tim"
         data-placement="bottom"
       >
-        野麓YELU CAMP
+        野 麓YELU
       </RouterLink>
      
       <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation"
@@ -496,85 +497,9 @@ watch(
             </div>
           </li>
 
+         
+
           <!-- 導覽列第二個按鈕 -->
-          <li class="nav-item dropdown dropdown-hover mx-2">
-            <a role="button" class="nav-link ps-2 d-flex cursor-pointer align-items-center" :class="getTextColor()"
-              id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="material-icons opacity-6 me-2 text-md" :class="getTextColor()">hiking</i>
-              當地活動
-              <img
-                :src="getArrowColor()"
-                alt="down-arrow"
-                class="arrow ms-2 d-lg-block d-none"
-              />
-              <img
-                :src="getArrowColor()"
-                alt="down-arrow"
-                class="arrow ms-1 d-lg-none d-block ms-auto"
-              />
-            </a>
-            <div
-              class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-xl mt-0 mt-lg-3"
-              aria-labelledby="dropdownMenuPages"
-            >
-              <div class="row d-none d-lg-block">
-                <!-- <div class="row d-none d-lg-flex"> -->
-                <div class="col-12 px-4 py-2">
-                  <div class="row">
-                    <div class="position-relative">
-                      <RouterLink
-                        :to="{ name: 'act' }"
-                        class="dropdown-item border-radius-md"
-                      >
-                        <span>活動首頁</span>
-                      </RouterLink>
-                      <RouterLink
-                        :to="{ name: 'act' }"
-                        class="dropdown-item border-radius-md"
-                      >
-                        <span>活動搜尋</span>
-                      </RouterLink>
-                      <RouterLink
-                        :to="{ name: 'act' }"
-                        class="dropdown-item border-radius-md"
-                      >
-                        <span>熱門活動</span>
-                      </RouterLink>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- 以下是為了設定RWD -->
-              <div class="d-lg-none">
-                <div
-                  class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-0"
-                >
-                  當地活動
-                </div>
-                <RouterLink
-                  :to="{ name: 'act' }"
-                  class="dropdown-item border-radius-md"
-                >
-                  <span>活動首頁</span>
-                </RouterLink>
-                <RouterLink
-                  :to="{ name: 'act' }"
-                  class="dropdown-item border-radius-md"
-                >
-                  <span>活動搜尋</span>
-                </RouterLink>
-                <RouterLink
-                  :to="{ name: 'act' }"
-                  class="dropdown-item border-radius-md"
-                >
-                  <span>熱門活動</span>
-                </RouterLink>
-              </div>
-            </div>
-          </li>
-
-          <!-- 導覽列第三個按鈕 -->
           <li class="nav-item dropdown dropdown-hover mx-2">
             <a role="button" class="nav-link ps-2 d-flex cursor-pointer align-items-center" :class="getTextColor()"
               id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
@@ -641,7 +566,23 @@ watch(
             </div>
           </li>
 
+
+           <!-- 導覽列第三個按鈕 -->
+           <div>
+          <li class="nav-item mx-2">
+            <a role="button" class="nav-link ps-2 d-flex cursor-pointer align-items-center" :class="getTextColor()" aria-expanded="false">
+          <RouterLink :to="{ name: 'act' }" class="dropdown-item border-radius-md">
+                <i class="material-icons opacity-6 me-2  text-md" :class="getTextColor()">hiking</i>
+              當地活動
+              </RouterLink>
+            </a>
+          </li>
+        </div>
+
+
+
           <!-- 導覽列第四個按鈕 -->
+          <div>
           <li class="nav-item mx-2">
             <a role="button" class="nav-link ps-2 d-flex cursor-pointer align-items-center" :class="getTextColor()" aria-expanded="false">
           <RouterLink :to="{ name: 'shop' }" class="dropdown-item border-radius-md">
@@ -650,6 +591,8 @@ watch(
               </RouterLink>
             </a>
           </li>
+        </div>
+
 
           <!-- 導覽列第五個按鈕 -->
           <li class="nav-item dropdown dropdown-hover mx-2">
