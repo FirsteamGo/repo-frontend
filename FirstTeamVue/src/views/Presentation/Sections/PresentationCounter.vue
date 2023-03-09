@@ -10,10 +10,12 @@ import DefaultCounterCard from "../../../examples/cards/counterCards/DefaultCoun
           <div class="row" >
           <!-- 第一個icon -->
             <div class="col-md-4 position-relative" style="text-align: center;">
-              <img src="/src/assets/img/icon/c01.png" style="width:100px; height:100px;" alt="main_logo" >
+              <img src="/src/assets/img/icon/c01.png" style="width:110px; height:105px;" alt="main_logo" >
               <div>
                 <h3>露營車</h3>
-               <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p>
+                <h4>Recreational vehicles</h4>
+               <p> 直接上車就是你家</p>
+               <p>盡情享受這趟旅行</p>
               </div>
 
               <DefaultCounterCard
@@ -26,7 +28,10 @@ import DefaultCounterCard from "../../../examples/cards/counterCards/DefaultCoun
               <img src="/src/assets/img/icon/c02.png" style="width:100px; height:100px;" alt="main_logo" >
               <div>
                 <h3>懶人露營</h3>
-               <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p>
+                <h4>Glamping</h4>
+               <p>Glamorous奢華+Camping露營</p>
+               <p>什麼都不想帶 懶人專屬</p>
+               
               </div>
 
               <DefaultCounterCard
@@ -39,12 +44,12 @@ import DefaultCounterCard from "../../../examples/cards/counterCards/DefaultCoun
               <img src="/src/assets/img/icon/c03.png" style="width:100px; height:100px;" alt="main_logo" >
               <div>
                 <h3>自搭露營</h3>
-               <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p>
+                <h4>Camping</h4>
+               <p>DIY高級玩家推薦</p>
+               <p> 探索其中樂趣</p>
               </div>
              
-              <DefaultCounterCard 
-               divider="vertical"
-             />
+              <DefaultCounterCard />
 
             </div>
           </div>

@@ -67,8 +67,7 @@ onUnmounted(() => {
             YELU CAMP露營GO!
             </h1>
             <p class="lead text-white px-5 mt-3" :style="{ fontWeight: '500' }">
-              Start the Development With Bootstrap 5 Design System inspired by
-              Material Design.
+            #Camping #Glamping #Recreational vehicles #享受生活
             </p>
           </div>
         </div>
@@ -79,9 +78,9 @@ onUnmounted(() => {
   <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6">
     <!-- import進來呈現的視覺 先後順序在這裡設定 -->
     <PresentationCounter />
-    <PresentationInformation />
     <!-- <PresentationExample :data="data" /> -->
     <PresentationPages />
+    <PresentationInformation />
     <BuiltByDevelopers />
 
     <div class="container">
