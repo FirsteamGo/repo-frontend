@@ -42,7 +42,7 @@ const images = reactive([
                 <section class="py-3">
                     <div class="row">
                         <div class="col-lg-2 col-md-12 col-12 ">
-                                <BackgroundBlogCard :image="abc" title="熱門精選" description="" />                           
+                            <BackgroundBlogCard :image="abc" title="熱門精選" description="" />
                         </div>
                         <div class="col-lg-2 col-sm-6">
                             <TransparentBlogCard :image="sukra" title="2023 福壽山農場千櫻園＆武陵農場賞花一日遊" description="" />
@@ -95,7 +95,7 @@ const images = reactive([
             <el-header>
                 <div class="row">
                     <div class="col-lg-6">
-                        <h1 class="mb-5">中部</h1>
+                        <h2 class="mb-5">中部</h2>
                     </div>
                 </div>
             </el-header>
@@ -150,16 +150,16 @@ const images = reactive([
     </div>
     <div class="common-layout">
         <el-container>
-            <el-header>
-                <div class="row">
+        <el-header>
+            <div class="row">
                 <div class="col-lg-6">
                     <h1 class="mb-5">東部</h1>
                 </div>
             </div>
         </el-header>
         <el-main>
-            <section class="py-3">
-                <div class="row">
+                <section class="py-3">
+                    <div class="row">
                         <div class="col-lg-2 col-md-12 col-12 ">
                             <BackgroundBlogCard :image="tt" title="望著美麗的深深太平洋" description="" />
                         </div>
@@ -180,14 +180,14 @@ const images = reactive([
 
     <div>
         <!-- <button @click="content = 'name'">Name</button>
-                <button @click="content = 'date'">Date</button>
-                <button @click="content = 'lessons'">Lessons</button>
-                <button @click="content = 'apply'">Apply</button>
-                <hr>
+                            <button @click="content = 'date'">Date</button>
+                            <button @click="content = 'lessons'">Lessons</button>
+                            <button @click="content = 'apply'">Apply</button>
+                            <hr>
 
-                <keep-alive>
-                    <component :is="content"></component>
-                </keep-alive> -->
+                            <keep-alive>
+                                <component :is="content"></component>
+                            </keep-alive> -->
     </div>
 </template>
 <style scoped></style>

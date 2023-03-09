@@ -16,6 +16,8 @@ import Typed from "typed.js";
 import Actshow from "./Sections/Actshow.vue";
 import Actcarousel from "./Sections/Actcarousel.vue";
 import Actselect from "./Sections/Actselect.vue";
+import Actselectcard from "./Sections/Actselectcard.vue";
+
 // import Information from "./Sections/AboutInformation.vue";
 
 
@@ -52,7 +54,7 @@ onUnmounted(() => {
   }" transparent />
   <header class="bg-gradient-dark">
     <div class="page-header min-vh-50
-                  " :style="{ backgroundImage: `url(${bg0})` }">
+                                              " :style="{ backgroundImage: `url(${bg0})` }">
       <span class="mask bg-gradient-dark opacity-6"></span>
       <div class="container">
         <div class="row justify-content-center">
@@ -74,9 +76,15 @@ onUnmounted(() => {
   <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
 
     <!-- 記得這裡設定引入標籤 -->
+    <!-- <el-header class="search">
+                          <Actsearch />
+                        </el-header> -->
     <Actselect />
-    <Actcarousel />
-    <Actshow />
+    <!-- <Actcarousel /> -->
+    <Actselectcard />
+
+
+
     <!-- <Information /> -->
 
 
@@ -84,3 +92,10 @@ onUnmounted(() => {
 
   <yelufooter />
 </template>
+<style>
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</style>

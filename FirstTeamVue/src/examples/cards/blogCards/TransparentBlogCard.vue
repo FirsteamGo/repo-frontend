@@ -41,9 +41,12 @@ defineProps({
       <p>
         {{ description }}
       </p>
-      <a :href="action.route" class="text-sm icon-move-right" :class="`text-${action.color}`">{{ action.label }}
-        <i class="fas fa-arrow-right text-xs ms-1"></i>
-      </a>
+      <!-- <a :href="action.route" class="text-sm icon-move-right" :class="`text-${action.color}`">{{ action.label }}
+                      <i class="fas fa-arrow-right text-xs ms-1"></i>
+                    </a> -->
+      <el-button type="warning" :icon="Search" round>詳細資訊</el-button>
+
+      <el-button type="danger" :icon="Search">訂購</el-button>
     </div>
   </div>
 </template>

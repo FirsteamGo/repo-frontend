@@ -1,8 +1,10 @@
 <script lang="ts" setup>
+import { Search } from '@element-plus/icons-vue'
 import { ref, computed, reactive, onMounted } from 'vue'
 onMounted(() => {
     changeList()
 })
+
 
 
 const cityNorth = [
@@ -109,6 +111,7 @@ const cityList = reactive(cityNorth)
 const value = ref('')
 const value1 = ref('')
 const changeOP = ref(1)
+const input = ref('')
 
 </script>
 
@@ -116,14 +119,21 @@ const changeOP = ref(1)
     <div class="common-layout">
         <el-container>
             <el-header>
-                <span>地區</span>
-                <el-select v-model="value" @change="changecity(value)" class="m-2" placeholder="Select" size="large">
+                <span class="where">區域</span>
+                <el-select v-model="value" @change="changecity(value)" class="select m-2" placeholder="區域" size="large">
                     <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
                 </el-select>
                 <span>縣市</span>
-                <el-select v-model="value1" class="m-2" placeholder="Select" size="large">
+                <el-select v-model="value1" class="m-2" placeholder="縣市" size="large">
                     <el-option v-for="item in cityList" :key="item.value" :label="item.label" :value="item.value" />
                 </el-select>
+                <span class="Search">
+                    關鍵字
+                    <el-input v-model="input" size="large" class="w-10 m-2" placeholder="" />
+                    <el-button type="success" :icon="Search">搜尋</el-button>
+                </span>
+
+
             </el-header>
             <el-main>
 
@@ -131,3 +141,14 @@ const changeOP = ref(1)
         </el-container>
     </div>
 </template>
+<style>
+.Search {
+    margin-left: 100px;
+}
+
+
+
+.where {
+    margin-left: 100px;
+}
+</style>
