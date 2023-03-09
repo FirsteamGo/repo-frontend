@@ -5,10 +5,15 @@ import tp from "@/assets/img/ActImg/Taipei.jpg";
 import tc from "@/assets/img/ActImg/Taichung.jpg";
 import tn from "@/assets/img/ActImg/Tainan.jpg";
 import tt from "@/assets/img/ActImg/Taitung.jpg";
-import abc from "@/assets/img/ActImg/123.jpeg";
 import sukra from "@/assets/img/ActImg/sukra.jpg";
 import sun from "@/assets/img/ActImg/sun.jpg";
 import flower from "@/assets/img/ActImg/flower.jpg";
+import a from "@/assets/img/ActImg/a.jpg";
+import b from "@/assets/img/ActImg/b.jpg";
+import c from "@/assets/img/ActImg/c.jpg";
+import d from "@/assets/img/ActImg/d.jpg";
+import e from "@/assets/img/ActImg/e.jpg";
+
 
 import { reactive } from 'vue';
 import { template } from "lodash";
@@ -16,22 +21,21 @@ import { template } from "lodash";
 
 
 const images = reactive([
-    { src: tp },
-    { src: tc },
-    { src: tn },
-    { src: tt },
-    { src: sukra },
-    { src: sun },
+    { abc: a },
+    { abc: b },
+    { abc: c },
+    { abc: d },
+    { abc: e },
 ]);
 
 
 </script>
 
 <template>
-    <el-carousel :interval="3000" type="card">
+    <el-carousel :interval="1500" type="card">
         <el-carousel-item v-for="item in images" :key="item">
             <router-link to="camp">
-                <img :src="item.src" alt="carousel image" class="carousel_image_type">
+                <img :src="item.abc" alt="carousel image" class="carousel_image_type">
             </router-link>
 
         </el-carousel-item>

@@ -1,24 +1,23 @@
 <script>
-import ActHot from "./ActHot.vue";
-import ActNorth from "./ActNorth.vue";
-import ActWest from "./ActWest.vue";
-import ActSouth from "./ActSouth.vue";
-import ActEast from "./ActEast.vue";
-import Actcarousel from "./Actcarousel.vue";
+import 熱門精選 from "./ActHot.vue";
+import 北部 from "./ActNorth.vue";
+import 中部 from "./ActWest.vue";
+import 南部 from "./ActSouth.vue";
+import 東部 from "./ActEast.vue";
+
 
 export default {
     components: {
-        Actcarousel,
-        ActHot,
-        ActNorth,
-        ActWest,
-        ActSouth,
-        ActEast,
+        熱門精選,
+        北部,
+        中部,
+        南部,
+        東部,
     },
     data() {
         return {
-            currentTab: 'ActHot',
-            tabs: ['Actcarousel', 'ActHot', 'ActNorth', 'ActWest', 'ActSouth', 'ActEast']
+            currentTab: '熱門精選',
+            tabs: ['熱門精選', '北部', '中部', '南部', '東部']
         }
     }
 }
@@ -26,24 +25,27 @@ export default {
 
 <template>
     <div class="demo">
-        <el-button v-for=" tab in tabs" :key="tab" type="primary" class="butonleft" @click="currentTab = tab">
+        <el-button v-for=" tab in tabs" :key="tab" size="large" type="info" class="butonleft" @click="currentTab = tab">
             {{ tab }}
         </el-button>
-        <component :is="currentTab" class="tab"></component>
+        <component :is="currentTab" class=""></component>
     </div>
 </template>
 
 <style>
 .demo {
-    font-family: sans-serif;
-
     margin-bottom: 10px;
     overflow-x: auto;
 }
 
 .butonleft {
-    margin-left: 20px;
+    margin-left: 700px;
     margin-bottom: 10px;
+}
+
+.bkc {
+    text-align: center;
+    color: gray;
 }
 
 /* .tab-button {

@@ -123,10 +123,17 @@ const input = ref('')
                 <el-select v-model="value" @change="changecity(value)" class="select m-2" placeholder="區域" size="large">
                     <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
                 </el-select>
+
                 <span>縣市</span>
                 <el-select v-model="value1" class="m-2" placeholder="縣市" size="large">
                     <el-option v-for="item in cityList" :key="item.value" :label="item.label" :value="item.value" />
                 </el-select>
+
+                <span>活動種類</span>
+                <el-select v-model="value1" class="m-2" placeholder="活動種類" size="large">
+                    <el-option v-for="item in cityList" :key="item.value" :label="item.label" :value="item.value" />
+                </el-select>
+
                 <span class="Search">
                     關鍵字
                     <el-input v-model="input" size="large" class="w-10 m-2" placeholder="" />

@@ -1,4 +1,5 @@
 <script setup>
+import Actcarousel from "./Actcarousel.vue";
 // example components
 import TransparentBlogCard from "../../../../examples/cards/blogCards/TransparentBlogCard.vue";
 import BackgroundBlogCard from "../../../../examples/cards/blogCards/BackgroundBlogCard.vue";
@@ -15,12 +16,13 @@ import flower from "@/assets/img/ActImg/flower.jpg";
 </script>
 
 <template>
-    <div class="lab">
+    <Actcarousel />
+    <div class="">
         <el-container>
             <el-header>
                 <div class="row">
-                    <div class="col-lg-6">
-                        <h2 class="mb-1">北部</h2>
+                    <div class="">
+                        <h1 class="bkc">北部</h1>
                     </div>
                 </div>
             </el-header>
@@ -76,8 +78,4 @@ import flower from "@/assets/img/ActImg/flower.jpg";
         </el-container>
     </div>
 </template>
-<style>
-#abc {
-    margin-bottom: 100px;
-}
-</style>
+<style></style>

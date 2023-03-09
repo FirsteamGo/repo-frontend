@@ -1,4 +1,5 @@
 <script setup>
+import Actcarousel from "./Actcarousel.vue";
 // example components
 import TransparentBlogCard from "../../../../examples/cards/blogCards/TransparentBlogCard.vue";
 import BackgroundBlogCard from "../../../../examples/cards/blogCards/BackgroundBlogCard.vue";
@@ -15,19 +16,20 @@ import flower from "@/assets/img/ActImg/flower.jpg";
 </script>
 
 <template>
-    <div class="tab">
+    <Actcarousel />
+    <div class="">
         <el-container>
             <el-header>
                 <div class="row">
-                    <div class="col-lg-6">
-                        <h2 class="bkc">熱門精選</h2>
+                    <div class="">
+                        <h1 class="bkc">熱門精選</h1>
                     </div>
                 </div>
             </el-header>
             <el-main>
-                <section class="">
+                <section class="py-3">
                     <div class="row">
-                        <div class="col-lg-2">
+                        <div class="col-lg-2 col-md-12 col-12">
                             <BackgroundBlogCard :image="abc" title="熱門精選" description="" />
                         </div>
                         <div class="col-lg-2 col-sm-6">
@@ -44,15 +46,40 @@ import flower from "@/assets/img/ActImg/flower.jpg";
                         <div class="col-lg-2 col-sm-6">
                             <TransparentBlogCard :image="sun" title="2023 台灣桃園｜東眼山國家森林遊樂區" description="" />
                         </div>
+                        <div class="col-lg-2 col-sm-6">
+                            <TransparentBlogCard :image="sun" title="2023 台灣桃園｜東眼山國家森林遊樂區" description="" />
+                        </div>
+                        <div class="col-lg-2 col-sm-6">
+                            <TransparentBlogCard :image="sun" title="2023 台灣桃園｜東眼山國家森林遊樂區" description="" />
+                        </div>
+                        <div class="col-lg-2 col-sm-6">
+                            <TransparentBlogCard :image="sun" title="2023 台灣桃園｜東眼山國家森林遊樂區" description="" />
+                        </div>
+                        <div class="col-lg-2 col-sm-6">
+                            <TransparentBlogCard :image="sun" title="2023 台灣桃園｜東眼山國家森林遊樂區" description="" />
+                        </div>
+                        <div class="col-lg-2 col-sm-6">
+                            <TransparentBlogCard :image="sun" title="2023 台灣桃園｜東眼山國家森林遊樂區" description="" />
+                        </div>
+                        <div class="col-lg-2 col-sm-6">
+                            <TransparentBlogCard :image="sun" title="2023 台灣桃園｜東眼山國家森林遊樂區" description="" />
+                        </div>
+                        <div class="col-lg-2 col-sm-6">
+                            <TransparentBlogCard :image="sun" title="2023 台灣桃園｜東眼山國家森林遊樂區" description="" />
+                        </div>
+                        <div class="col-lg-2 col-sm-6">
+                            <TransparentBlogCard :image="sun" title="2023 台灣桃園｜東眼山國家森林遊樂區" description="" />
+                        </div>
+                        <div class="col-lg-2 col-sm-6">
+                            <TransparentBlogCard :image="sun" title="2023 台灣桃園｜東眼山國家森林遊樂區" description="" />
+                        </div>
+                        <div class="col-lg-2 col-sm-6">
+                            <TransparentBlogCard :image="sun" title="2023 台灣桃園｜東眼山國家森林遊樂區" description="" />
+                        </div>
                     </div>
                 </section>
             </el-main>
         </el-container>
     </div>
 </template>
-<style>
-.bkc {
-    margin-top: 10px;
-
-}
-</style>
+<style></style>
