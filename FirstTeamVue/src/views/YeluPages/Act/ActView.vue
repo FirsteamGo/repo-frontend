@@ -53,14 +53,13 @@ onUnmounted(() => {
     color: 'btn-white',
   }" transparent />
   <header class="bg-gradient-dark">
-    <div class="page-header min-vh-50
-                                              " :style="{ backgroundImage: `url(${bg0})` }">
+    <div class="page-header min-vh-50" :style="{ backgroundImage: `url(${bg0})` }">
       <span class="mask bg-gradient-dark opacity-6"></span>
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-8 text-center mx-auto my-auto">
             <h1 class="text-white">
-              活動
+              在地體驗
             </h1>
 
             <p class="lead mb-4 text-white opacity-8">
@@ -77,8 +76,8 @@ onUnmounted(() => {
 
     <!-- 記得這裡設定引入標籤 -->
     <!-- <el-header class="search">
-                          <Actsearch />
-                        </el-header> -->
+                                            <Actsearch />
+                                          </el-header> -->
     <Actselect />
     <!-- <Actcarousel /> -->
     <Actselectcard />
@@ -97,5 +96,28 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.bkc {
+  text-align: center;
+  color: gray;
+}
+
+.demo {
+  margin-bottom: 10px;
+  overflow-x: auto;
+}
+
+.butonleft {
+  margin-left: 700px;
+  margin-bottom: 10px;
+}
+
+.Search {
+  margin-left: 100px;
+}
+
+.where {
+  margin-left: 100px;
 }
 </style>

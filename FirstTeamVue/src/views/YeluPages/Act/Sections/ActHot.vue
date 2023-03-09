@@ -38,7 +38,7 @@ import flower from "@/assets/img/ActImg/flower.jpg";
                         </div>
                         <div class="col-lg-2 col-sm-6">
                             <TransparentBlogCard :image="flower" title="2023 九份老街＆野柳＆平溪十分一日遊"
-                                description="熱血攀岩的同時，也能享受東北角海岸美景，登頂後，龍洞浩瀚的海岸線就在腳下" />
+                                description="走訪如仙境般的太平山國家森林" />
                         </div>
                         <div class="col-lg-2 col-sm-6">
                             <TransparentBlogCard :image="sun" title="2023 台灣桃園｜東眼山國家森林遊樂區" description="" />
