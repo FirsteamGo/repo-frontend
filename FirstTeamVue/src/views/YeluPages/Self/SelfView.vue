@@ -12,8 +12,8 @@ import bg03 from "@/assets/img/bg/bg03.jpg";
 import Typed from "typed.js";
 
 //sections 放置要引入的頁面
-import step from "./Sections/step.vue";
-import options from "./Sections/select.vue";
+import stepall from "./stepall.vue";
+// import options from "./Sections/select.vue";
 
 
 
@@ -40,11 +40,13 @@ onUnmounted(() => {
   body.classList.remove("about-us");
   body.classList.remove("bg-gray-200");
 });
+
 </script>
 
 
 
 <template>
+
   <DefaultNavbar
     :action="{
       route: 'javascript:;',
@@ -86,8 +88,8 @@ onUnmounted(() => {
   <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
 
     <!-- 記得這裡設定引入標籤 -->
-    <step />
-    <options />
+    <stepall />
+    <!-- <options /> -->
  
 
   </div>
