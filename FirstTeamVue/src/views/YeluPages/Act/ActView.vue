@@ -1,10 +1,10 @@
 <script setup>
-import { onMounted, onUnmounted } from "vue";
-
+import { onMounted, onUnmounted, ref, reactive, computed } from "vue";
+import axios from "axios";
 //example components
 import DefaultNavbar from "../../../examples/navbars/NavbarDefault.vue";
 import yelufooter from "../../../examples/footers/yelufooter.vue";
-
+import testtable2 from "../Set/Sections/testtable2.vue";
 
 //image
 import bg0 from "@/assets/img/bg/bg01.jpg";
@@ -44,6 +44,20 @@ onUnmounted(() => {
   body.classList.remove("about-us");
   body.classList.remove("bg-gray-200");
 });
+
+const webApiBaseAddr = ref("https://localhost:7219/api/ActDetails")
+
+let Act = reactive([])
+
+const getEmployeeDTOes = onMounted(() => {
+  axios.get(webApiBaseAddr.value).then(res => {
+    console.log(res.data);
+    Act.splice(0, res.data.length, ...res.data)
+
+  }).catch(err => {
+    console.log(err);
+  })
+})
 </script>
 
 <template>
@@ -62,8 +76,9 @@ onUnmounted(() => {
               在地體驗
             </h1>
 
-            <p class="lead mb-4 text-white opacity-8">
-              全台灣最棒的旅遊體驗，帶你深入探索有趣又獨特的旅遊體驗行程
+            <p class="lead mb-4 text-white opacity-8" v-for="item in Act">
+            <p hidden>{{ item.活動id }}</p>
+            {{ item.活動介紹 }}
             </p>
 
 
@@ -76,12 +91,12 @@ onUnmounted(() => {
 
     <!-- 記得這裡設定引入標籤 -->
     <!-- <el-header class="search">
-                                            <Actsearch />
-                                          </el-header> -->
+                                                            <Actsearch />
+                                                          </el-header> -->
     <Actselect />
     <!-- <Actcarousel /> -->
     <Actselectcard />
-
+    <testtable2 />
 
 
     <!-- <Information /> -->
@@ -109,7 +124,7 @@ onUnmounted(() => {
 }
 
 .butonleft {
-  
+
   margin-bottom: 10px;
 }
 
