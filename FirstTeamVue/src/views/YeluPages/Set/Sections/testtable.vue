@@ -17,7 +17,10 @@ thead {
 
 
     <div class="form-group">
-      <button type="button" @click="showModal" class="btn btn-success mb-3">新增紀錄</button>
+      <!-- <button type="button" @click="showModal" class="btn btn-success mb-3">新增紀錄</button> -->
+      <el-button text @click="dialogVisible = true">
+        新增紀錄
+      </el-button>
     </div>
 
 
@@ -65,38 +68,48 @@ thead {
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="insertModal" tabindex="-1" role="dialog" aria-labelledby="modalTitleId"
-      aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="modalTitleId">Modal title</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
 
-            <div class="form-group">
-              <label class="form-lable">FirstName</label>
-              <input type="text" class="form-control" v-model="firstName" />
-            </div>
+    <div>
+      <el-dialog v-model="dialogVisible" title="新增資料" width="30%" draggable>
+        <div class="modal-header">
 
-            <div class="form-group">
-              <label class="form-lable">LastName</label>
-              <input type="text" class="form-control" v-model="lastName" />
-            </div>
-
-            <div class="form-group">
-              <label class="form-lable">Title</label>
-              <input type="text" class="form-control" v-model="title" />
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
-            <button type="button" class="btn btn-primary" @@click="insert">新增</button>
-          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-      </div>
+        <template #footer>
+          <span class="dialog-footer">
+            <div>
+              <label class="form-lable">FirstName</label>
+              <input type="text" v-model="firstName" />
+            </div>
+
+            <div>
+              <label class="form-lable">LastName</label>
+              <input type="text" v-model="lastName" />
+            </div>
+
+            <div>
+              <label class="form-lable">Title</label>
+              <input type="text" v-model="title" />
+            </div>
+
+            <el-button @click="dialogVisible = false">取消</el-button>
+            <el-button type="primary" @click="{ insert(); dialogVisible = false }">
+              儲存
+            </el-button>
+          </span>
+        </template>
+      </el-dialog>
     </div>
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -106,11 +119,11 @@ thead {
 
 
 
-<!-- <script src="https://unpkg.com/vue@3.2.36"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"></script>  -->
 
-<!-- onMounted 只做一次  computed 可做多次 -->
-<script setup>
+
+
+
+<script   setup>
 import { ref, reactive, onMounted, computed } from 'vue'
 import axios from "axios";
 
@@ -129,6 +142,9 @@ let lastNameOld = ref(null)
 let titleOld = ref(null)
 let employeeList = reactive([])
 
+
+
+const dialogVisible = ref(false)
 
 
 
@@ -228,7 +244,7 @@ const cancel = () => {
   employeeDTOes.splice(0, employeeList.length, ...employeeList);
 
 }
-const update = function (item) {
+const update = (item) => {
   // alert("update");
   // let _this = this;
   var p = {
@@ -244,7 +260,7 @@ const update = function (item) {
   })
 }
 
-const deleteEmployee = function (employeeId) {
+const deleteEmployee = (employeeId) => {
   //alert("delete");
   // let _this = this;
   var ret = confirm("確定要刪除嗎?");
@@ -259,25 +275,25 @@ const deleteEmployee = function (employeeId) {
 
 }
 
-const showModal = () => {
-  //alert("showModal");
-  $('#insertModal').modal('show');
-}
+
 
 const insert = function () {
-  //alert("insert");
-  // let _this = this;
+  // alert("insert");
+  // // let _this = this;
   var p = {
     EmployeeId: 0,
-    FirstName: firstName,
-    LastName: lastName,
-    Title: title
+    FirstName: firstName.value,
+    LastName: lastName.value,
+    Title: title.value
   };
   axios
     .post(`${webApiBaseAddr.value}`, p)
     .then(response => {
       alert(response.data);
-      window.location = "/Home/VUESPA";
+      filterEmployee();
+    })
+    .catch((err) => {
+      console.log(err);
     });
 }
 
