@@ -531,10 +531,6 @@ watch(
                       >
                         <span>自選行程</span>
                       </RouterLink> 
-                      <!-- 測試用頁面 -->
-                      <RouterLink :to="{ name: 'test' }" class="dropdown-item border-radius-md">
-                        <span>test</span>
-                      </RouterLink>
                       <RouterLink :to="{ name: 'set' }" class="dropdown-item border-radius-md">
                         <span>套裝行程</span>
                       </RouterLink>
@@ -599,7 +595,7 @@ watch(
             <a role="button" class="nav-link ps-2 d-flex cursor-pointer align-items-center" :class="getTextColor()"
               id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="material-icons opacity-6 me-2 text-md" :class="getTextColor()">account_circle</i>
-              登入/註冊
+              會員中心
               <img
                 :src="getArrowColor()"
                 alt="down-arrow"
@@ -623,13 +619,13 @@ watch(
                         :to="{ name: 'member' }"
                         class="dropdown-item border-radius-md"
                       >
-                        <span>會員中心</span>
+                        <span>會員主頁</span>
                       </RouterLink>
                       <RouterLink
                         :to="{ name: 'member' }"
                         class="dropdown-item border-radius-md"
                       >
-                        <span>註冊新會員</span>
+                        <span>登入/註冊</span>
                       </RouterLink>
                     </div>
                   </div>
@@ -640,19 +636,19 @@ watch(
                 <div
                   class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-0"
                 >
-                  登入/註冊
+                  會員中心
                 </div>
                 <RouterLink
                   :to="{ name: 'member' }"
                   class="dropdown-item border-radius-md"
                 >
-                  <span>會員中心</span>
+                  <span>會員主頁</span>
                 </RouterLink>
                 <RouterLink
                   :to="{ name: 'member' }"
                   class="dropdown-item border-radius-md"
                 >
-                  <span>註冊新會員</span>
+                  <span>登入/註冊</span>
                 </RouterLink>
               </div>
             </div>
