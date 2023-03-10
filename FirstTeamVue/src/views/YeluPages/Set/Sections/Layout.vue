@@ -5,7 +5,7 @@
         <Date />
       </el-aside>
       <el-main>
-        <testtable2 />
+        <testtable />
       </el-main>
 
     </el-container>
@@ -26,7 +26,7 @@
 
 <script setup>
 import Date from './Date.vue';
-import testtable2 from './testtable2.vue';
+import testtable from './testtable.vue';
 import Setps from './Setps.vue';
 
 </script>

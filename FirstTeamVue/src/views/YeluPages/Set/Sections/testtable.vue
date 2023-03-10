@@ -185,6 +185,93 @@ const filterEmployee= ()=>{
       console.log(err);
     });
 }
+const edit = function (employeeId) {
+      //alert("edit");
+      let _this = this;
+    //   var employeeList = [];
+      for (var i = 0; i < _this.employeeDTOes.length; i++) {
+        var item = _this.employeeDTOes[i];
+        if (item.employeeId == employeeId) {
+          item.Edit = true;
+          _this.firstNameOld = item.firstName;
+          _this.lastNameOld = item.lastName;
+          _this.titleOld = item.title;
+
+        }//_this:取用自己的data model
+        else {
+          item.Edit = false;
+        }
+        employeeList.push(item);
+      }
+      _this.employeeDTOes = employeeList;
+    }
+const cancel= function () {
+      //alert("cancel");
+      let _this = this;
+      var employeeList = [];
+      for (var i = 0; i < _this.employeeDTOes.length; i++) {
+        var item = _this.employeeDTOes[i];
+        if (item.Edit == true) {
+          item.Edit = false;
+          item.firstName = _this.firstNameOld;
+          item.lastName = _this.lastNameOld;
+          item.Title = _this.TitleOld;
+        }
+        employeeList.push(item);
+      }
+      _this.employeeDTOes = employeeList;
+
+    }
+const update= function (item) {
+      //alert("update");
+      let _this = this;
+      var p = {
+        EmployeeId: item.employeeId,
+        FirstName: item.firstName,
+        LastName: item.lastName,
+        Title: item.title
+      }
+      axios.put(`${webApiBaseAddr.value}/${item.employeeId}`, p).then(response => {
+        alert(response.data);
+        _this.filterEmployee();
+        _this.cancel();
+      })
+    }
+
+const deleteEmployee = function (employeeId) {
+      //alert("delete");
+      let _this = this;
+      var ret = confirm("確定要刪除嗎?");
+      if (ret == true) {
+        axios.delete(`${webApiBaseAddr.value}/${employeeId}`).then(response => {
+          alert(response.data);
+
+          _this.filterEmployee();
+
+        });
+      }
+
+    }
+
+   const showModal= function () {
+      //alert("showModal");
+      $('#insertModal').modal('show');
+    }
+
+  const insert= function () {
+      //alert("insert");
+      let _this = this;
+      var p = {
+        EmployeeId: 0,
+        FirstName: _this.firstName,
+        LastName: _this.lastName,
+        Title: _this.title
+      };
+      axios.post(`${webApiBaseAddr.value}`, p).then(response => {
+        alert(response.data);
+        window.location = "/Home/VUESPA";
+      });
+    }
 
 
 //   FETCH 寫法
