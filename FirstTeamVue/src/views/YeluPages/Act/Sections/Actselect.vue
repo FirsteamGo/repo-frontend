@@ -130,8 +130,8 @@ const input = ref('')
                 </el-select>
 
                 <span>活動種類</span>
-                <el-select v-model="value1" class="m-2" placeholder="活動種類" size="large">
-                    <el-option v-for="item in cityList" :key="item.value" :label="item.label" :value="item.value" />
+                <el-select class="m-2" placeholder="活動種類" size="large">
+                    <el-option v-for="item in cityList" :key="item.value" :label="item.label" />
                 </el-select>
 
                 <span class="Search">
@@ -148,14 +148,3 @@ const input = ref('')
         </el-container>
     </div>
 </template>
-<style>
-.Search {
-    margin-left: 100px;
-}
-
-
-
-.where {
-    margin-left: 100px;
-}
-</style>
