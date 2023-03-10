@@ -79,40 +79,42 @@ onUnmounted(() => {
       <!--輪播牆-->
       <el-header class="head"><carousel /></el-header>
       <el-header class="inputlocation"><inputContent /></el-header>
-      <el-container class="item1">
-        <!--sidebar-->
-        <!-- <el-aside class="aside" width="370px"><shopnav /></el-aside> -->
-        <!--main content-->
-
-        <router-link to="/pages/Yelu-pages/shop/">商店首頁</router-link>
-        <router-link to="/pages/Yelu-pages/shop/shopsections/ex1"
-          >1000</router-link
-        >
-        <router-link to="/pages/Yelu-pages/shop/shopsections/ex2"
-          >2000</router-link
-        >
-        <router-link to="/pages/Yelu-pages/shop/shopsections/ex3"
-          >3000</router-link
-        >
+      <el-header class="navBar"><shopnav /></el-header>
+      <nav>
+        <router-link to="/pages/Yelu-pages/Shop/SPA/aaa">aaa</router-link>
+        <router-link to="/pages/Yelu-pages/Shop/SPA/bbb">bbb</router-link>
+        <router-link to="/pages/Yelu-pages/Shop/SPA/ccc">ccc</router-link>
         <router-view />
-      </el-container>
+      </nav>
     </div>
   </div>
 
   <yelufooter />
 </template>
-<style>
+<style scoped>
 .head {
   margin-bottom: 100px;
 }
-.item1 {
+/* .item1 {
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
-}
+} */
 .inputlocation {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.navBar {
+  justify-content: center;
+  background-color: blue;
+}
+nav {
+  width: 100%;
+  text-align: center;
+  margin-top: 2rem;
+}
+nav > a {
+  margin: 0 30px;
 }
 </style>
