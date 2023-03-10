@@ -1,134 +1,76 @@
-
-
-<!-- 步驟條 -->
-<script  setup>
-  // import card1 from '../Self/Sections/card.vue'
- 
-  </script>
-
-<!-- <script>
-  import step1 from '../Self/Sections/step1.vue'
-  import step2 from '../Self/Sections/step2.vue'
-  import step3 from '../Self/Sections/step3.vue'
-  import { ref } from 'vue'
-  
-  
-  const active = ref(0)
-    
-  export default {
-    components: {
-      step1,
-      step2,
-      step3
-    },
-    data() {
-      return {
-        content: 'step1',
-      }
-    },
-     methods: {
-      next() {      
-      active.value++;
-       if (active.value > 3) active.value = 0
-       
-       if (active.value ==1){
-         this.content = 'step1';
-      }else if(active.value ==2){
-        this.content = 'step2';
-      }else{
-        this.content = 'step3';
-      }
-        
-    }
-  }}
-</script> -->
-
-
- <!-- 標籤組件 -->
-<script>
-  import step1 from '../Self/Sections/step1.vue'
-  import step2 from '../Self/Sections/step2.vue'
-  import step3 from '../Self/Sections/step3.vue'
-
-  
-export default {
-  components: {
-    step1,
-    step2,
-    step3
-  },
-  data() {
-    return {
-      currentTab: 'step1',
-      tabs: ['step1','step2','step3']
-
-    }
-  }
-}
-</script>
-
 <template>
-<!-- 步驟條 -->
-  <!-- <el-steps :active="active" finish-status="success" >
-    <el-step title="Step 1" />
-    <el-step title="Step 2" />
-    <el-step title="Step 3" />
-  </el-steps>
+  <div id="app">
+      <div class="container">
+          <div class="item_header">
+              <div class="item_detail">商品</div>
+              <div class="price">單價</div>
+              <div class="count">數量</div> 
+              <div class="amount">總計</div>
+              <div class="operate">操作</div>
+          </div>
+          <div class="item_header item_body">
+              <div class="item_detail">
+                  <img src="https://images.unsplash.com/photo-1534961880437-ce5ae2033053?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80" alt="">
+                  <div class="name">優質短袖白T</div>
+              </div>
   
-  <el-button style="margin-top: 12px" @click="next" >Next step</el-button>
-
-  <component :is="content"></component> -->
-
-  <!-- 標籤 -->
-  <div class="demo">
-    <button
-       v-for="tab in tabs"
-       :key="tab"
-       :class="['tab-button', { active: currentTab === tab }]"
-       @click="currentTab = tab"
-     >
-     {{ tab }}
-    </button>
-	  <component :is="currentTab" class="tab"></component>
+              <div class="price"><span>$</span>300</div>
+              <div class="count">
+                  <button>-</button>
+                  1
+                  <button>+</button>
+              </div> 
+              <div class="amount">300</div>
+              <div class="operate">
+                  <button>刪除</button>
+              </div>
+          </div>
+      </div>
   </div>
-
-
 </template>
 
 
+<script>
+
+</script>
 
 
 
 <style>
-.demo {
-  font-family: sans-serif;
-  border: 1px solid #eee;
-  border-radius: 2px;
-  padding: 20px 30px;
-  margin-top: 1em;
-  margin-bottom: 40px;
-  user-select: none;
-  overflow-x: auto;
+body{
+    background-color: rgba(0, 0, 0,.2);
 }
-
-.tab-button {
-  padding: 6px 10px;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  border: 1px solid #ccc;
-  cursor: pointer;
-  background: #f0f0f0;
-  margin-bottom: -1px;
-  margin-right: -1px;
+.item_header{
+    display: flex;
+    width: 1000px;
+    margin: 0 auto;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 3px;
+    padding-left: 10px;
 }
-.tab-button:hover {
-  background: #e0e0e0;
+.item_header div{
+    width: 200px;
+    color: #888;
+    line-height: 30px;
 }
-.tab-button.active {
-  background: #e0e0e0;
+.item_header .item_detail{
+    width: 50%;
 }
-.tab {
-  border: 1px solid #ccc;
-  padding: 10px;
+.item_body{
+    margin-top: 20px;
+    height: 100px;
+    align-items: center;    
 }
+.item_detail img{
+    width: 80px;
+    height: 80px;
+    border-radius: 3px;
+    /* margin-top: 10px; */
+    float: left;
+}
+.item_detail .name{
+    margin-left: 100px;
+    margin-top: 20px;
+} 
 </style>

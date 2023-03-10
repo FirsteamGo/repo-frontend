@@ -1,11 +1,11 @@
 
 <!-- 步驟條 -->
-<script  setup>
+ <script  setup>
   // import card1 from '../Self/Sections/card.vue'
  
-  </script>
+  </script> 
 
-<script>
+<script >
   import step1 from '../Self/Sections/step1.vue'
   import step2 from '../Self/Sections/step2.vue'
   import step3 from '../Self/Sections/step3.vue'
