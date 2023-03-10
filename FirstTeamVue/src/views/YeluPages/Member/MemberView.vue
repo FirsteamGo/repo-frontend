@@ -13,6 +13,11 @@ import Typed from "typed.js";
 
 //sections 放置要引入的頁面
 // import Information from "./Sections/AboutInformation.vue";
+// import LinkDatabase from "./Sections/LinkDatabase.vue";
+// import Container from "./Sections/Container.vue";
+// import Container1 from "./Sections/Container1.vue";
+ import Container2 from "./Sections/Container2.vue";
+ import Breadcrumbs from "./Sections/Breadcrumbs.vue";
 
 
 const body = document.getElementsByTagName("body")[0];
@@ -73,11 +78,20 @@ onUnmounted(() => {
       </div>
     </div>
   </header>
+
+   <Breadcrumbs/>
   <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
 
     <!-- 記得這裡設定引入標籤 -->
     <!-- <Information /> -->
- 
+    <Container2 />
+   
+
+    <Container />
+    <br>
+    <br>
+    <br>
+    <Container1 />
 
   </div>
   <yelufooter />
