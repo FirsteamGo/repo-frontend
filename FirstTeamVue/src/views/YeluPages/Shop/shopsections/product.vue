@@ -1,52 +1,26 @@
 <template>
-  <el-row>
-    <el-col
-      v-for="(o, index) in 2"
-      :key="o"
-      :span="8"
-      :offset="index > 0 ? 2 : 0"
-    >
-      <el-card :body-style="{ padding: '0px' }">
-        <img src="../../../../assets/img/shop/shop-1.jpg" class="image" />
-        <div style="padding: 14px">
-          <span>Yummy hamburger</span>
-          <div class="bottom">
-            <time class="time">{{ currentDate }}</time>
-            <el-button text class="button">Operating</el-button>
-          </div>
-        </div>
-      </el-card>
-    </el-col>
-  </el-row>
+  <el-tabs :tab-position="tabPosition" style="height: 200px" class="demo-tabs">
+    <el-tab-pane label="User">User</el-tab-pane>
+    <el-tab-pane label="Config">Config</el-tab-pane>
+    <el-tab-pane label="Role">Role</el-tab-pane>
+    <el-tab-pane label="Task">Task</el-tab-pane>
+  </el-tabs>
 </template>
-
 <script lang="ts" setup>
 import { ref } from "vue";
 
-const currentDate = ref(new Date());
+const tabPosition = ref("left");
 </script>
-
 <style>
-.time {
-  font-size: 12px;
-  color: #999;
+.demo-tabs > .el-tabs__content {
+  padding: 32px;
+  color: #6b778c;
+  font-size: 32px;
+  font-weight: 600;
 }
 
-.bottom {
-  margin-top: 13px;
-  line-height: 12px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.button {
-  padding: 0;
-  min-height: auto;
-}
-
-.image {
-  width: 100%;
-  display: block;
+.el-tabs--right .el-tabs__content,
+.el-tabs--left .el-tabs__content {
+  height: 100%;
 }
 </style>

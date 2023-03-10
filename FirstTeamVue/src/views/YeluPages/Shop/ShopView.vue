@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, onUnmounted } from "vue";
+import { RouterLink, RouterView } from "vue-router";
 
 //example components
 import DefaultNavbar from "../../../examples/navbars/NavbarDefault.vue";
@@ -15,7 +16,7 @@ import Typed from "typed.js";
 import carousel from "../Shop/shopsections/carousel.vue";
 import product from "../Shop/shopsections/product.vue";
 import shopnav from "../Shop/shopsections/shopnav.vue";
-// import Information from "./Sections/AboutInformation.vue";
+import inputContent from "../Shop/shopsections/inputcontent.vue";
 
 const body = document.getElementsByTagName("body")[0];
 //hooks
@@ -75,12 +76,25 @@ onUnmounted(() => {
     <!-- 記得這裡設定引入標籤 -->
     <!-- <Information /> -->
     <div class="common-layout">
+      <!--輪播牆-->
       <el-header class="head"><carousel /></el-header>
-      <el-container>
-        <el-container class="item1">
-          <el-aside class="aside" width="370px"><shopnav /></el-aside>
-          <el-main class="main"><product /></el-main>
-        </el-container>
+      <el-header class="inputlocation"><inputContent /></el-header>
+      <el-container class="item1">
+        <!--sidebar-->
+        <!-- <el-aside class="aside" width="370px"><shopnav /></el-aside> -->
+        <!--main content-->
+
+        <router-link to="/pages/Yelu-pages/shop/">商店首頁</router-link>
+        <router-link to="/pages/Yelu-pages/shop/shopsections/ex1"
+          >1000</router-link
+        >
+        <router-link to="/pages/Yelu-pages/shop/shopsections/ex2"
+          >2000</router-link
+        >
+        <router-link to="/pages/Yelu-pages/shop/shopsections/ex3"
+          >3000</router-link
+        >
+        <router-view />
       </el-container>
     </div>
   </div>
@@ -93,7 +107,12 @@ onUnmounted(() => {
 }
 .item1 {
   box-sizing: border-box;
-  display: flex; /* 或 display: grid; */
-  justify-content: space-between; /* 可以調整 item 之間的間距和對齊方式 */
+  display: flex;
+  justify-content: space-between;
+}
+.inputlocation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>

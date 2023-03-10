@@ -1,0 +1,9 @@
+<template>
+  <el-container
+    ><img
+      width="200"
+      height="200"
+      src="../../../../assets/img/shop/shop-2.jpg"
+      alt="2"
+  /></el-container>
+</template>
