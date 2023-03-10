@@ -109,7 +109,7 @@ onUnmounted(() => {
 }
 
 .butonleft {
-  margin-left: 700px;
+  
   margin-bottom: 10px;
 }
 
