@@ -13,7 +13,7 @@ import imgSigninCover from "@/assets/img/signin-cover.png";
           <div class="col-lg-6 mx-auto ">
             <MaterialBadge color="warning" class="mb-3">#Popular Camp</MaterialBadge>
             <h2 class="">熱門營區</h2>
-            <p class="lead">Personal memories will be blurred because of time.</p>
+            <p class="lead">Camp Introduction.</p>
           </div>
         </div>
       </div>

@@ -10,9 +10,9 @@ import DefaultCounterCard from "../../../examples/cards/counterCards/DefaultCoun
           <div class="row" >
           <!-- 第一個icon -->
             <div class="col-md-4 position-relative" style="text-align: center;">
-              <img src="/src/assets/img/icon/c01.png" style="width:110px; height:105px;" alt="main_logo" >
+              <img src="/src/assets/img/icon/c01.png" style="width:110px; height:110px;" alt="main_logo" >
               <div>
-                <h3>露營車</h3>
+                <h3 class="mt-1">露營車</h3>
                 <h4>Recreational vehicles</h4>
                <p>輕鬆暢遊山林</p>
                <p>感受時尚舒適的自然輕旅行</p>
@@ -26,9 +26,9 @@ import DefaultCounterCard from "../../../examples/cards/counterCards/DefaultCoun
             </div>
             <!-- 第二個icon -->
               <div class="col-md-4 position-relative" style="text-align: center;">
-              <img src="/src/assets/img/icon/c02.png" style="width:100px; height:100px;" alt="main_logo" >
-              <div>
-                <h3>懶人露營</h3>
+              <img src="/src/assets/img/icon/c02.png"  style="width:100px; height:100px;" alt="main_logo" >
+              <div class="mt-2">
+                <h3 class="mt-1">懶人露營</h3>
                 <h4>Glamping</h4>
                <p>Glamorous奢華+Camping露營</p>
                <p>享受以自然為家的生活</p>
@@ -42,7 +42,7 @@ import DefaultCounterCard from "../../../examples/cards/counterCards/DefaultCoun
             </div>
             <!-- 第三個icon -->
             <div class="col-md-4 position-relative" style="text-align: center;">
-              <img src="/src/assets/img/icon/c03.png" style="width:100px; height:100px;" alt="main_logo" >
+              <img src="/src/assets/img/icon/c03.png" style="width:110px; height:105px;" alt="main_logo" >
               <div>
                 <h3>自搭露營</h3>
                 <h4>Camping</h4>
