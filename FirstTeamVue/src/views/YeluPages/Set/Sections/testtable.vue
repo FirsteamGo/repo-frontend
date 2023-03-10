@@ -121,13 +121,15 @@ let employeeDTOes = reactive([])
 
 const filter = ref("")
 const employeeId = ref(null)
-const firstName = ref(null)
-const lastName = ref(null)
-const title = ref(null)
-const firstNameOld = ref(null)
-const lastNameOld = ref(null)
-const titleOld = ref(null)
+let firstName = ref(null)
+let lastName = ref(null)
+let title = ref(null)
+let firstNameOld = ref(null)
+let lastNameOld = ref(null)
+let titleOld = ref(null)
 let employeeList = reactive([])
+
+
 
 
 const getEmployeeDTOes = onMounted(() => {
@@ -188,17 +190,15 @@ const filterEmployee = () => {
 }
 
 
-const edit = function (employeeId) {
-  //alert("edit");
-  let _this = this;
-  //   var employeeList = [];
-  for (var i = 0; i < _this.employeeDTOes.length; i++) {
-    var item = _this.employeeDTOes[i];
+let edit = (employeeId) => {
+  var employeeList = [];
+  for (var i = 0; i < employeeDTOes.length; i++) {
+    var item = employeeDTOes[i];
     if (item.employeeId == employeeId) {
       item.Edit = true;
-      _this.firstNameOld = item.firstName;
-      _this.lastNameOld = item.lastName;
-      _this.titleOld = item.title;
+      firstNameOld = item.firstName;
+      lastNameOld = item.lastName;
+      titleOld = item.title;
 
     }//_this:取用自己的data model
     else {
@@ -206,28 +206,31 @@ const edit = function (employeeId) {
     }
     employeeList.push(item);
   }
-  _this.employeeDTOes = employeeList;
+
+  employeeDTOes.splice(0, employeeList.length, ...employeeList);
 }
-const cancel = function () {
+const cancel = () => {
   //alert("cancel");
-  let _this = this;
+  // let _this = this;
   var employeeList = [];
-  for (var i = 0; i < _this.employeeDTOes.length; i++) {
-    var item = _this.employeeDTOes[i];
+
+  for (var i = 0; i < employeeDTOes.length; i++) {
+    var item = employeeDTOes[i];
     if (item.Edit == true) {
       item.Edit = false;
-      item.firstName = _this.firstNameOld;
-      item.lastName = _this.lastNameOld;
-      item.Title = _this.TitleOld;
+      item.firstName = firstNameOld;
+      item.lastName = lastNameOld;
+      item.Title = titleOld;
     }
     employeeList.push(item);
   }
-  _this.employeeDTOes = employeeList;
+
+  employeeDTOes.splice(0, employeeList.length, ...employeeList);
 
 }
 const update = function (item) {
   // alert("update");
-  let _this = this;
+  // let _this = this;
   var p = {
     EmployeeId: item.employeeId,
     FirstName: item.firstName,
@@ -236,44 +239,46 @@ const update = function (item) {
   }
   axios.put(`${webApiBaseAddr.value}/${item.employeeId}`, p).then(response => {
     alert(response.data);
-    _this.filterEmployee();
-    _this.cancel();
+    filterEmployee();
+    cancel();
   })
 }
 
 const deleteEmployee = function (employeeId) {
   //alert("delete");
-  let _this = this;
+  // let _this = this;
   var ret = confirm("確定要刪除嗎?");
   if (ret == true) {
     axios.delete(`${webApiBaseAddr.value}/${employeeId}`).then(response => {
       alert(response.data);
 
-      _this.filterEmployee();
+      filterEmployee();
 
     });
   }
 
 }
 
-const showModal = function () {
+const showModal = () => {
   //alert("showModal");
   $('#insertModal').modal('show');
 }
 
 const insert = function () {
   //alert("insert");
-  let _this = this;
+  // let _this = this;
   var p = {
     EmployeeId: 0,
-    FirstName: _this.firstName,
-    LastName: _this.lastName,
-    Title: _this.title
+    FirstName: firstName,
+    LastName: lastName,
+    Title: title
   };
-  axios.post(`${webApiBaseAddr.value}`, p).then(response => {
-    alert(response.data);
-    window.location = "/Home/VUESPA";
-  });
+  axios
+    .post(`${webApiBaseAddr.value}`, p)
+    .then(response => {
+      alert(response.data);
+      window.location = "/Home/VUESPA";
+    });
 }
 
 
