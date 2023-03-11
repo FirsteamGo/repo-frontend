@@ -17,6 +17,11 @@ import carousel from "../Shop/shopsections/carousel.vue";
 import product from "../Shop/shopsections/product.vue";
 import shopnav from "../Shop/shopsections/shopnav.vue";
 import inputContent from "../Shop/shopsections/inputcontent.vue";
+import nav1 from "../Shop/SPA/nav_1.vue";
+import nav2 from "../Shop/SPA/nav_2.vue";
+import nav3 from "../Shop/SPA/nav_3.vue";
+import nav4 from "../Shop/SPA/nav_4.vue";
+import nav5 from "../Shop/SPA/nav_5.vue";
 
 const body = document.getElementsByTagName("body")[0];
 //hooks
@@ -79,13 +84,21 @@ onUnmounted(() => {
       <!--輪播牆-->
       <el-header class="head"><carousel /></el-header>
       <el-header class="inputlocation"><inputContent /></el-header>
-      <el-header class="navBar"><shopnav /></el-header>
-      <nav>
-        <router-link to="/pages/Yelu-pages/Shop/SPA/aaa">aaa</router-link>
-        <router-link to="/pages/Yelu-pages/Shop/SPA/bbb">bbb</router-link>
-        <router-link to="/pages/Yelu-pages/Shop/SPA/ccc">ccc</router-link>
-        <router-view />
-      </nav>
+      <el-container>
+        <nav1 />
+        <nav2 />
+        <nav3 />
+        <nav4 />
+        <nav5 />
+      </el-container>
+      <el-main><router-view /></el-main>
+
+      <!-- <el-header class="item">
+        <router-link to="/pages/Yelu-pages/shop/SPA/aaa">aaa</router-link>
+        <router-link to="/pages/Yelu-pages/shop/SPA/bbb">bbb</router-link>
+        <router-link to="/pages/Yelu-pages/shop/SPA/ccc">ccc</router-link>
+      </el-header>
+      <router-view /> -->
     </div>
   </div>
 
@@ -95,11 +108,9 @@ onUnmounted(() => {
 .head {
   margin-bottom: 100px;
 }
-/* .item1 {
-  box-sizing: border-box;
-  display: flex;
-  justify-content: space-between;
-} */
+.item {
+  background-color: aqua;
+}
 .inputlocation {
   display: flex;
   align-items: center;
@@ -116,5 +127,6 @@ nav {
 }
 nav > a {
   margin: 0 30px;
+  background-color: aqua;
 }
 </style>

@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import PresentationView from "../views/Presentation/PresentationView.vue";
 
-
 //yelupages
 import ActView from "@/views/YeluPages/Act/ActView.vue";
 import CampView from "@/views/YeluPages/Camp/CampView.vue";
@@ -12,9 +11,6 @@ import ShopView from "@/views/YeluPages/Shop/ShopView.vue";
 //測試用頁面
 import test from "@/views/YeluPages/Self/test.vue";
 import test2 from "@/views/YeluPages/Self/test2.vue";
-
-
-
 
 import AboutView from "../views/LandingPages/AboutUs/AboutView.vue";
 import ContactView from "../views/LandingPages/ContactUs/ContactView.vue";
@@ -40,7 +36,6 @@ import ElProgressBars from "../layouts/sections/elements/progress-bars/ProgressB
 import ElToggles from "../layouts/sections/elements/toggles/TogglesView.vue";
 import ElTypography from "../layouts/sections/elements/typography/TypographyView.vue";
 
-
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -49,12 +44,14 @@ const router = createRouter({
       name: "presentation",
       component: PresentationView,
     },
-    {//test
+    {
+      //test
       path: "/pages/landing-pages/test",
       name: "test",
       component: test,
     },
-     {//test完刪除
+    {
+      //test完刪除
       path: "/pages/landing-pages/test2",
       name: "test2",
       component: test2,
@@ -84,12 +81,77 @@ const router = createRouter({
       name: "set",
       component: SetView,
     },
+    // {
+    //   path: "/pages/Yelu-pages/shop",
+    //   name: "shop",
+    //   component: ShopView,
+    // },
     {
-      path: "/pages/Yelu-pages/shop",
+      path: "/pages/Yelu-pages/Shop/SPA",
       name: "shop",
       component: ShopView,
+      children: [
+        {
+          path: "tnf",
+          name: "tnf",
+          component: () => import("../views/YeluPages/Shop/SPA/con1_1.vue"),
+        },
+        {
+          path: "snowpeak",
+          name: "snowpeak",
+          component: () => import("../views/YeluPages/Shop/SPA/con1_2.vue"),
+        },
+        {
+          path: "con21",
+          name: "con21",
+          component: () => import("../views/YeluPages/Shop/SPA/con2_1.vue"),
+        },
+        {
+          path: "con22",
+          name: "con22",
+
+          component: () => import("../views/YeluPages/Shop/SPA/con2_2.vue"),
+        },
+        {
+          path: "con31",
+          name: "con31",
+
+          component: () => import("../views/YeluPages/Shop/SPA/con3_1.vue"),
+        },
+        {
+          path: "con32",
+          name: "con32",
+
+          component: () => import("../views/YeluPages/Shop/SPA/con3_2.vue"),
+        },
+        {
+          path: "con41",
+          name: "con41",
+
+          component: () => import("../views/YeluPages/Shop/SPA/con4_1.vue"),
+        },
+        {
+          path: "con42",
+          name: "con42",
+
+          component: () => import("../views/YeluPages/Shop/SPA/con4_2.vue"),
+        },
+        {
+          path: "con51",
+          name: "con51",
+
+          component: () => import("../views/YeluPages/Shop/SPA/con5_1.vue"),
+        },
+        {
+          path: "con52",
+          name: "con52",
+
+          component: () => import("../views/YeluPages/Shop/SPA/con5_2.vue"),
+        },
+      ],
     },
-    {//landing-pages
+    {
+      //landing-pages
       path: "/pages/landing-pages/about-us",
       name: "about",
       component: AboutView,
