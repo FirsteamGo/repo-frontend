@@ -3,12 +3,12 @@
   <div class="container mt-sm-5">
     <div
       class="page-header py-6 py-md-5 my-sm-3 mb-3 border-radius-xl"
-      :style="{
-        backgroundImage:
-          'url(https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/desktop.jpg)'
-      }"
+      
       loading="lazy"
-    >
+    ></div>
+    <div 
+    class="page-header py-6 py-md-5 my-sm-3 mb-3 border-radius-xl"
+    image="https://images.unsplash.com/photo-1569683795645-b62e50fbf103?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80">
       <span class="mask bg-gradient-dark"></span>
       <div class="container">
         <div class="row">

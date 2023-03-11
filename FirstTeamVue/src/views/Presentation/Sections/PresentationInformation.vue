@@ -5,16 +5,16 @@ import RotatingCardBack from "../../../examples/cards/rotatingCards/RotatingCard
 import DefaultInfoCard from "../../../examples/cards/infoCards/DefaultInfoCard.vue";
 </script>
 <template>
-  <section class="my-5 py-5">
+  <section class=" py-5 mt-7">
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-lg-4 ms-auto me-auto p-lg-4 mt-lg-0 mt-4">
+        <div class="col-lg-4 ms-auto me-auto p-lg-4 mt-lg-0 mt-5">
           <!-- 卡片一帶四 -->
           <RotatingCard>
             <RotatingCardFront
               image="https://images.unsplash.com/photo-1569683795645-b62e50fbf103?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"
               icon="touch_app"
-              title="熱門營區 <br /> Popular camp"
+              title="精選活動 <br /> Popular Activity"
               description="Personal memories will be blurred because of time, and common memories will be more precious because of time."
             />
 

@@ -1,18 +1,17 @@
 
-
 <!-- 步驟條 -->
-<script  setup>
+ <script  setup>
   // import card1 from '../Self/Sections/card.vue'
  
-  </script>
+  </script> 
 
-<script>
-  import camp from '../Camp/CampView.vue'
-  import select from '../Self/Sections/select.vue'
-  import card from '../Self/Sections/card.vue'
+<script >
+  import step1 from '../Self/Sections/step1.vue'
+  import step2 from '../Self/Sections/step2.vue'
+  import step3 from '../Self/Sections/step3.vue'
   import { ref } from 'vue'
   
-  const active = ref(0)
+  //助教幫寫
   // const step_data = ref({
   //   show_name: ""
   // })
@@ -24,32 +23,33 @@
   //   // if (active.value > 1) {
   //   //   step_data.value.show_name = "data1"
   //   // }else{
-  //   //   step_data.value.show_name = "data2"
-  //   // }    
-  // }
+    //   //   step_data.value.show_name = "data2"
+    //   // }    
+    // }
+  const active = ref(0)
     
   export default {
     components: {
-      camp,
-      select,
-      card
+      step1,
+      step2,
+      step3
     },
     data() {
       return {
-        content: 'camp',
+        content: 'step1',
       }
     },
      methods: {
       next() {      
       active.value++;
-       if (active.value > 2) active.value = 0
+       if (active.value > 3) active.value = 0
        
        if (active.value ==1){
-         this.content = 'select';
+         this.content = 'step1';
       }else if(active.value ==2){
-        this.content = 'card';
+        this.content = 'step2';
       }else{
-        this.content = 'camp';
+        this.content = 'step3';
       }
         
     }
@@ -58,21 +58,21 @@
 
 <!-- 標籤組件 -->
 <!-- <script>
-import card1 from '../Self/Sections/card.vue'
-import select from '../Self/Sections/select.vue'
-import card from '../Self/Sections/card.vue'
+  import step1 from '../Self/Sections/step1.vue'
+  import step2 from '../Self/Sections/step2.vue'
+  import step3 from '../Self/Sections/step3.vue'
 
   
 export default {
   components: {
-    card1,
-    select,
-    card
+    step1,
+    step2,
+    step3
   },
   data() {
     return {
-      currentTab: 'card1',
-      tabs: ['card1','select','card']
+      currentTab: 'step1',
+      tabs: ['step1','step2','step3']
 
     }
   }
@@ -101,7 +101,7 @@ export default {
        :class="['tab-button', { active: currentTab === tab }]"
        @click="currentTab = tab"
      >
-      {{ tab }}
+     {{ tab }}
     </button>
 	  <component :is="currentTab" class="tab"></component>
   </div> -->

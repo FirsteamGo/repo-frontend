@@ -25,7 +25,8 @@ export default {
 
 <template>
     <div class="demo">
-        <el-button v-for=" tab in tabs" :key="tab" size="large" type="info" class="butonleft" @click="currentTab = tab">
+        <el-button v-for=" tab in tabs" :key="tab" size="large" type="info" class="butonleft text-lg font-weight-bolder"
+            @click="currentTab = tab">
             {{ tab }}
         </el-button>
         <component :is="currentTab" class=""></component>
@@ -33,21 +34,6 @@ export default {
 </template>
 
 <style>
-.demo {
-    margin-bottom: 10px;
-    overflow-x: auto;
-}
-
-.butonleft {
-    margin-left: 700px;
-    margin-bottom: 10px;
-}
-
-.bkc {
-    text-align: center;
-    color: gray;
-}
-
 /* .tab-button {
     padding: 6px 10px;
     border-top-left-radius: 3px;

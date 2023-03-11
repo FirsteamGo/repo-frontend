@@ -20,10 +20,10 @@
                 <div class="col-md-4 position-relative book" v-for="item in SetFoods">
 
 
-                    <p hidden>{{ item.餐廳id }}</p>
-                    <p>{{ item.餐廳名 }}</p>
-                    <p>{{ item.餐廳電話 }}</p>
-                    <p>{{ item.地址 }}</p>
+                    <p hidden>{{ item.活動id }}</p>
+
+                    <p>{{ item.地區 }}</p>
+
 
 
                 </div>
@@ -38,7 +38,7 @@
 import { ref, reactive, onMounted, computed } from 'vue'
 import axios from "axios";
 
-const webApiBaseAddr = ref("https://localhost:7108/api/SetFoods");
+const webApiBaseAddr = ref("https://localhost:7219/api/ActDetails");
 
 let SetFoods = reactive([])
 

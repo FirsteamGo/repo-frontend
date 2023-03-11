@@ -4,9 +4,7 @@ import { onMounted, onUnmounted } from "vue";
 //example components
 import DefaultNavbar from "../../../examples/navbars/NavbarDefault.vue";
 import yelufooter from "../../../examples/footers/yelufooter.vue";
-import Breadcrumb from "./Sections/Breadcrumb.vue";
-import testtable1 from "./Sections/testtable.vue";
-
+import testtable2 from "./Sections/testtable2.vue";
 //image
 import bg0 from "./img/01.jpeg";
 
@@ -58,7 +56,7 @@ onUnmounted(() => {
         <div class="row justify-content-center">
           <div class="col-lg-8 text-center mx-auto my-auto">
             <h1 class="text-white">
-              套裝行程
+              Title
             </h1>
 
             <p class="lead mb-4 text-white opacity-8">
@@ -80,9 +78,9 @@ onUnmounted(() => {
 
   <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
 
-    <Layout/>
-    <testVue />
-    <Testtable />
+    <!-- 記得這裡設定引入標籤 -->
+    <!-- <Information /> -->
+    <testtable2 />
 
   </div>
   <yelufooter />
