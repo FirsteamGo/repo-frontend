@@ -5,7 +5,7 @@ import { onMounted, onUnmounted } from "vue";
 import DefaultNavbar from "../../../examples/navbars/NavbarDefault.vue";
 import yelufooter from "../../../examples/footers/yelufooter.vue";
 import Breadcrumb from "./Sections/Breadcrumb.vue";
-
+import testtable1 from "./Sections/testtable.vue";
 
 //image
 import bg0 from "./img/01.jpeg";
@@ -13,6 +13,7 @@ import bg0 from "./img/01.jpeg";
 //dep
 import Typed from "typed.js";
 import Layout from "./Sections/Layout.vue";
+
 import Testtable from "./Sections/testtable.vue";
 
 //sections 放置要引入的頁面
@@ -79,7 +80,8 @@ onUnmounted(() => {
 
   <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
 
-    <!-- <Layout/> -->
+    <Layout/>
+    <testVue />
     <Testtable />
 
   </div>
