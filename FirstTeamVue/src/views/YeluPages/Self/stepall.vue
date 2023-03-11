@@ -1,9 +1,9 @@
 
 <!-- 步驟條 -->
-<script  setup>
-  // import card1 from '../Self/Sections/card.vue'
+ <script  setup>
+  import card1 from '../Self/Sections/card.vue'
  
-  </script>
+  </script> 
 
 <script >
   import step1 from '../Self/Sections/step1.vue'
@@ -48,8 +48,8 @@
 <!-- 步驟條 -->
   <el-steps :active="active" finish-status="success" >
     <el-step title="第一步: 挑選營地" />
-    <el-step title="第二步: 挑選飲食" />
-    <el-step title="第三步: 挑選活動 完成" />
+    <el-step title="第二步: 相關活動" />
+    <el-step title="第三步: 挑選飲食 完成" />
   </el-steps>
   
   <el-button style="margin-top: 12px" @click="next" >Next step</el-button>

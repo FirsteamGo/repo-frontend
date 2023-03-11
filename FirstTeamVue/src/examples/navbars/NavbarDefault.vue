@@ -618,7 +618,11 @@ watch(
                         :to="{ name: 'member' }"
                         class="dropdown-item border-radius-md"
                       >
+<<<<<<< HEAD
                         <span>會員首頁</span>
+=======
+                        <span>會員主頁</span>
+>>>>>>> 72ff488be8daa9a9205196c0a8fb351424e15db9
                       </RouterLink>
                       <RouterLink
                         :to="{ name: 'member' }"
@@ -635,19 +639,27 @@ watch(
                 <div
                   class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-0"
                 >
+<<<<<<< HEAD
                 會員中心
+=======
+                  會員中心
+>>>>>>> 72ff488be8daa9a9205196c0a8fb351424e15db9
                 </div>
                 <RouterLink
                   :to="{ name: 'member' }"
                   class="dropdown-item border-radius-md"
                 >
+<<<<<<< HEAD
                   <span>會員首頁</span>
+=======
+                  <span>會員主頁</span>
+>>>>>>> 72ff488be8daa9a9205196c0a8fb351424e15db9
                 </RouterLink>
                 <RouterLink
                   :to="{ name: 'member' }"
                   class="dropdown-item border-radius-md"
                 >
-                  <span>註冊新會員</span>
+                  <span>登入/註冊</span>
                 </RouterLink>
               </div>
             </div>
