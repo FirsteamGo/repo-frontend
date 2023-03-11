@@ -1,15 +1,16 @@
 
-<!-- 步驟條 -->
+
  <script  setup>
   import card1 from '../Self/Sections/card.vue'
  
   </script> 
 
 <script >
+  //<!-- 步驟條 -->
   import step1 from '../Self/Sections/step1.vue'
-  import step2 from '../Self/Sections/step2.vue'
+  import step2 from '../Act/Sections/Actselectcard.vue'
   // import step3 from '../Self/Sections/step3.vue'
-  import step3 from '../Act/Sections/Actselectcard.vue'
+  import step3 from '../Self/Sections/step3.vue'
 
   import { ref } from 'vue'
   
@@ -41,23 +42,27 @@
         
     }
   }}
+
+
+
+
 </script>
 
 
 <template>
 <!-- 步驟條 -->
+<div class="container mt-5 px-5">
   <el-steps :active="active" finish-status="success" >
     <el-step title="第一步: 挑選營地" />
     <el-step title="第二步: 相關活動" />
     <el-step title="第三步: 挑選飲食 完成" />
   </el-steps>
   
-  <el-button style="margin-top: 12px" @click="next" >Next step</el-button>
-  <!-- <el-button style="margin-top: 12px" @click="next" v-model="step_data">Next step {{step_data.show_name}}</el-button> -->
-  
-
+  <el-button style="margin-top: 25px"  @click="next" >點我下一步</el-button>
   <component :is="content"></component>
 
+
+</div>
 
 </template>
 
