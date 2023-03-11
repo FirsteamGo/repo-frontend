@@ -24,10 +24,12 @@ defineProps({
 </script>
 <template>
   <div
-    class="front front-background"
+  
+    class="front front-background "
     :style="{
       backgroundImage: `url(${image})`,
       backgroundSize: 'cover',
+      
     }"
   >
     <div class="card-body py-7 text-center">
