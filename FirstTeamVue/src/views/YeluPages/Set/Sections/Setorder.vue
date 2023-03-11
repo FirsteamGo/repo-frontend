@@ -47,7 +47,11 @@
   const pricePerPerson=ref('1000')
   const form = reactive({desc:''})
   const now = new Date();
-  const 訂單編號 = `Set${now.getFullYear()}${(now.getMonth() + 1).toString().padStart(2, "0")}${now.getDate().toString().padStart(2, "0")}${now.getHours().toString().padStart(2, "0")}${now.getMinutes().toString().padStart(2, "0")}${now.getSeconds().toString().padStart(2, "0")}`;
+  
+  const 訂單編號 = `Set${now.getFullYear()}${(now.getMonth() + 1).toString().padStart(2, "0")}
+  ${now.getDate().toString().padStart(2, "0")}${now.getHours().toString().padStart(2, "0")}
+  ${now.getMinutes().toString().padStart(2, "0")}${now.getSeconds().toString().padStart(2, "0")}`;
+
   console.log(訂單編號);
   
   const formatDate = (dateString)=> {
