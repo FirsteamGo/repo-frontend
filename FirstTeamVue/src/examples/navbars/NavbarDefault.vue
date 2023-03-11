@@ -647,7 +647,7 @@ watch(
                   :to="{ name: 'member' }"
                   class="dropdown-item border-radius-md"
                 >
-                  <span>註冊新會員</span>
+                  <span>登入/註冊</span>
                 </RouterLink>
               </div>
             </div>
