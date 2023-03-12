@@ -28,8 +28,8 @@ const images = reactive([
     { abc: e },
 ]);
 
-
 </script>
+
 
 <template>
     <el-carousel :interval="1500" type="card">

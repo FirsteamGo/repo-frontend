@@ -180,14 +180,13 @@ const images = reactive([
 
     <div>
         <!-- <button @click="content = 'name'">Name</button>
-                            <button @click="content = 'date'">Date</button>
-                            <button @click="content = 'lessons'">Lessons</button>
-                            <button @click="content = 'apply'">Apply</button>
-                            <hr>
+                                    <button @click="content = 'date'">Date</button>
+                                    <button @click="content = 'lessons'">Lessons</button>
+                                    <button @click="content = 'apply'">Apply</button>
+                                    <hr>
 
-                            <keep-alive>
-                                <component :is="content"></component>
-                            </keep-alive> -->
+                                    <keep-alive>
+                                        <component :is="content"></component>
+                                    </keep-alive> -->
     </div>
 </template>
-<style scoped></style>

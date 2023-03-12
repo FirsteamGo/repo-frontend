@@ -8,6 +8,8 @@ import Header from "../../examples/Header.vue";
 import FilledInfoCard from "../../examples/cards/infoCards/FilledInfoCard.vue";
 import yelufooter from "../../examples/footers/yelufooter.vue";
 
+//dep
+import Typed from "typed.js";
 
 //Vue Material Kit 2 components
 import MaterialSocialButton from "@/components/MaterialSocialButton.vue";
@@ -15,11 +17,10 @@ import MaterialSocialButton from "@/components/MaterialSocialButton.vue";
 // sections
 import PresentationCounter from "./Sections/PresentationCounter.vue";
 import PresentationPages from "./Sections/PresentationPages.vue";
-// import PresentationExample from "./Sections/PresentationExample.vue";
-// import data from "./Sections/Data/designBlocksData";
-import BuiltByDevelopers from "./Components/BuiltByDevelopers.vue";
 import PresentationTestimonials from "./Sections/PresentationTestimonials.vue";
-import PresentationInformation from "./Sections/PresentationInformation.vue";
+// import PresentationInformation from "./Sections/PresentationInformation.vue";
+import indexcarousel from "./Sections/indexcarousel.vue";
+
 
 //images
 // import vueMkHeader from "@/assets/img/vue-mk-header.jpg";
@@ -37,6 +38,19 @@ const body = document.getElementsByTagName("body")[0];
 onMounted(() => {
   body.classList.add("presentation-page");
   body.classList.add("bg-gray-200");
+
+  if (document.getElementById("typed")) {
+    // eslint-disable-next-line no-unused-vars
+    var typed = new Typed("#typed", {
+      stringsElement: "#typed-strings",
+      typeSpeed: 90,
+      backSpeed: 90,
+      backDelay: 200,
+      startDelay: 500,
+      loop: true,
+    });
+  }
+
 });
 onUnmounted(() => {
   body.classList.remove("presentation-page");
@@ -62,16 +76,30 @@ onUnmounted(() => {
       <div class="container">
         <div class="row">
           <div class="col-lg-7 text-center mx-auto position-relative">
-            <h1
+            <!-- <h1
               class="text-white pt-3 mt-n5 me-2"
               :style="{ display: 'inline-block ' }"
             >
             YELU CAMP露營GO!
+            </h1> -->
+            <h1 class="text-white">
+              YELU CAMP露營 in <span class="text-white" id="typed"></span>
             </h1>
+            <div id="typed-strings">
+              <h1>Miaoli</h1>
+              <h1>Hsinchu</h1>
+              <h1>Nantou</h1>
+              <h1>Tainan</h1>
+              <h1>Yilan</h1>
+
+            </div>
+
+
+
             <p class="lead text-white px-5 mt-3" :style="{ fontWeight: '500' }">
             #Camping #Glamping #Recreational vehicles #享受生活</p>
             <p class="lead text-white px-5 mt-3" :style="{ fontWeight: '500' }">
-              山間秘境旅遊的極致享受，體驗自然，仰望星空、山嵐，聆聽蟲鳴鳥叫</p>
+              山間秘境旅遊的極致享受，仰望星空、山嵐，聆聽蟲鳴鳥叫</p>
             
           </div>
         </div>
@@ -81,10 +109,12 @@ onUnmounted(() => {
 
   <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6">
     <!-- import進來呈現的視覺 先後順序在這裡設定 -->
+    <!-- 露營形式 -->
     <PresentationCounter />
+    <!-- 營區 -->
     <PresentationPages />
     
-
+    <!-- 行程選擇 -->
     <div class="container">
       <div class="col-lg-6 mx-auto text-center mt-6">
           <h2 class="mb-0">行程選擇</h2>
@@ -92,7 +122,7 @@ onUnmounted(() => {
            Enjoy Your Camp
           </h2> -->
           <p class="lead">
-            Many Fortune 500 companies, startups.
+            Prefect Schedule.
           </p>
         </div>
       <div class="row mt-6"> 
@@ -142,7 +172,8 @@ onUnmounted(() => {
     </div>
 
   <!-- 活動 -->
-    <PresentationInformation />
+    <!-- <PresentationInformation /> -->
+    <indexcarousel/>
   <!-- 商店 -->
      <PresentationTestimonials />
   
