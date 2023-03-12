@@ -5,7 +5,7 @@ import DefaultReviewCard from "@/examples/cards/reviewCards/DefaultReviewCard.vu
   <section class="py-7">
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 mx-auto text-center">
+        <div class="col-lg-6 mx-auto text-center mt-3" >
           <h2 class="mb-0">商店精選</h2>
           <!-- <h2 class="text-gradient text-warning  mb-">
             Camping Store
