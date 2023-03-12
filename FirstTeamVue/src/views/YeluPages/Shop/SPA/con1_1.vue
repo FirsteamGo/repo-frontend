@@ -5,13 +5,13 @@
 <style scoped></style> -->
 <script setup>
 // Vue Material Kit 2 component
-import DefaultInfoCard from "@/examples/cards/infoCards/DefaultInfoCard.vue";
+import simpleBookingCard from "@/examples/cards/blogCards/simpleBookingCard.vue";
 </script>
 <template>
-  <DefaultInfoCard
-    color="success"
-    icon="public"
-    title="Fully integrated"
-    description="We get insulted by others, lose trust for those We get back freezes"
+  <SimpleBookingCard
+    image="https://bit.ly/3EZlfcW"
+    categories="Private Room • 1 Guest • 1 Sofa"
+    title="Single room in the center of the city"
+    description="As Uber works through a huge amount of internal management turmoil, the company is also consolidating more of its international business."
   />
 </template>

@@ -81,74 +81,10 @@ const router = createRouter({
       name: "set",
       component: SetView,
     },
-    // {
-    //   path: "/pages/Yelu-pages/shop",
-    //   name: "shop",
-    //   component: ShopView,
-    // },
     {
-      path: "/pages/Yelu-pages/Shop/SPA",
+      path: "/pages/Yelu-pages/shop",
       name: "shop",
       component: ShopView,
-      children: [
-        {
-          path: "tnf",
-          name: "tnf",
-          component: () => import("../views/YeluPages/Shop/SPA/con1_1.vue"),
-        },
-        {
-          path: "snowpeak",
-          name: "snowpeak",
-          component: () => import("../views/YeluPages/Shop/SPA/con1_2.vue"),
-        },
-        {
-          path: "con21",
-          name: "con21",
-          component: () => import("../views/YeluPages/Shop/SPA/con2_1.vue"),
-        },
-        {
-          path: "con22",
-          name: "con22",
-
-          component: () => import("../views/YeluPages/Shop/SPA/con2_2.vue"),
-        },
-        {
-          path: "con31",
-          name: "con31",
-
-          component: () => import("../views/YeluPages/Shop/SPA/con3_1.vue"),
-        },
-        {
-          path: "con32",
-          name: "con32",
-
-          component: () => import("../views/YeluPages/Shop/SPA/con3_2.vue"),
-        },
-        {
-          path: "con41",
-          name: "con41",
-
-          component: () => import("../views/YeluPages/Shop/SPA/con4_1.vue"),
-        },
-        {
-          path: "con42",
-          name: "con42",
-
-          component: () => import("../views/YeluPages/Shop/SPA/con4_2.vue"),
-        },
-        {
-          path: "con51",
-          name: "con51",
-
-          component: () => import("../views/YeluPages/Shop/SPA/con5_1.vue"),
-        },
-        {
-          path: "con52",
-          name: "con52",
-
-          component: () => import("../views/YeluPages/Shop/SPA/con5_2.vue"),
-        },
-      ],
     },
     {
       //landing-pages
