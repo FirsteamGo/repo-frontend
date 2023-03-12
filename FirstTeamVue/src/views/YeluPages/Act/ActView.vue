@@ -13,8 +13,7 @@ import bg0 from "@/assets/img/bg/bg01.jpg";
 import Typed from "typed.js";
 
 //sections 放置要引入的頁面
-import Actshow from "./Sections/Actshow.vue";
-import Actcarousel from "./Sections/Actcarousel.vue";
+//import Actcarousel from "./Sections/Actcarousel.vue";
 import Actselect from "./Sections/Actselect.vue";
 import Actselectcard from "./Sections/Actselectcard.vue";
 
@@ -76,9 +75,9 @@ const getEmployeeDTOes = onMounted(() => {
               在地體驗
             </h1>
 
-            <p class="lead mb-4 text-white opacity-8" v-for="item in Act">
-            <p hidden>{{ item.活動id }}</p>
-            {{ item.活動介紹 }}
+            <p class="lead mb-4 text-white opacity-8">
+              We’re constantly trying to express ourselves and actualize our
+              dreams. If you have the opportunity to play this game
             </p>
 
 
@@ -91,12 +90,12 @@ const getEmployeeDTOes = onMounted(() => {
 
     <!-- 記得這裡設定引入標籤 -->
     <!-- <el-header class="search">
-                                                            <Actsearch />
-                                                          </el-header> -->
+    <Actsearch />
+    </el-header> -->
     <Actselect />
     <!-- <Actcarousel /> -->
     <Actselectcard />
-    <testtable2 />
+  
 
 
     <!-- <Information /> -->
