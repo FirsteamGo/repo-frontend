@@ -1,5 +1,4 @@
 <script setup>
-import Actcarousel from "./Actcarousel.vue";
 import { onMounted, onUnmounted, ref, reactive, computed } from "vue";
 import axios from "axios";
 // example components
@@ -36,7 +35,6 @@ const getEmployeeDTOes = onMounted(() => {
 </script>
 
 <template>
-    <Actcarousel />
 <div class="">
     <el-container>
         <el-header>
@@ -61,4 +59,3 @@ const getEmployeeDTOes = onMounted(() => {
         </el-container>
     </div>
 </template>
-<style></style>

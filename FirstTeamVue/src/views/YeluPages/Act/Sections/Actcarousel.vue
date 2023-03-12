@@ -1,6 +1,4 @@
-
 <script setup>
-
 import tp from "@/assets/img/ActImg/Taipei.jpg";
 import tc from "@/assets/img/ActImg/Taichung.jpg";
 import tn from "@/assets/img/ActImg/Tainan.jpg";
@@ -43,30 +41,11 @@ const images = reactive([
 </template>
 
 <style scoped>
-/* .el-carousel__item img {
-  color: #475669;
-  opacity: 0.75;
-  line-height: 200px;
-  margin: 0;
-  text-align: center;
-}  */
-
-/* .el-carousel__item{
-    justify-content: center;
-    align-items: center;
-} */
-
 img {
     width: 100%;
     height: 100%;
     /* object-fit: cover; */
 }
-
-/* .carousel_image_type{
-    width: 100%;
-    height: 100%;
-    object-fit:fill;
-} */
 
 .el-carousel__item:nth-child(2n) {
     background-color: #99a9bf;

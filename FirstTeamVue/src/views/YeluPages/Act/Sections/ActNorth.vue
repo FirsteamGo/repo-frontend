@@ -1,5 +1,4 @@
 <script setup>
-import Actcarousel from "./Actcarousel.vue";
 // example components
 import TransparentBlogCard from "../../../../examples/cards/blogCards/TransparentBlogCard.vue";
 import BackgroundBlogCard from "../../../../examples/cards/blogCards/BackgroundBlogCard.vue";
@@ -16,7 +15,6 @@ import flower from "@/assets/img/ActImg/flower.jpg";
 </script>
 
 <template>
-    <Actcarousel />
     <div class="">
         <el-container>
             <el-header>
@@ -71,11 +69,9 @@ import flower from "@/assets/img/ActImg/flower.jpg";
                         <div class="col-lg-2 col-sm-6">
                             <TransparentBlogCard :image="sun" title="2023 台灣桃園｜東眼山國家森林遊樂區" description="" />
                         </div>
-
                     </div>
                 </section>
             </el-main>
         </el-container>
     </div>
 </template>
-<style></style>
