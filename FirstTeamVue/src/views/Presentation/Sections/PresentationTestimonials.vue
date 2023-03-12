@@ -5,14 +5,13 @@ import DefaultReviewCard from "@/examples/cards/reviewCards/DefaultReviewCard.vu
   <section class="py-7">
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 mx-auto text-center">
-          <h2 class="mb-0">Trusted by over</h2>
-          <h2 class="text-gradient text-success mb-3">
-            1,679,477+ web developers
-          </h2>
+        <div class="col-lg-6 mx-auto text-center mt-3" >
+          <h2 class="mb-0">商店精選</h2>
+          <!-- <h2 class="text-gradient text-warning  mb-">
+            Camping Store
+          </h2> -->
           <p class="lead">
-            Many Fortune 500 companies, startups, universities and governmental
-            institutions love Creative Tim's products.
+            Many Fortune 500 companies, startups.
           </p>
         </div>
       </div>
@@ -26,7 +25,7 @@ import DefaultReviewCard from "@/examples/cards/reviewCards/DefaultReviewCard.vu
         />
         <DefaultReviewCard
           class="ms-md-auto"
-          color="bg-gradient-success"
+          color="bg-gradient-warning "
           name="Shailesh Kushwaha"
           date="1 week ago"
           review='"I found solution to all my design needs from Creative Tim. I
@@ -42,47 +41,11 @@ import DefaultReviewCard from "@/examples/cards/reviewCards/DefaultReviewCard.vu
                   used the components within instead of starting from scratch. I
                   highly recommend for developers who want to spend more time on
                   the backend!."'
-          :rating="5.0"
+          :rating="4.0"
         />
       </div>
       <hr class="horizontal dark my-5" />
-      <div class="row">
-        <div class="col-lg-2 col-md-4 col-6 ms-auto">
-          <img
-            class="w-100 opacity-6"
-            src="@/assets/img/logos/gray-logos/logo-apple.svg"
-            alt="Logo"
-          />
-        </div>
-        <div class="col-lg-2 col-md-4 col-6">
-          <img
-            class="w-100 opacity-6"
-            src="@/assets/img/logos/gray-logos/logo-facebook.svg"
-            alt="Logo"
-          />
-        </div>
-        <div class="col-lg-2 col-md-4 col-6">
-          <img
-            class="w-100 opacity-6"
-            src="@/assets/img/logos/gray-logos/logo-nasa.svg"
-            alt="Logo"
-          />
-        </div>
-        <div class="col-lg-2 col-md-4 col-6 ms-lg-0 ms-md-auto">
-          <img
-            class="w-100 opacity-6"
-            src="@/assets/img/logos/gray-logos/logo-vodafone.svg"
-            alt="Logo"
-          />
-        </div>
-        <div class="col-lg-2 col-md-4 col-6 me-md-auto mx-md-0 mx-auto">
-          <img
-            class="w-100 opacity-6"
-            src="@/assets/img/logos/gray-logos/logo-digitalocean.svg"
-            alt="Logo"
-          />
-        </div>
-      </div>
+      
     </div>
   </section>
 </template>

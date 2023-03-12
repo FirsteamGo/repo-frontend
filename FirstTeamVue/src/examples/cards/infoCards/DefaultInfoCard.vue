@@ -38,14 +38,14 @@ export default {
 </script>
 <template>
   <div :class="`${col ? col : 'col-md-6'}`">
-    <div v-bind="$attrs" class="info">
+    <div v-bind="$attrs" class="warning">
       <i
         v-if="icon"
         class="material-icons text-gradient"
         :class="`${
           typeof icon == 'object'
             ? `text-${icon.color} text-${icon.size}`
-            : 'text-success text-3xl'
+            : 'text-warning  text-3xl'
         }`"
         >{{ typeof icon == "object" ? icon.component : icon }}</i
       >

@@ -1,9 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import PresentationView from "../views/Presentation/PresentationView.vue";
 
-//test
-import testView from "../views/LandingPages/test/test.vue";
-
 
 //yelupages
 import ActView from "@/views/YeluPages/Act/ActView.vue";
@@ -12,6 +9,9 @@ import MemberView from "@/views/YeluPages/Member/MemberView.vue";
 import SelfView from "@/views/YeluPages/Self/SelfView.vue";
 import SetView from "@/views/YeluPages/Set/SetView.vue";
 import ShopView from "@/views/YeluPages/Shop/ShopView.vue";
+//測試用頁面
+import test from "@/views/YeluPages/Self/test.vue";
+import test2 from "@/views/YeluPages/Self/test2.vue";
 
 
 
@@ -52,7 +52,12 @@ const router = createRouter({
     {//test
       path: "/pages/landing-pages/test",
       name: "test",
-      component: testView,
+      component: test,
+    },
+     {//test完刪除
+      path: "/pages/landing-pages/test2",
+      name: "test2",
+      component: test2,
     },
     {
       path: "/pages/Yelu-pages/act",
