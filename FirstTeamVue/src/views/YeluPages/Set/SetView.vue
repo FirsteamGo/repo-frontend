@@ -6,10 +6,13 @@ import DefaultNavbar from "../../../examples/navbars/NavbarDefault.vue";
 import yelufooter from "../../../examples/footers/yelufooter.vue";
 import testtable2 from "./Sections/testtable2.vue";
 //image
-import bg0 from "@/assets/img/bg9.jpg";
+import bg0 from "./img/01.jpeg";
 
 //dep
 import Typed from "typed.js";
+import Layout from "./Sections/Layout.vue";
+
+import Testtable from "./Sections/testtable.vue";
 
 //sections 放置要引入的頁面
 // import Information from "./Sections/AboutInformation.vue";
@@ -57,8 +60,10 @@ onUnmounted(() => {
             </h1>
 
             <p class="lead mb-4 text-white opacity-8">
-              We’re constantly trying to express ourselves and actualize our
-              dreams. If you have the opportunity to play this game
+              不用規劃，直接拎包入住! <br>
+              走進大自然，享受真正的自由！ <br>
+              離開城市，找到屬於自己的寧靜空間！ <br>
+              套裝行程，可以幫你完成你的夢想！ <br>
             </p>
 
 
@@ -67,6 +72,10 @@ onUnmounted(() => {
       </div>
     </div>
   </header>
+
+
+  <Breadcrumb />
+
   <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
 
     <!-- 記得這裡設定引入標籤 -->

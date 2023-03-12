@@ -17,7 +17,7 @@
     <div class="row">
         <div class="col-lg-9 z-index-2 border-radius-xl mx-auto py-3">
             <div class="row">
-                <div class="col-md-4 position-relative book" v-for="item in MemberInfo">
+                <div class="col-md-4 position-relative book" v-for="item in SetFoods">
 
 
                     <p hidden>{{ item.活動id }}</p>
@@ -40,7 +40,7 @@ import axios from "axios";
 
 const webApiBaseAddr = ref("https://localhost:7219/api/ActDetails");
 
-let MemberInfo = reactive([])
+let SetFoods = reactive([])
 
 
 // const filter = ref("")
@@ -59,7 +59,7 @@ const getEmployeeDTOes = onMounted(() => {
         .then(res => {
             console.log(res.data)
             //employeeDTOes=res.data;
-            MemberInfo.splice(0, res.data.length, ...res.data)
+            SetFoods.splice(0, res.data.length, ...res.data)
 
         })
         .catch((err) => {
