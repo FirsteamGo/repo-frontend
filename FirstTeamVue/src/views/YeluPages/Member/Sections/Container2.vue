@@ -8,9 +8,11 @@
       </template>
 
       登入內容
-      <el-input v-model="會員帳號" placeholder="會員帳號" />
+      <div ref="">
+        
+        <el-input v-model="ruleForm.account" placeholder="會員帳號" />
 
-      <el-input v-model="密碼" type="password" placeholder="密碼" show-password
+      <el-input v-model="ruleForm.password" type="password" placeholder="密碼" show-password 
       />
 
       <div m="b-2">
@@ -18,13 +20,19 @@
         >記住帳號，密碼</el-checkbox
       ></div>
 
-      <el-button type="primary">登入</el-button>
-      <el-button type="primary">登入測試Get</el-button>
+      <el-button type="primary"  >登入</el-button>
+      <el-button type="primary" @click="LogInPost()">登入測試Get</el-button>
+      
       
       <div class="flex justify-space-between mb-4 flex-wrap gap-4">
       <el-button v-for="button in buttons" :key="button.text" :type="button.type"
       link>{{ button.text }}</el-button>
       </div>
+
+
+
+      </div>
+      
 
 
 
@@ -74,12 +82,12 @@
 
     
     <el-tab-pane label="修改">
-          
+          <div v-for="item in customerData">
           修改內容
           <Memberphoto1 />
-          <el-input v-model="姓名" placeholder="姓名" />
-    
-          <el-input v-model="電子信箱" placeholder="電子信箱" />
+          {{item.會員id}}
+          {{item.聯絡信箱}}
+          <input v-model="customerData[0].聯絡信箱">
           <el-input v-model="密碼" type="password" placeholder="密碼" show-password
           />
           <el-input v-model="手機號碼" placeholder="手機號碼" />
@@ -103,16 +111,10 @@
           <el-button>重新填寫</el-button>
           
     
-          
+          </div>
     
         
         </el-tab-pane>
-
-
-
-
-
-
 
 
 
@@ -132,10 +134,6 @@
 
 
 
-
-
-
-
   </el-tabs>
 </template>
 
@@ -145,26 +143,100 @@ import { Calendar } from '@element-plus/icons-vue'
 import { ref } from 'vue'
 import { reactive } from 'vue'
 import Memberphoto1 from "./Memberphoto1.vue";
-import Chatbot from "./Chatbot.vue";
-//import Chatbot1 from "./Chatbot1.vue";
+//import Chatbot from "./Chatbot.vue";
+import Chatbot1 from "./Chatbot1.vue";
 
-
-
+//step1
+import axios from 'axios';
+import {onMounted} from 'vue';
+import {useRouter} from 'vue-router';
 
 
 const 會員帳號 = ref('')
-
 const 密碼 = ref('')
 const config = reactive({ autoInsertSpace: false,})
 const buttons = [{ type: 'primary', text: '忘記密碼' },] as const
-
 const 姓名 = ref('')
 const 電子信箱 = ref('')
 const 手機號碼 = ref('')
 const radio = ref(2)
-
-
 const form = reactive({date1: '',})
+const router = useRouter();
+const ruleForm = reactive({
+    account: '',
+    password: '',
+})
+const acc= reactive([])
+const pas=reactive([])
+
+// step3
+const memberData = reactive<memberInterface[]>([])
+
+//step4
+interface memberInterface {
+  // 去 API Model 裡面看要什麼欄位
+        會員id?:number, // 在這裡不能用 int
+        姓名?:string,
+        性別?:boolean,
+        出生日期?:string,
+        會員帳號?:string,
+        會員密碼?:string,
+        照片?:string,
+        聯絡信箱?:string,
+        手機號碼?:string,
+
+}
+
+//step2
+onMounted(async () =>{
+  await axios.get('https://localhost:7108/api/MemberInfoes')
+  .then(response => {
+    memberData.splice(0,response.data.length,...response.data)
+    console.log(memberData);
+  })
+  .catch(error => {
+    console.log(error);
+  })
+
+})
+
+
+const customerData = reactive<memberInterface[]>([]);
+const url = ref("https://localhost:7108/api/MemberInfoes")
+const LogInPost = () => { 
+  // console.log('aaa');
+   
+    axios
+        .post(`${url.value}`, {
+            "account": ruleForm.account,
+            "password": ruleForm.password
+        })
+        .then(result => {        
+          // console.log(result.data);
+          
+            if (result.data != "帳號或密碼錯誤") {
+                // console.log(result.data);
+                customerData.splice(0, result.data.length, result.data)
+                console.log(customerData);
+                
+                // let dataString = JSON.stringify(result.data)
+                // localStorage.setItem("customerData", dataString)
+                //router.push('/CustomerAreaView')
+                
+                
+                alert("登入成功")
+
+            } else {
+                alert("帳號密碼有誤")
+            }
+
+        })
+        .catch(error => {
+            console.log("錯誤");
+
+        })
+}
+
 
 
 
@@ -172,6 +244,11 @@ const form = reactive({date1: '',})
 
 
 </script>
+
+
+
+
+
 <style>
 .demo-tabs > .el-tabs__content {
   padding: 32px;

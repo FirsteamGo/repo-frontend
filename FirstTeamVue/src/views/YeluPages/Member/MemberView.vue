@@ -16,8 +16,12 @@ import Typed from "typed.js";
 // import LinkDatabase from "./Sections/LinkDatabase.vue";
 // import Container from "./Sections/Container.vue";
 // import Container1 from "./Sections/Container1.vue";
- import Container2 from "./Sections/Container2.vue";
- import Breadcrumbs from "./Sections/Breadcrumbs.vue";
+import Container2 from "./Sections/Container2.vue";
+// import Breadcrumbs from "./Sections/Breadcrumbs.vue";
+// import Container3 from "./Sections/Container3.vue";
+ //import Signup from "./Sections/Signup.vue";
+ //import Login from "./Sections/Login.vue";
+ import frame from "./Sections/Frame.vue";
 
 
 const body = document.getElementsByTagName("body")[0];
@@ -84,14 +88,18 @@ onUnmounted(() => {
 
     <!-- 記得這裡設定引入標籤 -->
     <!-- <Information /> -->
-    <Container2 />
    
+    
 
     <Container />
-    <br>
-    <br>
-    <br>
     <Container1 />
+    <Container2 />
+    <Container3 />
+    <Signup />
+    <br>
+    <br>
+    <Login />
+    <frame />
 
   </div>
   <yelufooter />

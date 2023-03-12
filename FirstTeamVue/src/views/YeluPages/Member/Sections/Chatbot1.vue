@@ -1,58 +1,118 @@
 <template>
-    <div>
-      <h1>歡迎使用選擇對話機器人</h1>
-      <div v-if="!chatStarted">
-        <p>機器人：你好，我是一個對話機器人，你可以從以下選項中選擇一個來開始對話。</p>
-        <ul>
-          <li><button @click="startConversation('音樂')">音樂</button></li>
-          <li><button @click="startConversation('運動')">運動</button></li>
-          <li><button @click="startConversation('飲食')">飲食</button></li>
-        </ul>
+  <div>
+    <div v-for="msg in messages" :key="msg.id" class="message">
+      <div class="bot" v-if="msg.sender === 'bot'">
+        {{ msg.content }}
+        <div v-if="msg.options">
+          <div v-for="(option, index) in msg.options" :key="index">
+
+            <button @click="selectOption(msg.id, option.value)">{{ option.label }}</button>
+          
+          
+          </div>
+        </div>
       </div>
-      <div v-else>
-        <p>機器人：<span>{{ botMessage }}</span></p>
-        <p>你：<span>{{ userMessage }}</span></p>
-        <form @submit.prevent="sendMessage">
-          <label for="user-response">回覆：</label>
-          <input type="text" id="user-response" v-model="userResponse">
-          <button type="submit">發送</button>
-        </form>
+      <div class="user" v-else>
+        {{ msg.content }}
       </div>
     </div>
-  </template>
-  
-  <script>
-    export default {
-      data() {
-        return {
-          chatStarted: false,
-          topic: '',
-          botMessage: '',
-          userMessage: '',
-          userResponse: ''
-        }
-      },
-      methods: {
-        startConversation(topic) {
-          this.topic = topic;
-          this.botMessage = `你選擇了${topic}話題，我可以回答一些關於${topic}的問題。`;
-          this.chatStarted = true;
-        },
-        sendMessage() {
-          this.userMessage = this.userResponse;
-          this.botMessage = this.generateResponse(this.userResponse);
-          this.userResponse = '';
-        },
-        generateResponse(userInput) {
-          if (this.topic === '音樂') {
-            return '你喜歡什麼樣的音樂？';
-          } else if (this.topic === '運動') {
-            return '你喜歡哪些運動項目？';
-          } else if (this.topic === '飲食') {
-            return '你喜歡哪些食物？';
-          }
-        }
-      }
+    <form @submit.prevent="submitForm">
+      <input type="text" v-model="newMessage" placeholder="Type a message...">
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</template>
+
+<script>
+import { reactive } from 'vue'
+
+export default {
+  name: 'Chatbot',
+  setup() {
+    const messages = reactive([
+      { id: 1, sender: 'bot', content: '哈囉! 你想要做什麼呢?', options: [
+        { label: '我想露營，我要怎麼做呢?', value: 'option1' },
+        { label: '我想隨便看看~', value: 'option2' },
+        //{ label: 'Option 3', value: 'option3' },
+      ] },
+    ])
+    let newMessage = ''
+
+    function submitForm() {
+      if (!newMessage) return
+      messages.push({ id: messages.length + 1, sender: 'user', content: newMessage })
+      newMessage = ''
+      scrollToBottom()
     }
-  </script>
-  
+
+    function selectOption(msgId, optionValue) {
+      const msgIndex = messages.findIndex(msg => msg.id === msgId)
+      messages[msgIndex].options = null
+      messages.push({ id: messages.length + 1, sender: 'bot', content: `You selected ${optionValue}.` })
+      scrollToBottom()
+    }
+
+
+
+
+
+    
+
+    function scrollToBottom() {
+      setTimeout(() => {
+        const chatWindow = document.querySelector('.chat-window')
+        chatWindow.scrollTop = chatWindow.scrollHeight
+      }, 0)
+    }
+
+    return {
+      messages,
+      newMessage,
+      submitForm,
+      selectOption,
+    }
+  },
+}
+</script>
+
+<style scoped>
+.message {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.bot {
+  background-color: #eee;
+  border-radius: 10px;
+  padding: 10px;
+  max-width: 80%;
+}
+.bot button {
+  margin: 5px;
+  padding: 5px 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.user {
+  align-self: flex-end;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  max-width: 80%;
+}
+form {
+  display: flex;
+  margin-top: 10px;
+}
+input[type="text"] {
+  flex-grow: 1;
+  margin-right: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+</style>
