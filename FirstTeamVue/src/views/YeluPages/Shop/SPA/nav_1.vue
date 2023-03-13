@@ -2,18 +2,18 @@
   <div class="flex flex-wrap items-center">
     <el-dropdown>
       <el-button type="primary">
-        Dropdown List<el-icon class="el-icon--right"><arrow-down /></el-icon>
+        暫定咖啡杯<el-icon class="el-icon--right"><arrow-down /></el-icon>
       </el-button>
       <template #dropdown>
         <el-dropdown-menu class="my-dropdown-menu">
           <router-link
             class="el-dropdown-item"
-            to="/pages/Yelu-pages/Shop/SPA/tnf"
+            to="/pages/Yelu-pages/shop/SPA/tnf"
             >The North Face</router-link
           >
           <router-link
             class="el-dropdown-item"
-            to="/pages/Yelu-pages/Shop/SPA/snowpeak"
+            to="/pages/Yelu-pages/shop/SPA/snowpeak"
             >Snowpeak</router-link
           >
         </el-dropdown-menu>

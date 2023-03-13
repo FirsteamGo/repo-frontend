@@ -1,17 +1,56 @@
-<!-- <script setup></script>
-<template>
-  <h1>111</h1>
-</template>
-<style scoped></style> -->
 <script setup>
-// Vue Material Kit 2 component
-import simpleBookingCard from "@/examples/cards/blogCards/simpleBookingCard.vue";
+import { onMounted, onUnmounted, ref, reactive, computed } from "vue";
+import axios from "axios";
+// example components
+
+import card2 from "../shopcards/card2.vue";
+
+//Vue Material Kit 2 components
+
+
+import sun from "@/assets/img/ActImg/sun.jpg";
+
+
+
+const webApiBaseAddr = ref("https://localhost:7108/api/ShopDetails")
+const imagelist=ref("https://localhost:7120/images/")
+let shopPro = reactive([])
+
+const getEmployeeDTOes = onMounted(() => {
+    axios.get(webApiBaseAddr.value).then(res => {
+        //console.log(res.data);
+        shopPro.splice(0, res.data.length, ...res.data)
+        console.log(shopPro);
+        
+
+    }).catch(err => {
+        console.log(err);
+    })
+})
 </script>
 <template>
-  <SimpleBookingCard
-    image="https://bit.ly/3EZlfcW"
-    categories="Private Room • 1 Guest • 1 Sofa"
-    title="Single room in the center of the city"
-    description="As Uber works through a huge amount of internal management turmoil, the company is also consolidating more of its international business."
-  />
+
+<div class="">
+  <el-container>
+      <!-- <el-header>
+          <div class="row">
+              <div class="">
+                  <h1 class="bkc">熱門精選</h1>
+              </div>
+          </div>
+      </el-header> -->
+      <el-main>
+          <section class="py-3">
+              <div class="row">
+                  <!-- <div class="col-lg-2 col-md-12 col-12">
+                      <BackgroundBlogCard :image="sun" title="熱門精選" description="" />
+                  </div> -->
+                  <div class="col-lg-2 col-sm-6" v-for="item in shopPro"  >
+                      <card2 :image="`${imagelist}${item.產品圖片}`" :title=item.產品名稱 :description="item.單價" />
+                  </div>                  
+              </div>
+              </section>
+          </el-main>
+      </el-container>
+  </div>
 </template>

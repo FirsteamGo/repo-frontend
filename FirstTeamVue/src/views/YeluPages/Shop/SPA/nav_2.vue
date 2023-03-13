@@ -2,19 +2,19 @@
   <div class="flex flex-wrap items-center">
     <el-dropdown>
       <el-button type="primary">
-        Dropdown List<el-icon class="el-icon--right"><arrow-down /></el-icon>
+        容器<el-icon class="el-icon--right"><arrow-down /></el-icon>
       </el-button>
       <template #dropdown>
         <el-dropdown-menu class="my-dropdown-menu">
           <router-link
             class="el-dropdown-item"
-            to="/pages/Yelu-pages/Shop/SPA/con2_1.vue"
-            >Action 1</router-link
+            to="/pages/Yelu-pages/Shop/SPA/asdomain"
+            >SADOMAIN</router-link
           >
           <router-link
             class="el-dropdown-item"
-            to="/pages/Yelu-pages/Shop/SPA/con2_2.vue"
-            >Action 2</router-link
+            to="/pages/Yelu-pages/Shop/SPA/titan"
+            >Tyumen Titan</router-link
           >
         </el-dropdown-menu>
       </template>
