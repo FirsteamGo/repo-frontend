@@ -7,50 +7,41 @@ import card2 from "../shopcards/card2.vue";
 
 //Vue Material Kit 2 components
 
-
 import sun from "@/assets/img/ActImg/sun.jpg";
 
-
-
-const webApiBaseAddr = ref("https://localhost:7108/api/ShopDetails")
-const imagelist=ref("https://localhost:7120/images/")
-let shopPro = reactive([])
+const webApiBaseAddr = ref("https://localhost:7108/api/ShopDetails");
+const imagelist = ref("https://localhost:7120/images/");
+let shopPro = reactive([]);
 
 const getEmployeeDTOes = onMounted(() => {
-    axios.get(webApiBaseAddr.value).then(res => {
-        //console.log(res.data);
-        shopPro.splice(0, res.data.length, ...res.data)
-        console.log(shopPro);
-        
-
-    }).catch(err => {
-        console.log(err);
+  axios
+    .get(webApiBaseAddr.value)
+    .then((res) => {
+      //console.log(res.data);
+      shopPro.splice(0, res.data.length, ...res.data);
+      console.log(shopPro);
     })
-})
+    .catch((err) => {
+      console.log(err);
+    });
+});
 </script>
 <template>
-
-<div class="">
-  <el-container>
-      <!-- <el-header>
-          <div class="row">
-              <div class="">
-                  <h1 class="bkc">熱門精選</h1>
-              </div>
-          </div>
-      </el-header> -->
+  <div class="">
+    <el-container>
       <el-main>
-          <section class="py-3">
-              <div class="row">
-                  <!-- <div class="col-lg-2 col-md-12 col-12">
-                      <BackgroundBlogCard :image="sun" title="熱門精選" description="" />
-                  </div> -->
-                  <div class="col-lg-2 col-sm-6" v-for="item in shopPro"  >
-                      <card2 :image="`${imagelist}${item.產品圖片}`" :title=item.產品名稱 :description="item.單價" />
-                  </div>                  
-              </div>
-              </section>
-          </el-main>
-      </el-container>
+        <section class="py-3">
+          <div class="row">
+            <div class="col-lg-2 col-sm-6" v-for="item in shopPro">
+              <card2
+                :image="`${imagelist}${item.產品圖片}`"
+                :title="item.產品名稱"
+                :description="item.單價"
+              />
+            </div>
+          </div>
+        </section>
+      </el-main>
+    </el-container>
   </div>
 </template>
