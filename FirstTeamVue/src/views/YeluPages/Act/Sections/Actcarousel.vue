@@ -13,9 +13,8 @@ import d from "@/assets/img/ActImg/d.jpg";
 import e from "@/assets/img/ActImg/e.jpg";
 
 
-import { reactive } from 'vue';
+import { ref, reactive } from 'vue';
 import { template } from "lodash";
-
 
 
 const images = reactive([
@@ -32,10 +31,7 @@ const images = reactive([
 <template>
     <el-carousel :interval="1500" type="card">
         <el-carousel-item v-for="item in images" :key="item">
-            <router-link to="camp">
-                <img :src="item.abc" alt="carousel image" class="carousel_image_type">
-            </router-link>
-
+            <img :src=item.abc alt="carousel image" class="carousel_image_type">
         </el-carousel-item>
     </el-carousel>
 </template>

@@ -14,7 +14,7 @@ import Typed from "typed.js";
 import yelufooter from "../../../examples/footers/yelufooter.vue";
 import Actcarousel from "../Act/Sections/Actcarousel.vue";
 import Actselect from "./Sections/Actselect.vue";
-import Actselectcard from "./Sections/Actselectcard.vue";
+import ActSelectBtn from "./Sections/ActSelectBtn.vue";
 
 // import Information from "./Sections/AboutInformation.vue";
 
@@ -45,7 +45,7 @@ onUnmounted(() => {
 
 
 // 串接 GET API
-const webApiBaseAddr = ref("https://localhost:7219/api/ActDetails")
+const webApiBaseAddr = ref("https://localhost:7108/api/ActDetails")
 
 let Act = reactive([])
 
@@ -88,7 +88,7 @@ const getEmployeeDTOes = onMounted(() => {
 
     <!-- 記得這裡設定引入標籤 -->
     <Actselect />
-    <Actselectcard />
+    <ActSelectBtn />
     <Actcarousel />
     <router-view></router-view>
 

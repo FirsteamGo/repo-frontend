@@ -1,47 +1,46 @@
 
 
- <script  setup>
-  import card1 from '../Self/Sections/card.vue'
- 
-  </script> 
+<script  setup>
+import card1 from '../Self/Sections/card.vue'
+
+</script> 
 
 <script >
-  //<!-- 步驟條 -->
-  import step1 from '../Self/Sections/step1.vue'
-  import step2 from '../Act/Sections/Actselectcard.vue'
-  // import step3 from '../Self/Sections/step3.vue'
-  import step3 from '../Self/Sections/step3.vue'
+//<!-- 步驟條 -->
+import step1 from '../Self/Sections/step1.vue'
+// import step3 from '../Self/Sections/step3.vue'
+import step3 from '../Self/Sections/step3.vue'
 
-  import { ref } from 'vue'
-  
-  const active = ref(0)
-    
-  export default {
-    components: {
-      step1,
-      step2,
-      step3
-    },
-    data() {
-      return {
-        content: 'step1',
-      }
-    },
-     methods: {
-      next() {      
+import { ref } from 'vue'
+
+const active = ref(0)
+
+export default {
+  components: {
+    step1,
+    step3
+  },
+  data() {
+    return {
+      content: 'step1',
+    }
+  },
+  methods: {
+    next() {
       active.value++;
-       if (active.value > 3) active.value = 0
-       
-       if (active.value ==1){
-         this.content = 'step1';
-      }else if(active.value ==2){
+      if (active.value > 3) active.value = 0
+
+      if (active.value == 1) {
+        this.content = 'step1';
+      } else if (active.value == 2) {
         this.content = 'step2';
-      }else{
+      } else {
         this.content = 'step3';
       }
-        
+
     }
-  }}
+  }
+}
 
 
 
@@ -50,20 +49,19 @@
 
 
 <template>
-<!-- 步驟條 -->
-<div class="container mt-5 px-5">
-  <el-steps :active="active" finish-status="success" >
-    <el-step title="第一步: 挑選營地" />
-    <el-step title="第二步: 相關活動" />
-    <el-step title="第三步: 挑選飲食 完成" />
-  </el-steps>
-  
-  <el-button style="margin-top: 25px"  @click="next" >點我下一步</el-button>
-  <component :is="content"></component>
+  <!-- 步驟條 -->
+  <div class="container mt-5 px-5">
+    <el-steps :active="active" finish-status="success">
+      <el-step title="第一步: 挑選營地" />
+      <el-step title="第二步: 相關活動" />
+      <el-step title="第三步: 挑選飲食 完成" />
+    </el-steps>
+
+    <el-button style="margin-top: 25px" @click="next">點我下一步</el-button>
+    <component :is="content"></component>
 
 
-</div>
-
+  </div>
 </template>
 
 
@@ -92,12 +90,15 @@
   margin-bottom: -1px;
   margin-right: -1px;
 }
+
 .tab-button:hover {
   background: #e0e0e0;
 }
+
 .tab-button.active {
   background: #e0e0e0;
 }
+
 .tab {
   border: 1px solid #ccc;
   padding: 10px;
