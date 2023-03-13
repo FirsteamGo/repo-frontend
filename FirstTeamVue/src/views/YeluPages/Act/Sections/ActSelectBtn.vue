@@ -31,20 +31,10 @@
                         <component :is="currentTab" class=""></component>
                     </div> -->
     <div class="">
-
-        <router-link to="/pages/Yelu-pages/act/Sections/ActHot">熱門精選</router-link>
-
-
-        <router-link to="/pages/Yelu-pages/act/Sections/ActNorth">北部</router-link>
-
-
-        <router-link to="/pages/Yelu-pages/act/Sections/ActWest">中部</router-link>
-
-
-        <router-link to="/pages/Yelu-pages/act/Sections/ActSouth">南部</router-link>
-
-
-        <router-link to="/pages/Yelu-pages/act/Sections/ActEast">東部</router-link>
-
+        <el-text class="mx-3"><router-link to="/pages/Yelu-pages/act/Sections/ActHot" style="font-weight:bolder; font-size:x-large;">熱門精選</router-link></el-text>
+        <el-text class="mx-3"><router-link to="/pages/Yelu-pages/act/Sections/ActNorth" style="font-weight:bolder; font-size:x-large;">北部</router-link></el-text>
+        <el-text class="mx-3"><router-link to="/pages/Yelu-pages/act/Sections/ActWest" style="font-weight:bolder; font-size:x-large;">中部</router-link></el-text>
+        <el-text class="mx-3"><router-link to="/pages/Yelu-pages/act/Sections/ActSouth" style="font-weight:bolder; font-size:x-large;">南部</router-link></el-text>
+        <el-text class="mx-3"><router-link to="/pages/Yelu-pages/act/Sections/ActEast" style="font-weight:bolder; font-size:x-large;">東部</router-link></el-text>
     </div>
 </template>

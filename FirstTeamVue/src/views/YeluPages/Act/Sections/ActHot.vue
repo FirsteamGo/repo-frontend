@@ -5,6 +5,8 @@ import axios from "axios";
 import ActTransparentBlogCard from "../Sections/ActBlogCards/ActTransparentBlogCard.vue";
 import ActBackgroundBlogCard from "../Sections/ActBlogCards/ActBackgroundBlogCard.vue";
 
+import sun from "@/assets/img/ActImg/sun.jpg";
+
 const webApiBaseAddr = ref("https://localhost:7108/api/ActDetails")
 const MVCimages = ref("https://localhost:7120/images/")
 
@@ -14,21 +16,27 @@ let north = reactive([])
 const getEmployeeDTOes = onMounted(() => {
     axios.get(webApiBaseAddr.value).then(res => {
         //console.log(res.data);
-        for (let i = 0; i < res.data.length; i++) {
-
-            if (res.data[i].地區 == "北區") {
-                north = res.data[i]
-            }
-
-        }
-        Act.splice(0, north.length, ...north.data)
+        Act.splice(0, res.data.length, ...res.data)
         console.log(Act);
-
-
     }).catch(err => {
         console.log(err);
     })
 })
+
+// const getEmployeeDTOes = onMounted(() => {
+//     axios.get(webApiBaseAddr.value).then(res => {
+//         //console.log(res.data);
+//         for (let i = 0; i < res.data.length; i++) {
+//             if (res.data[i].地區 == "北區") {
+//                 north = res.data[i]
+//             }
+//         }
+//         Act.splice(0, north.length, ...north.data)
+//         console.log(Act);
+//     }).catch(err => {
+//         console.log(err);
+//     })
+// })
 </script>
 
 <template>
@@ -49,7 +57,7 @@ const getEmployeeDTOes = onMounted(() => {
                         </div>
                         <div class="col-lg-2 col-sm-6" v-for="item in Act">
                             <ActTransparentBlogCard :image="`${MVCimages}${item.活動圖片}`" :title=item.活動名稱
-                                :description=item.活動介紹 :price=item.門票價格 />
+                                :description=item.活動種類 :price=item.門票價格 />
                         </div>
                     </div>
                 </section>

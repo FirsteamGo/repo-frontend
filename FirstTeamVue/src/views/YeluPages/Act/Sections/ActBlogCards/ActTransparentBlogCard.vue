@@ -22,7 +22,7 @@ defineProps({
         color: String,
         label: String,
         default: () => ({
-            route: "javascript:;",
+            route: "https://element-plus.org/zh-CN/component/icon.html#%E5%9B%BE%E6%A0%87%E9%9B%86%E5%90%88",
             color: "success",
             label: "詳細資訊",
         }),
@@ -54,10 +54,9 @@ defineProps({
                 action.label }}
                 <i class="fas fa-arrow-right text-xs ms-1"></i>
             </a>
+            
             <el-button type="danger" class="cartbtn font-weight-bolder">購買</el-button>
         </div>
     </div>
 </template>
-<style>
-.cartbtn {}
-</style>
+
