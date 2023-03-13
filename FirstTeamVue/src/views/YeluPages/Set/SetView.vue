@@ -13,7 +13,7 @@ import Typed from "typed.js";
 import Layout from "./Sections/Layout.vue";
 
 import Testtable from "./Sections/testtable.vue";
-
+import imagestest from "./Sections/imagestest.vue";
 //sections 放置要引入的頁面
 // import Information from "./Sections/AboutInformation.vue";
 
@@ -80,7 +80,9 @@ onUnmounted(() => {
 
     <!-- 記得這裡設定引入標籤 -->
     <!-- <Information /> -->
+    <Layout/>
     <testtable2 />
+    <imagestest/>
 
   </div>
   <yelufooter />

@@ -1,7 +1,7 @@
 <template>
 
   
-  <el-form-item label="訂單編號">{{訂單編號}}</el-form-item>
+  
   
     <div class="demo-date-picker m-1">
       <div class="block">
@@ -37,6 +37,42 @@
       <el-input-number v-model="num" :min="1" :max="5" @change="handleChange" />
     </el-form-item>
       
+
+    <div class="form-group">
+      <!-- <button type="button" @click="showModal" class="btn btn-success mb-3">新增紀錄</button> -->
+      <el-button text @click="dialogVisible = true">
+        加入購物車
+      </el-button>
+    </div>
+
+
+    <div>
+      <el-dialog v-model="dialogVisible" title="加入購物車" width="30%" draggable>
+        <div class="modal-header">
+
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <template #footer>
+          <span class="dialog-footer">
+            
+            <el-form-item label="訂單編號">{{訂單編號}}</el-form-item>
+            <el-form-item label="預定入住時間 :">{{ formatDate(data[0]) }}</el-form-item>
+            <el-form-item label="預定退住時間 :">{{ formatDate(data[1]) }}</el-form-item>            
+            <el-form-item label="預定參加人數 :">{{ numberOfPeople }}</el-form-item>
+            <el-form-item label="合計總價 :">{{ totalPrice }}</el-form-item>
+            <el-form-item label="評論 :">{{ form.desc }}</el-form-item>
+            <el-form-item label="評分 :">{{ num }}</el-form-item>
+
+            <el-button @click="dialogVisible = false">取消</el-button>
+            <el-button type="primary" @click=" {section();dialogVisible = false} ">
+              儲存
+            </el-button>
+          </span>
+        </template>
+      </el-dialog>
+    </div>
+
+
     
   </template>
   
@@ -47,12 +83,30 @@
   const pricePerPerson=ref('1000')
   const form = reactive({desc:''})
   const now = new Date();
+  const dialogVisible = ref(false)
   
-  const 訂單編號 = `Set${now.getFullYear()}${(now.getMonth() + 1).toString().padStart(2, "0")}
-  ${now.getDate().toString().padStart(2, "0")}${now.getHours().toString().padStart(2, "0")}
-  ${now.getMinutes().toString().padStart(2, "0")}${now.getSeconds().toString().padStart(2, "0")}`;
+  const 訂單編號 = `Set${now.getFullYear()}${(now.getMonth() + 1).toString().padStart(2, "0")}${now.getDate().toString().padStart(2, "0")}${now.getHours().toString().padStart(2, "0")}${now.getMinutes().toString().padStart(2, "0")}${now.getSeconds().toString().padStart(2, "0")}`;
+  const Alldata= reactive<orderInterface[]>([])
 
-  console.log(訂單編號);
+ //step4
+interface orderInterface {
+  // 去 API Model 裡面看要什麼欄位
+        訂單編號?:string, // 在這裡不能用 int
+        預定入住時間?:string,
+        預定退住時間?:string,
+        預定參加人數?:number,
+        合計總價?:number,
+        評論?:string,
+        評分?:number,
+        
+
+}
+
+
+
+
+
+  //console.log(訂單編號);
   
   const formatDate = (dateString)=> {
       const date = new Date(dateString);
@@ -64,13 +118,39 @@
     const totalPrice = computed(() => {
     const people = parseInt(numberOfPeople.value);
     const price = parseInt(pricePerPerson.value);
-    return isNaN(people) || isNaN(price) ? 0 : people * price;
+    const total = isNaN(people) || isNaN(price) ? 0 : people * price;
+    return total
     });
     const num = ref(1)
     const handleChange = (value: number) => {
      console.log(value)
     }
-  
+  const section=()=>{
+    const Setnu = 訂單編號;
+    const Setintime = formatDate(data[0]);
+    const Setouttime =formatDate(data[1]);
+    const Setpeonu = parseInt(numberOfPeople.value);
+    let Settonu = totalPrice.value;
+    const Setreview =  form.desc;
+    const Setreviewnu = num.value;
+    const Alldata=reactive<orderInterface[]>([
+      {
+        訂單編號:Setnu,        
+        預定入住時間:Setintime,
+        預定退住時間:Setouttime,
+        預定參加人數:Setpeonu,
+        合計總價:Settonu,
+        評論:Setreview,
+        評分:Setreviewnu,
+      }
+    ])
+    //console.log(Alldata.values);
+    console.log(Alldata);
+    
+    
+
+
+  }
  
   </script>
   <style>
