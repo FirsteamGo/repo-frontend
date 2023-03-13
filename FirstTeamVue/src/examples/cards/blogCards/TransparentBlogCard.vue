@@ -20,7 +20,7 @@ defineProps({
     default: () => ({
       route: "javascript:;",
       color: "success",
-      label: "詳細資訊",
+      label: "read more",
     }),
   },
 });
@@ -45,9 +45,6 @@ defineProps({
         action.label }}
         <i class="fas fa-arrow-right text-xs ms-1"></i>
       </a>
-      <!-- <el-button type="warning" :icon="Search" round>詳細資訊</el-button> -->
-
-      <el-button type="danger" :icon="Search" class="cartbtn font-weight-bolder">加入購物車</el-button>
     </div>
   </div>
 </template>

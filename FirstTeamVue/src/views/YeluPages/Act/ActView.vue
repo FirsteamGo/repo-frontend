@@ -3,8 +3,6 @@ import { onMounted, onUnmounted, ref, reactive, computed } from "vue";
 import axios from "axios";
 //example components
 import DefaultNavbar from "../../../examples/navbars/NavbarDefault.vue";
-import yelufooter from "../../../examples/footers/yelufooter.vue";
-import testtable2 from "../Set/Sections/testtable2.vue";
 
 //image
 import bg0 from "@/assets/img/bg/bg01.jpg";
@@ -13,9 +11,10 @@ import bg0 from "@/assets/img/bg/bg01.jpg";
 import Typed from "typed.js";
 
 //sections 放置要引入的頁面
-//import Actcarousel from "./Sections/Actcarousel.vue";
+import yelufooter from "../../../examples/footers/yelufooter.vue";
+import Actcarousel from "../Act/Sections/Actcarousel.vue";
 import Actselect from "./Sections/Actselect.vue";
-import Actselectcard from "./Sections/Actselectcard.vue";
+import ActSelectBtn from "./Sections/ActSelectBtn.vue";
 
 // import Information from "./Sections/AboutInformation.vue";
 
@@ -44,7 +43,9 @@ onUnmounted(() => {
   body.classList.remove("bg-gray-200");
 });
 
-const webApiBaseAddr = ref("https://localhost:7219/api/ActDetails")
+
+// 串接 GET API
+const webApiBaseAddr = ref("https://localhost:7108/api/ActDetails")
 
 let Act = reactive([])
 
@@ -74,13 +75,10 @@ const getEmployeeDTOes = onMounted(() => {
             <h1 class="text-white">
               在地體驗
             </h1>
-
             <p class="lead mb-4 text-white opacity-8">
               We’re constantly trying to express ourselves and actualize our
               dreams. If you have the opportunity to play this game
             </p>
-
-
           </div>
         </div>
       </div>
@@ -89,13 +87,10 @@ const getEmployeeDTOes = onMounted(() => {
   <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
 
     <!-- 記得這裡設定引入標籤 -->
-    <!-- <el-header class="search">
-    <Actsearch />
-    </el-header> -->
     <Actselect />
-    <!-- <Actcarousel /> -->
-    <Actselectcard />
-  
+    <ActSelectBtn />
+    <Actcarousel />
+    <router-view></router-view>
 
 
     <!-- <Information /> -->
