@@ -144,7 +144,7 @@ watch(
               id="dropdownMenuBlocks" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="material-icons opacity-6 me-2 text-md" :class="getTextColor()"><span
                   class="material-symbols-outlined">home</span></i>
-              營區預定
+              營區預訂
               <img :src="getArrowColor()" alt="down-arrow" class="arrow ms-2 d-lg-block d-none" />
               <img :src="getArrowColor()" alt="down-arrow" class="arrow ms-1 d-lg-none d-block ms-auto" />
             </a>
@@ -158,190 +158,86 @@ watch(
                       <div class="d-flex">
                         <div class="w-100 d-flex align-items-center justify-content-between">
                           <div>
-                            <h6
-                              class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                              北部
-                            </h6>
+                            <RouterLink :to="{ name: 'camp' }" class="dropdown-item border-radius-md">
+                            <span class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
+                              北部</span>
+                            </RouterLink> 
                             <span class="text-sm">North District</span>
                           </div>
-                          <img :src="downArrow" alt="down-arrow" class="arrow" />
+                          <!-- <img :src="downArrow" alt="down-arrow" class="arrow" /> -->
                         </div>
                       </div>
                     </a>
-                    <div class="dropdown-menu mt-0 py-3 px-2 mt-3">
-                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
-                        新北
-                      </RouterLink>
-                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
-                        桃園
-                      </RouterLink>
-                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
-                        新竹
-                      </RouterLink>
-                    </div>
+                    
                   </li>
                   <li class="nav-item dropdown dropdown-hover dropdown-subitem list-group-item border-0 p-0">
                     <a class="dropdown-item py-2 ps-3 border-radius-md" href="javascript:;">
                       <div class="d-flex">
                         <div class="w-100 d-flex align-items-center justify-content-between">
                           <div>
-                            <h6
-                              class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                              中部
-                            </h6>
+                            <RouterLink :to="{ name: 'camp' }" class="dropdown-item border-radius-md">
+                            <span class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
+                              中部</span>
+                            </RouterLink> 
                             <span class="text-sm">Central District</span>
                           </div>
-                          <img :src="downArrow" alt="down-arrow" class="arrow" />
+                          <!-- <img :src="downArrow" alt="down-arrow" class="arrow" /> -->
                         </div>
                       </div>
                     </a>
-                    <div class="dropdown-menu mt-0 py-3 px-2 mt-3">
-                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
-                        苗栗
-                      </RouterLink>
-                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
-                        南投
-                      </RouterLink>
-                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
-                        台中
-                      </RouterLink>
-                    </div>
+                   
                   </li>
                   <li class="nav-item dropdown dropdown-hover dropdown-subitem list-group-item border-0 p-0">
                     <a class="dropdown-item py-2 ps-3 border-radius-md" href="javascript:;">
                       <div class="d-flex">
                         <div class="w-100 d-flex align-items-center justify-content-between">
                           <div>
-                            <h6
-                              class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                              南部
-                            </h6>
+                            <RouterLink :to="{ name: 'camp' }" class="dropdown-item border-radius-md">
+                            <span class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
+                              南部</span>
+                            </RouterLink> 
                             <span class="text-sm">South District</span>
                           </div>
-                          <img :src="downArrow" alt="down-arrow" class="arrow" />
+                          <!-- <img :src="downArrow" alt="down-arrow" class="arrow" /> -->
                         </div>
                       </div>
                     </a>
-                    <div class="dropdown-menu mt-0 py-3 px-2 mt-3">
-                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
-                        嘉義
-                      </RouterLink>
-                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
-                        台南
-                      </RouterLink>
-                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
-                        高雄
-                      </RouterLink>
-                    </div>
+                   
                   </li>
                   <li class="nav-item dropdown dropdown-hover dropdown-subitem list-group-item border-0 p-0">
                     <a class="dropdown-item py-2 ps-3 border-radius-md" href="javascript:;">
                       <div class="d-flex">
                         <div class="w-100 d-flex align-items-center justify-content-between">
                           <div>
-                            <h6
-                              class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                              東部
-                            </h6>
+                            <RouterLink :to="{ name: 'camp' }" class="dropdown-item border-radius-md">
+                            <span class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
+                              東部</span>
+                            </RouterLink> 
                             <span class="text-sm">East District</span>
                           </div>
-                          <img :src="downArrow" alt="down-arrow" class="arrow" />
+                          <!-- <img :src="downArrow" alt="down-arrow" class="arrow" /> -->
                         </div>
                       </div>
                     </a>
-                    <div class="dropdown-menu mt-0 py-3 px-2 mt-3">
-                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
-                        宜蘭
-                      </RouterLink>
-                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
-                        花蓮
-                      </RouterLink>
-                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
-                        台東
-                      </RouterLink>
-                    </div>
+                    
                   </li>
                 </ul>
               </div>
               <!-- 以下是為了設定RWD -->
               <div class="row d-lg-none">
                 <div class="col-md-12">
-                  <div class="d-flex mb-2">
-                    <div class="w-100 d-flex align-items-center justify-content-between">
-                      <div>
-                        <h6
-                          class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                          北部
-                        </h6>
-                      </div>
-                    </div>
-                  </div>
                   <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
-                    新北
+                    北部
+                  </RouterLink>
+                <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
+                    中部
+                </RouterLink>
+                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
+                    南部
                   </RouterLink>
                   <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
-                    桃園
-                  </RouterLink>
-                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
-                    新竹
-                  </RouterLink>
-                  <div class="d-flex mb-2 mt-3">
-                    <div class="w-100 d-flex align-items-center justify-content-between">
-                      <div>
-                        <h6
-                          class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                          中部
-                        </h6>
-                      </div>
-                    </div>
-                  </div>
-                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
-                    苗栗
-                  </RouterLink>
-                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
-                    南投
-                  </RouterLink>
-                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
-                    台中
-                  </RouterLink>
-                  <div class="d-flex mb-2 mt-3">
-                    <div class="w-100 d-flex align-items-center justify-content-between">
-                      <div>
-                        <h6
-                          class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                          南部
-                        </h6>
-                      </div>
-                    </div>
-                  </div>
-                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
-                    嘉義
-                  </RouterLink>
-                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
-                    台南
-                  </RouterLink>
-                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
-                    高雄
-                  </RouterLink>
-                  <div class="d-flex mb-2 mt-3">
-                    <div class="w-100 d-flex align-items-center justify-content-between">
-                      <div>
-                        <h6
-                          class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                          東部
-                        </h6>
-                      </div>
-                    </div>
-                  </div>
-                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
-                    宜蘭
-                  </RouterLink>
-                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
-                    花蓮
-                  </RouterLink>
-                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
-                    台東
-                  </RouterLink>
+                    東部
+                  </RouterLink> 
                 </div>
               </div>
             </div>
@@ -352,41 +248,62 @@ watch(
           <!-- 導覽列第二個按鈕 -->
           <li class="nav-item dropdown dropdown-hover mx-2">
             <a role="button" class="nav-link ps-2 d-flex cursor-pointer align-items-center" :class="getTextColor()"
-              id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="material-icons opacity-6 me-2 text-md" :class="getTextColor()">map</i>
+              id="dropdownMenuBlocks" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="material-icons opacity-6 me-2 text-md" :class="getTextColor()"><span
+                  class="material-symbols-outlined">map</span></i>
               行程選擇
               <img :src="getArrowColor()" alt="down-arrow" class="arrow ms-2 d-lg-block d-none" />
               <img :src="getArrowColor()" alt="down-arrow" class="arrow ms-1 d-lg-none d-block ms-auto" />
             </a>
-            <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-xl mt-0 mt-lg-3"
-              aria-labelledby="dropdownMenuPages">
-              <div class="row d-none d-lg-block">
-                <!-- <div class="row d-none d-lg-flex"> -->
-                <div class="col-12 px-4 py-2">
-                  <div class="row">
-                    <div class="position-relative">
-                      <RouterLink :to="{ name: 'self' }" class="dropdown-item border-radius-md">
-                        <span>自選行程</span>
-                      </RouterLink>
-                      <RouterLink :to="{ name: 'set' }" class="dropdown-item border-radius-md">
-                        <span>套裝行程</span>
-                      </RouterLink>
-                    </div>
-                  </div>
-                </div>
+            <div
+              class="dropdown-menu dropdown-menu-end dropdown-menu-animation dropdown-md dropdown-md-responsive p-3 border-radius-lg mt-0 mt-lg-3"
+              aria-labelledby="dropdownMenuBlocks">
+              <div class="d-none d-lg-block">
+                <ul class="list-group">
+                  <li class="nav-item dropdown dropdown-hover dropdown-subitem list-group-item border-0 p-0">
+                    <a class="dropdown-item py-2 ps-3 border-radius-md" href="javascript:;">
+                      <div class="d-flex">
+                        <div class="w-100 d-flex align-items-center justify-content-between">
+                          <div>
+                            <RouterLink :to="{ name: 'self' }" class="dropdown-item border-radius-md">
+                            <span class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
+                              自選行程</span>
+                            </RouterLink> 
+                            <span class="text-sm">Self-guided Camp</span>
+                          </div>
+                          <!-- <img :src="downArrow" alt="down-arrow" class="arrow" /> -->
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="nav-item dropdown dropdown-hover dropdown-subitem list-group-item border-0 p-0">
+                    <a class="dropdown-item py-2 ps-3 border-radius-md" href="javascript:;">
+                      <div class="d-flex">
+                        <div class="w-100 d-flex align-items-center justify-content-between">
+                          <div>
+                            <RouterLink :to="{ name: 'set' }" class="dropdown-item border-radius-md">
+                            <span class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
+                              套裝行程</span>
+                            </RouterLink> 
+                            <span class="text-sm">Package Camp</span>
+                          </div>
+                          <!-- <img :src="downArrow" alt="down-arrow" class="arrow" /> -->
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
               </div>
-
               <!-- 以下是為了設定RWD -->
-              <div class="d-lg-none">
-                <div class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-0">
-                  行程選擇
+              <div class="row d-lg-none">
+                <div class="col-md-12">
+                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'self' }">
+                    自選行程
+                  </RouterLink>
+                <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'set' }">
+                  套裝行程
+                </RouterLink>
                 </div>
-                <RouterLink :to="{ name: 'self' }" class="dropdown-item border-radius-md">
-                  <span>自選行程</span>
-                </RouterLink>
-                <RouterLink :to="{ name: 'set' }" class="dropdown-item border-radius-md">
-                  <span>套裝行程</span>
-                </RouterLink>
               </div>
             </div>
           </li>
@@ -422,43 +339,19 @@ watch(
 
 
           <!-- 導覽列第五個按鈕 -->
-          <li class="nav-item dropdown dropdown-hover mx-2">
-            <a role="button" class="nav-link ps-2 d-flex cursor-pointer align-items-center" :class="getTextColor()"
-              id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="material-icons opacity-6 me-2 text-md" :class="getTextColor()">account_circle</i>
-              會員中心
-              <img :src="getArrowColor()" alt="down-arrow" class="arrow ms-2 d-lg-block d-none" />
-              <img :src="getArrowColor()" alt="down-arrow" class="arrow ms-1 d-lg-none d-block ms-auto" />
-            </a>
-            <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-xl mt-0 mt-lg-3"
-              aria-labelledby="dropdownMenuPages">
-              <div class="row d-none d-lg-block">
-                <div class="col-12 px-4 py-2">
-                  <div class="row">
-                    <div class="position-relative">
-                      <RouterLink :to="{ name: 'member' }" class="dropdown-item border-radius-md">
-                        <span>會員首頁</span>
-                      </RouterLink>
-                      <RouterLink :to="{ name: 'member' }" class="dropdown-item border-radius-md">
-                        <span>登入/註冊</span>
-                      </RouterLink>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- 以下是為了設定RWD -->
-              <div class="d-lg-none">
-                <div class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-0">
-                </div>
+          <div>
+            <li class="nav-item mx-2">
+              <a role="button" class="nav-link ps-2 d-flex cursor-pointer align-items-center" :class="getTextColor()"
+                aria-expanded="false">
                 <RouterLink :to="{ name: 'member' }" class="dropdown-item border-radius-md">
-                  <span>會員首頁</span>
+                  <i class="material-icons opacity-6 me-2  text-md" :class="getTextColor()">account_circle</i>
+                  會員中心
                 </RouterLink>
-                <RouterLink :to="{ name: 'member' }" class="dropdown-item border-radius-md">
-                  <span>登入/註冊</span>
-                </RouterLink>
-              </div>
-            </div>
-          </li>
+              </a>
+            </li>
+          </div>
+         
+
         </ul>
       </div>
     </div>
