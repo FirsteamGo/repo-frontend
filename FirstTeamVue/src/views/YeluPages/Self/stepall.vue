@@ -28,14 +28,16 @@ export default {
   methods: {
     next() {
       active.value++;
-      if (active.value > 3) active.value = 0
-
-      if (active.value == 1) {
-        this.content = 'step1';
-      } else if (active.value == 2) {
-        this.content = 'step2';
-      } else {
+       if (active.value > 3) active.value = 0
+       
+       if (active.value ==1){
+         this.content = 'step2';
+      }else if(active.value ==2){
         this.content = 'step3';
+      }else if(active.value ==3){
+      this.content = 'step3';
+      }else{
+        this.content = 'step1';
       }
 
     }
