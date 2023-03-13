@@ -16,12 +16,13 @@ import Typed from "typed.js";
 // import LinkDatabase from "./Sections/LinkDatabase.vue";
 // import Container from "./Sections/Container.vue";
 // import Container1 from "./Sections/Container1.vue";
-import Container2 from "./Sections/Container2.vue";
+// import Container2 from "./Sections/Container2.vue";
 // import Breadcrumbs from "./Sections/Breadcrumbs.vue";
 // import Container3 from "./Sections/Container3.vue";
  //import Signup from "./Sections/Signup.vue";
  //import Login from "./Sections/Login.vue";
  import frame from "./Sections/Frame.vue";
+ import frame1 from "./Sections/Frame1.vue";
 
 
 const body = document.getElementsByTagName("body")[0];
@@ -100,6 +101,9 @@ onUnmounted(() => {
     <br>
     <Login />
     <frame />
+    <br>
+    <br>
+    <frame1 />
 
   </div>
   <yelufooter />
