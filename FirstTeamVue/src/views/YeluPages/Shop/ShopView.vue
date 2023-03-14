@@ -86,13 +86,14 @@ onUnmounted(() => {
       <el-header class="head"><carousel /></el-header>
       <el-header class="inputlocation"><inputContent /></el-header>
       <test1 />
-      <el-container>
+      <el-container class="good">
         <nav1 />
         <nav2 />
         <nav3 />
         <nav4 />
         <nav5 />
       </el-container>
+
       <el-main><router-view /></el-main>
 
       <!-- <el-header class="item">
@@ -122,13 +123,26 @@ onUnmounted(() => {
   justify-content: center;
   background-color: blue;
 }
-nav {
+.good {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+/* .good > * {
+  flex: 10; 
+  text-align: center; 
+} */
+
+/* nav {
   width: 100%;
   text-align: center;
-  margin-top: 2rem;
+  align-items: center;
+  justify-content: center;
+  background-color: brown;
 }
 nav > a {
   margin: 0 30px;
   background-color: aqua;
-}
+} */
 </style>
