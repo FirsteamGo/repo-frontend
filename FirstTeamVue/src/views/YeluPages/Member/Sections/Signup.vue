@@ -7,7 +7,7 @@ import type { FormInstance } from 'element-plus'
 const ruleFormRef = ref()
 
 // do not use same name with ref
-// 創建一個 form
+// 創建一個 ruleform 紀錄要存放的資料
 const ruleForm = reactive({
   // picture:'',
   性別:'',
@@ -21,7 +21,7 @@ const ruleForm = reactive({
 
 
 // 註冊鈕驗證功能
-// 當按下註冊鈕執行此功能(submitForm)，
+// 當按下註冊鈕執行此功能(submitForm)，裡面有 SignUpPost 功能
 const submitForm = async (formEl: FormInstance | undefined) => {
     if (!formEl) return
     await formEl.validate((valid, fields) => {
@@ -34,6 +34,7 @@ const submitForm = async (formEl: FormInstance | undefined) => {
     })
 }
 
+// 叫用 api 裡面的控制器(看是要用 post 還是 get 功能，要去 controller 裡面新建一個 post api 來用，還要新建一個 DTO)
 const url = ref("https://localhost:7108/api/MemberInfoes/SignUp") // 要改網址列
 
 const SignUpPost = () => {
@@ -54,7 +55,7 @@ const SignUpPost = () => {
     console.log("錯誤");
   })
 }
-// 註冊測試功能
+// 註冊測試功能，按下按鈕後將資料帶入欄位。
 const SignUpGet = () => {
     axios
         .get("https://localhost:7108/api/MemberInfoes/1")
@@ -85,7 +86,7 @@ const SignUpGet = () => {
 
     <el-form-item label="性別" prop="性別">
       <el-radio-group v-model="ruleForm.性別">
-        <el-radio label="男" value="1" />
+        <el-radio label="男" value="1" v-if="ruleForm.性別"/>
         <el-radio label="女" value="0" />
       </el-radio-group>
     </el-form-item>

@@ -18,9 +18,16 @@
       <el-input v-model="ruleForm.password" />
     </el-form-item>
 
+
+
+
     <el-form-item>
         <el-checkbox label="記住帳號，密碼"/>
     </el-form-item>
+
+
+
+
 
     <el-button type="primary" @click="submitForm(ruleFormRef)">
         登入
@@ -128,7 +135,7 @@ const LogInPost = () => {
                 
                 
                 alert("登入成功")
-
+                localStorage.setItem("customerData", JSON.stringify(user))
             } else {
                 alert("帳號密碼有誤")
             }
