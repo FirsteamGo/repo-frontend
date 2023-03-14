@@ -1,5 +1,3 @@
-
-
 <script  setup>
 import card1 from '../Self/Sections/card.vue'
 
@@ -7,8 +5,8 @@ import card1 from '../Self/Sections/card.vue'
 
 <script >
 //<!-- 步驟條 -->
-import step1 from '../Self/Sections/step1.vue'
-// import step3 from '../Self/Sections/step3.vue'
+import CampView from '../Camp/Sections/CampCarousel.vue'
+import step2 from '../Self/Sections/step2.vue'
 import step3 from '../Self/Sections/step3.vue'
 
 import { ref } from 'vue'
@@ -17,12 +15,13 @@ const active = ref(0)
 
 export default {
   components: {
-    step1,
+    CampView,
+    step2,
     step3
   },
   data() {
     return {
-      content: 'step1',
+      content: 'CampView',
     }
   },
   methods: {
@@ -31,9 +30,9 @@ export default {
        if (active.value > 3) active.value = 0
        
        if (active.value ==1){
-         this.content = 'step2';
+         this.content = 'CampView';
       }else if(active.value ==2){
-        this.content = 'step3';
+        this.content = 'step2';
       }else if(active.value ==3){
       this.content = 'step3';
       }else{

@@ -11,6 +11,7 @@ import ShopView from "@/views/YeluPages/Shop/ShopView.vue";
 //測試用頁面
 import test from "@/views/YeluPages/Self/test.vue";
 import test2 from "@/views/YeluPages/Self/test2.vue";
+import shoppingcart from "@/views/YeluPages/shoppingcart.vue";
 
 import AboutView from "../views/LandingPages/AboutUs/AboutView.vue";
 import ContactView from "../views/LandingPages/ContactUs/ContactView.vue";
@@ -55,6 +56,12 @@ const router = createRouter({
       path: "/pages/landing-pages/test2",
       name: "test2",
       component: test2,
+    },
+    {
+
+      path: "/pages/Yelu-pages/shoppingcart",
+      name: "shoppingcart",
+      component: shoppingcart,
     },
     {
       path: "/pages/Yelu-pages/act",
