@@ -1,19 +1,15 @@
 import { createRouter, createWebHistory } from "vue-router";
 import PresentationView from "../views/Presentation/PresentationView.vue";
 
-//yelupages
-import ActView from "@/views/YeluPages/Act/ActView.vue";
-import CampView from "@/views/YeluPages/Camp/CampView.vue";
-import MemberView from "@/views/YeluPages/Member/MemberView.vue";
-import SelfView from "@/views/YeluPages/Self/SelfView.vue";
-import SetView from "@/views/YeluPages/Set/SetView.vue";
-import ShopView from "@/views/YeluPages/Shop/ShopView.vue";
-//測試用頁面
-import test from "@/views/YeluPages/Self/test.vue";
-import test2 from "@/views/YeluPages/Self/test2.vue";
-import stepall from "@/views/YeluPages/Self/stepall.vue";
-// import shoppingcart from "@/views/YeluPages/shoppingcart.vue";
+//各分支router
+import CampRouter from '@/router/Camp.js'
+import SelfRouter from '@/router/Self.js'
+import SetRouter from '@/router/Set.js'
+import ActRouter from '@/router/Act.js'
+import ShopRouter from '@/router/Shop.js'
+import MemberRouter from '@/router/Member.js'
 
+//模板原有router
 import AboutView from "../views/LandingPages/AboutUs/AboutView.vue";
 import ContactView from "../views/LandingPages/ContactUs/ContactView.vue";
 import AuthorView from "../views/LandingPages/Author/AuthorView.vue";
@@ -41,200 +37,20 @@ import ElTypography from "../layouts/sections/elements/typography/TypographyView
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+
+    //各分支router
+    ...CampRouter,
+    ...SelfRouter,
+    ...SetRouter,
+    ...ActRouter,
+    ...ShopRouter,
+    ...MemberRouter,
+
+    //模板原有router
     {
       path: "/",
       name: "presentation",
       component: PresentationView,
-    },
-    {
-      //test
-      path: "/pages/landing-pages/test",
-      name: "test",
-      component: test,
-    },
-    {
-      //test完刪除
-      path: "/pages/landing-pages/test2",
-      name: "test2",
-      component: test2,
-    },
-    {
-      //test完刪除
-      path: "/pages/Yelu-pages/Self/stepall",
-      name: "stepall",
-      component: stepall,
-      children: [
-        {
-          path: "YeluPages/shoppingcart",
-          name: "shoppingcart",
-          component: () => import("../views/YeluPages/shoppingcart.vue"),
-        },
-      ]
-    },
-    // {
-
-    //   path: "/pages/Yelu-pages/shoppingcart",
-    //   name: "shoppingcart",
-    //   component: shoppingcart,
-
-    // },
-    {
-      path: "/pages/Yelu-pages/act",
-      name: "act",
-      component: ActView,
-      children: [
-        {
-          path: "Sections/ActHot",
-          name: "ActHot",
-          component: () => import("../views/YeluPages/Act/Sections/ActHot.vue"),
-          children: [
-            {
-              path: "ActBlogCards/ActBlogCardValue",
-              name: "ActBlogCardValue",
-              component: () => import("../views/YeluPages/Act/Sections/ActBlogCards/ActBlogCardValue.vue")
-            },
-          ]
-        },
-        {
-          path: "Sections/ActNorth",
-          name: "ActNorth",
-          component: () => import("../views/YeluPages/Act/Sections/ActNorth.vue"),
-
-        },
-        {
-          path: "Sections/ActWest",
-          name: "ActWest",
-          component: () => import("../views/YeluPages/Act/Sections/ActWest.vue"),
-          children: [
-            {
-              path: "ActBlogCards/ActBlogCardValue",
-              name: "ActBlogCardValue",
-              component: () => import("../views/YeluPages/Act/Sections/ActBlogCards/ActBlogCardValue.vue")
-            },
-          ]
-        },
-        {
-          path: "Sections/ActSouth",
-          name: "ActSouth",
-          component: () => import("../views/YeluPages/Act/Sections/ActSouth.vue"),
-        },
-        {
-          path: "Sections/ActEast",
-          name: "ActEast",
-          component: () => import("../views/YeluPages/Act/Sections/ActEast.vue"),
-        },
-      ]
-    },
-    {
-      path: "/pages/Yelu-pages/camp",
-      name: "camp",
-      component: CampView,
-      children: [
-        {
-          path: "Sections/CampHot",
-          name: "CampHot",
-          component: () => import("../views/YeluPages/Camp/Sections/CampHot.vue"),
-        },
-        {
-          path: "Sections/CampNorth",
-          name: "CampNorth",
-          component: () => import("../views/YeluPages/Camp/Sections/CampNorth.vue"),
-        },
-        {
-          path: "Sections/CampWest",
-          name: "CampWest",
-          component: () => import("../views/YeluPages/Camp/Sections/CampWest.vue"),
-        },
-        {
-          path: "Sections/CampSouth",
-          name: "CampSouth",
-          component: () => import("../views/YeluPages/Camp/Sections/CampSouth.vue"),
-        },
-        {
-          path: "Sections/CampEast",
-          name: "CampEast",
-          component: () => import("../views/YeluPages/Camp/Sections/CampEast.vue"),
-        },
-      ]
-    },
-    {
-      path: "/pages/Yelu-pages/member",
-      name: "member",
-      component: MemberView,
-    },
-    {
-      path: "/pages/Yelu-pages/self",
-      name: "self",
-      component: SelfView,
-    },
-    {
-      path: "/pages/Yelu-pages/set",
-      name: "set",
-      component: SetView,
-    },
-    {
-      path: "/pages/Yelu-pages/shop",
-      name: "shop",
-      component: ShopView,
-      children:[
-        {
-          path:"SPA/tnf",
-          name:"tnf",
-          component:()=>import("../views/YeluPages/Shop/SPA/con1_1.vue"),
-        },
-        {
-          path:"SPA/snowpeak",
-          name:"snowpeak",
-          component:()=>import("../views/YeluPages/Shop/SPA/con1_2.vue"),
-        },
-        {
-          path:"SPA/asdomain",
-          name:"砝瑯杯",
-          component:()=>import("../views/YeluPages/Shop/SPA/con2_1.vue"),
-        },
-        {
-          path:"SPA/titan",
-          name:"酒杯",
-          component:()=>import("../views/YeluPages/Shop/SPA/con2_2.vue"),
-        },
-        {
-          path:"SPA/chair",
-          name:"小森椅",
-          component:()=> import("../views/YeluPages/Shop/SPA/con3_1.vue"),
-        },
-        {
-          path:"SPA/forChair",
-          name:"椅子",
-          component:()=> import("../views/YeluPages/Shop/SPA/con3_2.vue"),
-        },
-        {
-          path:"SPA/woof",
-          name:"羊毛睡袋",
-          component:()=>import("../views/YeluPages/Shop/SPA/con4_1.vue"),
-        },
-        {
-          path:"SPA/naturehike",
-          name:"科技棉睡袋",
-          component:()=>import("../views/YeluPages/Shop/SPA/con4_2.vue"),
-        },
-        {
-          path:"SPA/cloudsea",
-          name:"雲海",
-          component:()=>import("../views/YeluPages/Shop/SPA/con5_1.vue"),
-        },
-        {
-          path:"SPA/adria",
-          name:"阿迪雅",
-          component:()=>import("../views/YeluPages/Shop/SPA/con5_2.vue"),
-        },
-        {
-          path:"test1",
-          name:"test",
-          componenet:()=>("../views/YeluPages/Shop/shopsections/test1.vue"),
-          
-        },
-        
-      ]
     },
     {
       //landing-pages
