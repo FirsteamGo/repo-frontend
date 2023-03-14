@@ -127,7 +127,7 @@ thead {
 import { ref, reactive, onMounted, computed } from 'vue'
 import axios from "axios";
 
-const webApiBaseAddr = ref("https://localhost:7226/api/Employees");
+const webApiBaseAddr = ref("https://localhost:44314/api/Employees");
 
 let employeeDTOes = reactive([])
 
