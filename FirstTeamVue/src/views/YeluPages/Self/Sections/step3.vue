@@ -2,7 +2,9 @@
 import { ref, reactive, onMounted, computed } from 'vue'
 import axios from "axios";
 
+//從後台帶selffoods資料
 const webApiBaseAddr = ref("https://localhost:7108/api/SelfFoods");
+//從後台帶照片
 const MVCimages = ref("https://localhost:7120/images/");
 
 let SelfFoods = reactive([])
@@ -12,11 +14,7 @@ const filter = ref("")
 const 自選飲食id = ref(null)
 let 商品名稱 = ref(null)
 let 商品內容 = ref(null)
-let title = ref(null)
-let firstNameOld = ref(null)
-let lastNameOld = ref(null)
-let titleOld = ref(null)
-let employeeList = reactive([])
+
 
 const dialogVisible = ref(false)
 
@@ -39,22 +37,6 @@ const getEmployeeDTOes = onMounted(() => {
 
 <template>
   <div id="app" class="container mt-5">
-
-
-    <!-- <div class="row" style="width:50%;margin-left:auto;margin-right:10px;">
-                                <label class="col-lg-3 form-label">篩選</label>
-                              <input type="text" class="col-lg-7 form-control" v-model="filter" placeholder="請輸入關鍵字" />
-            <button class="btn btn-outline-secondary" @click="filterEmployee">篩選</button>
-          </div> -->
-
-
-    <!-- <div class="form-group">
-            <button type="button" @click="showModal" class="btn btn-success mb-3">新增紀錄</button>
-            <el-button text @click="dialogVisible = true" >
-              新增紀錄
-            </el-button>
-        </div> -->
-
 
   <!-- 表頭 -->
   <div class=" row form-group">
@@ -82,9 +64,10 @@ const getEmployeeDTOes = onMounted(() => {
             <el-input-number v-model="quantity" :min="1" :max="10" :step="1"></el-input-number>
           </td>
           <td>
-            <!-- <button class="btn btn-success " @click="edit(item.自選飲食id)">編輯</button> -->
-            <!-- <button class="btn btn-danger" @click="deleteEmployee(item.自選飲食id)">刪除</button> -->
-            <el-checkbox label="加入購物車" size="medium" />
+            <!-- 勾選 -->
+            <!-- <el-checkbox label="加入購物車" size="medium" /> -->
+            <!-- 按鈕 -->
+            <button type="button" class="btn btn-outline-dark" size="medium">加入購物車</button>
             </td>
           </tr>
         </tbody>
