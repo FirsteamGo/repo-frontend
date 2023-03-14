@@ -136,6 +136,13 @@ const router = createRouter({
           name:"阿迪雅",
           component:()=>import("../views/YeluPages/Shop/SPA/con5_2.vue"),
         },
+        {
+          path:"test1",
+          name:"test",
+          componenet:()=>("../views/YeluPages/Shop/shopsections/test1.vue"),
+          
+        },
+        
       ]
     },
     {

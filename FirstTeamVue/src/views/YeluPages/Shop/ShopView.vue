@@ -22,6 +22,7 @@ import nav2 from "../Shop/SPA/nav_2.vue";
 import nav3 from "../Shop/SPA/nav_3.vue";
 import nav4 from "../Shop/SPA/nav_4.vue";
 import nav5 from "../Shop/SPA/nav_5.vue";
+import Test1 from "./shopsections/test1.vue";
 
 const body = document.getElementsByTagName("body")[0];
 //hooks
@@ -84,6 +85,7 @@ onUnmounted(() => {
       <!--輪播牆-->
       <el-header class="head"><carousel /></el-header>
       <el-header class="inputlocation"><inputContent /></el-header>
+      <test1 />
       <el-container>
         <nav1 />
         <nav2 />
