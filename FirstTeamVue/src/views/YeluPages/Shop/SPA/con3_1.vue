@@ -34,7 +34,6 @@ const getEmployeeDTOes = onMounted(() => {
                 :image="`${imagelist}${item.產品圖片}`"
                 :title="item.產品名稱"
                 :description="item.單價"
-                style="object-fit: cover"
               />
             </div>
           </div>
