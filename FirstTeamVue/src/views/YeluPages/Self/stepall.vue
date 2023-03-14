@@ -42,7 +42,6 @@ export default {
         this.BtnStep = !this.BtnStep;
       }else if(active.value ==3){
         this.content = 'step3';
-       
       }else{
         this.content = 'CampView';
         this.BtnCart=false;
@@ -55,16 +54,15 @@ export default {
     //   this.BtnCart = !this.BtnCart;
     // },
     addcart() {
-    this.next(); // 触发next方法
+    this.next(); // 觸發next方法
     this.dialogVisible = false; // 彈跳視窗消失
     alert('已加入購物車');
     this.BtnCart=false;
     this.Step1=true;
   },
   
+  }
 }
-}
-
 
 </script>
 
@@ -79,7 +77,6 @@ export default {
     </el-steps>
 
     <el-button v-if="BtnStep" style="margin-top: 25px" @click="next" >點我下一步</el-button>
-
 
 
   <!-- Modal彈跳視窗裡面要顯示的東西 --> 
@@ -124,7 +121,6 @@ export default {
     <el-button v-if="BtnCart" style="margin-top: 25px" @click="dialogVisible = true" >檢視購物清單</el-button>
 
     <el-button v-if="Step1" style="margin-top: 25px" @click="next" >重新選擇</el-button>
-  
     
     <component :is="content"></component>
 

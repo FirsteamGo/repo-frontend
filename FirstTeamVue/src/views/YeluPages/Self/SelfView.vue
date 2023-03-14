@@ -13,6 +13,8 @@ import Typed from "typed.js";
 
 //sections 放置要引入的頁面
 import stepall from "./stepall.vue";
+
+
 // import options from "./Sections/select.vue";
 
 
@@ -89,6 +91,7 @@ onUnmounted(() => {
 
     <!-- 記得這裡設定引入標籤 -->
     <stepall />
+
     <!-- <options /> -->
  
 
