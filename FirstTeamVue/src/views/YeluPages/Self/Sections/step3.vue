@@ -9,14 +9,13 @@ const MVCimages = ref("https://localhost:7120/images/");
 
 let SelfFoods = reactive([])
 
-
 const filter = ref("")
 const 自選飲食id = ref(null)
 let 商品名稱 = ref(null)
 let 商品內容 = ref(null)
 
 
-const dialogVisible = ref(false)
+
 
 const getEmployeeDTOes = onMounted(() => {
   //呼叫後端EmployeeController資料
@@ -67,46 +66,61 @@ const getEmployeeDTOes = onMounted(() => {
             <!-- 勾選 -->
             <!-- <el-checkbox label="加入購物車" size="medium" /> -->
             <!-- 按鈕 -->
-            <button type="button" class="btn btn-outline-dark" size="medium">加入購物車</button>
+            <button type="button" class="btn btn-outline-dark" size="medium"  >加入購物車</button>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <!-- Modal -->
+    <!-- Modal彈跳視窗裡面要顯示的東西 -->
     <!-- 新增 -->
-    <!-- <div>
-    <el-dialog v-model="dialogVisible" title="新增資料" width="30%" draggable>
-      <div class="modal-header">
+  <div>
+  <el-dialog v-model="dialogVisible" title="確認購買清單" width="70%" draggable>
+    <div class="modal-header">
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <template #footer>
+      <span class="dialog-footer">
+        <table>
+          <tbody>
+            <tr v-for="item in SelfFoods" :key="item.自選飲食id" class="text-center">
+              <td>
+                <label class="form-lable">商品名稱</label>
+                <!-- <input type="text" v-model="商品名稱" /> -->
+                <span>{{ item.商品名稱 }}</span>
+              </td>
+              <td>
+                <label class="form-lable">商品內容</label>
+                <!-- <input type="text" v-model="商品內容" /> -->
+                <span>{{ item.商品內容 }}</span>
+              </td>
+              <td>
+                <label class="form-lable">單價</label>
+                <!-- <input type="text" v-model="單價" /> -->
+                <span>{{ item.單價 }}</span>
+              </td>
+              <!-- <td>
+                <el-button @click="dialogVisible = true">加入購物車</el-button>
+              </td>
+              -->
+              <!-- <td>
+                <el-button type="primary" @click="insert(); dialogVisible = false">儲存</el-button>
+              </td> -->
+            </tr>
+            <el-button @click="dialogVisible = true">加入購物車</el-button>
 
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <template #footer>
-        <span class="dialog-footer">
-          <div>
-            <label class="form-lable">商品名稱</label>
-            <input type="text" v-model="商品名稱" />
-          </div>
+          </tbody>
+        </table>
+      </span>
+    </template>
+  </el-dialog>
+</div>
 
-          <div>
-            <label class="form-lable">商品內容</label>
-            <input type="text" v-model="商品內容" />
-          </div>
 
-          <div>
-            <label class="form-lable">單價</label>
-            <input type="text" v-model="單價" />
-          </div>
+  
 
-          <el-button @click="dialogVisible = false">取消</el-button>
-          <el-button type="primary" @click="{ insert(); dialogVisible = false }">
-            儲存
-          </el-button>
-        </span>
-      </template>
-    </el-dialog>
-  </div> -->
+
 
   </div>
 </template>

@@ -9,7 +9,7 @@
 		<header id="cartList">
 			<table style="border-bottom:1px solid #ddd;">
 				<tr class="itemHead">
-					<td style="width:200px;">Item List</td>
+					<td style="width:200px;">商品名稱</td>
 					<td style="width:280px;"></td>
 					<td style="width:170px;">Price($)</td>
 					<td style="width:60px;">Item(s)</td>
