@@ -12,6 +12,7 @@ import bg0 from "./img/01.jpeg";
 import Typed from "typed.js";
 import Layout from "./Sections/Layout.vue";
 
+import test from "./Sections/test.vue";
 import Testtable from "./Sections/testtable.vue";
 import imagestest from "./Sections/imagestest.vue";
 //sections 放置要引入的頁面
@@ -80,7 +81,7 @@ onUnmounted(() => {
 
     <!-- 記得這裡設定引入標籤 -->
     <Layout />
-    <testtable />
+    <test/>
 
   </div>
   <yelufooter />
