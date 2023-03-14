@@ -11,6 +11,8 @@ import ShopView from "@/views/YeluPages/Shop/ShopView.vue";
 //測試用頁面
 import test from "@/views/YeluPages/Self/test.vue";
 import test2 from "@/views/YeluPages/Self/test2.vue";
+import stepall from "@/views/YeluPages/Self/stepall.vue";
+// import shoppingcart from "@/views/YeluPages/shoppingcart.vue";
 
 import AboutView from "../views/LandingPages/AboutUs/AboutView.vue";
 import ContactView from "../views/LandingPages/ContactUs/ContactView.vue";
@@ -57,9 +59,57 @@ const router = createRouter({
       component: test2,
     },
     {
+      //test完刪除
+      path: "/pages/Yelu-pages/Self/stepall",
+      name: "stepall",
+      component: stepall,
+      children: [
+        {
+          path: "YeluPages/shoppingcart",
+          name: "shoppingcart",
+          component: () => import("../views/YeluPages/shoppingcart.vue"),
+        },
+      ]
+    },
+    // {
+
+    //   path: "/pages/Yelu-pages/shoppingcart",
+    //   name: "shoppingcart",
+    //   component: shoppingcart,
+
+    // },
+    {
       path: "/pages/Yelu-pages/act",
       name: "act",
       component: ActView,
+      children: [
+        {
+          path: "Sections/ActHot",
+          name: "ActHot",
+          component: () => import("../views/YeluPages/Act/Sections/ActHot.vue"),
+        },
+        {
+          path: "Sections/ActNorth",
+          name: "ActNorth",
+          component: () => import("../views/YeluPages/Act/Sections/ActNorth.vue"),
+
+        },
+        {
+          path: "Sections/ActWest",
+          name: "ActWest",
+          component: () => import("../views/YeluPages/Act/Sections/ActWest.vue"),
+        },
+        {
+          path: "Sections/ActSouth",
+          name: "ActSouth",
+          component: () => import("../views/YeluPages/Act/Sections/ActSouth.vue"),
+        },
+        {
+          path: "Sections/ActEast",
+          name: "ActEast",
+          component: () => import("../views/YeluPages/Act/Sections/ActEast.vue"),
+        },
+      ]
     },
     {
       path: "/pages/Yelu-pages/camp",

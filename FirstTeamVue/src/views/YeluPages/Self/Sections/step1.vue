@@ -1,10 +1,10 @@
 <script  setup>
-import { ref, reactive, onMounted, computed } from 'vue'
+import { ref, reactive, onMounted, computed,watch  } from 'vue'
 import axios from "axios";
 const webApiBaseAddr = ref("https://localhost:7108/api/Camps");
 
 let Camps = reactive([])
-const filter = ref("")
+const filter = ref("") 
 const 營區id = ref(null)
 let 營區名稱 = ref(null)
 let 地區 = ref(null)
@@ -54,50 +54,52 @@ const filterEmployee = () => {
     });
 }
 
+</script>
 
 
-//日期選擇
-const date = ref('')
-const value = ref('')
-const option1 = [
-  {
-    value: '1',
-    label: '北部',
+<script>
+// import { ref, reactive, onMounted, computed, watch } from 'vue';
+// import axios from 'axios';
+
+export default {
+  data() {
+    const selectedRegion = ref(null);
+    const selectedCity = ref(null);
+    const regions = ['北部', '中部', '南部', '東部'];
+    const cities = {
+      北部: ['新北', '桃園', '新竹'],
+      中部: ['苗栗', '南投', '台中'],
+      南部: ['嘉義', '台南', '高雄'],
+      東部: ['宜蘭', '花蓮', '台東'],
+    };
+    const filteredCities = computed(() => {
+      // return cities[regions[selectedRegion.value]];
+      // return cities[regions[regions.indexOf(selectedRegion.value)]];
+      return cities[selectedRegion.value];
+    });
+
+    function filterCities() {
+      selectedCity.value = null;
+    }
+
+    return {
+      selectedRegion,
+      selectedCity,
+      regions,
+      cities,
+      filteredCities,
+      filterCities,
+    };
   },
-  {
-    value: '2',
-    label: '中部',
-  },
-  {
-    value: '3',
-    label: '南部',
-  },
- 
-]
-
-// const option2 = [
-//   {
-//     value: '4',
-//     label: '新北',
-//   },
-//   {
-//     value: '5',
-//     label: '桃園',
-//   },
-//   {
-//     value: '6',
-//     label: '新竹',
-//   },
- 
-// ]
-
+};
 </script>
 
 
 
 
+
 <template>
-<div class="common-layout">
+<div class="common-layout" >
   <el-container>
   <el-header></el-header>
     <!-- 左側區塊 -->
@@ -107,23 +109,24 @@ const option1 = [
         <!-- 卡片 -->
         <el-card class="box-card">
             <template #header>
-            <div class="card-header">
+            <div class="card-header" id="app">
                 <span style="text-align: center; display:block;">營區選擇</span>
             </div>
             </template>
-                <!-- 選擇器1 -->
+             <div id="app">
                 <span>露營區域</span>
-            <el-select v-model="value" class="m-2" placeholder="請選擇" >
-                <el-option v-for="item in option1" :key="item.value" :label="item.label" :value="item.value"/>
-            </el-select>
-            <p></p>
-              <!-- 選擇器2 -->
-              <span>露營縣市</span>
-            <el-select v-model="value" class="m-2" placeholder="請選擇" >
-                <el-option v-for="item in option1" :key="item.value" :label="item.label" :value="item.value"/>
-            </el-select>
-            <p></p>
-              <!-- 選擇器3 -->
+                <el-select v-model="selectedRegion" @change="filterCities">
+                  <el-option disabled value="">請選擇</el-option>
+                  <el-option v-for="(region, index) in regions" :key="index" :value="region">{{ region }}</el-option>
+                </el-select>
+                <p></p>
+                <span>露營縣市</span>
+                <el-select v-model="selectedCity">
+                  <el-option disabled value="">請選擇</el-option>
+                  <el-option v-for="(city, index) in filteredCities" :key="index" :value="city">{{ city }}</el-option>
+                </el-select>
+              </div>
+
             <div class="demo-date-picker">
               <div class="block">
                 <span class="demonstration">露營日期</span>

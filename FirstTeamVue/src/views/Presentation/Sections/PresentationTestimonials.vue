@@ -21,7 +21,7 @@ import DefaultReviewCard from "@/examples/cards/reviewCards/DefaultReviewCard.vu
           date="1 day ago"
           review='"This is an excellent product, the documentation is excellent and
           helped me get things done more efficiently."'
-          :rating="5.0"
+          :rating="3.0"
         />
         <DefaultReviewCard
           class="ms-md-auto"
@@ -41,7 +41,7 @@ import DefaultReviewCard from "@/examples/cards/reviewCards/DefaultReviewCard.vu
                   used the components within instead of starting from scratch. I
                   highly recommend for developers who want to spend more time on
                   the backend!."'
-          :rating="4.0"
+          :rating="5.0"
         />
       </div>
       <hr class="horizontal dark my-5" />
