@@ -87,6 +87,13 @@ const router = createRouter({
           path: "Sections/ActHot",
           name: "ActHot",
           component: () => import("../views/YeluPages/Act/Sections/ActHot.vue"),
+          children: [
+            {
+              path: "ActBlogCards/ActBlogCardValue",
+              name: "ActBlogCardValue",
+              component: () => import("../views/YeluPages/Act/Sections/ActBlogCards/ActBlogCardValue.vue")
+            },
+          ]
         },
         {
           path: "Sections/ActNorth",
@@ -98,6 +105,13 @@ const router = createRouter({
           path: "Sections/ActWest",
           name: "ActWest",
           component: () => import("../views/YeluPages/Act/Sections/ActWest.vue"),
+          children: [
+            {
+              path: "ActBlogCards/ActBlogCardValue",
+              name: "ActBlogCardValue",
+              component: () => import("../views/YeluPages/Act/Sections/ActBlogCards/ActBlogCardValue.vue")
+            },
+          ]
         },
         {
           path: "Sections/ActSouth",
@@ -115,6 +129,33 @@ const router = createRouter({
       path: "/pages/Yelu-pages/camp",
       name: "camp",
       component: CampView,
+      children: [
+        {
+          path: "Sections/CampHot",
+          name: "CampHot",
+          component: () => import("../views/YeluPages/Camp/Sections/CampHot.vue"),
+        },
+        {
+          path: "Sections/CampNorth",
+          name: "CampNorth",
+          component: () => import("../views/YeluPages/Camp/Sections/CampNorth.vue"),
+        },
+        {
+          path: "Sections/CampWest",
+          name: "CampWest",
+          component: () => import("../views/YeluPages/Camp/Sections/CampWest.vue"),
+        },
+        {
+          path: "Sections/CampSouth",
+          name: "CampSouth",
+          component: () => import("../views/YeluPages/Camp/Sections/CampSouth.vue"),
+        },
+        {
+          path: "Sections/CampEast",
+          name: "CampEast",
+          component: () => import("../views/YeluPages/Camp/Sections/CampEast.vue"),
+        },
+      ]
     },
     {
       path: "/pages/Yelu-pages/member",

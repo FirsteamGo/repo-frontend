@@ -22,9 +22,9 @@ defineProps({
         color: String,
         label: String,
         default: () => ({
-            route: "https://element-plus.org/zh-CN/component/icon.html#%E5%9B%BE%E6%A0%87%E9%9B%86%E5%90%88",
+            route: "",
             color: "success",
-            label: "詳細資訊",
+            label: "營區資訊",
         }),
     },
 });
@@ -55,9 +55,9 @@ defineProps({
                 <i class="fas fa-arrow-right text-xs ms-1"></i>
             </a>
             <!-- <el-text class="mx-3"><router-link v-if="condition" to="/pages/Yelu-pages/act/Sections/ActWest/ActBlogCards/ActBlogCardValue"
-                        style="font-weight:bolder; font-size:x-large;">test</router-link></el-text> -->
+                                        style="font-weight:bolder; font-size:x-large;">test</router-link></el-text> -->
 
-            <el-button type="danger" class="cartbtn font-weight-bolder">購買</el-button>
+            <el-button type="danger" class="cartbtn font-weight-bolder">預定</el-button>
 
         </div>
 
