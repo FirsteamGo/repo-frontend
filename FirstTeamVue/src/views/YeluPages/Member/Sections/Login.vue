@@ -68,6 +68,8 @@ import type { FormInstance, FormRules } from 'element-plus';
 import axios from 'axios';
 import {onMounted} from 'vue';
 import {useRouter} from 'vue-router';
+import { emitKeypressEvents } from 'readline';
+import { emit } from 'process';
 
 // 登入驗證用 step2 分別定義變數，其初始值為空字串
 // const 會員帳號 = ref('')
@@ -96,7 +98,7 @@ interface memberInterface {
         手機號碼?:string,
 
 }
-
+const emits = defineEmits(['refreshEdit'])
 // 登入驗證用 利用 onMounted，Vue 掛載到 DOM 上之後被調用，載入存放在 const 裡面的所有資料。
 onMounted(async () =>{
   await axios.get('https://localhost:7108/api/MemberInfoes')
@@ -135,7 +137,10 @@ const LogInPost = () => {
                 
                 
                 alert("登入成功")
-                localStorage.setItem("customerData", JSON.stringify(user))
+                localStorage.setItem("customerLoginData", JSON.stringify(customerData))
+                console.log("parent call refreshEdit");
+                emits('refreshEdit')
+              
             } else {
                 alert("帳號密碼有誤")
             }

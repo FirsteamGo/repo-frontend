@@ -85,6 +85,19 @@ const EditCustomer = () => {
         })
 }
 
+const refreshEdit = () => {
+  let customerLoginData = JSON.parse(localStorage.getItem("customerLoginData"))
+  console.log(customerLoginData)
+  console.log("call refreshEdit");
+        // if (localStorage.getItem("customerData") != null) {
+        // console.log(user.CustomerName);
+        ruleForm.姓名 = customerLoginData[0].姓名
+        ruleForm.連絡信箱 = customerLoginData[0].連絡信箱
+        ruleForm.會員密碼 = customerLoginData[0].會員密碼
+        ruleForm.電話號碼 = customerLoginData[0].電話號碼
+    // }
+}
+
 
 
 
@@ -96,7 +109,7 @@ const EditCustomer = () => {
 
 <template>
   
-  <el-form ref="ruleFormRef" :model="ruleForm" label-width="120px">
+  <el-form ref="ruleFormRef" :model="ruleForm" label-width="120px" @refreshEdit=" refreshEdit()">
     
     <Memberphoto1/>
 
@@ -122,6 +135,9 @@ const EditCustomer = () => {
 
       <el-button type="primary" @click="EditCustomer">
         修改會員資料
+      </el-button>
+      <el-button type="primary" @click="refreshEdit">
+        取得會員資料
       </el-button>
       
       
