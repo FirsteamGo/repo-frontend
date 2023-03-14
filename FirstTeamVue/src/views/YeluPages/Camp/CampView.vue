@@ -6,6 +6,7 @@ import DefaultNavbar from "../../../examples/navbars/NavbarDefault.vue";
 import yelufooter from "../../../examples/footers/yelufooter.vue";
 import CampCarousel from "./Sections/CampCarousel.vue";
 import CampSelects from "./Sections/CampBlogCards/CampSelects.vue"
+import CampNorth from "./Sections/CampNorth.vue";
 //image
 import bg0 from "@/assets/img/bg9.jpg";
 
@@ -48,7 +49,7 @@ onUnmounted(() => {
   }" transparent />
   <header class="bg-gradient-dark">
     <div class="page-header min-vh-50
-                                                " :style="{ backgroundImage: `url(${bg0})` }">
+                                                          " :style="{ backgroundImage: `url(${bg0})` }">
       <span class="mask bg-gradient-dark opacity-6"></span>
       <div class="container">
         <div class="row justify-content-center">
@@ -74,15 +75,15 @@ onUnmounted(() => {
     <!-- <Information /> -->
     <CampCarousel />
 
-    <div class="common-layout">
-      <el-container>
-        <div class=" m-3">
-          <CampSelects />
-        </div>
-        <router-view></router-view>
-      </el-container>
-    </div>
+    <el-container>
+      <div class=" m-3">
+        <CampSelects />
+      </div>
+      <router-view></router-view>
+    </el-container>
   </div>
+
 
   <yelufooter />
 </template>
+

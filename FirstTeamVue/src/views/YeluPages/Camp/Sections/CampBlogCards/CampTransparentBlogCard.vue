@@ -55,7 +55,7 @@ defineProps({
                 <i class="fas fa-arrow-right text-xs ms-1"></i>
             </a>
             <!-- <el-text class="mx-3"><router-link v-if="condition" to="/pages/Yelu-pages/act/Sections/ActWest/ActBlogCards/ActBlogCardValue"
-                                    style="font-weight:bolder; font-size:x-large;">test</router-link></el-text> -->
+                                        style="font-weight:bolder; font-size:x-large;">test</router-link></el-text> -->
 
             <el-button type="danger" class="cartbtn font-weight-bolder">預定</el-button>
 

@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, onUnmounted, ref, reactive, computed } from "vue";
+import axios from "axios";
 //import axios from "axios";
 // example components
 import CampTransparentBlogCard from "../Sections/CampBlogCards/CampTransparentBlogCard.vue";
@@ -7,10 +8,11 @@ import CampBackgroundBlogCard from "../Sections/CampBlogCards/CampBackgroundBlog
 
 import sun from "@/assets/img/ActImg/sun.jpg";
 
-const webApiBaseAddr = ref("https://localhost:7108/api/ActDetails")
+const webApiBaseAddr = ref("https://localhost:7108/api/CampDetails")
 const MVCimages = ref("https://localhost:7120/images/")
 
 let Camp = reactive([])
+
 
 const getEmployeeDTOes = onMounted(() => {
     axios.get(webApiBaseAddr.value).then(res => {
@@ -40,25 +42,11 @@ const getEmployeeDTOes = onMounted(() => {
                         <div class="col-lg-2 col-md-12 col-12">
                             <CampBackgroundBlogCard :image="sun" title="北部營區" description="" />
                         </div>
-                        <!-- <div class="col-lg-2 col-sm-6" v-for="item in NorthArea.北區">
-                                <CampTransparentBlogCard :image="`${MVCimages}${item.活動圖片}`" :title=item.活動名稱
-                                    :description=item.活動種類 :price=item.門票價格 />
-                            </div> -->
-                        <div class="col-lg-2 col-sm-6">
-                            <CampTransparentBlogCard :image="sun" title="2023 台灣桃園｜東眼山國家森林遊樂區" description="" />
+                        <div class="col-lg-2 col-sm-6" v-for="item in Camp">
+                            <CampTransparentBlogCard :image="`${MVCimages}${item.圖片}`" :title=item.營區名稱
+                                :description=item.營區介紹 :price=item.單價 />
                         </div>
-                        <div class="col-lg-2 col-sm-6">
-                            <CampTransparentBlogCard :image="sun" title="2023 九份老街＆野柳＆平溪十分一日遊" description="" />
-                        </div>
-                        <div class="col-lg-2 col-sm-6">
-                            <CampTransparentBlogCard :image="sun" title="2023 台灣桃園｜東眼山國家森林遊樂區" description="" />
-                        </div>
-                        <div class="col-lg-2 col-sm-6">
-                            <CampTransparentBlogCard :image="sun" title="2023 台灣桃園｜東眼山國家森林遊樂區" description="" />
-                        </div>
-                        <div class="col-lg-2 col-sm-6">
-                            <CampTransparentBlogCard :image="sun" title="2023 台灣桃園｜東眼山國家森林遊樂區" description="" />
-                        </div>
+
                     </div>
                 </section>
             </el-main>
