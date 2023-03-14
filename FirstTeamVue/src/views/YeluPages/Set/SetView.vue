@@ -4,7 +4,7 @@ import { onMounted, onUnmounted } from "vue";
 //example components
 import DefaultNavbar from "../../../examples/navbars/NavbarDefault.vue";
 import yelufooter from "../../../examples/footers/yelufooter.vue";
-import testtable2 from "./Sections/testtable2.vue";
+import testtable from "./Sections/testtable.vue";
 //image
 import bg0 from "./img/01.jpeg";
 
@@ -79,10 +79,8 @@ onUnmounted(() => {
   <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
 
     <!-- 記得這裡設定引入標籤 -->
-    <!-- <Information /> -->
-    <Layout/>
-    <testtable2 />
-    <imagestest/>
+    <Layout />
+    <testtable />
 
   </div>
   <yelufooter />
