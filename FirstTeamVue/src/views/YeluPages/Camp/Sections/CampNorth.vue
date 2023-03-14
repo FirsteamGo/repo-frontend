@@ -7,6 +7,21 @@ import CampBackgroundBlogCard from "../Sections/CampBlogCards/CampBackgroundBlog
 
 import sun from "@/assets/img/ActImg/sun.jpg";
 
+const webApiBaseAddr = ref("https://localhost:7108/api/ActDetails")
+const MVCimages = ref("https://localhost:7120/images/")
+
+let Camp = reactive([])
+
+const getEmployeeDTOes = onMounted(() => {
+    axios.get(webApiBaseAddr.value).then(res => {
+        //console.log(res.data);
+        Camp.splice(0, res.data.length, ...res.data)
+        console.log(Camp);
+    }).catch(err => {
+        console.log(err);
+    })
+})
+
 </script>
 
 <template>
@@ -15,9 +30,9 @@ import sun from "@/assets/img/ActImg/sun.jpg";
             <el-header>
                 <div class="row">
                     <div class="">
-                    <h1 class="bkc">北部營區</h1>
+                        <h1 class="bkc">北部營區</h1>
+                    </div>
                 </div>
-            </div>
             </el-header>
             <el-main>
                 <section class="py-3">
@@ -26,14 +41,20 @@ import sun from "@/assets/img/ActImg/sun.jpg";
                             <CampBackgroundBlogCard :image="sun" title="北部營區" description="" />
                         </div>
                         <!-- <div class="col-lg-2 col-sm-6" v-for="item in NorthArea.北區">
-                                            <CampTransparentBlogCard :image="`${MVCimages}${item.活動圖片}`" :title=item.活動名稱
-                                                :description=item.活動種類 :price=item.門票價格 />
-                                        </div> -->
+                                <CampTransparentBlogCard :image="`${MVCimages}${item.活動圖片}`" :title=item.活動名稱
+                                    :description=item.活動種類 :price=item.門票價格 />
+                            </div> -->
                         <div class="col-lg-2 col-sm-6">
-                            <CampTransparentBlogCard :image="sukra" title="2023 福壽山農場千櫻園＆武陵農場賞花一日遊" description="" />
+                            <CampTransparentBlogCard :image="sun" title="2023 台灣桃園｜東眼山國家森林遊樂區" description="" />
                         </div>
                         <div class="col-lg-2 col-sm-6">
-                            <CampTransparentBlogCard :image="flower" title="2023 九份老街＆野柳＆平溪十分一日遊" description="" />
+                            <CampTransparentBlogCard :image="sun" title="2023 九份老街＆野柳＆平溪十分一日遊" description="" />
+                        </div>
+                        <div class="col-lg-2 col-sm-6">
+                            <CampTransparentBlogCard :image="sun" title="2023 台灣桃園｜東眼山國家森林遊樂區" description="" />
+                        </div>
+                        <div class="col-lg-2 col-sm-6">
+                            <CampTransparentBlogCard :image="sun" title="2023 台灣桃園｜東眼山國家森林遊樂區" description="" />
                         </div>
                         <div class="col-lg-2 col-sm-6">
                             <CampTransparentBlogCard :image="sun" title="2023 台灣桃園｜東眼山國家森林遊樂區" description="" />

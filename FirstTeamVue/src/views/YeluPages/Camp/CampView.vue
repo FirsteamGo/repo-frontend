@@ -5,7 +5,7 @@ import { onMounted, onUnmounted } from "vue";
 import DefaultNavbar from "../../../examples/navbars/NavbarDefault.vue";
 import yelufooter from "../../../examples/footers/yelufooter.vue";
 import CampCarousel from "./Sections/CampCarousel.vue";
-import CampHot from "./Sections/CampHot.vue"
+import CampSelects from "./Sections/CampBlogCards/CampSelects.vue"
 //image
 import bg0 from "@/assets/img/bg9.jpg";
 
@@ -48,13 +48,13 @@ onUnmounted(() => {
   }" transparent />
   <header class="bg-gradient-dark">
     <div class="page-header min-vh-50
-        " :style="{ backgroundImage: `url(${bg0})` }">
+                                                " :style="{ backgroundImage: `url(${bg0})` }">
       <span class="mask bg-gradient-dark opacity-6"></span>
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-8 text-center mx-auto my-auto">
             <h1 class="text-white">
-              Title
+              營區預定
             </h1>
 
             <p class="lead mb-4 text-white opacity-8">
@@ -73,7 +73,15 @@ onUnmounted(() => {
     <!-- 記得這裡設定引入標籤 -->
     <!-- <Information /> -->
     <CampCarousel />
-    <CampHot />
+
+    <div class="common-layout">
+      <el-container>
+        <div class=" m-3">
+          <CampSelects />
+        </div>
+        <router-view></router-view>
+      </el-container>
+    </div>
   </div>
 
   <yelufooter />

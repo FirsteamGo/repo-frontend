@@ -13,7 +13,6 @@ const webApiBaseAddr = ref("https://localhost:7108/api/ActDetails")
 const MVCimages = ref("https://localhost:7120/images/")
 
 let Act = reactive([])
-let north = reactive([])
 
 const getEmployeeDTOes = onMounted(() => {
     axios.get(webApiBaseAddr.value).then(res => {

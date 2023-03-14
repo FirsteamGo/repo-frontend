@@ -139,16 +139,8 @@ const option1 = [
               </div>
       
     </div>
-
-
-
-    <el-row class="mb-4 pt-4">
-    
+    <el-row class="mb-4 pt-4">   
     <el-button type="warning" >立即搜尋</el-button>
-      
-    <router-link :to="{ name: 'camp' }" >
-      <el-button type="info"  class="mx-4">點我看更多</el-button>
-    </router-link>
     </el-row>
 
 
@@ -158,9 +150,6 @@ const option1 = [
 
 <!-- 右側區塊放main裡面 -->
     <el-main >
-
-    
-
     </el-main>
         </el-container>
       </el-container>
