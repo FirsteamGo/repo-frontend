@@ -23,6 +23,12 @@ const images = reactive([
 </template>
   
 <style scoped>
+img {
+    width: 100%;
+    height: 100%;
+    /* object-fit: cover; */
+}
+
 .el-carousel__item h3 {
     color: #475669;
     opacity: 0.75;
