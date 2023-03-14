@@ -65,6 +65,13 @@ const router = createRouter({
           path: "Sections/ActHot",
           name: "ActHot",
           component: () => import("../views/YeluPages/Act/Sections/ActHot.vue"),
+          children: [
+            {
+              path: "ActBlogCards/ActBlogCardValue",
+              name: "ActBlogCardValue",
+              component: () => import("../views/YeluPages/Act/Sections/ActBlogCards/ActBlogCardValue.vue")
+            },
+          ]
         },
         {
           path: "Sections/ActNorth",
@@ -76,6 +83,13 @@ const router = createRouter({
           path: "Sections/ActWest",
           name: "ActWest",
           component: () => import("../views/YeluPages/Act/Sections/ActWest.vue"),
+          children: [
+            {
+              path: "ActBlogCards/ActBlogCardValue",
+              name: "ActBlogCardValue",
+              component: () => import("../views/YeluPages/Act/Sections/ActBlogCards/ActBlogCardValue.vue")
+            },
+          ]
         },
         {
           path: "Sections/ActSouth",

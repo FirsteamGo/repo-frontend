@@ -38,9 +38,13 @@ import flower from "@/assets/img/ActImg/flower.jpg";
                         </div>
                         <div class="col-lg-2 col-sm-6">
                             <ActTransparentBlogCard :image="sun" title="2023 台灣桃園｜東眼山國家森林遊樂區" description="" />
+
                         </div>
+
                     </div>
+
                 </section>
+
             </el-main>
         </el-container>
     </div>

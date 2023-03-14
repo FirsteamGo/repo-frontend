@@ -45,7 +45,7 @@ const getEmployeeDTOes = onMounted(() => {
                         <div class="col-lg-2 col-sm-6" v-for="item in Act">
                             <ActTransparentBlogCard :image="`${MVCimages}${item.活動圖片}`" :title=item.活動名稱
                                 :description=item.活動種類 :price=item.門票價格 />
-                            
+
                         </div>
                     </div>
                 </section>
