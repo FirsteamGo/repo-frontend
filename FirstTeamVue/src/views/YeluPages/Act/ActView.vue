@@ -127,6 +127,6 @@ const getEmployeeDTOes = onMounted(() => {
 }
 
 .where {
-  margin-left: 100px;
+  margin-left: 400px;
 }
 </style>
