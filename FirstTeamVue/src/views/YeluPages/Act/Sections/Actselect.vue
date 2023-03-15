@@ -48,15 +48,15 @@ export default {
     <div class="common-layout">
         <el-container>
             <el-header>
+                <el-button type="warning" disabled><el-text class="mx-1"><router-link to="/pages/Yelu-pages/act/Sections/ActHot"
+                style="font-weight:bolder; font-size:x-large;">熱門精選</router-link></el-text></el-button>
                 <span class="where">區域</span>
                 <el-select v-model="selectedRegion" @change="filterCities" class="select m-2" placeholder="區域" size="large">
                     <el-option disabled value="">請選擇</el-option>
                     <div>
                         <el-option v-for="(region, index) in regions" :key="index" :value="region">
-
                             <router-link :to="`/pages/Yelu-pages/act/Sections/${region}`" class=" p-8">{{ region
                             }}</router-link>
-
                         </el-option>
                     </div>
                 </el-select>
@@ -76,7 +76,6 @@ export default {
                     <el-input v-model="input" size="large" class="w-10 m-2" placeholder="" />
                     <el-button type="success" :icon="Search">搜尋</el-button>
                 </span>
-
             </el-header>
             <el-main>
 

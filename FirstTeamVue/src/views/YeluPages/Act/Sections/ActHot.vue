@@ -10,8 +10,8 @@ import sun from "@/assets/img/ActImg/sun.jpg";
 const webApiBaseAddr = ref("https://localhost:7108/api/ActDetails")
 const MVCimages = ref("https://localhost:7120/images/")
 
-let Act = reactive([])
 
+let Act = reactive([])
 const NorthArea = reactive({
     "北區": [],
     //"中區": [],
@@ -19,13 +19,13 @@ const NorthArea = reactive({
     //"東區": [],
 });
 
-const getEmployeeDTOes = onMounted(() => {
-    axios.get(webApiBaseAddr.value).then(res => {
+const getEmployeeDTOes = onMounted(async () => {
+    await axios.get(webApiBaseAddr.value).then(res => {
         //console.log(res.data);
         for (let i = 0; i < res.data.length; i++) {
             const AllAct = res.data[i];
             const AllArea = AllAct.地區;
-
+            
             if (NorthArea[AllArea]) {
                 NorthArea[AllArea].push(AllAct);
                 //Act.splice(0, NorthArea.北區.length, ...NorthArea.北區)
@@ -34,7 +34,7 @@ const getEmployeeDTOes = onMounted(() => {
             }
         }
         //console.log(Act);
-        console.log(NorthArea);
+        //console.log(NorthArea);
     }).catch(err => {
         console.log(err);
     })
@@ -75,7 +75,7 @@ const getEmployeeDTOes = onMounted(() => {
                         <div class="col-lg-2 col-sm-6" v-for="item in NorthArea.北區">
                             <ActTransparentBlogCard :image="`${MVCimages}${item.活動圖片}`" :title=item.活動名稱
                                 :description=item.活動種類 :price=item.門票價格 />
-                            <router-view></router-view>
+                            
                         </div>
                     </div>
                 </section>
