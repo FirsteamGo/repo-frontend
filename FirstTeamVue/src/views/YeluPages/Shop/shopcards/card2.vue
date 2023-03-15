@@ -34,11 +34,6 @@ defineProps({
     }),
   },
 });
-const paragraph = document.querySelector('p');
-const maxLength = 10;
-if (paragraph.textContent.length > maxLength) {
-  paragraph.textContent = paragraph.textContent.slice(20, maxLength) + '...';
-}
 </script>
 <template>
   <div class="card card-plain">
@@ -56,7 +51,7 @@ if (paragraph.textContent.length > maxLength) {
       <span>
       TW {{ description }}元
       </span>
-      <p >{{ content }}</p>
+      <p class="word">{{ content }}</p>
       <!-- <a :href="action.route" class=" text-lg font-weight-bolder icon-move-right" :class="`text-${action.color}`">{{
         action.label }}
         <i class="fas fa-arrow-right text-xs ms-1"></i>
@@ -72,6 +67,9 @@ if (paragraph.textContent.length > maxLength) {
 <style>
 .cartbtn {
   margin-left: 80px;
-
+}
+.word{
+  color: rgba(0, 0, 0,0.6);
+  font-weight: bold;
 }
 </style>

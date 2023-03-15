@@ -7,7 +7,6 @@ import card2 from "../shopcards/card2.vue";
 
 //Vue Material Kit 2 components
 
-import sun from "@/assets/img/ActImg/sun.jpg";
 
 const webApiBaseAddr = ref("https://localhost:7108/api/ShopDetails");
 const imagelist = ref("https://localhost:7120/images/");
@@ -36,7 +35,8 @@ const getEmployeeDTOes = onMounted(() => {
               <card2
                 :image="`${imagelist}${item.產品圖片}`"
                 :title="item.產品名稱"
-                :description="item.單價"              
+                :description="item.單價"
+                :content="item.產品說明"              
               />
             </div>
           </div>
