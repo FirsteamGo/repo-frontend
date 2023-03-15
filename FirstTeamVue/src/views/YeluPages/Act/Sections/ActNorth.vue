@@ -1,21 +1,18 @@
 <script setup>
 import { onMounted, onUnmounted, ref, reactive, computed } from "vue";
-import { Edit } from '@element-plus/icons-vue';
 import axios from "axios";
 // example components
 import ActTransparentBlogCard from "../Sections/ActBlogCards/ActTransparentBlogCard.vue";
 import ActBackgroundBlogCard from "../Sections/ActBlogCards/ActBackgroundBlogCard.vue";
 
-//Vue Material Kit 2 components
-import tp from "@/assets/img/ActImg/Taipei.jpg";
-
+import sun from "@/assets/img/ActImg/sun.jpg";
 
 const webApiBaseAddr = ref("https://localhost:7108/api/ActDetails")
 const MVCimages = ref("https://localhost:7120/images/")
 
 const dialogVisible = ref(false)
 const ActD = reactive([])
-const ActDID = reactive([])
+//const ActDID = reactive([])
 const 活動id = ref('')
 const 地區= ref('')
 const 縣市= ref('')
@@ -24,22 +21,29 @@ const 活動名稱= ref('')
 const 活動介紹= ref('')
 const 門票價格= ref(0)
 const 活動圖片= ref('')
-
-
+const NorthArea = reactive({
+    "北區": [],
+    //"中區": [],
+    //"南區": [],
+    //"東區": [],
+});
 
 const getEmployeeDTOes = onMounted(async () => {
-    await axios.get(webApiBaseAddr.value)
-    .then(res => {
-
-        for (var i = 0; i < res.data.length; i++) {
-          var item = res.data[i];
-          item.Edit = false;
-          
-
-        }
+    await axios.get(webApiBaseAddr.value).then(res => {
         //console.log(res.data);
-        ActDID.splice(0, res.data.length, ...res.data)
-        //console.log(ActDID);
+        for (let i = 0; i < res.data.length; i++) {
+            const AllAct = res.data[i];
+            const AllArea = AllAct.地區;
+            
+            if (NorthArea[AllArea]) {
+                NorthArea[AllArea].push(AllAct);
+                //Act.splice(0, NorthArea.北區.length, ...NorthArea.北區)
+            } else {
+                console.log(`Unknown region: ${AllArea}`);
+            }
+        }
+        //console.log(Act);
+        //console.log(NorthArea);
     }).catch(err => {
         console.log(err);
     })
@@ -48,8 +52,9 @@ const getEmployeeDTOes = onMounted(async () => {
 let Actdetail=(活動id)=>{
     var ActD=[]
 
-    for(let i = 0; i < ActDID.length; i++){
-        var item = ActDID[i]
+    for(let i = 0; i < NorthArea.北區.length; i++){
+
+        var item = NorthArea.北區[i]
         //console.log(item);
 
         if(item.活動id == 活動id){
@@ -67,9 +72,10 @@ let Actdetail=(活動id)=>{
 
         ActD.push(item);
     }
-    ActDID.splice(0, ActD.length, ...ActD)
-    console.log(ActDID);
+    NorthArea.北區.splice(0, ActD.length, ...ActD)
+    console.log(NorthArea);
 }
+console.log(NorthArea);
 </script>
 
 <template>
@@ -86,15 +92,14 @@ let Actdetail=(活動id)=>{
                 <section class="py-3">
                     <div class="row">
                         <div class="col-lg-2 col-md-12 col-12">
-                            <ActBackgroundBlogCard :image="tp" title="新北 桃園 新竹" description="所有你能想像的繁華都在這裡" />
+                            <ActBackgroundBlogCard :image="sun" title="所有你能想像的繁華都在這裡" description="" />
                         </div>
-                        <div class="col-lg-2 col-sm-6 p-2" v-for="item in ActDID" :key="item">
-                            <ActTransparentBlogCard :image="`${MVCimages}${item.活動圖片}`" :title=item.活動名稱
-                                /> 
+                        <div class="col-lg-2 col-sm-6" v-for="item in NorthArea.北區">
+                            <ActTransparentBlogCard :image="`${MVCimages}${item.活動圖片}`" :title=item.活動名稱 />
                                 <el-button type="info" class="text-lg font-weight-bolder icon-move-right"  @click="{Actdetail(item.活動id);dialogVisible = true }"  >
                                     詳細資訊<i  class="fas fa-arrow-right text-xs ms-1"></i>
-                                </el-button>                                
-                        </div>                                                                    
+                                </el-button>
+                        </div>
                     </div>
                     <div>
                         <el-dialog v-model="dialogVisible" title="活動詳細資訊" width="50%" draggable>
@@ -124,12 +129,12 @@ let Actdetail=(活動id)=>{
                                     <label class="form-lable">門票價格: {{ 門票價格 }}元 / 人</label>
                                 </div>
 
-                                <el-button @click="dialogVisible = false">取消</el-button>
-                                <el-button type="primary" @click="  dialogVisible = false ">儲存</el-button>
+                                <el-button type="warning" @click="dialogVisible = false">返回</el-button>
+                                <!-- <el-button type="primary" @click="  dialogVisible = false ">儲存</el-button> -->
                             </span>
                         </el-dialog>
                     </div>
-                </section>               
+                </section>
             </el-main>
         </el-container>
     </div>
