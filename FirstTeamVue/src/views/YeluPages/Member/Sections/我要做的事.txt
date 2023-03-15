@@ -1,0 +1,8 @@
+我想要把圖片放到localStorage裡面
+如何做?使用我學到的語法 localStorage.setItem('key', value)
+
+我想讓網頁記住帳號和密碼
+如何做? 
+當會員輸入帳號密碼，並勾選記住帳號密碼後，
+
+我想上傳圖片，讓圖片做成字串，存在Localstorage裡面，

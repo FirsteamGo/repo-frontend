@@ -48,6 +48,10 @@ onUnmounted(() => {
   body.classList.remove("about-us");
   body.classList.remove("bg-gray-200");
 });
+
+const refreshEdit_Frame = () => {
+  console.log('refreshEdit_Frame refreshEdit_Frame refreshEdit_Frame')
+}
 </script>
 <template>
   <DefaultNavbar
@@ -100,7 +104,7 @@ onUnmounted(() => {
     <br>
     <br>
     <Login />
-    <frame />
+    <frame @refreshEdit_Frame="refreshEdit_Frame"/>
     <br>
     <br>
     <frame1 />
