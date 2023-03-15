@@ -81,8 +81,8 @@ onUnmounted(() => {
   <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
 
     <!-- 記得這裡設定引入標籤 -->
-    <!-- <Layout /> -->
-    <test/>
+    <Layout />
+    <!-- <test/> -->
     <SetOD />
 
   </div>

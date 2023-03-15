@@ -7,7 +7,7 @@
 
 <script >
   import step1 from './Setorder.vue'
-  import step2 from './testtable.vue'
+  import step2 from './test.vue'
   import step3 from './testtable2.vue'
   import { ref } from 'vue'
   

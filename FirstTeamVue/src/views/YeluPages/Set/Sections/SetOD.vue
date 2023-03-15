@@ -152,6 +152,7 @@ const shopadd =(套裝行程id)=>{
       營區名稱.value=item.營區名稱;
       縣市.value=item.縣市;
       項目內容.value=item.項目內容;
+      
       let setdd = JSON.stringify(item)
 
       localStorage.setItem('setorderdetail', setdd)
