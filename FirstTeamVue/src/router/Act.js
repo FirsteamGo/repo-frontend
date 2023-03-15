@@ -19,13 +19,13 @@ export default [
                 ]
             },
             {
-                path: "Sections/ActNorth",
+                path: "Sections/North",
                 name: "ActNorth",
                 component: () => import("../views/YeluPages/Act/Sections/ActNorth.vue"),
 
             },
             {
-                path: "Sections/ActWest",
+                path: "Sections/West",
                 name: "ActWest",
                 component: () => import("../views/YeluPages/Act/Sections/ActWest.vue"),
                 children: [
@@ -37,12 +37,12 @@ export default [
                 ]
             },
             {
-                path: "Sections/ActSouth",
+                path: "Sections/South",
                 name: "ActSouth",
                 component: () => import("../views/YeluPages/Act/Sections/ActSouth.vue"),
             },
             {
-                path: "Sections/ActEast",
+                path: "Sections/East",
                 name: "ActEast",
                 component: () => import("../views/YeluPages/Act/Sections/ActEast.vue"),
             },
