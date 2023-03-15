@@ -8,6 +8,7 @@
 		<header id="cartList">
 			<table style="border-bottom:1px solid #ddd;">
 				<tr class="itemHead">
+					<td style="width:200px;">商品圖片</td>
 					<td style="width:200px;">商品名稱</td>
 					<td style="width:300px;">商品內容</td>
 					<td style="width:170px;">單價($)</td>
@@ -25,11 +26,14 @@
 						<td style="width:200px;">
 							<img src="@/assets/img/self/03.jpg" width="80px">
 						</td>
-						<td style="width:300px;">
+						<td style="width:200px;">
 							<p>Formosa</p>
 							<button type="button" class="btn btn-outline-dark btn-sm" >Delete</button>
 						</td>
-						<td style="width:170px;">
+						<td style="width:300px;">
+							<p>商品內容</p>
+						</td>
+						<td style="width:150px;">
 							<p>5000</p>
 						</td>
 						<td style="width:60px;">
