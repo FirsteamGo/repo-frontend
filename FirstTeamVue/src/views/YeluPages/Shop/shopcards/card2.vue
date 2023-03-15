@@ -49,7 +49,7 @@ if (paragraph.textContent.length > maxLength) {
     </div>
     <div class="card-body px-0">
       <h5>
-        <a :href="action.route" class="text-dark font-weight-bold">{{
+        <a :href="action.route" class="text-dark font-weight-bold" style="cursor: default;">{{
           title
         }}</a>
       </h5>

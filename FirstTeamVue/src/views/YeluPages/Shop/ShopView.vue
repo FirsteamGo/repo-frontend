@@ -85,7 +85,6 @@ onUnmounted(() => {
       <!--輪播牆-->
       <el-header class="head"><carousel /></el-header>
       <el-header class="inputlocation"><inputContent /></el-header>
-      <test1 />
       <el-container class="good">
         <nav1 />
         <nav2 />

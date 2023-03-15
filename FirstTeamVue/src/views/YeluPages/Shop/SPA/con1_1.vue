@@ -36,8 +36,7 @@ const getEmployeeDTOes = onMounted(() => {
               <card2
                 :image="`${imagelist}${item.產品圖片}`"
                 :title="item.產品名稱"
-                :description="item.單價"
-                :content="item.產品說明"              
+                :description="item.單價"              
               />
             </div>
           </div>
