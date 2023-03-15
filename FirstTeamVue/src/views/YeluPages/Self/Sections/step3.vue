@@ -66,7 +66,7 @@ const getEmployeeDTOes = onMounted(() => {
             <!-- 勾選 -->
             <!-- <el-checkbox label="加入購物車" size="medium" /> -->
             <!-- 按鈕 -->
-            <button type="button" class="btn btn-outline-dark" size="medium"  >加入購物車</button>
+            <button type="button" class="btn btn-outline-dark" size="medium"  >選購</button>
             </td>
           </tr>
         </tbody>
