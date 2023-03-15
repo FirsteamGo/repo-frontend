@@ -28,6 +28,7 @@ defineProps({
         }),
     },
 });
+const Visible = ref(false)
 </script>
 <template>
     <div class="card card-plain">
@@ -55,9 +56,10 @@ defineProps({
                 <i class="fas fa-arrow-right text-xs ms-1"></i>
             </a>
             <!-- <el-text class="mx-3"><router-link v-if="condition" to="/pages/Yelu-pages/act/Sections/ActWest/ActBlogCards/ActBlogCardValue"
-                        style="font-weight:bolder; font-size:x-large;">test</router-link></el-text> -->
+                                    style="font-weight:bolder; font-size:x-large;">test</router-link></el-text> -->
 
-            <el-button type="danger" class="cartbtn font-weight-bolder">購買</el-button>
+            <el-button type="danger" class="cartbtn font-weight-bolder"
+                @click="{ detail(item.套裝行程id); Visible = true }">購買</el-button>
 
         </div>
 

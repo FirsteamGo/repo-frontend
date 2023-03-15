@@ -79,9 +79,7 @@ export default {
 
             </el-header>
             <el-main>
-                <div v-if="selectedRegion === '北部'">
-                    <ActNorth />
-                </div>
+
             </el-main>
         </el-container>
     </div>
