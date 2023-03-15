@@ -33,9 +33,11 @@ interface customerInterface {
 // 用 reactive 函數來創建了一個響應式顧客組件，其類型是customerInterface[] 陣列，接著，我們就可以使customerData 來添加、刪除、更新顧客資料，而當 customerData 的數據發生變化時，頁面會自動重新渲染。
 const customerData = reactive<customerInterface[]>([]);
 
-// 目前是自動導入第一筆資料
+// localStorage 是瀏覽器提供，用於存儲鍵值對數據的 API，可將資料保存在網頁裡面，可從檢查 application > local storage 裡面找暫存裡面的資料。
+// 將 JSON 字符串轉換為對象，需要使用JSON.parse()方法。如果 localStorage 中不存在相應的值，則getItem()將返回null，並且JSON.parse()在null值上執行會導致異常。
+// 建一個名為 user 的變數，用來存放利用 localStorage.getItem 從 customerData 裡面抓取出來的資料。 
+// 再把 user 變數裡面的值，丟到 ruleForm 值裡面，再透過下面 v-model 方式連動到欄位裡面。
 const user = JSON.parse(localStorage.getItem("customerData"))
-const url = ref("https://localhost:7108/api/MemberInfoes")
 onMounted(() => {
     if (localStorage.getItem("customerData") != null) {
         console.log(user.CustomerName);
@@ -46,12 +48,14 @@ onMounted(() => {
     }
 })
 
-
+const url = ref(`https://localhost:7108/api/MemberInfoes/Revise`)
 // 按下按鈕後執行這個功能
+// `${url.value}/${user.姓名}`是一個組合請求的 URL，告訴 API 我要前往的 API 路徑，再加上 localstorage 裡面存放的會員 id，console 裡面會呈現 https://localhost:7108/api/MemberInfoes/Revise/1
+// 利用 axios.put 將 https://localhost:7108/api/MemberInfoes/Revise/1 傳回 API 呼叫，將已與下方欄位修改的值(v-model ruleForm.xx )，放進去資料庫對應欄位。
 const EditCustomer = () => {
-    console.log(`${url.value}/${user.姓名}`);
+    console.log(`${url.value}/${user.會員id}`); // 將結果用 console.log 印出來，可在 console 檢視。
 
-    axios.put(`${url.value}/${user.姓名}`, {
+    axios.put(`${url.value}/${user.會員id}`, {
         "姓名": ruleForm.姓名,
         "連絡信箱": ruleForm.連絡信箱,
         "會員密碼": ruleForm.會員密碼,
@@ -62,10 +66,12 @@ const EditCustomer = () => {
             console.log(result.data);
             if (result.data != "修改有誤") {
                 localStorage.removeItem("customerData")
+
                 user.姓名 = ruleForm.姓名
                 user.連絡信箱 = ruleForm.連絡信箱
                 user.會員密碼 = ruleForm.會員密碼
                 user.電話號碼 = ruleForm.電話號碼
+
                 localStorage.setItem("customerData", JSON.stringify(user))
                 //console.log(ruleForm);
 
@@ -85,18 +91,18 @@ const EditCustomer = () => {
         })
 }
 
-const refreshEdit = () => {
-  let customerLoginData = JSON.parse(localStorage.getItem("customerLoginData"))
-  console.log(customerLoginData)
-  console.log("call refreshEdit");
-        // if (localStorage.getItem("customerData") != null) {
-        // console.log(user.CustomerName);
-        ruleForm.姓名 = customerLoginData[0].姓名
-        ruleForm.連絡信箱 = customerLoginData[0].連絡信箱
-        ruleForm.會員密碼 = customerLoginData[0].會員密碼
-        ruleForm.電話號碼 = customerLoginData[0].電話號碼
-    // }
-}
+// const refreshEdit = () => {
+//   let customerLoginData = JSON.parse(localStorage.getItem("customerData"))
+//   console.log(customerData)
+//   console.log("call refreshEdit");
+//         // if (localStorage.getItem("customerData") != null) {
+//         // console.log(user.CustomerName);
+//         ruleForm.姓名 = user[0].姓名
+//         ruleForm.連絡信箱 = user[0].連絡信箱
+//         ruleForm.會員密碼 = user[0].會員密碼
+//         ruleForm.電話號碼 = user[0].電話號碼
+//     // }
+// }
 
 
 
@@ -109,7 +115,7 @@ const refreshEdit = () => {
 
 <template>
   
-  <el-form ref="ruleFormRef" :model="ruleForm" label-width="120px" @refreshEdit=" refreshEdit()">
+  <el-form ref="ruleFormRef" :model="ruleForm" label-width="120px" refreshEdit="refreshEdit()">
     
     <Memberphoto1/>
 
@@ -136,9 +142,9 @@ const refreshEdit = () => {
       <el-button type="primary" @click="EditCustomer">
         修改會員資料
       </el-button>
-      <el-button type="primary" @click="refreshEdit">
+      <!-- <el-button type="primary" @click="refreshEdit">
         取得會員資料
-      </el-button>
+      </el-button> -->
       
       
 
