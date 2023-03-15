@@ -13,6 +13,7 @@ import Typed from "typed.js";
 import Layout from "./Sections/Layout.vue";
 
 import test from "./Sections/test.vue";
+import SetOD from "./Sections/SetOD.vue";
 import Testtable from "./Sections/testtable.vue";
 import imagestest from "./Sections/imagestest.vue";
 //sections 放置要引入的頁面
@@ -80,8 +81,9 @@ onUnmounted(() => {
   <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
 
     <!-- 記得這裡設定引入標籤 -->
-    <Layout />
+    <!-- <Layout /> -->
     <test/>
+    <SetOD />
 
   </div>
   <yelufooter />
