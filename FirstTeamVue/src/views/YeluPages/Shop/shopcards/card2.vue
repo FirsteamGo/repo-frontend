@@ -56,7 +56,7 @@ defineProps({
         action.label }}
         <i class="fas fa-arrow-right text-xs ms-1"></i>
       </a> -->
-     <Test1/>
+     
       <!-- <el-button type="warning" :icon="Search" round>詳細資訊</el-button> -->
 
       <!--購物車應該在小視窗內-->
