@@ -1,71 +1,3 @@
-<template>
-  套裝行程，可以幫你完成你的夢想！
-  <el-row>
-    <el-col v-for="item in SetODID" :key="item" :span="8">
-      <el-card :body-style="{ padding: '0px' }" shadow="always">
-        <img :src="`${mvc}${item.活動圖片}`" style="height: 300px;" />
-        <div style="padding: 15px">
-          <span>{{ item.套裝方案 }}</span>
-          <div>
-
-            <el-button type="primary" :icon="Edit" circle @click="{detail(item.套裝行程id);dialogVisible = true }" class="detail" />
-            <el-button type="primary" @click=" shopadd(item.套裝行程id)">
-              套裝行程訂購
-            </el-button>
-          </div>
-        </div>
-      </el-card>
-    </el-col>
-  </el-row>
-        <div>
-          <el-dialog v-model="dialogVisible" title="詳細資訊" width="50%" draggable>
-            <div class="modal-header">
-
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <span class="dialog-footer">
-              <div>
-                <img :src="`${mvc}${image}`" >
-              </div>
-              <div>
-                <label class="form-lable">方案: {{套裝方案}}</label>                             
-              </div>
-              <div>
-                <label class="form-lable">細項: {{ 套裝細項 }}</label>
-              </div>
-              <div>
-                <label class="form-lable">價格: {{ 套裝行程價格 }} 元 / 人</label>
-              </div>
-              <div>
-                <label class="form-lable">相關活動: {{ 活動名稱 }}</label>
-              </div>
-              <div>
-                <label class="form-lable">營區名稱: {{ 營區名稱 }}</label>
-              </div>
-              <div>
-                <label class="form-lable">營區地區: {{ 地區 }}</label>
-              </div>
-              <div>
-                <label class="form-lable">營區縣市:{{ 縣市 }}</label>
-              </div>
-
-              <div>
-                <label class="form-lable">露營方式: {{ 項目內容 }}</label>
-              </div>
-
-
-              <el-button @click="dialogVisible = false">取消</el-button>
-              <el-button type="primary" @click="  dialogVisible = false ">
-                儲存
-              </el-button>
-            </span>
-
-          </el-dialog>
-        </div>
- 
-    
-</template>
-  
 <script  setup>
 import { ref, reactive, onMounted } from 'vue'
 import { Edit } from '@element-plus/icons-vue';
@@ -170,7 +102,74 @@ const shopadd =(套裝行程id)=>{
 
 
 </script>
+<template>
+  套裝行程，可以幫你完成你的夢想！
+  <el-row>
+    <el-col v-for="item in SetODID" :key="item" :span="8">
+      <el-card :body-style="{ padding: '0px' }" shadow="always">
+        <img :src="`${mvc}${item.活動圖片}`" style="height: 300px;" />
+        <div style="padding: 15px">
+          <span>{{ item.套裝方案 }}</span>
+          <div>
 
+            <el-button type="primary" :icon="Edit" circle @click="{detail(item.套裝行程id);dialogVisible = true }" class="detail" />
+            <el-button type="primary" @click=" detail(item.套裝行程id)">
+              套裝行程訂購
+            </el-button>
+          </div>
+        </div>
+      </el-card>
+    </el-col>
+  </el-row>
+        <div>
+          <el-dialog v-model="dialogVisible" title="詳細資訊" width="50%" draggable>
+            <div class="modal-header">
+
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <span class="dialog-footer">
+              <div>
+                <img :src="`${mvc}${image}`" >
+              </div>
+              <div>
+                <label class="form-lable">方案: {{套裝方案}}</label>                             
+              </div>
+              <div>
+                <label class="form-lable">細項: {{ 套裝細項 }}</label>
+              </div>
+              <div>
+                <label class="form-lable">價格: {{ 套裝行程價格 }} 元 / 人</label>
+              </div>
+              <div>
+                <label class="form-lable">相關活動: {{ 活動名稱 }}</label>
+              </div>
+              <div>
+                <label class="form-lable">營區名稱: {{ 營區名稱 }}</label>
+              </div>
+              <div>
+                <label class="form-lable">營區地區: {{ 地區 }}</label>
+              </div>
+              <div>
+                <label class="form-lable">營區縣市:{{ 縣市 }}</label>
+              </div>
+
+              <div>
+                <label class="form-lable">露營方式: {{ 項目內容 }}</label>
+              </div>
+
+
+              <el-button @click="dialogVisible = false">取消</el-button>
+              <el-button type="primary" @click="  dialogVisible = false ">
+                儲存
+              </el-button>
+            </span>
+
+          </el-dialog>
+        </div>
+ 
+    
+</template>
+  
 <style>
 .detail:hover:after {
   content: "詳細資訊";
