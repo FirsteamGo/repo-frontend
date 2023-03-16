@@ -9,7 +9,7 @@
   import step1 from './SetOD.vue'
   import step2 from './SetO.vue'
   import step3 from './SetShop.vue'
-  import { ref } from 'vue'
+  import { ref,onMounted,reactive } from 'vue'
   
   const active = ref(0)
     
@@ -29,10 +29,23 @@
       next() {
         active.value++;
       // console.log(active.value);
-      if(active.value==0){this.content='step1';}
-      else if(active.value==1){this.content='step2';}
-      else if(active.value==2){this.content='step3';}
-      else{active.value=0; this.content='step1';}     
+      if(active.value==0)
+      {
+        this.content='step1';
+      }
+      else if(active.value==1)
+      {
+        this.content='step2';
+      }
+      else if(active.value==2)
+      {
+        this.content='step3';
+      }
+      else
+      {
+        active.value=0; 
+        this.content='step1';
+      }     
       
       // console.log(active.value);  
        
