@@ -19,7 +19,7 @@ defineProps({
         color: String,
         default: () => ({
             route: "javascript:;",
-            label: "Read more",
+            label: "",
             color: "white",
         }),
     },
@@ -35,7 +35,7 @@ defineProps({
                     {{ description }}
                 </p>
                 <a href="javascript:;" class="text-sm icon-move-right" :class="`text-${action.color}`">{{ action.label }}
-                    <i class="fas fa-arrow-right text-xs ms-1"></i>
+                    <!-- <i class="fas fa-arrow-right text-xs ms-1"></i> -->
                 </a>
             </div>
         </div>
