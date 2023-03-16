@@ -53,7 +53,7 @@
               <div>
                 <label class="form-lable">露營方式: {{ 項目內容 }}</label>
               </div>
-
+             
             </span>
 
           </el-dialog>
@@ -85,6 +85,7 @@ const 營區名稱= ref('')
 const 縣市= ref('')
 const 項目內容 = ref('')
 const setdd=reactive([])
+// const quantity=ref(0)
 
 // const router = useRouter()
 

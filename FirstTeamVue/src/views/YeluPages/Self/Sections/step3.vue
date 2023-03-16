@@ -14,6 +14,16 @@ const 自選飲食id = ref(null)
 let 商品名稱 = ref(null)
 let 商品內容 = ref(null)
 
+const total = reactive({
+  自選飲食ID:0,
+  圖片:"",
+  需求份數:0,
+  quantity:[],
+  商品名稱:'',
+  商品內容:'',
+  單價:0,
+
+})
 
 
 
@@ -30,6 +40,27 @@ const getEmployeeDTOes = onMounted(() => {
 
     });
 })
+const add =(自選飲食id)=>{
+  
+  for(let i=0;i<SelfFoods.length;i++){
+    let item = SelfFoods[i]
+    
+    if(item.自選飲食id==自選飲食id)
+    {
+      total.自選飲食ID=item.自選飲食id;
+      total.需求份數=total.quantity[i];
+      total.單價=item.單價;
+      total.圖片=item.圖片;
+      total.商品名稱=item.商品名稱;
+      total.商品內容=item.商品內容;
+      console.log(total);
+      let selfood = JSON.stringify(total)
+
+      localStorage.setItem('selffood', selfood)
+
+    }
+  }
+}
 </script>
 
 
@@ -53,20 +84,20 @@ const getEmployeeDTOes = onMounted(() => {
 
   
       <tbody>
-        <tr v-for="item in SelfFoods" :key="item.自選飲食id" class="text-center">
+        <tr v-for="(item, index) in SelfFoods " :key="item.自選飲食id" class="text-center">
           <td hidden>{{ item.自選飲食id }}</td>
           <td><img :src="`${MVCimages}${item.圖片}`" style="width:100px; height:100px" /></td>
           <td>{{ item.商品名稱 }}</td>
           <td>{{ item.商品內容 }}</td>
           <td>{{ item.單價 }}</td>
           <td>
-            <el-input-number v-model="quantity" :min="1" :max="10" :step="1"></el-input-number>
+            <el-input-number v-model="total.quantity[index]" :min="1" :max="10" :step="1"></el-input-number>   
           </td>
           <td>
             <!-- 勾選 -->
             <!-- <el-checkbox label="加入購物車" size="medium" /> -->
             <!-- 按鈕 -->
-            <button type="button" class="btn btn-outline-dark" size="medium"  >加入購物車</button>
+            <button type="button" class="btn btn-outline-dark" size="medium"  @click="add(item.自選飲食id , item , index)" >加入購物車</button>
             </td>
           </tr>
         </tbody>
