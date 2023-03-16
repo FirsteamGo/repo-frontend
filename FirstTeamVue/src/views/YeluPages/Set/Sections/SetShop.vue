@@ -3,6 +3,11 @@ thead {
   background-color: blue;
   color: cornsilk;
 }
+td{
+ 
+  text-align: center;
+  vertical-align: middle;
+}
 </style>
 
 <template>
@@ -17,7 +22,7 @@ thead {
             <td>會員資訊</td>            
             <td>套裝行程</td>
             <td>套裝行程規劃</td>            
-            <td>確認</td>
+            <td></td>
           </tr>
         </thead>
 
@@ -25,13 +30,13 @@ thead {
           <tr >          
 
                 <td>
-                    會員資訊<button class="btn btn-primary" @click="mem=true">詳細資訊</button>
+                    會員資訊<el-button type="primary" round @click="mem=true">詳細資訊</el-button>
                 </td>
                 <td>
-                    套裝行程<button class="btn btn-primary" @click="Setdetail=true">詳細資訊</button>
+                    套裝行程<el-button type="primary" round @click="Setdetail=true">詳細資訊</el-button>
                 </td>
                 <td>
-                    套裝行程規劃<button class="btn btn-primary" @click="Setorderdetail=true">詳細資訊</button>
+                    套裝行程規劃<el-button type="primary" round @click="Setorderdetail=true">詳細資訊</el-button>
                 </td>
                 
                 <td>
@@ -145,18 +150,29 @@ thead {
 </template>
 
 <script setup>
+import axios from 'axios';
 import { ref, reactive, onMounted } from 'vue';
 const mvc = ref("https://localhost:7120/images/");
+const webApi = ref("https://localhost:7108/api/SetOrders");
 
 
 const mem = ref(false)
 const Setdetail = ref(false)
 const Setorderdetail =ref(false)
 
-    const seto = JSON.parse(localStorage.getItem('setorder'))
-    // console.log(seto);
-    const setod= JSON.parse(localStorage.getItem('setorderdetail'))  
-    const meda= JSON.parse(localStorage.getItem('customerData'))
+const seto = JSON.parse(localStorage.getItem('setorder'))
+const setod= JSON.parse(localStorage.getItem('setorderdetail'))  
+const meda= JSON.parse(localStorage.getItem('customerData'))
+// console.log(seto.訂單編號);
+let 套裝行程ID=ref(setod.套裝行程id)
+let 會員ID=ref(meda.會員id)
+let 套裝訂單編號 = ref(seto.訂單編號)
+let 入住時間 = ref(seto.data[0])
+let 退住時間 = ref(seto.data[1])
+let 預定人數 = ref(seto.numberOfPeople)
+let 合計總價 = ref(seto.合計總價)
+let 評論 = ref(seto.評論)
+let 評分 = ref( seto.評分)
 
 const formatDate = (dateString)=> {
       const date = new Date(dateString);
@@ -166,6 +182,34 @@ const formatDate = (dateString)=> {
       return `${year}-${month}-${day}`;
     }
 
+// console.log(入住時間);
 
+const insert = ()=>{
+  var p = reactive({
+    套裝訂單id:0,
+    套裝行程id:套裝行程ID.value,
+    會員id:會員ID.value,
+    套裝訂單編號:套裝訂單編號.value,
+    入住時間:入住時間.value,
+    退住時間:退住時間.value,
+    預計人數:預定人數.value,
+    合計總價:合計總價.value,
+    評論:評論.value,
+    評分:評分.value,
+    
+
+  });
+   console.log(p);
+  axios
+  .post(`${webApi.value}`,p)
+  .then(res=>{alert(res.data);})
+  .catch((err) => {
+      console.log(err);
+    });
+
+}
+const Del = ()=>{
+
+}
 
 </script>

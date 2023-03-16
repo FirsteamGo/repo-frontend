@@ -1,5 +1,17 @@
 <template>
-    <el-form :model="form" label-width="120px">
+  <el-button type="primary" round style="width: 10%;margin:20px;"  @click="Setdetail=true">套裝行程詳細資訊</el-button>
+
+  <div class="common-layout">
+    <el-container>
+      <el-aside width="60%">
+        <el-carousel indicator-position="outside">
+          <el-carousel-item v-for="item in SetODID" :key="item">
+            <img :src="`${mvc}${item.活動圖片}`" style=" height: 300px; display: block; margin: 0 auto;" />
+          </el-carousel-item>
+        </el-carousel>
+      </el-aside>
+      <el-main>
+        <el-form :model="form" label-width="120px">
       
       <el-form-item label="訂單編號"  hidden>{{setordernu}}</el-form-item>
 
@@ -18,7 +30,7 @@
        <el-form-item label="合計總價 :" >{{ totalPrice }} 元</el-form-item>
 
 
-      <el-form-item label="評論 :" style="width: 30%;">
+      <el-form-item label="評論 :" style="width: 100%;">
         <el-input v-model="form.評論" type="textarea" />
       </el-form-item>
       <el-form-item label="評分 :">
@@ -36,16 +48,65 @@
         <el-button>Cancel</el-button>
       </el-form-item>
     </el-form>
+      </el-main>
+    </el-container>
+
+  </div>
+    
+
+    <div>
+          <el-dialog v-model="Setdetail" title="套裝方案詳細資訊" width="50%" draggable>
+            <div class="modal-header">
+
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <span class="dialog-footer">
+              <div>
+                <img :src="`${mvc}${setod.活動圖片}`" >
+              </div>
+              <div>
+                <label class="form-lable">營區地區: {{ setod.地區 }}</label>
+              </div>
+              <div>
+                <label class="form-lable">營區縣市:{{ setod.縣市 }}</label>
+              </div>
+              <div>
+                <label class="form-lable">營區名稱: {{ setod.營區名稱 }}</label>
+              </div>
+              <div>
+                <label class="form-lable">露營方式: {{ setod.項目內容 }}</label>
+              </div>
+              <div>
+                <label class="form-lable">相關活動: {{ setod.活動名稱 }}</label>
+              </div>
+              <div>
+                <label class="form-lable">方案: {{ setod.套裝方案}}</label>                             
+              </div>
+              <div>
+                <label class="form-lable">細項: {{ setod.套裝細項 }}</label>
+              </div>
+              <div>
+                <label class="form-lable">單價: {{ setod.套裝行程價格 }} 元 / 人</label>
+              </div>
+              
+            </span>
+
+          </el-dialog>
+        </div>
   </template>
   
   <script  setup>
   import { values } from 'lodash';
-  import { reactive,ref,computed,onMounted } from 'vue'
+  import axios from 'axios';
+  import { reactive,ref,computed,onMounted } from 'vue';
+  const webApi = ref("https://localhost:7108/api/SetOrderDetails");
+  const mvc = ref("https://localhost:7120/images/");
   const now = new Date();
-  
+  const Setdetail = ref(false)
+  const SetODID = reactive([])
   
   const setod= JSON.parse(localStorage.getItem('setorderdetail'))  
-  const meda= JSON.parse(localStorage.getItem('customerLoginData'))
+  const meda= JSON.parse(localStorage.getItem('customerData'))
 
   const pricePerPerson=ref(setod.套裝行程價格)
   const Seto = reactive([])
@@ -62,9 +123,14 @@
     合計總價:0,  
   })
   const gitpricePerPerson = onMounted(()=>{
-    console.log(setod);
-    // if(setod!=null){pricePerPerson=ref(setod.套裝行程價格)}
-    // else{pricePerPerson=ref(0)}
+     axios.get(webApi.value)
+    .then(res => {    
+          
+      SetODID.splice(0, res.data.length, ...res.data);
+    })
+    .catch((err) => {
+      console.error(err);
+    })
   })
   
 
@@ -102,4 +168,21 @@
     });
 
   </script>
+  <style scoped>
+  .el-carousel__item h3 {
+    display: flex;
+    color: #475669;
+    opacity: 0.75;
+    line-height: 300px;
+    margin: 0;
+  }
+  
+  .el-carousel__item:nth-child(2n) {
+    background-color: #99a9bf;
+  }
+  
+  .el-carousel__item:nth-child(2n + 1) {
+    background-color: #d3dce6;
+  }
+  </style>
   

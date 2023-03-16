@@ -52,7 +52,7 @@
   
   <el-button style="margin-top: 12px" @click="next" >下一步</el-button>
   <!-- <el-button style="margin-top: 12px" @click="next" v-model="step_data">Next step {{step_data.show_name}}</el-button> -->
-  
+  <p></p>
 
   <component :is="content"></component>
 
