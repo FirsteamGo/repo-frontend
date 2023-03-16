@@ -130,7 +130,7 @@
   </el-tabs>
 </template>
 
-<script lang="ts" setup>
+<script  setup>
 import { Calendar } from '@element-plus/icons-vue'
 
 import { ref } from 'vue'

@@ -53,6 +53,7 @@ const handleRemove = (file: UploadFile) => {
 
 const handlePictureCardPreview = (file: UploadFile) => {
   dialogImageUrl.value = file.url!
+  localStorage.setItem('hhhhhhh', dialogImageUrl.value)
   dialogVisible.value = true
 }
 
