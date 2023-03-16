@@ -36,7 +36,6 @@
   </el-dialog>
 </template>
 
-
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { Delete, Download, Plus, ZoomIn } from '@element-plus/icons-vue'
@@ -53,7 +52,7 @@ const handleRemove = (file: UploadFile) => {
 
 const handlePictureCardPreview = (file: UploadFile) => {
   dialogImageUrl.value = file.url!
-  localStorage.setItem('hhhhhhh', dialogImageUrl.value)
+  localStorage.setItem('imagePath', dialogImageUrl.value) // 將圖片路徑存入 local storage
   dialogVisible.value = true
 }
 
