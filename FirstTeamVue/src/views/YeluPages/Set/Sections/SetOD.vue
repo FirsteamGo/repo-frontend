@@ -9,7 +9,7 @@
           <div>
 
             <el-button type="primary" :icon="Edit" circle @click="{detail(item.套裝行程id);dialogVisible = true }" class="detail" />
-            <el-button type="primary" @click=" detail(item.套裝行程id)">
+            <el-button type="primary" @click=" shopadd(item.套裝行程id)">
               套裝行程訂購
             </el-button>
           </div>
@@ -132,9 +132,41 @@ let detail=(套裝行程id)=>{
     SetOD.push(item);
   }
   SetODID.splice(0,SetOD.length,...SetOD)
-  console.log(SetODID);
+  // console.log(SetODID);
 }
+const shopadd =(套裝行程id)=>{
+  var SetOD =[]
+  
+  for(let i =0;i<SetODID.length;i++){
+    var item= SetODID[i]
+    
+    if(item.套裝行程id==套裝行程id){
+      
+      item.Edit=true;
+      地區.value=item.地區;      
+      套裝方案.value=item.套裝方案;
+      套裝細項.value=item.套裝細項;
+      套裝行程價格.value=item.套裝行程價格;
+      活動名稱.value=item.活動名稱;
+      image.value=item.活動圖片;
+      營區名稱.value=item.營區名稱;
+      縣市.value=item.縣市;
+      項目內容.value=item.項目內容;
+      
+      let setdd = JSON.stringify(item)
 
+      localStorage.setItem('setorderdetail', setdd)
+      
+    }
+    else{item.Edit=false;}
+    
+    SetOD.push(item);
+  }
+  SetODID.splice(0,SetOD.length,...SetOD)
+  // console.log(SetODID);
+
+
+}
 
 
 </script>

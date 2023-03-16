@@ -44,33 +44,47 @@
     </el-form>
   </template>
   
-  <script lang="ts" setup>
+  <script  setup>
   import { values } from 'lodash';
 import { reactive,ref,computed } from 'vue'
   const now = new Date();
-  const pricePerPerson=ref('1000')
+  
+  
+  const setod= JSON.parse(localStorage.getItem('setorderdetail'))
+  console.log(setod);
+  const meda= JSON.parse(localStorage.getItem('customerLoginData'))
+  console.log(meda);
+  const pricePerPerson=ref('110')
+  const 套裝行程id=ref(0)
+  const 會員id=ref(0)
   
   // do not use same name with ref
   const form = reactive({
-    
+    套裝行程id:'',
+    會員id:'',
     訂單編號: '',
     評論: '',
     評分: '',
     data: [],  
     numberOfPeople: '',
     合計總價:0,
+    姓名:'',
     
     
   })
   
   const onSubmit = () => {
+
     console.log('submit!')
     const setordernu = `Set${now.getFullYear()}${(now.getMonth() + 1).toString().padStart(2, "0")}${now.getDate().toString().padStart(2, "0")}${now.getHours().toString().padStart(2, "0")}${now.getMinutes().toString().padStart(2, "0")}${now.getSeconds().toString().padStart(2, "0")}`;
     form.訂單編號=setordernu;
     form.合計總價 = totalPrice.value;    
-
+    form.套裝行程id=setod.套裝行程id;
+    form.姓名=meda[0].姓名;
+    form.會員id=meda[0].會員id;
 
     console.log(form);
+    
     
   }
 
