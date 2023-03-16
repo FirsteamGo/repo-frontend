@@ -9,6 +9,10 @@ import ActRouter from '@/router/Act.js'
 import ShopRouter from '@/router/Shop.js'
 import MemberRouter from '@/router/Member.js'
 
+//購物車頁面
+// import selfshoppingcart from "@/views/YeluPages/shoppingcart/selfshoppingcart.vue";
+
+
 //模板原有router
 import AboutView from "../views/LandingPages/AboutUs/AboutView.vue";
 import ContactView from "../views/LandingPages/ContactUs/ContactView.vue";
@@ -46,8 +50,12 @@ const router = createRouter({
     ...ShopRouter,
     ...MemberRouter,
 
-    //模板原有router
-    {
+    // {//購物車共用頁面
+    //   path: "/pages/Yelu-pages/selfshoppingcart",
+    //   name: "selfshoppingcart",
+    //   component: selfshoppingcart,
+    // },
+    {//模板原有router
       path: "/",
       name: "presentation",
       component: PresentationView,

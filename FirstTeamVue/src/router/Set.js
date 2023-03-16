@@ -4,6 +4,7 @@ export default [
     {
         path: "/pages/Yelu-pages/set",
         name: "set",
-        component: SetView,
-    },
+        component: SetView,        
+    },    
+    
 ]
