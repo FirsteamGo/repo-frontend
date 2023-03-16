@@ -86,7 +86,7 @@ const SignUpGet = () => {
 
     <el-form-item label="性別" prop="性別">
       <el-radio-group v-model="ruleForm.性別">
-        <el-radio label="男" value="1" v-if="ruleForm.性別"/>
+        <el-radio label="男" value="1" /> <!--v-if="ruleForm.性別"-->
         <el-radio label="女" value="0" />
       </el-radio-group>
     </el-form-item>
