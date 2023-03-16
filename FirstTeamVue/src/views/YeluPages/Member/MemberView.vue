@@ -19,11 +19,13 @@ import Typed from "typed.js";
 // import Container2 from "./Sections/Container2.vue";
 // import Breadcrumbs from "./Sections/Breadcrumbs.vue";
 // import Container3 from "./Sections/Container3.vue";
- //import Signup from "./Sections/Signup.vue";
+//  import Signup from "./Sections/Signup.vue";
 // import Login from "./Sections/Login.vue";
- //import frame from "./Sections/Frame.vue";
- //import frame1 from "./Sections/Frame1.vue";
- import shoppingcar from "./Sections/shoppingcar.vue";
+ import frame from "./Sections/Frame.vue";
+ import frame1 from "./Sections/Frame1.vue";
+import shoppingcar from "./Sections/shoppingcar.vue";
+// import shoppingcar1 from "./Sections/shoppingcar1.vue";
+
 
 const body = document.getElementsByTagName("body")[0];
 //hooks
@@ -104,11 +106,12 @@ const refreshEdit_Frame = () => {
     <br>
     <br>
     <Login />
-    <!-- <frame @refreshEdit_Frame="refreshEdit_Frame"/> -->
+    <frame @refreshEdit_Frame="refreshEdit_Frame"/>
     <br>
     <br>
     <frame1 />
     <shoppingcar />
+    <shoppingcar1 />
 
   </div>
   <yelufooter />
