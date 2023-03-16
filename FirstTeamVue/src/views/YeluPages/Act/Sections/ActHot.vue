@@ -24,7 +24,16 @@ const 活動介紹 = ref('')
 const 門票價格 = ref(0)
 const 活動圖片 = ref('')
 
-
+const AddActData = reactive({
+    活動id: 0,
+    地區: "",
+    縣市: "",
+    活動種類: "",
+    活動名稱: "",
+    活動介紹: "",
+    門票價格: 0,
+    活動圖片: "",
+})
 
 const getEmployeeDTOes = onMounted(async () => {
     await axios.get(webApiBaseAddr.value)
@@ -48,7 +57,7 @@ let Actdetail = (活動id) => {
 
     for (let i = 0; i < ActDID.length; i++) {
 
-        var item = ActDID[i]
+        let item = ActDID[i]
         //console.log(item);
 
         if (item.活動id == 活動id) {
@@ -67,9 +76,32 @@ let Actdetail = (活動id) => {
         ActD.push(item);
     }
     ActDID.splice(0, ActD.length, ...ActD)
-
 }
-//console.log(ActDID);
+
+let ActAddStorage = (活動id) => {
+
+    for (let i = 0; i < ActDID.length; i++) {
+
+        let item = ActDID[i]
+
+        if (item.活動id == 活動id) {
+
+            AddActData.活動id = item.活動id
+            AddActData.地區 = item.地區;
+            AddActData.縣市 = item.縣市;
+            AddActData.活動種類 = item.活動種類;
+            AddActData.活動名稱 = item.活動名稱;
+            AddActData.活動介紹 = item.活動介紹;
+            AddActData.活動圖片 = item.活動圖片;
+            AddActData.門票價格 = item.門票價格;
+
+            let ActData = JSON.stringify(AddActData)
+
+            localStorage.setItem('ActData', ActData)
+        }
+    }
+}
+
 </script>
 
 <template>
@@ -93,6 +125,11 @@ let Actdetail = (活動id) => {
                             <el-button type="info" class="text-lg font-weight-bolder icon-move-right"
                                 @click="{ Actdetail(item.活動id); dialogVisible = true; }">
                                 詳細資訊<i class="fas fa-arrow-right text-xs ms-1"></i>
+                            </el-button>
+                            <el-button type="danger" class="text-lg font-weight-bolder " @click="ActAddStorage(item.活動id)">
+                                下訂<span class="material-icons p-2">
+                                    add_shopping_cart
+                                </span>
                             </el-button>
                         </div>
                     </div>

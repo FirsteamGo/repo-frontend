@@ -114,12 +114,12 @@ let Actdetail = (活動id) => {
             </h6>
 
             <!-- <el-button @click="{ Actdetail(); dialogVisible = true }" class="text-lg font-weight-bolder icon-move-right"
-                    :class="`text-${action.color}`">{{
-                        action.label }}
-                    <i class="fas fa-arrow-right text-xs ms-1"></i>
-                </el-button> -->
+                        :class="`text-${action.color}`">{{
+                            action.label }}
+                        <i class="fas fa-arrow-right text-xs ms-1"></i>
+                    </el-button> -->
 
-            <el-button type="danger" class=" m-0 p-3 text-lg cartbtn font-weight-bolder">購買</el-button>
+            <!-- <el-button type="danger" class=" m-0 p-3 text-lg cartbtn font-weight-bolder">購買</el-button> -->
         </div>
         <div v-for="item in ActDID" :key="item">
             <el-dialog v-model="dialogVisible" title="活動詳細資訊" width="50%" draggable>
