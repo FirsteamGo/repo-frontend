@@ -8,21 +8,21 @@ import CampBackgroundBlogCard from "../Sections/CampBlogCards/CampBackgroundBlog
 
 import sun from "@/assets/img/ActImg/sun.jpg";
 
-// const webApiBaseAddr = ref("https://localhost:7108/api/CampDetails")
-// const MVCimages = ref("https://localhost:7120/images/")
+const webApiBaseAddr = ref("https://localhost:7108/api/CampDetails")
+const MVCimages = ref("https://localhost:7120/images/")
 
-// let Camp = reactive([])
+let Camp = reactive([])
 
 
-// const getEmployeeDTOes = onMounted(() => {
-//     axios.get(webApiBaseAddr.value).then(res => {
-//         //console.log(res.data);
-//         Camp.splice(0, res.data.length, ...res.data)
-//         console.log(Camp);
-//     }).catch(err => {
-//         console.log(err);
-//     })
-// })
+const getEmployeeDTOes = onMounted(() => {
+    axios.get(webApiBaseAddr.value).then(res => {
+        //console.log(res.data);
+        Camp.splice(0, res.data.length, ...res.data)
+        console.log(Camp);
+    }).catch(err => {
+        console.log(err);
+    })
+})
 
 </script>
 
@@ -42,10 +42,10 @@ import sun from "@/assets/img/ActImg/sun.jpg";
                         <div class="col-lg-2 col-md-12 col-12">
                             <CampBackgroundBlogCard :image="sun" title="北部營區" description="" />
                         </div>
-                        <!-- <div class="col-lg-2 col-sm-6" v-for="item in Camp">
+                        <div class="col-lg-2 col-sm-6" v-for="item in Camp">
                                             <CampTransparentBlogCard :image="`${MVCimages}${item.圖片}`" :title=item.營區名稱
                                                 :description=item.營區介紹 :price=item.單價 />
-                                        </div> -->
+                                        </div>
 
                     </div>
                 </section>
