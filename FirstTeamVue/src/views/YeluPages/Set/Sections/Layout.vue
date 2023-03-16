@@ -6,9 +6,9 @@
   </script>
 
 <script >
-  import step1 from './Setorder.vue'
-  import step2 from './test.vue'
-  import step3 from './testtable2.vue'
+  import step1 from './SetOD.vue'
+  import step2 from './SetO.vue'
+  import step3 from './SetShop.vue'
   import { ref } from 'vue'
   
   const active = ref(0)
@@ -45,12 +45,12 @@
 <template>
 <!-- 步驟條 -->
   <el-steps :active="active" finish-status="success" >
-    <el-step title="第一步: 挑選營地" />
-    <el-step title="第二步: 挑選飲食" />
-    <el-step title="第三步: 挑選活動 完成" />
+    <el-step title="第一步: 套裝行程" />
+    <el-step title="第二步: 填寫詳細資訊" />
+    <el-step title="第三步: 訂單確認" />
   </el-steps>
   
-  <el-button style="margin-top: 12px" @click="next" >Next step</el-button>
+  <el-button style="margin-top: 12px" @click="next" >下一步</el-button>
   <!-- <el-button style="margin-top: 12px" @click="next" v-model="step_data">Next step {{step_data.show_name}}</el-button> -->
   
 
