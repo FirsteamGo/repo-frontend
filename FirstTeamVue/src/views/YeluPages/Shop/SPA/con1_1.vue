@@ -7,7 +7,7 @@ import card2 from "../shopcards/card2.vue";
 
 //Vue Material Kit 2 components
 
-
+//資料庫連線語法
 const webApiBaseAddr = ref("https://localhost:7108/api/ShopDetails");
 const imagelist = ref("https://localhost:7120/images/");
 const shopPro = reactive([]);
@@ -17,15 +17,9 @@ let shopItem=reactive([])
 const 單價=ref('')
 const 產品名稱=ref('')
 
-
 onMounted(async()=>{
   await axios.get(webApiBaseAddr.value)
   .then(res=>{
-    // for(let i=0;i<res.data.length;i++){
-    //   let item=res.data[i];
-    //   item.Edit=false;
-    //   console.log(item);
-    // }
     shopPro.splice(0,res.data.length,...res.data)
     console.log(shopPro);
 
@@ -33,7 +27,7 @@ onMounted(async()=>{
     console.log(err);
   })
 }) 
-
+//連動彈跳視窗
 let detail=(商品細項ID)=>{
   let shopItem=[]
   //alert(商品細項ID)
@@ -49,7 +43,7 @@ let detail=(商品細項ID)=>{
     else{item.Edit=false;}
     shopItem.push(item);
   }
-  //shopPro.splice(0,shopItem.length,...shopItem)
+  
 }
 </script>
 <template>
