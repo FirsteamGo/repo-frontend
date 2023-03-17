@@ -65,7 +65,7 @@ onUnmounted(() => {
       :style="{ backgroundImage: `url(${bg03})` }"
     > -->
     <div
-      class="page-header min-vh-75"
+      class="page-header min-vh-50"
       :style="`background-image: url(${bg03})`"
       loading="lazy"
     >
@@ -93,6 +93,7 @@ onUnmounted(() => {
   <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
 
     <!-- 記得這裡設定引入標籤 -->
+   
     <stepall />
 
     <!-- <options /> -->

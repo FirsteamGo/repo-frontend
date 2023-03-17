@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <label>露營區域</label>
-    <select v-model="selectedRegion" @change="filterCities">
+    <select v-model="selectedRegion"  @change="filterCities">
       <option disabled value="">請選擇</option>
       <option v-for="(region, index) in regions" :key="index" :value="index">{{ region }}</option>
     </select>

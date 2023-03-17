@@ -3,6 +3,7 @@ defineProps({
     image: {
         type: String,
         required: true,
+        
     },
     title: {
         type: String,
@@ -37,16 +38,18 @@ defineProps({
             </a>
         </div>
         <div class="card-body px-0">
-            <h4>
+      
+
+            <h4 style="color: sienna;">
                 {{ title }}
             </h4>
             <p>
                 {{ description }}
 
             </p>
-            <h6>
+            <!-- <h6>
                 {{ price }}
-            </h6>
+            </h6> -->
 
             <!-- <a :href="action.route" class=" text-lg font-weight-bolder icon-move-right" :class="`text-${action.color}`">{{
                                     action.label }}

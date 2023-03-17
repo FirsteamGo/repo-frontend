@@ -1,97 +1,52 @@
 <script  setup>
 import { ref, reactive, onMounted, computed } from 'vue'
 import axios from "axios";
-const webApiBaseAddr = ref("https://localhost:7108/api/Camps");
 
-let Camps = reactive([])
-const filter = ref("")
-const 營區id = ref(null)
-let 營區名稱 = ref(null)
-let 地區 = ref(null)
-let 縣市 = ref(null)
-let 營區介紹 = ref(null)
-
-
-
-const getEmployeeDTOes = onMounted(() => {
-  //呼叫後端EmployeeController資料
-  axios
-    .get(webApiBaseAddr.value)
-    .then(respose => {
-      
-      for (var i = 0; i < respose.data.length; i++) {
-        var item = respose.data[i];
-        item.Edit = false;
-      }
-      Camps.splice(0, respose.data.length, ...respose.data)
-      console.log(Camps);
-    })
-    .catch((err) => {
-      console.log(err);
-
-    });
-})
-const filterEmployee = () => {
-  let p = {
-    自選訂單id: filter.value,
-    營區細項id: filter.value,
-    單價: filter.value
-  }
-  axios
-    .post(`${webApiBaseAddr.value}/Filter`, p)
-    .then(response => {
-      // console.log(response.data);
-      for (var i = 0; i < response.data.length; i++) {
-        var item = response.data[i];
-        item.Edit = false;
-      }
-
-      Camps.splice(0, Camps.length, ...response.data)
-      // console.log(employeeDTOes);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-}
-
-
-
-//日期選擇
-const date = ref('')
-const value = ref('')
-const option1 = [
-  {
-    value: '1',
-    label: '北部',
-  },
-  {
-    value: '2',
-    label: '中部',
-  },
-  {
-    value: '3',
-    label: '南部',
-  },
- 
-]
-
-// const option2 = [
-//   {
-//     value: '4',
-//     label: '新北',
-//   },
-//   {
-//     value: '5',
-//     label: '桃園',
-//   },
-//   {
-//     value: '6',
-//     label: '新竹',
-//   },
- 
-// ]
 
 </script>
+
+
+<script>
+import { ref, reactive, onMounted, computed, watch } from 'vue';
+
+export default {
+  data() {
+    const selectedRegion = ref(null);
+    const selectedCity = ref(null);
+    const campstyles = ref(null);
+
+    const regions = ['北部', '中部', '南部', '東部'];
+    const cities = {
+      北部: ['新北', '桃園', '新竹'],
+      中部: ['苗栗', '南投', '台中'],
+      南部: ['嘉義', '台南', '高雄'],
+      東部: ['宜蘭', '花蓮', '台東'],
+    };
+    const styles = ['露營車', '懶人露營(有床)', '懶人露營(無床)', '自搭露營'];
+
+    const filteredCities = computed(() => {
+      return cities[selectedRegion.value];
+
+
+    });
+
+    function filterCities() {
+      selectedCity.value = null;
+    }
+
+    return {
+      selectedRegion,
+      selectedCity,
+      regions,
+      cities,
+      styles,
+      filteredCities,
+      filterCities,
+    };
+  },
+};
+</script>
+
 
 
 
@@ -103,30 +58,33 @@ const option1 = [
     <!-- 左側區塊 -->
     <el-container>
         <!-- 加上 row(列)  -->
-      <el-aside width="400px" class="row justify-content-end">
+      <el-aside width="350px" class="row justify-content-end">
         <!-- 卡片 -->
-        <el-card class="box-card">
+        <el-card class="box-card" >
             <template #header>
-            <div class="card-header">
-                <span style="text-align: center; display:block;">營區選擇</span>
+            <div class="card-header" >
+                <label style="text-align: center; display:block;">
+                  <h4>營區選擇</h4></label>
             </div>
             </template>
-                <!-- 選擇器1 -->
-                <span>露營區域</span>
-            <el-select v-model="value" class="m-2" placeholder="請選擇" >
-                <el-option v-for="item in option1" :key="item.value" :label="item.label" :value="item.value"/>
+
+
+        <div class="m-3">
+            <span class="demonstration m-2">露營區域</span> 
+            <el-select v-model="selectedRegion"  @change="filterCities" style="width: 100px;" placeholder="請選擇">
+              <el-option v-for="(region, index) in regions" :key="index" :value="region">{{ region }}</el-option>
             </el-select>
-            <p></p>
-              <!-- 選擇器2 -->
-              <span>露營縣市</span>
-            <el-select v-model="value" class="m-2" placeholder="請選擇" >
-                <el-option v-for="item in option1" :key="item.value" :label="item.label" :value="item.value"/>
+        </div>
+        <div class="m-3">
+            <span class="demonstration m-2">露營縣市</span>
+            <el-select v-model="selectedCity" style="width: 100px;" placeholder="請選擇">
+              <el-option v-for="(city, index) in filteredCities" :key="index" :value="city">{{ city }}</el-option>
             </el-select>
-            <p></p>
-              <!-- 選擇器3 -->
-            <div class="demo-date-picker">
+        </div>
+
+            <div class="demo-date-picker m-3">
               <div class="block">
-                <span class="demonstration">露營日期</span>
+                <span class="demonstration m-2">露營日期</span>
                 <p></p>
                 <el-date-picker
                   v-model="date"
@@ -135,13 +93,24 @@ const option1 = [
                   start-placeholder="開始日期"
                   end-placeholder="結束日期"
                   size="default"
+                  style="width: 280px;"
                 />
               </div>
-      
-    </div>
-    <el-row class="mb-4 pt-4">   
-    <el-button type="warning" >立即搜尋</el-button>
-    </el-row>
+            </div>
+
+         <div class="m-4">
+            <span class="demonstration m-2">露營形式</span>
+            <el-select v-model="campstyles" style="width: 150px;" placeholder="請選擇">
+              <el-option v-for="(styles, index) in styles" :key="index" :value="styles">{{ styles }}</el-option>
+            </el-select>
+         </div>
+         <div class="d-flex justify-content-center align-items-center">
+            <el-row class="mb-4 pt-4 ">   
+            <el-button type="warning" >立即搜尋</el-button>
+            </el-row>
+          </div>
+         
+
 
 
     </el-card>
@@ -168,6 +137,8 @@ const option1 = [
       background-color: rgb(167, 167, 167);
       color: white;
   }
+
+
   </style>
  
  

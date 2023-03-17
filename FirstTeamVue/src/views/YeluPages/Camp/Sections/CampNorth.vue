@@ -1,9 +1,10 @@
 <script setup>
 import { onMounted, onUnmounted, ref, reactive, computed } from "vue";
 import axios from "axios";
-//import axios from "axios";
-// example components
+
+
 import CampTransparentBlogCard from "../Sections/CampBlogCards/CampTransparentBlogCard.vue";
+import Breadcrumbs from "@/examples/Breadcrumbs.vue";
 import CampBackgroundBlogCard from "../Sections/CampBlogCards/CampBackgroundBlogCard.vue";
 
 import sun from "@/assets/img/ActImg/sun.jpg";
@@ -12,24 +13,45 @@ const webApiBaseAddr = ref("https://localhost:7108/api/CampDetails")
 const MVCimages = ref("https://localhost:7120/images/")
 
 
+//抓全部
+// onMounted(() => {
+//     axios.get(webApiBaseAddr.value).then(res => {
 
-const getEmployeeDTOes = onMounted(() => {
-    axios.get(webApiBaseAddr.value).then(res => {
+//         for (var i = 0; i < res.data.length; i++) {
+//             var item = res.data[i];
+//             item.Edit = false;
 
-        for (var i = 0; i < res.data.length; i++) {
-            var item = res.data[i];
-            item.Edit = false;
+//         }
 
+//         //console.log(res.data);
+//         CampDID.splice(0, res.data.length, ...res.data)
+//         //console.log(Camp);
+//     }).catch(err => {
+//         console.log(err);
+//     })
+// }),
+
+
+//北區營地
+onMounted(async () => {
+    await axios.get(webApiBaseAddr.value).then(res => {
+       
+        for (let i = 0; i < res.data.length; i++) {
+            const AllAct = res.data[i];
+            const AllArea = AllAct.地區;
+            
+            if (NorthArea[AllArea]) {
+                NorthArea[AllArea].push(AllAct);
+               
+            } else {
+                console.log(`Unknown region: ${AllArea}`);
+            }
         }
-
-        //console.log(res.data);
-        CampDID.splice(0, res.data.length, ...res.data)
-        //console.log(Camp);
+    
     }).catch(err => {
         console.log(err);
     })
 })
-
 
 
 const dialogVisible = ref(false)
@@ -45,7 +67,12 @@ const 縣市 = ref('')
 const 營區介紹 = ref('')
 const 項目內容 = ref('')
 const 容納人數 = ref(0)
-
+const NorthArea = reactive({
+    "北區": [],
+    //"中區": [],
+    //"南區": [],
+    //"東區": [],
+});
 
 
 const AddCampData = reactive({
@@ -63,13 +90,14 @@ const AddCampData = reactive({
 
 
 })
-
+//北區主頁要帶的資料
 let Campdetail = (營區細項id) => {
     var CampD = []
 
-    for (let i = 0; i < CampDID.length; i++) {
+    for (let i = 0; i < NorthArea.北區.length; i++) {
 
-        let item = CampDID[i]
+        // let item = CampDID[i] 抓全部這樣寫
+        var item = NorthArea.北區[i]
         //console.log(item);
 
         if (item.營區細項id == 營區細項id) {
@@ -91,15 +119,19 @@ let Campdetail = (營區細項id) => {
 
         CampD.push(item);
     }
-    CampDID.splice(0, CampD.length, ...CampD)
+    // CampDID.splice(0, CampD.length, ...CampD) 抓全部這樣寫
+    NorthArea.北區.splice(0, CampD.length, ...CampD)
 }
 
+//選擇方案內要帶的資料
 let SelfSet = (營區細項id) => {
     var CampD = []
 
-    for (let i = 0; i < CampDID.length; i++) {
+    for (let i = 0; i < NorthArea.北區.length; i++) {
 
-        let item = CampDID[i]
+        // let item = CampDID[i]
+        var item = NorthArea.北區[i]
+
         //console.log(item);
 
         if (item.營區細項id == 營區細項id) {
@@ -121,47 +153,63 @@ let SelfSet = (營區細項id) => {
 
         CampD.push(item);
     }
-    CampDID.splice(0, CampD.length, ...CampD)
+    // CampDID.splice(0, CampD.length, ...CampD)
+    NorthArea.北區.splice(0, CampD.length, ...CampD)
+
 }
-
-
-
-
-
 
 
 </script>
 
 <template>
-    <div class="">
-        <el-container>
-            <el-header>
-                <div class="row">
-                    <div class="">
-                        <h1 class="bkc">北部營區</h1>
-                    </div>
+  
+
+
+
+<div class="common-layout">
+    <el-container>
+        <el-header>
+            <div class="row">
+                <div class="">
+                    <Breadcrumbs
+                    :routes="[
+                        { label: '首頁', route: '/' },
+                        { label: '營區預訂' },
+                        { label: '北部' },
+                        
+                    ]"
+                    />
+                    <!-- <el-button type="info" plain>#北部精選</el-button> -->
                 </div>
-            </el-header>
-            <el-main>
-                <section class="py-3">
-                    <div class="row">
-                        <div class="col-lg-2 col-md-12 col-12">
-                            <CampBackgroundBlogCard :image="sun" title="北部營區" description="" />
-                        </div>
-                        <div class="col-lg-2 col-sm-6" v-for="item in CampDID">
-                            <CampTransparentBlogCard :image="`${MVCimages}${item.圖片}`" :title=item.營區名稱
-                                :description=item.營區介紹 />
-                            <el-button type="info" class="text-lg font-weight-bolder icon-move-right"
-                                @click="{ Campdetail(item.營區細項id); dialogVisible = true; }">
-                                選擇方案<i class="fas fa-arrow-right text-xs ms-1"></i>
-                            </el-button>
-                            <!-- <el-button type="danger" class=" text-lg font-weight-bolder " @click="SelfSet(item.營區細項id)">
-                                                                        預訂<span class="material-icons p-2">
-                                                                            add_shopping_cart
-                                                                        </span>
-                                                                    </el-button> -->
-                        </div>
+            </div>
+        </el-header>
+
+        <el-main>
+        <section class="py-3">
+            <div class="row">
+                    <!-- <div class="col-lg-2 col-md-12 col-12">
+                        <CampBackgroundBlogCard :image="sun" title="北部營區" description="" />
+                    </div> -->
+    
+                <div class="col-lg-4 col-sm-6" v-for="item in NorthArea.北區">
+                    <div  style=" height:400px; display: flex; flex-direction: column; justify-content: space-between;">
+                        <!-- 卡片 -->
+                        <CampTransparentBlogCard :image="`${MVCimages}${item.圖片}`" :title=item.營區名稱
+                            :description=item.營區介紹 /> 
+                    </div>   
+                    <div>
+                        <label class="form-lable"><span class="material-icons">pin_drop</span> {{ item.縣市 }}</label>
+                        <label class="form-lable"><span class="material-icons">attach_money</span> TWD<span class="text-primary">{{ item.單價 }}</span>up</label>
                     </div>
+                    <div class="container d-flex justify-content-end">
+                        <el-button type="info" class="text-lg font-weight-bolder icon-move-right  "
+                            @click="{ Campdetail(item.營區細項id); dialogVisible = true; }">
+                            選擇方案<i class="fas fa-arrow-right text-xs ms-1"></i>
+                        </el-button>
+                    </div>
+                    <hr>
+                </div>
+            </div>
                     <!-- 彈跳視窗 -->
                     <div>
                         <el-dialog v-model="dialogVisible" title="營區詳細資訊" width="50%" draggable>
@@ -170,41 +218,55 @@ let SelfSet = (營區細項id) => {
                             </div>
                             <span class="dialog-footer">
                                 <div>
-                                    <img :src="`${MVCimages}${圖片}`">
+                                    <img :src="`${MVCimages}${圖片}`" style="width: 300px;height: 300;">
                                 </div>
                                 <div>
-                                    <label class="form-lable">露營形式: {{ 項目內容 }}</label>
+                                    <!-- <label class="form-lable">
+                                    <h4>露營形式：<small class="text-muted"> {{ 項目內容 }}</small></h4></label> -->
+                                    <label class="form-lable">
+                                    <h4>露營形式：<small class="text-muted"> {{ 項目內容 }}</small></h4></label>
+
                                 </div>
                                 <div>
-                                    <label class="form-lable">地區: {{ 地區 }}</label>
+                                    <label class="form-lable">
+                                    <h4>營區名稱：<small class="text-muted"> {{ 營區名稱 }}</small></h4></label>
+                                   
                                 </div>
                                 <div>
-                                    <label class="form-lable">縣市: {{ 縣市 }}</label>
+                                    <label class="form-lable">
+                                    <h4>營區介紹：<small class="text-muted"> {{ 營區介紹 }}</small></h4></label>
                                 </div>
                                 <div>
-                                    <label class="form-lable">營區地址: {{ 營區地址 }} </label>
+                                    <label class="form-lable"><span class="material-icons">pin_drop
+                                    </span>地區  |  {{ 地區 }}</label>
                                 </div>
                                 <div>
-                                    <label class="form-lable">營區名稱: {{ 營區名稱 }}</label>
+                                    <label class="form-lable"><span class="material-icons">pin_drop
+                                    </span>縣市  |   {{ 縣市 }}</label>
                                 </div>
                                 <div>
-                                    <label class="form-lable">營區介紹: {{ 營區介紹 }}</label>
+                                    <label class="form-lable"><span class="material-icons">near_me
+                                    </span>營區地址  |   {{ 營區地址 }} </label>
                                 </div>
                                 <div>
-                                    <label class="form-lable">容納人數: {{ 容納人數 }}人</label>
+                                    <label class="form-lable"><span class="material-icons">group
+                                    </span>容納人數  |   {{ 容納人數 }}人</label>
                                 </div>
 
-                                <el-button type="danger" class=" text-lg font-weight-bolder " @click="SelfSet(item.營區細項id)">
+                                <RouterLink :to="{ name: 'self' }" >    
+                                <el-button type="danger" class=" text-lg font-weight-bolder m-2" @click="SelfSet(item.營區細項id)">
                                     自選行程<span class="material-icons p-2">
                                         add_shopping_cart
                                     </span>
-                                </el-button>
-                                <el-button type="danger" class=" text-lg font-weight-bolder " @click="SelfSet(item.營區細項id)">
+                                </el-button> </RouterLink>
+                              
+                                <RouterLink :to="{ name: 'set' }"  > 
+                                <el-button type="danger" class=" text-lg font-weight-bolder m-2" @click="SelfSet(item.營區細項id)">
                                     套裝行程<span class="material-icons p-2">
                                         add_shopping_cart
                                     </span>
-                                </el-button>
-                                <el-button type="warning" @click="dialogVisible = false">返回</el-button>
+                                </el-button></RouterLink>
+                                <el-button type="warning" plain @click="dialogVisible = false">返回</el-button>
                             </span>
                         </el-dialog>
                     </div>
@@ -215,3 +277,9 @@ let SelfSet = (營區細項id) => {
         </el-container>
     </div>
 </template>
+
+
+<style>
+
+
+</style>

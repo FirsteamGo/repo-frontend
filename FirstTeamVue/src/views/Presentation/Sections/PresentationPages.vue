@@ -26,7 +26,7 @@ import imgSigninCover from "@/assets/img/signin-cover.png";
               <ExampleCard
                 class="shadow-lg "
                 title="北部"
-                image="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/material-design-system/presentation/pages/contact.jpg"
+                image="https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
                 route="camp"
               />
               <p> 新北 桃園 新竹</p>
@@ -35,7 +35,7 @@ import imgSigninCover from "@/assets/img/signin-cover.png";
               <ExampleCard
                 class="shadow-lg"
                 title="中部"
-                image="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/material-design-system/presentation/pages/contact.jpg"
+                image="https://images.unsplash.com/photo-1424135980090-9f15ad7a8efd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
                 route="camp"
               />
               <p>苗栗 南投 台中</p>
@@ -46,7 +46,7 @@ import imgSigninCover from "@/assets/img/signin-cover.png";
               <ExampleCard
                 classes="mt-5"
                 title="南部"
-                image="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/material-design-system/presentation/pages/contact.jpg"
+                image="https://images.unsplash.com/photo-1599758376048-8c340c1489cb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
                 route="camp"
               />
               <p> 嘉義 台南 高雄</p>
@@ -56,7 +56,7 @@ import imgSigninCover from "@/assets/img/signin-cover.png";
               <ExampleCard
                 classes="shadow-lg"
                 title="東部"
-                image="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/material-design-system/presentation/pages/contact.jpg"
+                image="https://images.unsplash.com/photo-1525811902-f2342640856e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
                 route="camp"
               />
               <p> 宜蘭 花蓮 台東</p>
