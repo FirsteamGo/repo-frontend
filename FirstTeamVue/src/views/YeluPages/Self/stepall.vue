@@ -63,6 +63,17 @@ export default {
   
   }
 }
+// let dialogData=reactive([])
+// const xxx = () => {
+//   let itemString = localStorage.getItem('selfaddItemList') // let itemString = storage['selfaddItemList']
+// sf = itemString.substring(0, itemString.length - 2).split(', ')
+// for (let i = 0; i < sf.length; i++) {
+//         // let itemInfo = localStorage.getItem(sf[i])
+
+//         dialogData.push(JSON.parse(localStorage.getItem('self'+sf[i])))
+//     }
+//     dialogVisible = true
+// }
 
 </script>
 
@@ -85,7 +96,8 @@ export default {
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
     <!-- 引用購物車組件(畫面) -->
-    <selfshoppinglist/>
+    <!-- <selfshoppinglist :prop="dialogData"/> -->
+    <selfshoppinglist />
   </el-dialog>
 
 

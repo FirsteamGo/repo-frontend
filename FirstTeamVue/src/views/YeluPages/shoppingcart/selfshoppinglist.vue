@@ -1,3 +1,23 @@
+<script setup>
+// 從 Local Storage 讀取購物車資料
+import { reactive, ref } from 'vue'
+const MVCimages = ref("https://localhost:7120/images/");
+
+const selffood=ref()
+// let sf = defineProps('dialogData')
+let sf=reactive([])
+let sfitem=reactive([])
+
+// sf=JSON.parse(localStorage.getItem('selfaddItemList'))
+let itemString = localStorage.getItem('selfaddItemList') // let itemString = storage['selfaddItemList']
+sf = itemString.substring(0, itemString.length - 2).split(', ')
+for (let i = 0; i < sf.length; i++) {
+        // let itemInfo = localStorage.getItem(sf[i])
+
+		sfitem.push(JSON.parse(localStorage.getItem('self'+sf[i])))
+    }
+</script>
+
 
 
 <template>
@@ -21,27 +41,27 @@
 			<!-- 會重複做的視為功能，功能要寫成函數 -->
 			<!-- 這邊寫飲食按下選購後的東西 -->
 <div>
-		<table>
-			<tr v-for="(item, index) in sf " :key="item.自選飲食id" :value="index" class="item">
-				<!-- <td style="width:200px;">
-					<img :src="`${MVCimages}${sf.圖片}`" style="width:100px; height:100px">
-				</td> -->
-				<td style="width:200px;">
-					<p> {{ item }}</p>
-				</td>
-				<!-- <td style="width:300px;">
-					<p>{{ sf.商品內容 }}</p>
-				</td>
-				<td style="width:150px;">
-					<p>{{ sf.單價 }}</p>
-				</td>
-				<td style="width:60px;">
-					<p>{{ sf.需求份數 }}
-					</p>
-				</td> -->
-			</tr>
-		</table>
-	</div> 
+<table>
+	<tr v-for="(item, index) in sf " :key="item.自選飲食id" :value="index" class="item">
+		<td style="width:200px;">
+			<img :src="`${MVCimages}${sfitem[index].圖片}`" style="width:100px; height:100px">
+		</td>
+		<td style="width:200px;">
+			<p> {{ sfitem[index].商品名稱 }}</p>
+		</td>
+		<td style="width:300px;">
+			<p>{{ sfitem[index].商品內容 }}</p>
+		</td>
+		<td style="width:150px;">
+			<p>{{ sfitem[index].單價 }}</p>
+		</td>
+		<td style="width:60px;">
+			<p>{{ sfitem[index].需求份數 }}
+			</p>
+		</td>
+	</tr>
+</table>
+</div> 
 
 		</header>
 		<footer style="text-align:right;">
@@ -58,20 +78,6 @@
 
 
 
-<script setup>
-// 從 Local Storage 讀取購物車資料
-import { reactive, ref } from 'vue'
-const MVCimages = ref("https://localhost:7120/images/");
-
-const selffood=ref()
-let sf=reactive([])
-
-// const sf=JSON.parse(localStorage.getItem('selffood'))
-// sf=JSON.parse(localStorage.getItem('addItemList'))
-let itemString = localStorage.getItem('addItemList') // let itemString = storage['addItemList']
-sf = itemString.substring(0, itemString.length - 2).split(', ')
-
-</script>
 
 
 

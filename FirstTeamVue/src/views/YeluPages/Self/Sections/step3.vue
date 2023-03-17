@@ -2,10 +2,10 @@
 import { ref, reactive, onMounted, computed } from 'vue'
 import axios from "axios";
 let storage = localStorage;
-if (storage['addItemList'] == null) {
-    storage['addItemList'] = ''
+if (storage['selfaddItemList'] == null) {
+    storage['selfaddItemList'] = ''
 }else{
-storage.setItem('addItemList','')
+storage.setItem('selfaddItemList','')
 
 }
 
@@ -67,11 +67,12 @@ const add =(自選飲食id)=>{
       let selfood = JSON.stringify(total)
       // localStorage.setItem('selffood', selfood)
 
-   
-      storage['addItemList'] += `${自選飲食id}, `
-      storage.setItem(自選飲食id, selfood)
 
-     alert('已加入購物清單!');
+      if (storage['selfaddItemList'] == null) storage['selfaddItemList'] = ''   
+      storage['selfaddItemList'] += `${自選飲食id}, `
+      storage.setItem('self'+自選飲食id, selfood)
+
+      // alert('已加入購物清單!');
     }
   }
 }
@@ -82,7 +83,7 @@ const add =(自選飲食id)=>{
 <template>
   <div id="app" class="container mt-5">
 
-  <!-- 表頭 -->
+  <!-- 表格標題 -->
 <div class=" row form-group">
   <table class="table table-striped table-hover">
     <thead style="background-color: cadetblue">
@@ -96,7 +97,7 @@ const add =(自選飲食id)=>{
       </tr>
     </thead>
 
-  
+  <!-- api抓SelfFoods進來 -->
     <tbody>
       <tr v-for="(item, index) in SelfFoods " :key="item.自選飲食id" class="text-center">
         <td hidden>{{ item.自選飲食id }}</td>
@@ -104,13 +105,12 @@ const add =(自選飲食id)=>{
         <td>{{ item.商品名稱 }}</td>
         <td>{{ item.商品內容 }}</td>
         <td>{{ item.單價 }}</td>
+        <!-- 數量按鈕 -->
         <td>
           <el-input-number v-model="quantity[index]" :min="1" :max="10" :step="1"></el-input-number>   
         </td>
         <td>
-          <!-- 勾選 -->
-          <!-- <el-checkbox label="加入購物車" size="medium" /> -->
-          <!-- 按鈕 -->
+          <!-- 選購按鈕 -->
           <button type="button" class="btn btn-outline-dark" size="medium"  @click="add(item.自選飲食id , item , index)" >選購</button>
           </td>
         </tr>

@@ -155,65 +155,68 @@ watch(
                 <ul class="list-group">
                   <li class="nav-item dropdown dropdown-hover dropdown-subitem list-group-item border-0 p-0">
                     <a class="dropdown-item py-2 ps-3 border-radius-md" href="javascript:;">
+                      <router-link to="/pages/Yelu-pages/camp/Sections/CampNorth">
                       <div class="d-flex">
                         <div class="w-100 d-flex align-items-center justify-content-between">
                           <div>
-                            <router-link to="/pages/Yelu-pages/camp/Sections/CampNorth"><span
-                                class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                                北部</span></router-link>
+                              <span class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
+                                北部</span>
                             <span class="text-sm">North District</span>
                           </div>
                           <!-- <img :src="downArrow" alt="down-arrow" class="arrow" /> -->
                         </div>
-                      </div>
+                      </div></router-link>
                     </a>
 
                   </li>
                   <li class="nav-item dropdown dropdown-hover dropdown-subitem list-group-item border-0 p-0">
                     <a class="dropdown-item py-2 ps-3 border-radius-md" href="javascript:;">
+                      <router-link to="/pages/Yelu-pages/camp/Sections/CampWest">
                       <div class="d-flex">
                         <div class="w-100 d-flex align-items-center justify-content-between">
                           <div>
-                            <router-link to="/pages/Yelu-pages/camp/Sections/CampWest"><span
+                              <span
                                 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                                中部</span></router-link>
+                                中部</span>
                             <span class="text-sm">Central District</span>
                           </div>
                           <!-- <img :src="downArrow" alt="down-arrow" class="arrow" /> -->
                         </div>
-                      </div>
+                      </div></router-link>
                     </a>
 
                   </li>
                   <li class="nav-item dropdown dropdown-hover dropdown-subitem list-group-item border-0 p-0">
                     <a class="dropdown-item py-2 ps-3 border-radius-md" href="javascript:;">
+                      <router-link to="/pages/Yelu-pages/camp/Sections/CampSouth">
                       <div class="d-flex">
                         <div class="w-100 d-flex align-items-center justify-content-between">
                           <div>
-                            <router-link to="/pages/Yelu-pages/camp/Sections/CampSouth"><span
+                              <span
                                 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                                南部</span></router-link>
+                                南部</span>
                             <span class="text-sm">South District</span>
                           </div>
                           <!-- <img :src="downArrow" alt="down-arrow" class="arrow" /> -->
                         </div>
-                      </div>
+                      </div></router-link>
                     </a>
 
                   </li>
                   <li class="nav-item dropdown dropdown-hover dropdown-subitem list-group-item border-0 p-0">
                     <a class="dropdown-item py-2 ps-3 border-radius-md" href="javascript:;">
+                      <router-link to="/pages/Yelu-pages/camp/Sections/CampEast">
                       <div class="d-flex">
                         <div class="w-100 d-flex align-items-center justify-content-between">
                           <div>
-                            <router-link to="/pages/Yelu-pages/camp/Sections/CampEast"><span
+                              <span
                                 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                                東部</span></router-link>
+                                東部</span>
                             <span class="text-sm">East District</span>
                           </div>
                           <!-- <img :src="downArrow" alt="down-arrow" class="arrow" /> -->
                         </div>
-                      </div>
+                      </div></router-link>
                     </a>
 
                   </li>
@@ -258,36 +261,36 @@ watch(
                 <ul class="list-group">
                   <li class="nav-item dropdown dropdown-hover dropdown-subitem list-group-item border-0 p-0">
                     <a class="dropdown-item py-2 ps-3 border-radius-md" href="javascript:;">
+                      <RouterLink :to="{ name: 'self' }" class="dropdown-item border-radius-md">
                       <div class="d-flex">
                         <div class="w-100 d-flex align-items-center justify-content-between">
                           <div>
-                            <RouterLink :to="{ name: 'self' }" class="dropdown-item border-radius-md">
                               <span
                                 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
                                 自選行程</span>
-                            </RouterLink>
+                           
                             <span class="text-sm">Self-guided Camp</span>
                           </div>
                           <!-- <img :src="downArrow" alt="down-arrow" class="arrow" /> -->
                         </div>
-                      </div>
+                      </div> </RouterLink>
                     </a>
                   </li>
                   <li class="nav-item dropdown dropdown-hover dropdown-subitem list-group-item border-0 p-0">
                     <a class="dropdown-item py-2 ps-3 border-radius-md" href="javascript:;">
+                      <RouterLink :to="{ name: 'set' }" class="dropdown-item border-radius-md">
                       <div class="d-flex">
                         <div class="w-100 d-flex align-items-center justify-content-between">
                           <div>
-                            <RouterLink :to="{ name: 'set' }" class="dropdown-item border-radius-md">
                               <span
                                 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
                                 套裝行程</span>
-                            </RouterLink>
+                            
                             <span class="text-sm">Package Camp</span>
                           </div>
                           <!-- <img :src="downArrow" alt="down-arrow" class="arrow" /> -->
                         </div>
-                      </div>
+                      </div></RouterLink>
                     </a>
                   </li>
                 </ul>
