@@ -6,7 +6,7 @@ import card1 from '../Self/Sections/card.vue'
 <script >
 //<!-- 步驟條 -->
 import { ref } from 'vue'
-import CampView from '../Camp/Sections/CampCarousel.vue'
+import CampIndex from '../Camp/Sections/CampIndex.vue'
 import step2 from '../Self/Sections/step2.vue'
 import step3 from '../Self/Sections/step3.vue'
 import selfshoppinglist from '../shoppingcart/selfshoppinglist.vue'
@@ -18,13 +18,13 @@ const dialogVisible = ref(false)
 
 export default {
   components: {
-    CampView,  
+    CampIndex,  
     step2,
     step3
   },
   data() {
     return {
-      content: 'CampView',
+      content: 'CampIndex',
       BtnCart: false,
       BtnStep: true,
     }
@@ -43,7 +43,7 @@ export default {
       }else if(active.value ==3){
         this.content = 'step3';
       }else{
-        this.content = 'CampView';
+        this.content = 'CampIndex';
         this.BtnCart=false;
         this.Step1=false;
         this.BtnStep = true;

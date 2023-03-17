@@ -7,6 +7,10 @@ import CampBackgroundBlogCard from "../Sections/CampBlogCards/CampBackgroundBlog
 
 import sun from "@/assets/img/ActImg/sun.jpg";
 
+
+
+
+
 </script>
 
 <template>
