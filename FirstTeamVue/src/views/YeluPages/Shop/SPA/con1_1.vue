@@ -18,6 +18,12 @@ const 單價=ref(0)
 const 產品名稱=ref('')
 const quantity=reactive([])
 
+const dialogData=reactive({
+  數量:1,
+  產品名稱:"",
+  單價:'',
+})
+
 onMounted(async()=>{
   await axios.get(webApiBaseAddr.value)
   .then(res=>{
@@ -35,11 +41,11 @@ let detail=(商品細項ID)=>{
   for(let i=0;i<shopPro.length;i++){
     let item=shopPro[i]
     if(item.商品細項id==商品細項ID){
-      單價.value=item.單價;
+      dialogData.單價.value=item.單價;
       //console.log(單價.value);
-      產品名稱.value=item.產品名稱;
+      dialogData.產品名稱.value=item.產品名稱;
       //console.log(產品名稱.value);
-     
+      數量.value=1
     }
    
     shopItem.push(item);
@@ -57,13 +63,11 @@ let detail=(商品細項ID)=>{
 const totalPrice=computed((index)=>{
   
   
-  if(單價.value===null){
-    return " ";
+  if(單價.value==null){
+    return "";
   }
   return parseInt(quantity[index])*parseInt(單價.value);
 })
-
-
 
 
 
@@ -91,13 +95,13 @@ const totalPrice=computed((index)=>{
                 </div>
                 <span class="dialog-footer">
                   <div>
-                    <label  class="form-label">價錢:{{單價}}</label>
+                    <label  class="form-label">價錢:{{dialogData.單價}}</label>
                   </div>
                   <div>
-                    <label class="form-label">名稱:{{ 產品名稱 }}</label>
+                    <label class="form-label">名稱:{{ dialogData.產品名稱 }}</label>
                   </div>
                   <div>
-            <el-input-number v-model="quantity[index]" :min="1" :max="10" :step="1" value="0"></el-input-number>
+            <el-input-number v-model="dialogData.數量" :min="1" :max="10" :step="1" ></el-input-number>
                   </div>
                   <div>
                     <label  class="form-label">總價:{{totalPrice}}</label>
