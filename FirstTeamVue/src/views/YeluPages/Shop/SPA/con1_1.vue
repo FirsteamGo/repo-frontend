@@ -13,9 +13,10 @@ const imagelist = ref("https://localhost:7120/images/");
 const shopPro = reactive([]);
 const visible=ref(false)
 const image=ref('')
-let shopItem=reactive([])
-const 單價=ref('')
+const shopItem=reactive([])
+const 單價=ref(0)
 const 產品名稱=ref('')
+const quantity=reactive([])
 
 onMounted(async()=>{
   await axios.get(webApiBaseAddr.value)
@@ -38,13 +39,34 @@ let detail=(商品細項ID)=>{
       //console.log(單價.value);
       產品名稱.value=item.產品名稱;
       //console.log(產品名稱.value);
-
+     
     }
-    else{item.Edit=false;}
+   
     shopItem.push(item);
-  }
+  } 
   
 }
+//計算總價
+// const totalPrice = computed(() => {
+//     const people = parseInt(form.numberOfPeople);
+//     const price = parseInt(pricePerPerson.value);
+//     return isNaN(people) || isNaN(price) ? 0 : people * price;
+//     });
+
+
+const totalPrice=computed((index)=>{
+  
+  
+  if(單價.value===null){
+    return " ";
+  }
+  return parseInt(quantity[index])*parseInt(單價.value);
+})
+
+
+
+
+
 </script>
 <template>
   <div class="">
@@ -52,14 +74,14 @@ let detail=(商品細項ID)=>{
       <el-main>
         <section class="py-3">
           <div class="row">
-            <div class="col-lg-2 col-sm-6" v-for="item in shopPro" >
+            <div class="col-lg-2 col-sm-6" v-for="(item, index) in shopPro" :key="item.商品細項id">
               <card2
                 :image="`${imagelist}${item.產品圖片}`"
                 :title="item.產品名稱"
                 :description="item.單價"
                 :content="item.產品說明"              
               />
-              <el-button @click="{detail(item.商品細項id);visible=true}" class="detail" type="danger">123</el-button>
+              <el-button @click="{detail(item.商品細項id ,item ,index);visible=true}" class="detail" type="danger">123</el-button>
               <div>
               </div>
             </div>
@@ -69,13 +91,16 @@ let detail=(商品細項ID)=>{
                 </div>
                 <span class="dialog-footer">
                   <div>
-                    <label class="form-label">價錢:{{ 單價 }}</label>
+                    <label  class="form-label">價錢:{{單價}}</label>
                   </div>
                   <div>
                     <label class="form-label">名稱:{{ 產品名稱 }}</label>
                   </div>
                   <div>
-            <el-input-number v-model="quantity" :min="1" :max="10" :step="1"></el-input-number>
+            <el-input-number v-model="quantity[index]" :min="1" :max="10" :step="1" value="0"></el-input-number>
+                  </div>
+                  <div>
+                    <label  class="form-label">總價:{{totalPrice}}</label>
                   </div>
                   <el-button @click="visible = false">取消</el-button>
               <el-button type="primary" @click="  visible = false ">
