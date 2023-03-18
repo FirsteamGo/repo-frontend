@@ -13,6 +13,7 @@ const imagelist = ref("https://localhost:7120/images/");
 let shopPro = reactive([]);
 const visible=ref(false)
 const image=ref('')
+const 單價=ref('')
 const shopItem=reactive([])
 
 const getEmployeeDTOes = onMounted(() => {
@@ -37,6 +38,7 @@ let datail=(商品細項ID)=>{
       image.value=item.產品圖片;
     }
   }
+  shopPro.splice(0,showItem.length,...shopItem)
 }
 </script>
 <template>
@@ -61,6 +63,9 @@ let datail=(商品細項ID)=>{
                 <span class="dialog-footer">
                   <div>
                     <img :src="`${imagelist}${image}`" alt="empty">
+                  </div>
+                  <div>
+                      <label class="form-table">單價:{{ 單價 }}元</label>
                   </div>
                   <el-button @click="visible = false">取消</el-button>
               <el-button type="primary" @click="  visible = false ">
