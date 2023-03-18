@@ -11,6 +11,11 @@ export default [
         name: "CampHot",
         component: () => import("../views/YeluPages/Camp/Sections/CampHot.vue"),
       },
+      {//營區首頁
+        path: "Sections/CampIndex",
+        name: "CampIndex",
+        component: () => import("../views/YeluPages/Camp/Sections/CampIndex.vue"),
+    },
       {
         path: "Sections/CampNorth",
         name: "CampNorth",

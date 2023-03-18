@@ -96,7 +96,7 @@ let Actdetail = (活動id) => {
     <div class="card card-plain">
         <div class="card-header p-0 position-relative">
             <a class="d-block blur-shadow-image">
-                <img :src="image" :alt="title" class="img-fluid shadow border-radius-lg" loading="lazy" />
+                <img :src="image" :alt="title" class="img-fluid shadow border-radius-lg" loading="lazy"  style="width: 400px; height: 200px;" />
             </a>
         </div>
         <div class="card-body px-0">

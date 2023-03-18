@@ -171,6 +171,7 @@ let SelfSet = (營區細項id) => {
         <el-header>
             <div class="row">
                 <div class="">
+                    <!-- 麵包屑 -->
                     <Breadcrumbs
                     :routes="[
                         { label: '首頁', route: '/' },
@@ -191,7 +192,7 @@ let SelfSet = (營區細項id) => {
                         <CampBackgroundBlogCard :image="sun" title="北部營區" description="" />
                     </div> -->
     
-                <div class="col-lg-4 col-sm-6" v-for="item in NorthArea.北區">
+                <div class="card m-3 col-lg-4 col-sm-6" v-for="item in NorthArea.北區">
                     <div  style=" height:400px; display: flex; flex-direction: column; justify-content: space-between;">
                         <!-- 卡片 -->
                         <CampTransparentBlogCard :image="`${MVCimages}${item.圖片}`" :title=item.營區名稱
