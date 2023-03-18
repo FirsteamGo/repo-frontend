@@ -54,7 +54,7 @@ import { reactive,ref,computed } from 'vue'
   console.log(setod);
   const meda= JSON.parse(localStorage.getItem('customerLoginData'))
   console.log(meda);
-  const pricePerPerson=ref(setod.套裝行程價格)
+  const pricePerPerson=ref('110')
   const 套裝行程id=ref(0)
   const 會員id=ref(0)
   
@@ -81,6 +81,7 @@ import { reactive,ref,computed } from 'vue'
     form.合計總價 = totalPrice.value;    
     form.套裝行程id=setod.套裝行程id;
     form.姓名=meda[0].姓名;
+    form.會員id=meda[0].會員id;
 
     console.log(form);
     

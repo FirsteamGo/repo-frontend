@@ -20,10 +20,10 @@ import Typed from "typed.js";
 // import Breadcrumbs from "./Sections/Breadcrumbs.vue";
 // import Container3 from "./Sections/Container3.vue";
  //import Signup from "./Sections/Signup.vue";
- //import Login from "./Sections/Login.vue";
- import frame from "./Sections/Frame.vue";
- import frame1 from "./Sections/Frame1.vue";
-
+// import Login from "./Sections/Login.vue";
+ //import frame from "./Sections/Frame.vue";
+ //import frame1 from "./Sections/Frame1.vue";
+ import shoppingcar from "./Sections/shoppingcar.vue";
 
 const body = document.getElementsByTagName("body")[0];
 //hooks
@@ -48,6 +48,10 @@ onUnmounted(() => {
   body.classList.remove("about-us");
   body.classList.remove("bg-gray-200");
 });
+
+const refreshEdit_Frame = () => {
+  console.log('refreshEdit_Frame refreshEdit_Frame refreshEdit_Frame')
+}
 </script>
 <template>
   <DefaultNavbar
@@ -100,10 +104,11 @@ onUnmounted(() => {
     <br>
     <br>
     <Login />
-    <frame />
+    <!-- <frame @refreshEdit_Frame="refreshEdit_Frame"/> -->
     <br>
     <br>
     <frame1 />
+    <shoppingcar />
 
   </div>
   <yelufooter />

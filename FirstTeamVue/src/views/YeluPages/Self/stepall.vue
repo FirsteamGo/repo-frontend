@@ -5,20 +5,20 @@ import card1 from '../Self/Sections/card.vue'
 
 <script >
 //<!-- 步驟條 -->
+import { ref } from 'vue'
 import CampView from '../Camp/Sections/CampCarousel.vue'
 import step2 from '../Self/Sections/step2.vue'
 import step3 from '../Self/Sections/step3.vue'
-import shoppingcart from "@/views/YeluPages/shoppingcart.vue";
+import selfshoppinglist from '../shoppingcart/selfshoppinglist.vue'
 
 
-import { ref } from 'vue'
 
 const active = ref(0)
 const dialogVisible = ref(false)
 
 export default {
   components: {
-    CampView,
+    CampView,  
     step2,
     step3
   },
@@ -78,42 +78,14 @@ export default {
 
     <el-button v-if="BtnStep" style="margin-top: 25px" @click="next" >點我下一步</el-button>
 
-
+   
   <!-- Modal彈跳視窗裡面要顯示的東西 --> 
-  <el-dialog v-model="dialogVisible" title="確認購買清單" width="50%" draggable>
+  <el-dialog v-model="dialogVisible" title="確認購買清單" width="90%" draggable>
     <div class="modal-header">
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
-    <!-- 引用購物車組件 -->
-    <shoppingcart/>
-    <button type="button" class="btn btn-outline-dark" size="medium" @click="addcart">加入購物車</button>
-    <!-- <template #footer>
-      <span class="dialog-footer">
-        <table>
-          <tbody>
-            <tr v-for="item in SelfFoods" :key="item.自選飲食id" class="text-center">
-              <td>
-                <label class="form-lable">商品名稱</label>
-               
-                <span>{{ item.商品名稱 }}</span>
-              </td>
-              <td>
-                <label class="form-lable">商品內容</label>
-           
-                <span>{{ item.商品內容 }}</span>
-              </td>
-              <td>
-                <label class="form-lable">單價</label>
-               
-                <span>{{ item.單價 }}</span>
-              </td>
-              
-            </tr>
-            <el-button @click="dialogVisible = true">加入購物車</el-button>
-          </tbody>
-        </table>
-      </span>
-    </template>  -->
+    <!-- 引用購物車組件(畫面) -->
+    <selfshoppinglist/>
   </el-dialog>
 
 

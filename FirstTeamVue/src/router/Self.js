@@ -4,7 +4,7 @@ import SelfView from "@/views/YeluPages/Self/SelfView.vue";
 import test from "@/views/YeluPages/Self/test.vue";
 import test2 from "@/views/YeluPages/Self/test2.vue";
 import stepall from "@/views/YeluPages/Self/stepall.vue";
-// import shoppingcart from "@/views/YeluPages/shoppingcart.vue";
+import selfshoppingcart from "@/views/YeluPages/shoppingcart/selfshoppingcart.vue";
 
 export default [
     {
@@ -20,25 +20,25 @@ export default [
         component: test2,
     },
     {
-        //test完刪除
+        //在stepall裡面塞selfshoppinglist.vue
         path: "/pages/Yelu-pages/Self/stepall",
         name: "stepall",
         component: stepall,
-        children: [
-            {
-                path: "YeluPages/shoppingcart",
-                name: "shoppingcart",
-                component: () => import("../views/YeluPages/shoppingcart.vue"),
-            },
-        ]
+        // children: [
+        //     {
+        //         path: "selfshoppingcart",
+        //         name: "selfshoppingcart",
+        //         component: () => import("../views/YeluPages/shoppingcart/selfshoppingcart.vue"),
+        //     },
+        // ]
     },
-    // {
+    {
 
-    //   path: "/pages/Yelu-pages/shoppingcart",
-    //   name: "shoppingcart",
-    //   component: shoppingcart,
+        path: "/pages/Yelu-pages/selfshoppingcart",
+        name: "selfshoppingcart",
+        component: selfshoppingcart,
 
-    // },
+    },
 
 
     {
