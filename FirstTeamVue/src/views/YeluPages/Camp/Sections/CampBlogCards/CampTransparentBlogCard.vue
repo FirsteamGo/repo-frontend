@@ -34,22 +34,22 @@ defineProps({
     <div class="card card-plain">
         <div class="card-header p-0 position-relative">
             <a class="d-block blur-shadow-image">
-                <img :src="image" :alt="title" class="img-fluid shadow border-radius-lg" loading="lazy" />
+                <img :src="image" :alt="title" class="img-fluid shadow border-radius-lg"  loading="lazy" style="width: 400px; height: 250px;"/>
             </a>
         </div>
-        <div class="card-body px-0">
+        <div class="card-body px-3">
       
 
-            <h4 style="color: sienna;">
+            <h4 style="color: sienna;" >
                 {{ title }}
             </h4>
             <p>
                 {{ description }}
 
             </p>
-            <!-- <h6>
+            <p>
                 {{ price }}
-            </h6> -->
+            </p>
 
             <!-- <a :href="action.route" class=" text-lg font-weight-bolder icon-move-right" :class="`text-${action.color}`">{{
                                     action.label }}

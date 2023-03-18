@@ -106,7 +106,7 @@ export default {
          </div>
          <div class="d-flex justify-content-center align-items-center">
             <el-row class="mb-4 pt-4 ">   
-            <el-button type="warning" >立即搜尋</el-button>
+            <el-button type="success" >立即搜尋</el-button>
             </el-row>
           </div>
          

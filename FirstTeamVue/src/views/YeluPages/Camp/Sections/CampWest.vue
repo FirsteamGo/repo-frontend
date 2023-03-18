@@ -187,19 +187,19 @@ let SelfSet = (營區細項id) => {
                     </div> -->
     
                 <div class="col-lg-4 col-sm-6" v-for="item in WestArea.中區">
-                    <div  style=" height:400px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div  style=" height:500px; display: flex; flex-direction: column; justify-content: space-between;">
                         <!-- 卡片 -->
                         <CampTransparentBlogCard :image="`${MVCimages}${item.圖片}`" :title=item.營區名稱
                             :description=item.營區介紹 /> 
                     </div>   
-                    <div>
+                    <div >
                         <label class="form-lable"><span class="material-icons">pin_drop</span> {{ item.縣市 }}</label>
                         <label class="form-lable"><span class="material-icons">attach_money</span> TWD<span class="text-primary">{{ item.單價 }}</span>up</label>
                     </div>
                     <div class="container d-flex justify-content-end">
                         <el-button type="info" class="text-lg font-weight-bolder icon-move-right  "
                             @click="{ Campdetail(item.營區細項id); dialogVisible = true; }">
-                            選擇方案<i class="fas fa-arrow-right text-xs ms-1"></i>
+                            選擇方案<span class="material-icons">touch_app</span>
                         </el-button>
                     </div>
                     <hr>
@@ -249,19 +249,19 @@ let SelfSet = (營區細項id) => {
                                 </div>
 
                                 <RouterLink :to="{ name: 'self' }" >    
-                                <el-button type="danger" class=" text-lg font-weight-bolder m-2" @click="SelfSet(item.營區細項id)">
+                                <el-button type="warning" class=" text-lg font-weight-bolder m-2" @click="SelfSet(item.營區細項id)">
                                     自選行程<span class="material-icons p-2">
                                         add_shopping_cart
                                     </span>
                                 </el-button> </RouterLink>
                               
                                 <RouterLink :to="{ name: 'set' }"  > 
-                                <el-button type="danger" class=" text-lg font-weight-bolder m-2" @click="SelfSet(item.營區細項id)">
+                                <el-button type="warning" class=" text-lg font-weight-bolder m-2" @click="SelfSet(item.營區細項id)">
                                     套裝行程<span class="material-icons p-2">
                                         add_shopping_cart
                                     </span>
                                 </el-button></RouterLink>
-                                <el-button type="warning" plain @click="dialogVisible = false">返回</el-button>
+                                <el-button type="info" plain @click="dialogVisible = false">返回</el-button>
                             </span>
                         </el-dialog>
                     </div>

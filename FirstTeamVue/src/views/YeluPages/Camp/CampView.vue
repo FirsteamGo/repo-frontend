@@ -5,7 +5,7 @@ import { onMounted, onUnmounted } from "vue";
 import DefaultNavbar from "../../../examples/navbars/NavbarDefault.vue";
 import yelufooter from "../../../examples/footers/yelufooter.vue";
 import CampCarousel from "./Sections/CampCarousel.vue";
-import CampSelects from "./Sections/CampBlogCards/CampSelects.vue"
+import CampSelects from "./Sections/CampSelects.vue"
 import CampNorth from "./Sections/CampNorth.vue";
 //image
 import bg from "@/assets/img/bg/bg06.jpg";
