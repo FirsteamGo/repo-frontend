@@ -84,6 +84,7 @@ import { ShoppingCartFull } from '@element-plus/icons-vue';
   background-color: #b35e29;
   opacity: 0.8;
   color: aliceblue;
+  
 }
 .carticon:active{
   background-color: black;

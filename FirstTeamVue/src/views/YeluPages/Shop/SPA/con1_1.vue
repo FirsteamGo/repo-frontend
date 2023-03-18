@@ -59,13 +59,6 @@ let detail=(商品細項ID)=>{
 //     return isNaN(people) || isNaN(price) ? 0 : people * price;
 //     });
 
-
-// const totalPrice=computed((index)=>{
-//   if(單價.value==null){
-//     return "";
-//   }
-//   return parseInt(quantity[index])*parseInt(單價.value);
-// })
 const totalPrice = computed(() => {
   if (單價.value == null) {
     return " ";
@@ -73,7 +66,9 @@ const totalPrice = computed(() => {
  return (dialogData.數量) * (dialogData.單價);
  //console.log(aa);
 })
+let addtoCArt=()=>{
 
+}
 
 </script>
 <template>
@@ -114,7 +109,7 @@ const totalPrice = computed(() => {
                       <label class="form-table">單價:{{ 單價 }}元</label>
                   </div> -->
                   <el-button @click="visible = false">取消</el-button>
-              <el-button type="primary" @click="  visible = false ">
+              <el-button type="primary" @click="addtoCArt  visible = false ">
                 加入購物車
               </el-button>
                 </span>
