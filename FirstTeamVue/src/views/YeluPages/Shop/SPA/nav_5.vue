@@ -1,9 +1,14 @@
+<script lang="ts" setup>
+import { ArrowDown } from "@element-plus/icons-vue";
+import { ShoppingCartFull } from '@element-plus/icons-vue';
+</script>
 <template>
   <div class="flex flex-wrap items-center">
     <el-dropdown>
       <el-button class="btn">
         我還沒上車呀<el-icon class="el-icon--right"><arrow-down /></el-icon>
       </el-button>
+      
       <template #dropdown>
         <el-dropdown-menu class="my-dropdown-menu">
           <router-link
@@ -20,11 +25,12 @@
       </template>
     </el-dropdown>
   </div>
+                            <!--購物車連結-->
+<router-link to=""><el-button :icon="ShoppingCartFull" class="carticon" circle /></router-link>
+
 </template>
 
-<script lang="ts" setup>
-import { ArrowDown } from "@element-plus/icons-vue";
-</script>
+
 <style scoped>
 /* .example-showcase .el-dropdown + .el-dropdown {
       margin-left: 15px;
@@ -50,7 +56,7 @@ import { ArrowDown } from "@element-plus/icons-vue";
 .btn {
   display: flex;
   padding: 10px 20px;
-  /* background-color: #aa6836; */
+ 
   background-color: #585963;
 
   color: white;
@@ -65,5 +71,22 @@ import { ArrowDown } from "@element-plus/icons-vue";
   background-color: #b35e29;
   opacity: 0.8;
   color: aliceblue;
+}
+.carticon{
+  color: white;
+  background-color: #585963;
+  width: 50px;
+  height: 50px;
+  font-size:28px;
+  margin-top: -16px;
+}
+.carticon:hover{
+  background-color: #b35e29;
+  opacity: 0.8;
+  color: aliceblue;
+}
+.carticon:active{
+  background-color: black;
+  transform: scale(0.9);
 }
 </style>

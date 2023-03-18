@@ -2,6 +2,7 @@
 import { onMounted, onUnmounted } from "vue";
 import { RouterLink, RouterView } from "vue-router";
 
+
 //example components
 import DefaultNavbar from "../../../examples/navbars/NavbarDefault.vue";
 import yelufooter from "../../../examples/footers/yelufooter.vue";
@@ -14,15 +15,13 @@ import Typed from "typed.js";
 
 //sections 放置要引入的頁面
 import carousel from "../Shop/shopsections/carousel.vue";
-import product from "../Shop/shopsections/product.vue";
-import shopnav from "../Shop/shopsections/shopnav.vue";
 import inputContent from "../Shop/shopsections/inputcontent.vue";
 import nav1 from "../Shop/SPA/nav_1.vue";
 import nav2 from "../Shop/SPA/nav_2.vue";
 import nav3 from "../Shop/SPA/nav_3.vue";
 import nav4 from "../Shop/SPA/nav_4.vue";
 import nav5 from "../Shop/SPA/nav_5.vue";
-import Test1 from "./shopsections/test1.vue";
+
 
 const body = document.getElementsByTagName("body")[0];
 //hooks
@@ -85,7 +84,7 @@ onUnmounted(() => {
       <!--輪播牆-->
       <el-header class="head"><carousel /></el-header>
       <el-header class="inputlocation"><inputContent /></el-header>
-      <el-container class="good">
+      <el-container class="navBar">
         <nav1 />
         <nav2 />
         <nav3 />
@@ -118,11 +117,11 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
 }
-.navBar {
+/* .navBar {
   justify-content: center;
   background-color: blue;
-}
-.good {
+} */
+.navBar {
   display: flex;
   justify-content: space-between;
   align-items: center;

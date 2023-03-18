@@ -15,8 +15,8 @@ const visible=ref(false)
 const image=ref('')
 const shopItem=reactive([])
 const 單價=ref(0)
-const 產品名稱=ref('')
-const quantity=reactive([])
+//const 產品名稱=ref('')
+//const quantity=reactive([])
 
 const dialogData=reactive({
   數量:1,
@@ -115,7 +115,7 @@ const totalPrice = computed(() => {
                   </div> -->
                   <el-button @click="visible = false">取消</el-button>
               <el-button type="primary" @click="  visible = false ">
-                儲存
+                加入購物車
               </el-button>
                 </span>
                 </el-dialog>

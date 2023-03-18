@@ -1,5 +1,4 @@
 <script setup>
-import Test1 from '../shopsections/test1.vue';
 
 defineProps({
   image: {
