@@ -13,7 +13,6 @@ const imagelist = ref("https://localhost:7120/images/");
 const shopPro = reactive([]);
 const visible=ref(false)
 const image=ref('')
-const 單價=ref('')
 const shopItem=reactive([])
 const 單價=ref(0)
 const 產品名稱=ref('')
@@ -22,7 +21,7 @@ const quantity=reactive([])
 const dialogData=reactive({
   數量:1,
   產品名稱:"",
-  單價:'',
+  單價:0,
 })
 
 onMounted(async()=>{
@@ -37,16 +36,16 @@ onMounted(async()=>{
 }) 
 //連動彈跳視窗
 let detail=(商品細項ID)=>{
-  let shopItem=[]
+  shopItem.splice(0);
   //alert(商品細項ID)
   for(let i=0;i<shopPro.length;i++){
     let item=shopPro[i]
     if(item.商品細項id==商品細項ID){
-      dialogData.單價.value=item.單價;
+      dialogData.單價=item.單價;
       //console.log(單價.value);
-      dialogData.產品名稱.value=item.產品名稱;
+      dialogData.產品名稱=item.產品名稱;
       //console.log(產品名稱.value);
-      數量.value=1
+      dialogData.數量 = 1;
     }
    
     shopItem.push(item);
@@ -61,15 +60,19 @@ let detail=(商品細項ID)=>{
 //     });
 
 
-const totalPrice=computed((index)=>{
-  
-  
-  if(單價.value==null){
-    return "";
+// const totalPrice=computed((index)=>{
+//   if(單價.value==null){
+//     return "";
+//   }
+//   return parseInt(quantity[index])*parseInt(單價.value);
+// })
+const totalPrice = computed(() => {
+  if (單價.value == null) {
+    return " ";
   }
-  return parseInt(quantity[index])*parseInt(單價.value);
+ return (dialogData.數量) * (dialogData.單價);
+ //console.log(aa);
 })
-
 
 
 </script>
@@ -107,9 +110,9 @@ const totalPrice=computed((index)=>{
                   <div>
                     <label  class="form-label">總價:{{totalPrice}}</label>
                   </div>
-                  <div>
+                  <!-- <div>
                       <label class="form-table">單價:{{ 單價 }}元</label>
-                  </div>
+                  </div> -->
                   <el-button @click="visible = false">取消</el-button>
               <el-button type="primary" @click="  visible = false ">
                 儲存
