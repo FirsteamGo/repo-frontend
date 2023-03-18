@@ -4,6 +4,7 @@ import axios from "axios";
 // example components
 import ActTransparentBlogCard from "../Sections/ActBlogCards/ActTransparentBlogCard.vue";
 import ActBackgroundBlogCard from "../Sections/ActBlogCards/ActBackgroundBlogCard.vue";
+import { Edit } from '@element-plus/icons-vue';
 
 import sun from "@/assets/img/ActImg/sun.jpg";
 import Breadcrumbs from "@/examples/Breadcrumbs.vue";
@@ -85,99 +86,101 @@ console.log(Event);
 
 <template>
 <div class="">
-        <el-container>
-            <el-header>
-                <Breadcrumbs
-                    :routes="[
-                        { label: '首頁', route: '/' },
-                        { label: '當地活動', route: '/pages/Yelu-pages/act/Sections/ActIndex' },
-                        { label: '活動' },]"/>
+<el-container>
+    <el-header>
+        <Breadcrumbs
+            :routes="[
+                { label: '首頁', route: '/' },
+                { label: '當地活動', route: '/pages/Yelu-pages/act/Sections/ActIndex' },
+                { label: '活動' },]"/>
 
-            </el-header>
-            <el-main>
-                <section class="py-3">
-                    <div class="row">
-                        <!-- 左邊導覽卡片 -->
-                        <div class="col-lg-2 col-md-12 col-12">
-                            <ActBackgroundBlogCard :image="sun" title="探索展演、行程等" description="" />
-                        </div>
-                        <!-- 主頁卡片 -->
-                        <div class="card m-3 col-lg-2 col-sm-6" v-for="item in Event.活動">
-                            <ActTransparentBlogCard :image="`${MVCimages}${item.活動圖片}`" :title=item.活動名稱  />
-                            <div class="d-flex mt-3">
-                                <label class="form-lable"><span class="material-icons">pin_drop</span> {{ item.縣市 }}</label>
-                                <label class="form-lable"><span class="material-icons">festival</span> {{ item.營區名稱 }}</label>
-                            </div>
-                            <div class="mb-3 ">
-                                <label class="form-lable"><span class="material-icons">attach_money</span> TWD $ <span class="text-primary">{{ item.門票價格 }}</span> /次</label>
-                                <el-button type="info" class="text-lg font-weight-bolder icon-move-right"  @click="{Actdetail(item.活動id);dialogVisible = true }"  >
-                                    詳細資訊<i  class="fas fa-arrow-right text-xs ms-1"></i>
-                                </el-button>
-                            </div>
-
-                        </div>
-                        
-
+    </el-header>
+    <el-main>
+        <section class="py-3">
+            <div class="row">
+                <!-- 左邊導覽卡片 -->
+                <div class="col-lg-2 col-md-12 col-12">
+                    <ActBackgroundBlogCard :image="sun" title="探索展演、行程等" description="" />
+                </div>
+                <!-- 主頁卡片 -->
+                <div class="card m-3 col-lg-2 col-sm-6" v-for="item in Event.活動">
+                    <ActTransparentBlogCard :image="`${MVCimages}${item.活動圖片}`" :title=item.活動名稱  />
+                    
+                <div style="display: flex; justify-content: flex-start;">  
+                    <div class="d-flex mt-3">
+                        <label class="form-lable"><span class="material-icons">pin_drop</span> {{ item.縣市 }}</label>
+                        <label class="form-lable"><span class="material-icons">festival</span> {{ item.營區名稱 }}</label>
                     </div>
+                </div>
+                    
+                <div>
+                    <label class="form-lable"><span class="material-icons">attach_money</span> TWD $ <span class="text-primary">{{ item.門票價格 }}</span> /次</label>
+                </div>
+
+                <div>  
+                    <el-button type="info" class="text-lg font-weight-bolder icon-move-right"  @click="{Actdetail(item.活動id);dialogVisible = true }"  >
+                        詳細資訊<i  class="fas fa-arrow-right text-xs ms-1"></i> 
+                    </el-button>
+    
+                    <!-- 重要!!!這邊要導到自選行程第二步!!!!!!! --> 
+                    <RouterLink to="/pages/Yelu-pages/Self/Sections/step2"  >    
+                    <el-button type="warning" class=" text-lg font-weight-bolder m-2"  @click="SelfSet(item.營區細項id)">
+                        <span class="material-icons ">add_shopping_cart</span>
+                    </el-button> </RouterLink>
+                </div>     
+                </div>
+            </div>
 
 
 
 
-                    <!-- 彈跳視窗 -->
-                    <div>
-                        <el-dialog v-model="dialogVisible" title="活動詳細資訊" width="50%" draggable>
-                                <div class="modal-header">
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                            <span class="dialog-footer">
-                                <div>
-                                    <img :src="`${MVCimages}${活動圖片}`"  style="width: 400px; height: 300px;" >
-                                </div>
-                                <div>
-                                    <label class="form-lable">
-                                    <h4>活動名稱：<small class="text-muted"> {{ 活動名稱 }}</small></h4></label>
-                                   
-                                </div>
-                                <div>
-                                    <label class="form-lable">
-                                    <h4>活動介紹：<small class="text-muted"> {{ 活動介紹 }}</small></h4></label>
-                                   
-                                </div>
-
-                                <div>
-                                    <label class="form-lable"><span class="material-icons">pin_drop
-                                    </span>地區  |  {{ 地區 }}</label>
-                                </div>
-                                <div>
-                                    <label class="form-lable"><span class="material-icons">pin_drop
-                                    </span>縣市  |   {{ 縣市 }}</label>
-                                </div>
-                                <div>
-                                    <label class="form-lable">活動方式  |  {{ 活動方式 }} </label>
-                                </div>
-                                <div>
-                                    <label class="form-lable">活動種類  |  {{ 活動種類 }} </label>
-                                </div>
-                                <div>
-                                <label class="form-lable"> TWD $ <span class="text-primary">{{ 門票價格 }}</span> /次</label>
-                                </div>
-                                <!-- 重要!!!這邊要導到自選行程第二步!!!!!!! -->
-                                <RouterLink to="/pages/Yelu-pages/Self/Sections/step2" >    
-                                <el-button type="warning" class=" text-lg font-weight-bolder m-2" @click="SelfSet(item.營區細項id)">
-                                    自選行程<span class="material-icons p-2">
-                                        add_shopping_cart
-                                    </span>
-                                </el-button> </RouterLink>
-                                <el-button type="info" plain @click="dialogVisible = false">
-                                    <span class="material-icons p-2">home</span></el-button>
-
-                              
-                            </span>
-                        </el-dialog>
-                    </div>
-                </section>
-            </el-main>
-        </el-container>
+            <!-- 彈跳視窗 -->
+            <div>
+                <el-dialog v-model="dialogVisible" title="活動詳細資訊" width="50%" draggable>
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                    <span class="dialog-footer">
+                        <div>
+                            <img :src="`${MVCimages}${活動圖片}`"  style="width: 400px; height: 300px;" >
+                        </div>
+                        <div>
+                            <label class="form-lable">
+                            <h4>活動名稱：<small class="text-muted"> {{ 活動名稱 }}</small></h4></label>
+                            
+                        </div>
+                        <div>
+                            <label class="form-lable">
+                            <h4>活動介紹：<small class="text-muted"> {{ 活動介紹 }}</small></h4></label>
+                            
+                        </div>
+                        <div>
+                            <label class="form-lable"><span class="material-icons">festival
+                            </span>營區名稱  |  {{ 營區名稱 }}</label>
+                        </div>
+                        <div>
+                            <label class="form-lable"><span class="material-icons">pin_drop
+                            </span>地區  |  {{ 地區 }}</label>
+                        </div>
+                        <div>
+                            <label class="form-lable"><span class="material-icons">pin_drop
+                            </span>縣市  |   {{ 縣市 }}</label>
+                        </div>
+                        <div>
+                            <label class="form-lable">活動方式  |  {{ 活動方式 }} </label>
+                        </div>
+                        <div>
+                            <label class="form-lable">活動種類  |  {{ 活動種類 }} </label>
+                        </div>
+                        <div>
+                        <label class="form-lable"><span class="material-icons">attach_money</span> TWD $ <span class="text-primary">{{ 門票價格 }}</span> /次</label>
+                        </div>
+                    </span>
+                </el-dialog>
+            </div>
+        </section>
+    </el-main>
+</el-container>
     </div>
 
     

@@ -104,21 +104,30 @@ let Actdetail=(活動id)=>{
                         <!-- 主頁卡片 -->
                         <div class="card m-3 col-lg-2 col-sm-6" v-for="item in WaterAct.水上">
                             <ActTransparentBlogCard :image="`${MVCimages}${item.活動圖片}`" :title=item.活動名稱  />
-                            <div class="d-flex mt-3">
-                                <label class="form-lable"><span class="material-icons">pin_drop</span> {{ item.縣市 }}</label>
-                                <label class="form-lable"><span class="material-icons">festival</span> {{ item.營區名稱 }}</label>
-                            </div>
-                            <div class="mb-3 ">
-                                <label class="form-lable"><span class="material-icons">attach_money</span> TWD $ <span class="text-primary">{{ item.門票價格 }}</span> /次</label>
-                                <el-button type="info" class="text-lg font-weight-bolder icon-move-right"  @click="{Actdetail(item.活動id);dialogVisible = true }"  >
-                                    詳細資訊<i  class="fas fa-arrow-right text-xs ms-1"></i>
-                                </el-button>
-                            </div>
-
-                        </div>
-                        
-
+                            <div style="display: flex; justify-content: flex-start;">  
+                    <div class="d-flex mt-3">
+                        <label class="form-lable"><span class="material-icons">pin_drop</span> {{ item.縣市 }}</label>
+                        <label class="form-lable"><span class="material-icons">festival</span> {{ item.營區名稱 }}</label>
                     </div>
+                </div>
+                    
+                <div>
+                    <label class="form-lable"><span class="material-icons">attach_money</span> TWD $ <span class="text-primary">{{ item.門票價格 }}</span> /次</label>
+                </div>
+
+                <div>  
+                    <el-button type="info" class="text-lg font-weight-bolder icon-move-right"  @click="{Actdetail(item.活動id);dialogVisible = true }"  >
+                        詳細資訊<i  class="fas fa-arrow-right text-xs ms-1"></i> 
+                    </el-button>
+    
+                    <!-- 重要!!!這邊要導到自選行程第二步!!!!!!! --> 
+                    <RouterLink to="/pages/Yelu-pages/Self/Sections/step2"  >    
+                    <el-button type="warning" class=" text-lg font-weight-bolder m-2"  @click="SelfSet(item.營區細項id)">
+                        <span class="material-icons ">add_shopping_cart</span>
+                    </el-button> </RouterLink>
+                </div>     
+                </div>
+            </div>
 
 
 
@@ -161,17 +170,7 @@ let Actdetail=(活動id)=>{
                                 <div>
                                 <label class="form-lable"> TWD $ <span class="text-primary">{{ 門票價格 }}</span> /次</label>
                                 </div>
-                                <!-- 重要!!!這邊要導到自選行程第二步!!!!!!! -->
-                                <RouterLink to="/pages/Yelu-pages/Self/Sections/step2" >    
-                                <el-button type="warning" class=" text-lg font-weight-bolder m-2" @click="SelfSet(item.營區細項id)">
-                                    自選行程<span class="material-icons p-2">
-                                        add_shopping_cart
-                                    </span>
-                                </el-button> </RouterLink>
-                                <el-button type="info" plain @click="dialogVisible = false">
-                                    <span class="material-icons p-2">home</span></el-button>
-
-                              
+                                
                             </span>
                         </el-dialog>
                     </div>
