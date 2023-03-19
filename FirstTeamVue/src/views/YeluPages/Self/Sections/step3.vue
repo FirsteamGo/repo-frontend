@@ -81,9 +81,8 @@ const add =(自選飲食id)=>{
 
 
 <template>
-  <div id="app" class="container mt-5">
-
-  <!-- 表格標題 -->
+<!--   
+<div id="app" class="container mt-5">
 <div class=" row form-group">
   <table class="table table-striped table-hover">
     <thead style="background-color: cadetblue">
@@ -97,7 +96,7 @@ const add =(自選飲食id)=>{
       </tr>
     </thead>
 
-  <!-- api抓SelfFoods進來 -->
+  
     <tbody>
       <tr v-for="(item, index) in SelfFoods " :key="item.自選飲食id" class="text-center">
         <td hidden>{{ item.自選飲食id }}</td>
@@ -105,26 +104,72 @@ const add =(自選飲食id)=>{
         <td>{{ item.商品名稱 }}</td>
         <td>{{ item.商品內容 }}</td>
         <td>{{ item.單價 }}</td>
-        <!-- 數量按鈕 -->
+        
         <td>
           <el-input-number v-model="quantity[index]" :min="1" :max="10" :step="1"></el-input-number>   
         </td>
         <td>
-          <!-- 選購按鈕 -->
+          
           <button type="button" class="btn btn-outline-dark" size="medium"  @click="add(item.自選飲食id , item , index)" >選購</button>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
-
-    
-
+</div> -->
 
 
 
+<div class="">
+<el-container>
+    <el-header></el-header>
+    <el-main>
+        <section class="py-3">
+            <div class="row">   
+                <!-- 主頁卡片 -->
+                <div class="card m-3 col-lg-2 col-sm-6" v-for="(item, index) in SelfFoods " :key="item.自選飲食id" >
+                    <SelfTransparentBlogCard :image="`${MVCimages}${item.圖片}`" :title=item.商品名稱  />
+                    
+                <div style="display: flex; justify-content: flex-start;">  
+                    <div class="d-flex mt-3">
+                        <label  class="form-lable" hidden> {{ item.自選飲食id }}</label>
+                        <!-- <label class="form-lable"><span class="material-icons">pin_drop</span> {{ item.商品名稱 }}</label> -->
+                        <label class="form-lable"><span class="material-icons">pin_drop</span> {{ item.商品內容 }}</label>
+                        
+                    </div>
+                </div>
+                    
+                <div>
+                    <label class="form-lable"><span class="material-icons">attach_money</span> TWD  <span class="text-primary">{{ item.單價 }}</span> /次</label>
+                </div>
 
-  </div>
+                <div>
+                    <el-input-number v-model="quantity[index]" :min="1" :max="10" :step="1"></el-input-number>  
+                </div>
+                    
+
+
+                <div>
+                    <button type="button" class="btn btn-outline-dark" size="medium"  @click="add(item.自選飲食id , item , index)" >選購</button>
+
+                    <!-- 重要!!!這邊要導到自選行程第二步!!!!!!! --> 
+                    <RouterLink to="/pages/Yelu-pages/Self/Sections/step2"  >    
+                    <el-button type="warning" class=" text-lg font-weight-bolder m-2"  @click="SelfSet(item.營區細項id)">
+                        <span class="material-icons ">add_shopping_cart</span>
+                    </el-button> </RouterLink>
+                </div>     
+                </div>
+            </div>
+
+
+
+        </section>
+    </el-main>
+</el-container>
+</div>
+
+
+
 </template>
 
 
@@ -133,4 +178,26 @@ thead {
   background-color: rgb(191, 130, 90);
   color: cornsilk;
 }
+.time {
+    font-size: 12px;
+    color: #999;
+  }
+  
+  .bottom {
+    margin-top: 13px;
+    line-height: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .button {
+    padding: 0;
+    min-height: auto;
+  }
+  
+  .image {
+    width: 100%;
+    display: block;
+  }
 </style>
