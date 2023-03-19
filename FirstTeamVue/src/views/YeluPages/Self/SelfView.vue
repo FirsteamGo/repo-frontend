@@ -13,6 +13,7 @@ import Typed from "typed.js";
 
 //sections 放置要引入的頁面
 import stepall from "./stepall.vue";
+import Breadcrumb from "./Sections/Breadcrumb.vue";
 
 
 // import options from "./Sections/select.vue";
@@ -64,7 +65,7 @@ onUnmounted(() => {
       :style="{ backgroundImage: `url(${bg03})` }"
     > -->
     <div
-      class="page-header min-vh-75"
+      class="page-header min-vh-50"
       :style="`background-image: url(${bg03})`"
       loading="lazy"
     >
@@ -87,9 +88,12 @@ onUnmounted(() => {
       </div>
     </div>
   </header>
+  
+   <Breadcrumb />
   <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
 
     <!-- 記得這裡設定引入標籤 -->
+   
     <stepall />
 
     <!-- <options /> -->

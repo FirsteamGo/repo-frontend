@@ -6,7 +6,7 @@ export default [
         name: "act",
         component: ActView,
         children: [
-            {
+            {//熱門精選
                 path: "Sections/ActHot",
                 name: "ActHot",
                 component: () => import("../views/YeluPages/Act/Sections/ActHot.vue"),
@@ -19,13 +19,13 @@ export default [
                 ]
             },
             {
-                path: "Sections/ActNorth",
+                path: "Sections/North",
                 name: "ActNorth",
                 component: () => import("../views/YeluPages/Act/Sections/ActNorth.vue"),
 
             },
             {
-                path: "Sections/ActWest",
+                path: "Sections/West",
                 name: "ActWest",
                 component: () => import("../views/YeluPages/Act/Sections/ActWest.vue"),
                 children: [
@@ -37,14 +37,49 @@ export default [
                 ]
             },
             {
-                path: "Sections/ActSouth",
+                path: "Sections/South",
                 name: "ActSouth",
                 component: () => import("../views/YeluPages/Act/Sections/ActSouth.vue"),
             },
             {
-                path: "Sections/ActEast",
+                path: "Sections/East",
                 name: "ActEast",
                 component: () => import("../views/YeluPages/Act/Sections/ActEast.vue"),
+            },
+            {//活動首頁
+                path: "Sections/ActIndex",
+                name: "ActIndex",
+                component: () => import("../views/YeluPages/Act/Sections/ActIndex.vue"),
+            },
+            {//活動方式:活動
+                path: "Sections/Event",
+                name: "ActEvent",
+                component: () => import("../views/YeluPages/Act/Sections/Event.vue"),
+            },
+            {//活動方式:景點
+                path: "Sections/ViewPoint",
+                name: "ActViewPoint",
+                component: () => import("../views/YeluPages/Act/Sections/ViewPoint.vue"),
+            },
+            {//活動方式:運動
+                path: "Sections/Sport",
+                name: "ActSport",
+                component: () => import("../views/YeluPages/Act/Sections/Sport.vue"),
+            },
+            {//活動方式:文化
+                path: "Sections/Culture",
+                name: "ActCulture",
+                component: () => import("../views/YeluPages/Act/Sections/Culture.vue"),
+            },
+            {//活動方式:水上
+                path: "Sections/WaterAct",
+                name: "WaterAct",
+                component: () => import("../views/YeluPages/Act/Sections/WaterAct.vue"),
+            },
+            {//活動方式:觀光
+                path: "Sections/Tour",
+                name: "ActTour",
+                component: () => import("../views/YeluPages/Act/Sections/Tour.vue"),
             },
         ]
     },

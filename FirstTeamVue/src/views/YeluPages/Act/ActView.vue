@@ -14,6 +14,8 @@ import Typed from "typed.js";
 import yelufooter from "../../../examples/footers/yelufooter.vue";
 import Actcarousel from "../Act/Sections/Actcarousel.vue";
 import Actselect from "./Sections/Actselect.vue";
+import ActNavbar from "./Sections/ActNavbar.vue";
+
 import ActSelectBtn from "./Sections/ActSelectBtn.vue";
 
 // import Information from "./Sections/AboutInformation.vue";
@@ -76,8 +78,7 @@ const getEmployeeDTOes = onMounted(() => {
               在地體驗
             </h1>
             <p class="lead mb-4 text-white opacity-8">
-              We’re constantly trying to express ourselves and actualize our
-              dreams. If you have the opportunity to play this game
+              探索屬於你的最佳體驗 #YELU CAMP
             </p>
           </div>
         </div>
@@ -88,8 +89,9 @@ const getEmployeeDTOes = onMounted(() => {
 
     <!-- 記得這裡設定引入標籤 -->
     <Actselect />
-    <ActSelectBtn />
-    <Actcarousel />
+    <ActNavbar />
+    <!-- <ActSelectBtn /> -->
+    <!-- <Actcarousel /> -->
     <router-view></router-view>
 
 

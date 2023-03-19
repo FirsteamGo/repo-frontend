@@ -83,7 +83,7 @@ onUnmounted(() => {
             YELU CAMP露營GO!
             </h1> -->
             <h1 class="text-white">
-              YELU CAMP露營 in <span class="text-white" id="typed"></span>
+            野麓YELU露營 in <span class="text-white" id="typed"></span>
             </h1>
             <div id="typed-strings">
               <h1>Miaoli</h1>

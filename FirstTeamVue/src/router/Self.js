@@ -10,7 +10,7 @@ export default [
     {
         //test
         path: "/pages/landing-pages/test",
-        name: "test",
+        name: "test1",
         component: test,
     },
     {
