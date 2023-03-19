@@ -29,7 +29,7 @@ export default {
             { id: 3, text: '你幫我推薦', nextStep: 2, redirectUrl: 'http://localhost:3001/pages/Yelu-pages/set' },
             { id: 4, text: '這裡有活動', nextStep: 2, redirectUrl: 'http://localhost:3001/pages/Yelu-pages/act' },
             { id: 5, text: '這裡有很多營地', nextStep: 2, redirectUrl: 'http://localhost:3001/pages/Yelu-pages/camp/Sections/CampSouth' },
-            // { id: 4, text: '這裡有活動', nextStep: 2, redirectUrl: 'https://localhost:7120/' },
+            { id: 6, text: '這裡是後臺', nextStep: 2, redirectUrl: 'https://localhost:7120/' },
           ],
         },
       ],

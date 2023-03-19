@@ -7,11 +7,11 @@
           class="image"
         />
         <div style="padding: 14px">
-          <span>會員照片</span>
-          <div>
-            <input type="file" ref="fileInput" accept="image/*" @change="handleFileChange"/>
-            <button @click="uploadImage" class="btn-sm">上傳圖片</button>
-          </div>
+          <h3>會員照片</h3>
+          <el-row class="mb-4">
+            <input type="file" ref="fileInput" accept="image/*" @change="handleFileChange" style="width: 180px;height: 120px; font-size: small;margin-left:10px;margin-right: 10px;"/>
+            <el-button type="primary" @click="uploadImage" class="btn-sm">上傳圖片</el-button>
+          </el-row>
         </div>
       </el-card>
     </el-col>
@@ -43,6 +43,7 @@ export default {
         }
       });
       console.log(response.data);
+      alert("上傳成功")
     },
     handleFileChange() {
       const file = this.$refs.fileInput.files[0];

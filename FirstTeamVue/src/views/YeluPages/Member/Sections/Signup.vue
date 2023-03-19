@@ -3,6 +3,7 @@ import { reactive, ref } from 'vue'
 // import Memberphoto1 from "./Memberphoto1.vue";
 import axios from 'axios';
 import type { FormInstance } from 'element-plus'
+import Memberphoto1 from './Memberphoto1.vue';
 
 const ruleFormRef = ref()
 
@@ -82,7 +83,7 @@ const SignUpGet = () => {
   
   <el-form ref="ruleFormRef" :model="ruleForm" label-width="120px">
     
-    <!-- <Memberphoto1/> -->
+    <Memberphoto1/>
 
     <!-- <el-form-item label="性別" prop="性別">
       <el-radio-group v-model="ruleForm.性別">
