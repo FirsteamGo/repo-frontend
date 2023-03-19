@@ -21,12 +21,15 @@ import Typed from "typed.js";
 // import Container3 from "./Sections/Container3.vue";
 // import Signup from "./Sections/Signup.vue";
 // import Login from "./Sections/Login.vue";
- import frame from "./Sections/Frame.vue";
- import frame1 from "./Sections/Frame1.vue";
+ 
 // import shoppingcar from "./Sections/shoppingcar.vue";
 // import shoppingcar1 from "./Sections/shoppingcar1.vue";
 // import SMTP from "./Sections/SMTP.vue";
 // import Chatbot2 from "./Sections/Chatbot2.vue";
+
+import frame from "./Sections/Frame.vue";
+import frame1 from "./Sections/Frame1.vue";
+import Map from "./Sections/Map.vue";
 
 const body = document.getElementsByTagName("body")[0];
 //hooks
@@ -115,6 +118,7 @@ const refreshEdit_Frame = () => {
     <shoppingcar1 />
     <SMTP />
     <Chatbot2 />
+    <Map />
 
   </div>
   <yelufooter />
