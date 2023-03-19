@@ -31,66 +31,66 @@ defineProps({
     },
 });
 
-const webApiBaseAddr = ref("https://localhost:7108/api/ActDetails")
-const MVCimages = ref("https://localhost:7120/images/")
+// const webApiBaseAddr = ref("https://localhost:7108/api/ActDetails")
+// const MVCimages = ref("https://localhost:7120/images/")
 
-const dialogVisible = ref(false)
-const ActD = reactive([])
-const ActDID = reactive([])
-const 活動id = ref('')
-const 地區 = ref('')
-const 縣市 = ref('')
-const 活動種類 = ref('')
-const 活動名稱 = ref('')
-const 活動介紹 = ref('')
-const 門票價格 = ref(0)
-const 活動圖片 = ref('')
-
-
-
-const getEmployeeDTOes = onMounted(async () => {
-    await axios.get(webApiBaseAddr.value)
-        .then(res => {
-
-            for (var i = 0; i < res.data.length; i++) {
-                var item = res.data[i];
-                item.Edit = false;
+// const dialogVisible = ref(false)
+// const ActD = reactive([])
+// const ActDID = reactive([])
+// const 活動id = ref('')
+// const 地區 = ref('')
+// const 縣市 = ref('')
+// const 活動種類 = ref('')
+// const 活動名稱 = ref('')
+// const 活動介紹 = ref('')
+// const 門票價格 = ref(0)
+// const 活動圖片 = ref('')
 
 
-            }
-            //console.log(res.data);
-            ActDID.splice(0, res.data.length, ...res.data)
-            //console.log(ActDID);
-        }).catch(err => {
-            console.log(err);
-        })
-})
 
-let Actdetail = (活動id) => {
-    var ActD = []
+// const getEmployeeDTOes = onMounted(async () => {
+//     await axios.get(webApiBaseAddr.value)
+//         .then(res => {
 
-    for (let i = 0; i < ActDID.length; i++) {
-        var item = ActDID[i]
-        //console.log(item);
+//             for (var i = 0; i < res.data.length; i++) {
+//                 var item = res.data[i];
+//                 item.Edit = false;
 
-        if (item.活動id == 活動id) {
 
-            item.Edit = true;
-            地區.value = item.地區;
-            縣市.value = item.縣市;
-            活動種類.value = item.活動種類;
-            活動名稱.value = item.活動名稱;
-            活動介紹.value = item.活動介紹;
-            活動圖片.value = item.活動圖片;
-            門票價格.value = item.門票價格;
-        }
-        else { item.Edit = false; }
+//             }
+//             //console.log(res.data);
+//             ActDID.splice(0, res.data.length, ...res.data)
+//             //console.log(ActDID);
+//         }).catch(err => {
+//             console.log(err);
+//         })
+// })
 
-        ActD.push(item);
-    }
-    ActDID.splice(0, ActD.length, ...ActD)
-    console.log(ActDID);
-}
+// let Actdetail = (活動id) => {
+//     var ActD = []
+
+//     for (let i = 0; i < ActDID.length; i++) {
+//         var item = ActDID[i]
+//         //console.log(item);
+
+//         if (item.活動id == 活動id) {
+
+//             item.Edit = true;
+//             地區.value = item.地區;
+//             縣市.value = item.縣市;
+//             活動種類.value = item.活動種類;
+//             活動名稱.value = item.活動名稱;
+//             活動介紹.value = item.活動介紹;
+//             活動圖片.value = item.活動圖片;
+//             門票價格.value = item.門票價格;
+//         }
+//         else { item.Edit = false; }
+
+//         ActD.push(item);
+//     }
+//     ActDID.splice(0, ActD.length, ...ActD)
+//     console.log(ActDID);
+// }
 </script>
 <template>
     <div class="card card-plain">
@@ -121,7 +121,7 @@ let Actdetail = (活動id) => {
 
             <!-- <el-button type="danger" class=" m-0 p-3 text-lg cartbtn font-weight-bolder">購買</el-button> -->
         </div>
-        <div v-for="item in ActDID" :key="item">
+        <!-- <div v-for="item in ActDID" :key="item">
             <el-dialog v-model="dialogVisible" title="活動詳細資訊" width="50%" draggable>
                 <div class="modal-header">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -153,7 +153,7 @@ let Actdetail = (活動id) => {
                     <el-button type="primary" @click="dialogVisible = false">儲存</el-button>
                 </span>
             </el-dialog>
-        </div>
+        </div> -->
     </div>
 </template>
 

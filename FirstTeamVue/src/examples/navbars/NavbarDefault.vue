@@ -365,6 +365,34 @@ watch(
           </div>
 
 
+          <div>
+            <li class="nav-item mx-2">
+              <a role="button" class="nav-link ps-2 d-flex cursor-pointer align-items-center" :class="getTextColor()"
+                aria-expanded="false">
+                <RouterLink :to="{ name: 'member' }" class="dropdown-item border-radius-md">
+                  <i class="material-icons opacity-6 me-2  text-md" :class="getTextColor()">local_mall</i>
+                  
+                </RouterLink>
+              </a>
+            </li>
+          </div>
+
+
+          <div>
+            <li class="nav-item mx-2">
+              <a role="button" class="nav-link ps-2 d-flex cursor-pointer align-items-center" :class="getTextColor()"
+                aria-expanded="false">
+                <RouterLink :to="{ name: 'member' }" class="dropdown-item border-radius-md">
+                  <i class="material-icons opacity-6 me-2  text-md" :class="getTextColor()">settings</i>
+                  
+                </RouterLink>
+              </a>
+            </li>
+          </div>
+
+
+
+
         </ul>
       </div>
     </div>

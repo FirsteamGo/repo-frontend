@@ -46,7 +46,7 @@ export default {
 
 <template>
     <div style="display: flex;justify-content: flex-end;" >
-    <!-- <div>
+    <div>
         <span >區域</span>
     <el-select v-model="selectedRegion" @change="filterCities" class="select m-2"  placeholder="區域" size="large">
         <el-option disabled value="">請選擇</el-option>
@@ -69,7 +69,7 @@ export default {
     <el-select class="m-2" placeholder="活動種類" size="large">
         <el-option v-for="ActTp in ActType" :key="ActTp" :value="ActTp" />{{ ActTp }}
     </el-select>
-</div> -->
+</div>
     
 <div> <span class="Search">關鍵字</span>
         <el-input v-model="input" size="large" class="w-40 m-2" s placeholder="" />
