@@ -11,13 +11,18 @@ export default [
         name: "CampHot",
         component: () => import("../views/YeluPages/Camp/Sections/CampHot.vue"),
       },
+      {//營區首頁
+        path: "Sections/CampIndex",
+        name: "CampIndex",
+        component: () => import("../views/YeluPages/Camp/Sections/CampIndex.vue"),
+    },
       {
-        path: "Sections/CampNorth",
+        path: "Sections/北部",
         name: "CampNorth",
         component: () => import("../views/YeluPages/Camp/Sections/CampNorth.vue"),
       },
       {
-        path: "Sections/CampWest",
+        path: "Sections/中部",
         name: "CampWest",
         component: () => import("../views/YeluPages/Camp/Sections/CampWest.vue"),
       },

@@ -1,6 +1,10 @@
 <script setup>
 import DefaultCounterCard from "../../../examples/cards/counterCards/DefaultCounterCard.vue";
+
 </script>
+
+
+
 
 <template>
   <section class="pt-3 pb-2" id="count-stats">
@@ -9,8 +13,9 @@ import DefaultCounterCard from "../../../examples/cards/counterCards/DefaultCoun
         <div class="col-lg-9 z-index-2 border-radius-xl mx-auto py-3" >
           <div class="row" >
           <!-- 第一個icon -->
-            <div class="col-md-4 position-relative" style="text-align: center;">
-              <img src="/src/assets/img/icon/c01.png" style="width:110px; height:110px;" alt="main_logo" >
+       
+            <div class="col-md-4 position-relative" style="text-align: center;" >
+              <img src="/src/assets/img/icon/c01.png"  style="width:110px; height:110px;" alt="main_logo" >
               <div>
                 <h3 class="mt-1">露營車</h3>
                 <h4>Recreational vehicles</h4>
@@ -18,12 +23,10 @@ import DefaultCounterCard from "../../../examples/cards/counterCards/DefaultCoun
                <p>感受時尚舒適的自然輕旅行</p>
               </div>
 
-              <hr class="vertical dark my-2" />
-              <!-- <DefaultCounterCard
-                divider="vertical"
-              /> -->
-
+              <hr class="vertical dark my-2" />   
             </div>
+    
+
             <!-- 第二個icon -->
               <div class="col-md-4 position-relative" style="text-align: center;">
               <img src="/src/assets/img/icon/c02.png"  style="width:100px; height:100px;" alt="main_logo" >
@@ -35,11 +38,9 @@ import DefaultCounterCard from "../../../examples/cards/counterCards/DefaultCoun
               </div>
 
               <hr class="vertical dark my-2" />
-              <!-- <DefaultCounterCard
-               divider="vertical"
-             /> -->
-
+        
             </div>
+
             <!-- 第三個icon -->
             <div class="col-md-4 position-relative" style="text-align: center;">
               <img src="/src/assets/img/icon/c03.png" style="width:110px; height:105px;" alt="main_logo" >
@@ -50,7 +51,7 @@ import DefaultCounterCard from "../../../examples/cards/counterCards/DefaultCoun
                <p>創造美好回憶的旅程</p>
               </div>
              
-              <!-- <DefaultCounterCard /> -->
+     <!-- <DefaultCounterCard /> -->
 
             </div>
           </div>

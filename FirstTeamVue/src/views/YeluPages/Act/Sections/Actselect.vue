@@ -45,41 +45,43 @@ export default {
 </script>
 
 <template>
-    <div class="common-layout">
-        <el-container>
-            <el-header>
-                <el-button type="warning" disabled><el-text class="mx-1"><router-link to="/pages/Yelu-pages/act/Sections/ActHot"
-                style="font-weight:bolder; font-size:x-large;">熱門精選</router-link></el-text></el-button>
-                <span class="where">區域</span>
-                <el-select v-model="selectedRegion" @change="filterCities" class="select m-2" placeholder="區域" size="large">
-                    <el-option disabled value="">請選擇</el-option>
-                    <div>
-                        <el-option v-for="(region, index) in regions" :key="index" :value="region">
-                            <router-link :to="`/pages/Yelu-pages/act/Sections/${region}`" class=" p-8">{{ region
-                            }}</router-link>
-                        </el-option>
-                    </div>
-                </el-select>
-
-                <span>縣市</span>
-                <el-select v-model="selectedCity" class="m-2" placeholder="縣市" size="large">
-                    <el-option v-for="(city, index) in filteredCities" :key="index" :value="city">{{ city }}</el-option>
-                </el-select>
-
-                <span>活動種類</span>
-                <el-select class="m-2" placeholder="活動種類" size="large">
-                    <el-option v-for="ActTp in ActType" :key="ActTp" :value="ActTp" />{{ ActTp }}
-                </el-select>
-
-                <span class="Search">
-                    關鍵字
-                    <el-input v-model="input" size="large" class="w-10 m-2" placeholder="" />
-                    <el-button type="success" :icon="Search">搜尋</el-button>
-                </span>
-            </el-header>
-            <el-main>
-
-            </el-main>
-        </el-container>
+    <div style="display: flex;justify-content: flex-end;" >
+    <div>
+        <span >區域</span>
+    <el-select v-model="selectedRegion" @change="filterCities" class="select m-2"  placeholder="區域" size="large">
+        <el-option disabled value="">請選擇</el-option>
+        <div>
+            <el-option v-for="(region, index) in regions" :key="index" :value="region">
+                <router-link :to="`/pages/Yelu-pages/act/Sections/${region}`" class=" p-8">{{ region
+                }}</router-link>
+            </el-option>
+        </div>
+    </el-select>
+</div>
+        
+<div> <span>縣市</span>
+    <el-select v-model="selectedCity" class="m-2" placeholder="縣市" size="large">
+        <el-option v-for="(city, index) in filteredCities" :key="index" :value="city">{{ city }}</el-option>
+    </el-select>
+</div>
+   
+<div><span>活動種類</span>
+    <el-select class="m-2" placeholder="活動種類" size="large">
+        <el-option v-for="ActTp in ActType" :key="ActTp" :value="ActTp" />{{ ActTp }}
+    </el-select>
+</div>
+    
+<div> <span class="Search">關鍵字</span>
+        <el-input v-model="input" size="large" class="w-40 m-2" s placeholder="" />
+        <el-button type="success" :icon="Search">搜尋</el-button>
     </div>
+
+   
+    
+       
+ 
+    </div> 
+
+
+    
 </template>

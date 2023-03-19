@@ -24,12 +24,12 @@
 
 <template>
     <!-- <div class="demo">
-                                        <el-button v-for=" tab in tabs" :key="tab" size="large" type="info" class="butonleft text-lg font-weight-bolder"
-                                            @click="currentTab = tab">
-                                            {{ tab }}
-                                        </el-button>
-                                        <component :is="currentTab" class=""></component>
-                                    </div> -->
+    <el-button v-for=" tab in tabs" :key="tab" size="large" type="info" class="butonleft text-lg font-weight-bolder"
+        @click="currentTab = tab">
+        {{ tab }}
+    </el-button>
+    <component :is="currentTab" class=""></component>
+    </div> -->
     <div class="">
         <el-button type="warning" disabled><el-text class="mx-1"><router-link to="/pages/Yelu-pages/act/Sections/ActHot"
                 style="font-weight:bolder; font-size:x-large;">熱門精選</router-link></el-text></el-button>
