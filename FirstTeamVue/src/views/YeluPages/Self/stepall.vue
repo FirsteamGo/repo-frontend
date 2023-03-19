@@ -5,7 +5,7 @@ import card1 from '../Self/Sections/card.vue'
 
 <script >
 //<!-- 步驟條 -->
-import { ref } from 'vue'
+import { reactive, ref } from 'vue'
 import CampIndex from '../Camp/Sections/CampIndex.vue'
 import step2 from '../Self/Sections/step2.vue'
 import step3 from '../Self/Sections/step3.vue'
@@ -15,6 +15,7 @@ import selfshoppinglist from '../shoppingcart/selfshoppinglist.vue'
 
 const active = ref(0)
 const dialogVisible = ref(false)
+let routerLinkPath= ref('step1')
 
 export default {
   components: {
@@ -27,23 +28,28 @@ export default {
       content: 'CampIndex',
       BtnCart: false,
       BtnStep: true,
+      // routerLinkPath: "step1"
     }
   },
   methods: {
     next() {
       active.value++;
-       if (active.value > 3) active.value = 0
+      //  if (active.value > 3) active.value = 0
        
        if (active.value ==1){
-         this.content = 'step2';
+        //  this.content = 'step2';
+         routerLinkPath="step2";
       }else if(active.value ==2){
         this.content = 'step3';
+        routerLinkPath="step3";
         this.BtnCart = !this.BtnCart;
         this.BtnStep = !this.BtnStep;
       }else if(active.value ==3){
         this.content = 'step3';
+        routerLinkPath="step3";
       }else{
-        this.content = 'CampIndex';
+        // this.content = 'CampIndex';
+        // routerLinkPath="step1";
         this.BtnCart=false;
         this.Step1=false;
         this.BtnStep = true;
@@ -86,10 +92,13 @@ export default {
       <el-step title="第二步: 相關活動" />
       <el-step title="第三步: 挑選飲食 完成" />
     </el-steps>
-
-    <el-button v-if="BtnStep" style="margin-top: 25px" @click="next" >點我下一步</el-button>
-
-   
+    
+      <router-link :to="{name: routerLinkPath}">
+      <!-- <router-link :to="{name:'step3'}"> -->
+        <el-button v-if="BtnStep" style="margin-top: 25px" @click="next" >點我下一步</el-button>   
+      </router-link>
+      
+  
   <!-- Modal彈跳視窗裡面要顯示的東西 --> 
   <el-dialog v-model="dialogVisible" title="確認購買清單" width="80%" draggable>
     <div class="modal-header">
@@ -99,15 +108,12 @@ export default {
     <!-- <selfshoppinglist :prop="dialogData"/> -->
     <selfshoppinglist />
   </el-dialog>
-
-
    
     <el-button v-if="BtnCart" style="margin-top: 25px" @click="dialogVisible = true" >檢視購物清單</el-button>
-
     <el-button v-if="Step1" style="margin-top: 25px" @click="next" >重新選擇</el-button>
     
-    <component :is="content"></component>
-
+    <!-- <component :is="content"></component> -->
+    <router-view></router-view>
 
   </div>
 </template>
