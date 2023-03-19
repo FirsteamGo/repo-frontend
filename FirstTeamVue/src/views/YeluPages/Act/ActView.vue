@@ -78,8 +78,7 @@ const getEmployeeDTOes = onMounted(() => {
               在地體驗
             </h1>
             <p class="lead mb-4 text-white opacity-8">
-              We’re constantly trying to express ourselves and actualize our
-              dreams. If you have the opportunity to play this game
+              探索屬於你的最佳體驗 #YELU CAMP
             </p>
           </div>
         </div>
@@ -92,7 +91,7 @@ const getEmployeeDTOes = onMounted(() => {
     <Actselect />
     <ActNavbar />
     <!-- <ActSelectBtn /> -->
-    <Actcarousel />
+    <!-- <Actcarousel /> -->
     <router-view></router-view>
 
 

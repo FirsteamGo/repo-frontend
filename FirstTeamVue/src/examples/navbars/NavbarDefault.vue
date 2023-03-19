@@ -139,7 +139,19 @@ watch(
       <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0" id="navigation">
         <ul class="navbar-nav navbar-nav-hover ms-auto">
           <!-- 導覽列第一個按鈕 -->
-          <li class="nav-item dropdown dropdown-hover mx-2">
+                   <div>
+            <li class="nav-item mx-2">
+              <a role="button" class="nav-link ps-2 d-flex cursor-pointer align-items-center" :class="getTextColor()"
+                aria-expanded="false">
+                <RouterLink to="/pages/Yelu-pages/Camp/Sections/CampIndex" class="dropdown-item border-radius-md">
+                  <i class="material-icons opacity-6 me-2  text-md" :class="getTextColor()">home</i>
+                  營區預訂
+                </RouterLink>
+              </a>
+            </li>
+          </div>
+
+          <!-- <li class="nav-item dropdown dropdown-hover mx-2">
             <a role="button" class="nav-link ps-2 d-flex cursor-pointer align-items-center" :class="getTextColor()"
               id="dropdownMenuBlocks" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="material-icons opacity-6 me-2 text-md" :class="getTextColor()"><span
@@ -163,7 +175,7 @@ watch(
                                 北部</span>
                             <span class="text-sm">North District</span>
                           </div>
-                          <!-- <img :src="downArrow" alt="down-arrow" class="arrow" /> -->
+                         
                         </div>
                       </div></router-link>
                     </a>
@@ -180,7 +192,7 @@ watch(
                                 中部</span>
                             <span class="text-sm">Central District</span>
                           </div>
-                          <!-- <img :src="downArrow" alt="down-arrow" class="arrow" /> -->
+                        
                         </div>
                       </div></router-link>
                     </a>
@@ -197,7 +209,7 @@ watch(
                                 南部</span>
                             <span class="text-sm">South District</span>
                           </div>
-                          <!-- <img :src="downArrow" alt="down-arrow" class="arrow" /> -->
+                          
                         </div>
                       </div></router-link>
                     </a>
@@ -214,7 +226,7 @@ watch(
                                 東部</span>
                             <span class="text-sm">East District</span>
                           </div>
-                          <!-- <img :src="downArrow" alt="down-arrow" class="arrow" /> -->
+                         
                         </div>
                       </div></router-link>
                     </a>
@@ -222,7 +234,7 @@ watch(
                   </li>
                 </ul>
               </div>
-              <!-- 以下是為了設定RWD -->
+              以下是為了設定RWD 
               <div class="row d-lg-none">
                 <div class="col-md-12">
                   <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
@@ -240,7 +252,7 @@ watch(
                 </div>
               </div>
             </div>
-          </li>
+          </li> -->
 
 
 
@@ -261,7 +273,7 @@ watch(
                 <ul class="list-group">
                   <li class="nav-item dropdown dropdown-hover dropdown-subitem list-group-item border-0 p-0">
                     <a class="dropdown-item py-2 ps-3 border-radius-md" href="javascript:;">
-                      <RouterLink :to="{ name: 'self' }" class="dropdown-item border-radius-md">
+                      <router-link to="/pages/Yelu-pages/Self/stepall/step1" class="dropdown-item border-radius-md">
                       <div class="d-flex">
                         <div class="w-100 d-flex align-items-center justify-content-between">
                           <div>
@@ -273,7 +285,7 @@ watch(
                           </div>
                           <!-- <img :src="downArrow" alt="down-arrow" class="arrow" /> -->
                         </div>
-                      </div> </RouterLink>
+                      </div> </router-link>
                     </a>
                   </li>
                   <li class="nav-item dropdown dropdown-hover dropdown-subitem list-group-item border-0 p-0">
@@ -315,7 +327,7 @@ watch(
             <li class="nav-item mx-2">
               <a role="button" class="nav-link ps-2 d-flex cursor-pointer align-items-center" :class="getTextColor()"
                 aria-expanded="false">
-                <RouterLink :to="{ name: 'act' }" class="dropdown-item border-radius-md">
+                <RouterLink to="/pages/Yelu-pages/act/Sections/ActIndex" class="dropdown-item border-radius-md">
                   <i class="material-icons opacity-6 me-2  text-md" :class="getTextColor()">hiking</i>
                   當地活動
                 </RouterLink>
