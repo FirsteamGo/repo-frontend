@@ -8,8 +8,6 @@ import yelufooter from "../../../examples/footers/yelufooter.vue";
 //image
 import bg03 from "@/assets/img/bg/bg03.jpg";
 
-
-
 //dep
 import Typed from "typed.js";
 
@@ -80,8 +78,7 @@ onUnmounted(() => {
             </h1>
            
             <p class="lead mb-4 text-white opacity-8">
-              We’re constantly trying to express ourselves and actualize our
-              dreams. If you have the opportunity to play this game
+              玩樂不停歇想怎麼玩自己安排 #YELU CAMP
             </p>
             
            
