@@ -12,6 +12,7 @@ import bg03 from "@/assets/img/bg/bg03.jpg";
 import Typed from "typed.js";
 
 //sections 放置要引入的頁面
+import SelfLayout from "./Sections/SelfLayout.vue";
 import stepall from "./stepall.vue";
 import Breadcrumb from "./Sections/Breadcrumb.vue";
 
@@ -92,7 +93,7 @@ onUnmounted(() => {
   <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
 
     <!-- 記得這裡設定引入標籤 -->
-    
+    <SelfLayout />
     <router-view></router-view>
     <!-- <stepall /> -->
 
