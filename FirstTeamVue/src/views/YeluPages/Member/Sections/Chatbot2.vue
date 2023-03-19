@@ -1,35 +1,14 @@
-
 <template>
   <div id="chatbot">
     <div id="chatbox">
-
       <div v-for="message in messages" :key="message.id">
-
-
         <div v-if="message.sender === 'bot'" class="bot">{{ message.text }}</div>
         <div v-else class="user">{{ message.text }}</div>
-
-
         <div v-if="message.options" class="options">
           <div v-for="option in message.options" :key="option.id" @click="selectOption(option)">{{ option.text }}</div>
         </div>
       </div>
-
-    <!-- *使用 v-for 指令來渲染聊天記錄。
-      *messages 是一個數組，它包含所有的聊天記錄。
-      *使用 v-if 指令來區分發送者是機器人還是用戶。如果發送者是機器人，使用 "bot" 類名來標記樣式；如果是用戶，使用 "user" 類名來標記樣式。
-        *用 v-for 指令渲染每一個選項，並為每個選項設置點擊事件，當用戶點擊選項時，會調用 selectOption 方法。 -->
-
     </div>
-
-  <!-- <div id="inputbox">
-      <input type="text" v-model="newMessage" @keyup.enter="sendMessage" />
-      <button @click="sendMessage">Send</button>
-      </div> -->
-
-    <!-- id 是 "inputbox"，它包含一個輸入框和一個發送按鈕，用戶可以在這裡輸入聊天內容。 -->
-
-
   </div>
 </template>
 
@@ -45,9 +24,12 @@ export default {
           sender: 'bot',
           text: '嗨，你今天想做什麼?',
           options: [
-            { id: 1, text: '我想去露營', nextStep: 2, redirectUrl: 'https://www.example.com/camping' },
-            { id: 2, text: '我想買一些露營用品', nextStep: 2, redirectUrl: 'https://www.example.com/camping' },
-            { id: 3, text: '你幫我推薦', nextStep: 2, redirectUrl: 'https://www.example.com/camping' },
+            { id: 1, text: '我想去露營', nextStep: 2, redirectUrl: 'http://localhost:3001/pages/Yelu-pages/self' },
+            { id: 2, text: '我想買一些露營用品', nextStep: 2, redirectUrl: 'http://localhost:3001/pages/Yelu-pages/shop' },
+            { id: 3, text: '你幫我推薦', nextStep: 2, redirectUrl: 'http://localhost:3001/pages/Yelu-pages/set' },
+            { id: 4, text: '這裡有活動', nextStep: 2, redirectUrl: 'http://localhost:3001/pages/Yelu-pages/act' },
+            { id: 5, text: '這裡有很多營地', nextStep: 2, redirectUrl: 'http://localhost:3001/pages/Yelu-pages/camp/Sections/CampSouth' },
+            // { id: 4, text: '這裡有活動', nextStep: 2, redirectUrl: 'https://localhost:7120/' },
           ],
         },
       ],
@@ -89,19 +71,16 @@ export default {
       }
     };
 
-
-
-
-
     const selectOption = (option) => {
       state.messages.push({ sender: 'user', text: option.text });
-      state.currentStep = option.nextStep;
       if (option.redirectUrl) {
         window.location.href = option.redirectUrl;
       } else {
+        state.currentStep = option.nextStep;
         state.messages.push({ sender: 'bot', text: 'Please select one of the following options:', options: state.messages[state.currentStep - 1].options });
       }
     };
+
 
 
 
@@ -184,6 +163,3 @@ export default {
   cursor: pointer;
 }
 </style>
-
-
-

@@ -1,62 +1,53 @@
 <template>
-  <el-upload action="#" list-type="picture-card" :auto-upload="false">
-    <el-icon><Plus /></el-icon>
-
-    <template #file="{ file }">
-      <div>
-        <img class="el-upload-list__item-thumbnail" :src="file.url" alt="" />
-        <span class="el-upload-list__item-actions">
-          <span
-            class="el-upload-list__item-preview"
-            @click="handlePictureCardPreview(file)"
-          >
-            <el-icon><zoom-in /></el-icon>
-          </span>
-          <span
-            v-if="!disabled"
-            class="el-upload-list__item-delete"
-            @click="handleDownload(file)"
-          >
-            <el-icon><Download /></el-icon>
-          </span>
-          <span
-            v-if="!disabled"
-            class="el-upload-list__item-delete"
-            @click="handleRemove(file)"
-          >
-            <el-icon><Delete /></el-icon>
-          </span>
-        </span>
-      </div>
-    </template>
-  </el-upload>
-
-  <el-dialog v-model="dialogVisible">
-    <img w-full :src="dialogImageUrl" alt="Preview Image" />
-  </el-dialog>
+  <el-row>
+    <el-col>
+      <el-card :body-style="{ padding: '0px' }">
+        <img
+          :src="imageUrl"
+          class="image"
+        />
+        <div style="padding: 14px">
+          <span>會員照片</span>
+          <div>
+            <input type="file" ref="fileInput" accept="image/*" @change="handleFileChange"/>
+            <button @click="uploadImage" class="btn-sm">上傳圖片</button>
+          </div>
+        </div>
+      </el-card>
+    </el-col>
+  </el-row>
 </template>
 
-<script lang="ts" setup>
-import { ref } from 'vue'
-import { Delete, Download, Plus, ZoomIn } from '@element-plus/icons-vue'
+<script>
+import axios from 'axios';
+import { ref } from 'vue';
 
-import type { UploadFile } from 'element-plus'
+const webApi = ref("https://localhost:7108/api/MemberInfoes/api/upload");
 
-const dialogImageUrl = ref('')
-const dialogVisible = ref(false)
-const disabled = ref(false)
+export default {
+  data() {
+    return {
+      imageUrl: ""
+    };
+  },
+  methods: {
+    async uploadImage() {
+      const file = this.$refs.fileInput.files[0];     
 
-const handleRemove = (file: UploadFile) => {
-  console.log(file)
-}
-
-const handlePictureCardPreview = (file: UploadFile) => {
-  dialogImageUrl.value = file.url!
-  localStorage.setItem('imagePath', dialogImageUrl.value) // 將圖片路徑存入 local storage
-  dialogVisible.value = true
-}
-
-const handleDownload = (file: UploadFile) => {
-  console.log(file)
+      const formData = new FormData();
+      formData.append('image', file, file.name);
+      
+      const response = await axios.post(webApi.value, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+      console.log(response.data);
+    },
+    handleFileChange() {
+      const file = this.$refs.fileInput.files[0];
+      this.imageUrl = URL.createObjectURL(file);
+    }
+  }
 }
 </script>

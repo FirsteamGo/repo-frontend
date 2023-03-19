@@ -38,6 +38,8 @@ const customerData = reactive<customerInterface[]>([]);
 // 建一個名為 user 的變數，用來存放利用 localStorage.getItem 從 customerData 裡面抓取出來的資料。 
 // 再把 user 變數裡面的值，丟到 ruleForm 值裡面，再透過下面 v-model 方式連動到欄位裡面。
 const user = JSON.parse(localStorage.getItem("customerData"))
+console.log(user);
+
 onMounted(() => {
     if (localStorage.getItem("customerData") != null) {
         console.log(user.CustomerName);
@@ -118,7 +120,7 @@ const EditCustomer = () => {
   <el-form ref="ruleFormRef" :model="ruleForm" label-width="120px" refreshEdit="refreshEdit()">
     
     <Memberphoto1/>
-
+    <br>
     <el-form-item label="姓名">
       <el-input v-model="ruleForm.姓名" />
     </el-form-item>

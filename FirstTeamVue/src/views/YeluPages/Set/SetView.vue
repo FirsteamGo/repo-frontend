@@ -12,6 +12,9 @@ import bg0 from "./img/01.jpeg";
 import Typed from "typed.js";
 import Layout from "./Sections/Layout.vue";
 import Breadcrumb from "./Sections/Breadcrumb.vue";
+import Actimage from "./Sections/Actimage.vue"
+
+import testimage from "./Sections/GB/testimage.vue";
 //sections 放置要引入的頁面
 // import Information from "./Sections/AboutInformation.vue";
 
@@ -40,6 +43,9 @@ onUnmounted(() => {
   body.classList.remove("bg-gray-200");
 });
 </script>
+
+
+
 <template>
   <DefaultNavbar :action="{
     route: 'javascript:;',
@@ -75,10 +81,11 @@ onUnmounted(() => {
   <Breadcrumb />
 
   <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
-
-    <!-- 記得這裡設定引入標籤 -->
+    <Actimage/>
+   
     <Layout />
- 
+   
+    
   </div>
   <yelufooter />
 </template>
