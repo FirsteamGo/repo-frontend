@@ -165,7 +165,7 @@ const buttons = [
 
 
 const rememberMe = reactive({
-  checked: true,
+  checked: localStorage.getItem("rememberMe") === "true",
 });
 
 const handleSubmit = () => {
@@ -176,7 +176,7 @@ const handleSubmit = () => {
     localStorage.removeItem("account");
     localStorage.removeItem("password");
   }
-  
+
 };
 
 
@@ -207,12 +207,14 @@ const handleSubmit = () => {
 
 
       <!-- 要補功能 -->
-      <el-form-item>
-        <el-checkbox label="記住帳號，密碼" v-model="rememberMe" />
-      </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="handleSubmit">Submit</el-button>
-      </el-form-item>
+      <div>
+        <el-form-item>
+          <el-checkbox v-model="rememberMe.checked">記住帳號和密碼</el-checkbox>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" @click="handleSubmit">記住帳密登入</el-button>
+        </el-form-item>
+      </div>
 
       <!-- 勾選 checkbox 後，把會員帳號密碼，由 ruleForm 撈出，放在 localStorage 裡面。 -->
 
