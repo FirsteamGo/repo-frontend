@@ -1,5 +1,4 @@
 <script setup>
-import Test1 from '../shopsections/test1.vue';
 
 defineProps({
   image: {
@@ -34,11 +33,6 @@ defineProps({
     }),
   },
 });
-const paragraph = document.querySelector('p');
-const maxLength = 10;
-if (paragraph.textContent.length > maxLength) {
-  paragraph.textContent = paragraph.textContent.slice(20, maxLength) + '...';
-}
 </script>
 <template>
   <div class="card card-plain">
@@ -49,19 +43,19 @@ if (paragraph.textContent.length > maxLength) {
     </div>
     <div class="card-body px-0">
       <h5>
-        <a :href="action.route" class="text-dark font-weight-bold">{{
+        <a :href="action.route" class="text-dark font-weight-bold" style="cursor: default;">{{
           title
         }}</a>
       </h5>
       <span>
       TW {{ description }}元
       </span>
-      <p >{{ content }}</p>
+      <p class="word">{{ content }}</p>
       <!-- <a :href="action.route" class=" text-lg font-weight-bolder icon-move-right" :class="`text-${action.color}`">{{
         action.label }}
         <i class="fas fa-arrow-right text-xs ms-1"></i>
       </a> -->
-     <Test1/>
+     
       <!-- <el-button type="warning" :icon="Search" round>詳細資訊</el-button> -->
 
       <!--購物車應該在小視窗內-->
@@ -72,6 +66,9 @@ if (paragraph.textContent.length > maxLength) {
 <style>
 .cartbtn {
   margin-left: 80px;
-
+}
+.word{
+  color: rgba(0, 0, 0,0.6);
+  font-weight: bold;
 }
 </style>
