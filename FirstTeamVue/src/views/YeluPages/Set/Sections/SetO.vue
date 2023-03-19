@@ -44,8 +44,7 @@
       </el-form-item>
 
       <el-form-item>
-        <el-button type="primary" @click="onSubmit">Create</el-button>
-        <el-button>Cancel</el-button>
+        <el-button type="primary" @click="onSubmit">確認</el-button>        
       </el-form-item>
     </el-form>
       </el-main>
@@ -107,7 +106,7 @@
   
   const setod= JSON.parse(localStorage.getItem('setorderdetail'))  
   const meda= JSON.parse(localStorage.getItem('customerData'))
-
+ 
   const pricePerPerson=ref(setod.套裝行程價格)
   const Seto = reactive([])
   const 套裝行程id=ref(0)
@@ -145,6 +144,7 @@
     let Seto = JSON.stringify(form)
 
     localStorage.setItem('setorder', Seto)
+    alert("請按下一步進入購物車")
 
 
   }
@@ -167,6 +167,7 @@
     return isNaN(people) || isNaN(price) ? 0 : people * price;
     });
 
+    
   </script>
   <style scoped>
   .el-carousel__item h3 {

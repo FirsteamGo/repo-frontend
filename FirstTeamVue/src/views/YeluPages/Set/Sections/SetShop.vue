@@ -40,8 +40,9 @@ td{
                 </td>
                 
                 <td>
-                    <button class="btn btn-primary" @click="Del()">刪除</button>
-                    <button class="btn btn-warning" @click="insert()">確認</button>                    
+                    <button class="btn btn-primary"  @click="Del()">刪除</button>
+                    <button class="btn btn-warning" @click="insert()">確認</button>
+                    <router-link :to="{presentation}"  class="btn btn-primary" > 返回首頁</router-link>
                 </td>         
 
           </tr>
@@ -152,6 +153,7 @@ td{
 <script setup>
 import axios from 'axios';
 import { ref, reactive, onMounted } from 'vue';
+import { RouterLink } from 'vue-router';
 const mvc = ref("https://localhost:7120/images/");
 const webApi = ref("https://localhost:7108/api/SetOrders");
 
@@ -209,7 +211,10 @@ const insert = ()=>{
 
 }
 const Del = ()=>{
-
+  alert("已刪除套裝行程購物車")
+  localStorage.removeItem('setorderdetail');
+  localStorage.removeItem('setorder');
+  
 }
 
 </script>
