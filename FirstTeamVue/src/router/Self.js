@@ -19,19 +19,30 @@ export default [
         name: "test2",
         component: test2,
     },
-    {
-        //在stepall裡面塞selfshoppinglist.vue
-        path: "/pages/Yelu-pages/Self/stepall",
-        name: "stepall",
-        component: stepall,
-        // children: [
-        //     {
-        //         path: "selfshoppingcart",
-        //         name: "selfshoppingcart",
-        //         component: () => import("../views/YeluPages/shoppingcart/selfshoppingcart.vue"),
-        //     },
-        // ]
-    },
+    // {
+    //     //在stepall裡面塞selfshoppinglist.vue
+    //     path: "/pages/Yelu-pages/Self/stepall",
+    //     name: "stepall",
+    //     component: stepall,
+    //     children: [
+    //         {//自選第一步
+    //             path: "step1",
+    //             name: "step1",
+    //             component: () => import("../views/YeluPages/Self/Sections/step1.vue"),
+    //         },
+    //         {//自選第二步
+    //             path: "step2",
+    //             name: "step2",
+    //             component: () => import("../views/YeluPages/Self/Sections/step2.vue"),
+    //         },
+    //            {//自選第三步
+    //             path: "step3",
+    //             name: "step3",
+    //             component: () => import("../views/YeluPages/Self/Sections/step3.vue"),
+    //         },
+    //     ]
+       
+    // },
     {
 
         path: "/pages/Yelu-pages/selfshoppingcart",
@@ -45,5 +56,31 @@ export default [
         path: "/pages/Yelu-pages/self",
         name: "self",
         component: SelfView,
+        children: [
+            {
+            //在stepall裡面塞selfshoppinglist.vue
+            path: "stepall",
+            name: "stepall",
+            component: stepall,
+            children: [
+                {//自選第一步
+                    path: "step1",
+                    name: "step1",
+                    component: () => import("../views/YeluPages/Self/Sections/step1.vue"),
+                },
+                {//自選第二步
+                    path: "step2",
+                    name: "step2",
+                    component: () => import("../views/YeluPages/Self/Sections/step2.vue"),
+                },
+                   {//自選第三步
+                    path: "step3",
+                    name: "step3",
+                    component: () => import("../views/YeluPages/Self/Sections/step3.vue"),
+                },
+            ]
+           
+        },
+        ]
     },
 ]

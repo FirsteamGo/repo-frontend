@@ -34,7 +34,7 @@ const total = reactive({
 
 
 //api抓SelfFoods資料
-const getEmployeeDTOes = onMounted(() => {
+onMounted(() => {
   axios
     .get(webApiBaseAddr.value)
     .then(respose => {

@@ -273,7 +273,7 @@ watch(
                 <ul class="list-group">
                   <li class="nav-item dropdown dropdown-hover dropdown-subitem list-group-item border-0 p-0">
                     <a class="dropdown-item py-2 ps-3 border-radius-md" href="javascript:;">
-                      <RouterLink :to="{ name: 'self' }" class="dropdown-item border-radius-md">
+                      <router-link to="/pages/Yelu-pages/Self/stepall/step1" class="dropdown-item border-radius-md">
                       <div class="d-flex">
                         <div class="w-100 d-flex align-items-center justify-content-between">
                           <div>
@@ -285,7 +285,7 @@ watch(
                           </div>
                           <!-- <img :src="downArrow" alt="down-arrow" class="arrow" /> -->
                         </div>
-                      </div> </RouterLink>
+                      </div> </router-link>
                     </a>
                   </li>
                   <li class="nav-item dropdown dropdown-hover dropdown-subitem list-group-item border-0 p-0">
