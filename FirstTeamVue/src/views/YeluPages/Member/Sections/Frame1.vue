@@ -1,5 +1,6 @@
 <script setup>
 import Revise from "./Revise.vue";
+import Drawer from "./Drawer.vue";
 </script>
 
 
@@ -8,7 +9,8 @@ import Revise from "./Revise.vue";
     <el-tab-pane label="修改">
       <Revise/>
     </el-tab-pane>
-    <el-tab-pane label="未定">
+    <el-tab-pane label="智能客服">
+      <Drawer />
       
     </el-tab-pane>
     <!-- <el-tab-pane label="Role">Role</el-tab-pane> -->
