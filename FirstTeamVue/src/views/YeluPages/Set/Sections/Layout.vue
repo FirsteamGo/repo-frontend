@@ -6,10 +6,12 @@
   </script>
 
 <script >
-  import step1 from './Setorder.vue'
-  import step2 from './test.vue'
-  import step3 from './testtable2.vue'
-  import { ref } from 'vue'
+  import step1 from './SetOD.vue'
+  import step2 from './SetO.vue'
+  import step3 from './SetShop.vue'
+  
+  import { ref,onMounted,reactive } from 'vue'
+  import { RouterLink } from "vue-router";
   
   const active = ref(0)
     
@@ -20,23 +22,52 @@
       step3
     },
     data() {
-      return {
+      return {        
         content: 'step1',
+        active: 0,
       }
     },
      methods: {
       
-      next() {
-        active.value++;
-      // console.log(active.value);
-      if(active.value==0){this.content='step1';}
-      else if(active.value==1){this.content='step2';}
-      else if(active.value==2){this.content='step3';}
-      else{active.value=0; this.content='step1';}     
-      
-      // console.log(active.value);  
-       
-        
+      next() {      
+
+      if(active.value ==0){
+        const member =JSON.parse(localStorage.getItem('customerData'))
+        if(!member){
+          alert("麻煩請登入會員");
+          console.log("麻煩請登入會員")
+          return ;
+        }
+      }else if(active.value==1){
+        const setodata = JSON.parse(localStorage.getItem('setorderdetail'))
+        if(!setodata){
+          alert("麻煩請選擇套裝行程方案!");
+          console.log("麻煩請選擇套裝行程方案")
+          return;
+        }
+      }else if(active.value==2){
+        const setodData = JSON.parse(localStorage.getItem('setorder'))
+        if(!setodData){
+          alert("麻煩請填寫下列所需資訊及確認套裝形成方案!");
+          console.log("麻煩請填寫下列所需資訊及確認套裝形成方案")
+          return;
+        }
+      }
+      active.value++;
+      if (this.active === 3) {
+        this.active = 0;        
+      }
+      this.content = `step${active.value + 1}`;
+    },
+    back() {
+      this.active--;
+      if (this.active === 0) {
+        this.content = 'step1';
+      } else if (this.active === 1) {
+        this.content = 'step2';
+      } else if (this.active === 2) {
+        this.content = 'step3';
+      }
     }
   }}
 </script>
@@ -45,14 +76,18 @@
 <template>
 <!-- 步驟條 -->
   <el-steps :active="active" finish-status="success" >
-    <el-step title="第一步: 挑選營地" />
-    <el-step title="第二步: 挑選飲食" />
-    <el-step title="第三步: 挑選活動 完成" />
+    <el-step title="第一步: 套裝行程" />
+    <el-step title="第二步: 填寫詳細資訊" />
+    <el-step title="第三步: 訂單確認" />
   </el-steps>
   
-  <el-button style="margin-top: 12px" @click="next" >Next step</el-button>
-  <!-- <el-button style="margin-top: 12px" @click="next" v-model="step_data">Next step {{step_data.show_name}}</el-button> -->
+  <div style="margin-top: 12px">
+    <el-button v-if="active > 0" @click="back">上一步</el-button>
+    <el-button v-if="active < 2" @click="next" >下一步</el-button> 
   
+  </div>
+  
+  <p></p>
 
   <component :is="content"></component>
 
