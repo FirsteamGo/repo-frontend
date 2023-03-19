@@ -1,7 +1,6 @@
 <script setup>
-import { onMounted, onUnmounted } from "vue";
+import { onMounted, onUnmounted, reactive } from "vue";
 import { RouterLink, RouterView } from "vue-router";
-
 
 //example components
 import DefaultNavbar from "../../../examples/navbars/NavbarDefault.vue";
@@ -22,7 +21,7 @@ import nav3 from "../Shop/SPA/nav_3.vue";
 import nav4 from "../Shop/SPA/nav_4.vue";
 import nav5 from "../Shop/SPA/nav_5.vue";
 
-
+const columns = reactive([]);
 const body = document.getElementsByTagName("body")[0];
 //hooks
 onMounted(() => {
@@ -46,6 +45,21 @@ onUnmounted(() => {
   body.classList.remove("about-us");
   body.classList.remove("bg-gray-200");
 });
+//測試用測試用測試用
+const addtoCart = () => {
+  const numbers = {
+    one: "one",
+    two: "two",
+    three: "three",
+    four: "four",
+  };
+  columns.value.push(numbers);
+  localStorage.setItem("name", "Ken");
+  localStorage.setItem("age", "26");
+  localStorage.setItem("sex", "male");
+  localStorage.setItem("car", "BMW");
+  localStorage.setItem("dog", "果果");
+};
 </script>
 <template>
   <DefaultNavbar
@@ -84,6 +98,7 @@ onUnmounted(() => {
       <!--輪播牆-->
       <el-header class="head"><carousel /></el-header>
       <el-header class="inputlocation"><inputContent /></el-header>
+      <button @click="addtoCart">123</button>
       <el-container class="navBar">
         <nav1 />
         <nav2 />
@@ -93,16 +108,8 @@ onUnmounted(() => {
       </el-container>
 
       <el-main><router-view /></el-main>
-
-      <!-- <el-header class="item">
-        <router-link to="/pages/Yelu-pages/shop/SPA/aaa">aaa</router-link>
-        <router-link to="/pages/Yelu-pages/shop/SPA/bbb">bbb</router-link>
-        <router-link to="/pages/Yelu-pages/shop/SPA/ccc">ccc</router-link>
-      </el-header>
-      <router-view /> -->
     </div>
   </div>
-
   <yelufooter />
 </template>
 <style scoped>
