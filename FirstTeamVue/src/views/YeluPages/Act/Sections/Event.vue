@@ -114,7 +114,7 @@ console.log(Event);
                 </div>
                     
                 <div>
-                    <label class="form-lable"><span class="material-icons">attach_money</span> TWD $ <span class="text-primary">{{ item.門票價格 }}</span> /次</label>
+                    <label class="form-lable"><span class="material-icons">attach_money</span> TWD  <span class="text-primary">{{ item.門票價格 }}</span> /次</label>
                 </div>
 
                 <div>  
@@ -173,7 +173,7 @@ console.log(Event);
                             <label class="form-lable">活動種類  |  {{ 活動種類 }} </label>
                         </div>
                         <div>
-                        <label class="form-lable"><span class="material-icons">attach_money</span> TWD $ <span class="text-primary">{{ 門票價格 }}</span> /次</label>
+                        <label class="form-lable"><span class="material-icons">attach_money</span> TWD  <span class="text-primary">{{ 門票價格 }}</span> /次</label>
                         </div>
                     </span>
                 </el-dialog>
