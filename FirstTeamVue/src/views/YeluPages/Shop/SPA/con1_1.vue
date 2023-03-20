@@ -17,13 +17,6 @@ const shopItem = reactive([]);
 const 單價 = ref(0);
 //const 產品名稱=ref('')
 //const quantity=reactive([])
-
-const dialogData = reactive({
-  數量: 1,
-  產品名稱: "",
-  單價: 0,
-});
-
 onMounted(async () => {
   await axios
     .get(webApiBaseAddr.value)
@@ -35,10 +28,27 @@ onMounted(async () => {
       console.log(err);
     });
 });
+
+const dialogData = reactive({
+  數量: 1,
+  產品名稱: "",
+  單價: 0,
+});
+const cart = reactive({
+  單價:dialogData.單價,
+  商品名稱: dialogData.產品名稱,
+  總價: computed(() => {
+    if (dialogData.單價.value == 0) {
+      return " ";
+    }
+    return dialogData.數量 * dialogData.單價;
+  }),
+  小計: dialogData.數量,
+});
+
 //連動彈跳視窗
 let detail = (商品細項ID) => {
   shopItem.splice(0);
-  //alert(商品細項ID)
   for (let i = 0; i < shopPro.length; i++) {
     let item = shopPro[i];
     if (item.商品細項id == 商品細項ID) {
@@ -47,6 +57,11 @@ let detail = (商品細項ID) => {
       dialogData.產品名稱 = item.產品名稱;
       //console.log(產品名稱.value);
       dialogData.數量 = 1;
+
+      //資料轉換??
+      cart.商品名稱=dialogData.產品名稱;
+      cart.小計=dialogData.數量;
+      cart.單價=dialogData.單價;
     }
 
     shopItem.push(item);
@@ -64,8 +79,16 @@ const totalPrice = computed(() => {
     return " ";
   }
   return dialogData.數量 * dialogData.單價;
-  //console.log(aa);
+ 
 });
+
+const addCart = () => {
+  let shoplist = JSON.parse(localStorage.getItem("shoplist") || "[]");
+  shoplist.push(cart);
+  localStorage.setItem("shoplist", JSON.stringify(shoplist));
+};
+
+
 </script>
 <template>
   <div class="">
@@ -135,7 +158,7 @@ const totalPrice = computed(() => {
                       <label class="form-table">單價:{{ 單價 }}元</label>
                   </div> -->
                 <el-button @click="visible = false">取消</el-button>
-                <el-button type="primary" @click="addtoCart  visible = false ">
+                <el-button type="primary" @click="addCart,  visible = false ">
                   加入購物車
                 </el-button>
               </span>

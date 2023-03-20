@@ -29,7 +29,6 @@ import { ShoppingCartFull } from "@element-plus/icons-vue";
   <router-link to="/pages/Yelu-pages/cart"
     ><el-button :icon="ShoppingCartFull" class="cartIcon" circle
   /></router-link>
-  <router-view></router-view>
 </template>
 
 <style scoped>
