@@ -107,11 +107,16 @@ watch(
         (props.transparent && textDark.value) || !props.transparent
           ? 'text-dark font-weight-bolder ms-sm-3'
           : 'text-white font-weight-bolder ms-sm-3'
-      ]" :to="{ name: 'presentation' }" rel="tooltip" title="Designed and Coded by Creative Tim"
+      ]" :to="{ name: 'presentation' }" rel="tooltip" title="Designed By YELU"
         data-placement="bottom">
         <img src="../../assets/img/yelu.png" style="width: 50px; height: 50px;" alt="YELU">
       </RouterLink>
-      <span>野 麓YELU</span>
+      <!-- 左上LOGO文字 -->
+      <a role="button" class="nav-link ps-2 d-flex cursor-pointer align-items-center" :class="getTextColor()"
+                aria-expanded="false">
+      <!-- <span>野 麓YELU</span> -->
+      <strong>野 麓YELU</strong>
+    </a>
       <!-- 以下是RWD時顯示 -->
       <RouterLink class="navbar-brand d-block d-md-none" :class="
         props.transparent || props.dark
@@ -369,8 +374,8 @@ watch(
             <li class="nav-item mx-2">
               <a role="button" class="nav-link ps-2 d-flex cursor-pointer align-items-center" :class="getTextColor()"
                 aria-expanded="false">
-                <RouterLink :to="{ name: 'member' }" class="dropdown-item border-radius-md">
-                  <i class="material-icons opacity-6 me-2  text-md" :class="getTextColor()">local_mall</i>
+                <RouterLink :to="{ name: 'totalcart' }" class="dropdown-item border-radius-md">
+                  <i class="material-icons opacity-6 me-2  text-md" :class="getTextColor()" title="購物車">local_mall</i>
                   
                 </RouterLink>
               </a>
@@ -383,7 +388,7 @@ watch(
               <a role="button" class="nav-link ps-2 d-flex cursor-pointer align-items-center" :class="getTextColor()"
                 aria-expanded="false">
                 <RouterLink :to="{ name: 'member' }" class="dropdown-item border-radius-md">
-                  <i class="material-icons opacity-6 me-2  text-md" :class="getTextColor()">settings</i>
+                  <i class="material-icons opacity-6 me-2  text-md" :class="getTextColor()" title="野麓後台系統">settings</i>
                   
                 </RouterLink>
               </a>
