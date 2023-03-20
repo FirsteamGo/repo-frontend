@@ -2,13 +2,9 @@
   <el-button type="primary" round style="width: 10%;margin:20px;"  @click="Setdetail=true">套裝行程詳細資訊</el-button>
 
   <div class="common-layout">
-    <el-container>
-      <el-aside width="60%">
-        <el-carousel indicator-position="outside">
-          <el-carousel-item v-for="item in SetODID" :key="item">
-            <img :src="`${mvc}${item.活動圖片}`" style=" height: 300px; display: block; margin: 0 auto;" />
-          </el-carousel-item>
-        </el-carousel>
+    <el-container style="height: 500px;">
+      <el-aside width="60%" style="display: flex;justify-content: center;align-items: center;">
+        <weather/>
       </el-aside>
       <el-main>
         <el-form :model="form" label-width="120px">
@@ -98,6 +94,7 @@
   import { values } from 'lodash';
   import axios from 'axios';
   import { reactive,ref,computed,onMounted } from 'vue';
+  import weather from './weather.vue';
   const webApi = ref("https://localhost:7108/api/SetOrderDetails");
   const mvc = ref("https://localhost:7120/images/");
   const now = new Date();

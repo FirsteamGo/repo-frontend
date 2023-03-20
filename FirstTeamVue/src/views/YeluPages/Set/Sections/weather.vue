@@ -187,20 +187,18 @@
             </g>
         </svg>
     
-    <div style="background-color: aqua;">
-        <p>12313132</p>
-        <div class="forcast" v-if="now_area.value">
-        <h5>{{now_area.value.place}}</h5>
-        <h4>{{now_area.value.low}}~{{now_area.value.high}}</h4>
-        <h2>{{now_area.value.weather}}</h2>
-    </div>
+        <div class="title">            
+            <div class="forcast" v-if="data">
+            <p>縣市: {{data.place}}</p>
+            <p>溫度: {{data.low}} ℃ ~ {{data.high}} ℃</p>
+            <p>天氣狀態: {{data.weather}}</p>
+            <p>現在時間:</p>
+            <p>{{ currentTime  }}</p>
+            </div>
 
-    </div>
-</div>
-
-       
+        </div>
         
-
+</div>
 
   </template>
 
@@ -210,63 +208,63 @@
 import axios from 'axios';
 import { onMounted, ref, reactive } from 'vue';
 
-const weatherAPI = ref('https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-62679C1E-8B6B-43DE-B121-6C9514A5F233&limit=100&offset=0&format=JSON')
+let weatherAPI = ref('https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-62679C1E-8B6B-43DE-B121-6C9514A5F233&limit=100&offset=0&format=JSON')
 const weather_data = reactive([])
-const filter = ref('')
-const high = ref(0)
-const low = ref(0)
-const weather = ref('')
-const data = reactive([])
+let filter = ref('')
 
-onMounted(() => {
-  axios.get(weatherAPI.value)
-    .then(res => {
-    //   console.log(res.data)
-      weather_data.value = res.data.records.location
-    //   console.log(weather_data.value)
-    })
-    .catch((err) => {
-      console.error(err);
-    })
-})
-
-const handleMouseover = (event) => {
-  filter.value = event.currentTarget.dataset.nameZh
-  console.log(filter.value);
-}
-
-const now_area = () => {
-  const result = weather_data.value.find((obj) => {
-    return obj.locationName === filter.value
-  })
-
-
-  const data = {
+const currentTime  = ref('')
+const data = reactive({
     place: '',
     low: 0,
     high: 0,
     weather: ''
-  }
-  if (result) {
-    high.value = result.weatherElement.find(el => el.elementName === 'MaxT').time[0].elementValue.value
-    low.value = result.weatherElement.find(el => el.elementName === 'MinT').time[0].elementValue.value
-    weather.value = result.weatherElement.find(el => el.elementName === 'Wx').time[0].elementValue[0].value
+  })
+
+
+onMounted(() => {
+  axios.get(weatherAPI.value)
+    .then(res => {
+    
+      weather_data.value = res.data.records.location
+      console.log(weather_data.value);
+    })
+    
+})
+
+const handleMouseover = (event) => {
+  filter.value = event.currentTarget.dataset.nameZh
+  
+  const result = weather_data.value
+
+  for (let i = 0; i < result.length; i++) {
+    const element = result[i];
+    if(filter.value===element.locationName){
+    
+    data.high = element.weatherElement.find(el => el.elementName === 'MaxT').time[0].parameter.parameterName
+    data.low = element.weatherElement.find(el => el.elementName === 'MinT').time[0].parameter.parameterName
+    data.weather = element.weatherElement.find(el => el.elementName === 'Wx').time[0].parameter.parameterName
+    
     data.place = filter.value
-    data.low = low.value
-    data.high = high.value
-    data.weather = weather.value
+    
+    return data
+    
   }
-  return data
+  
+  }
+
 }
 
+setInterval(() => {
+    currentTime.value = new Date().toLocaleTimeString();
+    }, 1000);
 </script>
 
 
 <style>
     .taiwan {
         background-color: black;
-        height: 50%;
-        width: 50%;
+        height: 400px;
+        width: 600px;
     }
     :root {
         --color-gold: #B99362;
@@ -292,5 +290,14 @@ const now_area = () => {
         fill: var(--color-gold);
         transform: translate(-5px, -5px);
     }
+    .title {
+        flex: 2;
+        margin-right: 300px;
+        margin-top: -400px;
+        color: white;
+        font-size: 30px;
+    } 
+
+   
 
 </style>

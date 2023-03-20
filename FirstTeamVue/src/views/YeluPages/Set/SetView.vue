@@ -81,10 +81,10 @@ onUnmounted(() => {
   <Breadcrumb />
 
   <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
-    <!-- <Actimage/>
+    <Actimage/>
    
-    <Layout /> -->
-   <weather/>
+    <Layout />
+   <!-- <weather/> -->
     
   </div>
   <yelufooter />
