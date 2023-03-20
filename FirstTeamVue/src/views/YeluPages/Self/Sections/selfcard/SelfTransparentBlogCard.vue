@@ -31,9 +31,6 @@ defineProps({
     },
 });
 
-
-
-
 </script>
 
 
@@ -46,9 +43,9 @@ defineProps({
            
         </div>
         <div class="card-body px-0">
-            <h4>
+            <h5>
                 <a class="text-dark font-weight-bold">{{title}}</a>
-            </h4>
+            </h5>
             <p>
                 {{ description }}
 

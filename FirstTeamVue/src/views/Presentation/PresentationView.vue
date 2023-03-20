@@ -25,6 +25,8 @@ import indexcarousel from "./Sections/indexcarousel.vue";
 //images
 // import vueMkHeader from "@/assets/img/vue-mk-header.jpg";
 import bg02 from "@/assets/img/bg/bg02.jpg";
+
+
 import wavesWhite from "@/assets/img/waves-white.svg";
 import logoBootstrap from "@/assets/img/logos/bootstrap5.jpg";
 import logoTailwind from "@/assets/img/logos/icon-tailwind.jpg";

@@ -30,7 +30,6 @@ const total = reactive({
   商品名稱: '',
   商品內容: '',
   單價: 0,
-
 })
 
 
@@ -48,11 +47,7 @@ onMounted(() => {
       console.log(err);
 
     });
-
-
 })
-
-
 
 
 
@@ -144,29 +139,25 @@ const add = (自選飲食id) => {
                           <label  class="form-lable" hidden> {{ item.自選飲食id }}</label>
                           <!-- <label class="form-lable"><span class="material-icons">pin_drop</span> {{ item.商品名稱 }}</label> -->
        
-                          <label class="form-lable"><span class="material-icons">pin_drop</span> {{ item.商品內容 }}</label>
+                          <label class="form-lable"><span class="material-icons">flatware</span> {{ item.商品內容 }}</label>
                           
                       </div>
                   </div>
                       
                   <div>
-                      <label class="form-lable"><span class="material-icons">attach_money</span> TWD  <span class="text-primary">{{ item.單價 }}</span> /次</label>
+                      <label class="form-lable"><span class="material-icons">attach_money</span> TWD  
+                        <span class="text-primary">{{ item.單價 }} </span> / 組</label>
                   </div>
   
                   <div>
                       <el-input-number v-model="quantity[index]" :min="1" :max="10" :step="1"></el-input-number>  
                   </div>
                       
-  
-  
                   <div>
-                      <button type="button" class="btn btn-outline-dark" size="medium"  @click="add(item.自選飲食id , item , index)" >選購</button>
-  
-                      <!-- 重要!!!這邊要導到自選行程第二步!!!!!!! --> 
-                      <RouterLink to="/pages/Yelu-pages/Self/Sections/step2"  >    
-                      <el-button type="warning" class=" text-lg font-weight-bolder m-2"  @click="SelfSet(item.營區細項id)">
+                      <!-- <button type="button" class="btn btn-outline-dark" size="medium"  @click="add(item.自選飲食id , item , index)" >選購</button> -->  
+                      <el-button type="warning" class=" text-lg font-weight-bolder m-2" @click="add(item.自選飲食id , item , index)">
                           <span class="material-icons ">add_shopping_cart</span>
-                      </el-button> </RouterLink>
+                      </el-button> 
                   </div>     
                   </div>
               </div>

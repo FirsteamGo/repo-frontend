@@ -1,5 +1,5 @@
 <template>
-  <el-button type="primary" round style="width: 10%;margin:20px;"  @click="Setdetail=true">套裝行程詳細資訊</el-button>
+  <el-button type="primary" round style="width: 15%;margin:20px;"  @click="Setdetail=true">套裝行程詳細資訊</el-button>
 
   <div class="common-layout">
     <el-container style="height: 500px;">
