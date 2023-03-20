@@ -16,7 +16,7 @@ import Actcarousel from "../Act/Sections/Actcarousel.vue";
 import Actselect from "./Sections/Actselect.vue";
 import ActNavbar from "./Sections/ActNavbar.vue";
 
-import ActSelectBtn from "./Sections/ActSelectBtn.vue";
+//import ActSelectBtn from "./Sections/ActSelectBtn.vue";
 
 // import Information from "./Sections/AboutInformation.vue";
 
