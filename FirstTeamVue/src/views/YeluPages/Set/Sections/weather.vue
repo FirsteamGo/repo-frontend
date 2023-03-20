@@ -3,7 +3,7 @@
 
 
     <div class="taiwan">
-        <svg id="cf503461-00bd-459a-aeb5-062ebc913211" data-name="圖層 1" xmlns="http://www.w3.org/2000/svg"
+        <svg height="100%" width="100%" style="flex: 3;" id="cf503461-00bd-459a-aeb5-062ebc913211" data-name="圖層 1" xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 595.28 841.89">
             <defs />
             
@@ -269,19 +269,14 @@ setInterval(() => {
     :root {
         --color-gold: #B99362;
     }
-
+/* 
     * {
         font-family: 'Fjalla One';
-    }
-     svg {
-        height: 100%;
-        width: 100%;
-        flex: 3;
-    }
+    }     */
 
     path {
         stroke: white;
-        fill: transparent;
+        /* fill: transparent; */
         transition: 0.5s;
         cursor: pointer;
     }
