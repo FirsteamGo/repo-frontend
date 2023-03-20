@@ -13,7 +13,7 @@ import Typed from "typed.js";
 import Layout from "./Sections/Layout.vue";
 import Breadcrumb from "./Sections/Breadcrumb.vue";
 import Actimage from "./Sections/Actimage.vue"
-
+import weather  from './Sections/weather.vue'
 import testimage from "./Sections/GB/testimage.vue";
 //sections 放置要引入的頁面
 // import Information from "./Sections/AboutInformation.vue";
@@ -81,10 +81,10 @@ onUnmounted(() => {
   <Breadcrumb />
 
   <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
-    <Actimage/>
+    <!-- <Actimage/>
    
-    <Layout />
-   
+    <Layout /> -->
+   <weather/>
     
   </div>
   <yelufooter />
