@@ -123,37 +123,21 @@ const next = () => {
 
     <router-link :to="{ name: routerLinkPath }">
       <!-- <router-link :to="{name:'step3'}"> -->
-      <el-button v-if="BtnStep" style="margin-top: 25px" @click="next"
-        >點我下一步</el-button
-      >
+      <el-button v-if="BtnStep" style="margin-top: 25px" @click="next">點我下一步</el-button>
     </router-link>
 
     <!-- Modal彈跳視窗裡面要顯示的東西 -->
-    <el-dialog
-      v-model="dialogVisible"
-      title="確認購買清單"
-      width="80%"
-      draggable
-    >
+    <el-dialog v-model="dialogVisible" title="確認購買清單" width="80%" draggable>
       <div class="modal-header">
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <!-- 引用購物車組件(畫面) -->
       <!-- <selfshoppinglist :prop="dialogData"/> -->
       <selfshoppinglist :sfitem="sfitem" :sf="sf" />
     </el-dialog>
 
-    <el-button v-if="BtnCart" style="margin-top: 25px" @click="getStorage"
-      >檢視購物清單</el-button
-    >
-    <el-button v-if="Step1" style="margin-top: 25px" @click="next"
-      >重新選擇</el-button
-    >
+    <el-button v-if="BtnCart" style="margin-top: 25px" @click="getStorage">檢視購物清單</el-button>
+    <el-button v-if="Step1" style="margin-top: 25px" @click="next">重新選擇</el-button>
 
     <!-- <component :is="component[index]"></component> -->
     <!-- <component :is="content"></component> -->
