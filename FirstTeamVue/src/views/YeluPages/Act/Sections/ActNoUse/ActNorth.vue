@@ -1,4 +1,4 @@
-<script setup>
+<!-- <script setup>
 import { onMounted, onUnmounted, ref, reactive, computed } from "vue";
 import axios from "axios";
 // example components
@@ -76,9 +76,9 @@ let Actdetail=(活動id)=>{
     console.log(NorthArea);
 }
 console.log(NorthArea);
-</script>
+</script> -->
 
-<template>
+<!-- <template>
     <div class="">
         <el-container>
             <el-header>
@@ -96,22 +96,23 @@ console.log(NorthArea);
                         </div>
                         <div class="col-lg-2 col-sm-6" v-for="item in NorthArea.北區">
                             <ActTransparentBlogCard :image="`${MVCimages}${item.活動圖片}`" :title=item.活動名稱 />
-                                <el-button type="info" class="text-lg font-weight-bolder icon-move-right"  @click="{Actdetail(item.活動id);dialogVisible = true }"  >
-                                    詳細資訊<i  class="fas fa-arrow-right text-xs ms-1"></i>
-                                </el-button>
+                            <el-button type="info" class="text-lg font-weight-bolder icon-move-right"
+                                @click="{ Actdetail(item.活動id); dialogVisible = true }">
+                                詳細資訊<i class="fas fa-arrow-right text-xs ms-1"></i>
+                            </el-button>
                         </div>
                     </div>
                     <div>
                         <el-dialog v-model="dialogVisible" title="活動詳細資訊" width="50%" draggable>
-                                <div class="modal-header">
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
+                            <div class="modal-header">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
                             <span class="dialog-footer">
                                 <div>
-                                    <img :src="`${MVCimages}${活動圖片}`" >
+                                    <img :src="`${MVCimages}${活動圖片}`">
                                 </div>
                                 <div>
-                                    <label class="form-lable">地區: {{地區}}</label>                             
+                                    <label class="form-lable">地區: {{ 地區 }}</label>
                                 </div>
                                 <div>
                                     <label class="form-lable">縣市: {{ 縣市 }}</label>
@@ -130,7 +131,7 @@ console.log(NorthArea);
                                 </div>
 
                                 <el-button type="warning" @click="dialogVisible = false">返回</el-button>
-                                <!-- <el-button type="primary" @click="  dialogVisible = false ">儲存</el-button> -->
+                                
                             </span>
                         </el-dialog>
                     </div>
@@ -138,4 +139,4 @@ console.log(NorthArea);
             </el-main>
         </el-container>
     </div>
-</template>
+</template> -->

@@ -9,7 +9,7 @@ export default [
             {//熱門精選
                 path: "Sections/ActHot",
                 name: "ActHot",
-                component: () => import("../views/YeluPages/Act/Sections/ActNoUse/ActHot.vue"),
+                component: () => import("../views/YeluPages/Act/Sections/ActHot.vue"),
                 children: [
                     {
                         path: "ActBlogCards/ActBlogCardValue",

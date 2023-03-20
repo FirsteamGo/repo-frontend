@@ -103,12 +103,6 @@ const getEmployeeDTOes = onMounted(() => {
   <yelufooter />
 </template>
 <style>
-.search {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .bkc {
   text-align: center;
   color: gray;

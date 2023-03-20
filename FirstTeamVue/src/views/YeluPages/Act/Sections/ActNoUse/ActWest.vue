@@ -1,4 +1,4 @@
-<script setup>
+<!-- <script setup>
 // example components
 import ActTransparentBlogCard from "../Sections/ActBlogCards/ActTransparentBlogCard.vue";
 import ActBackgroundBlogCard from "../Sections/ActBlogCards/ActBackgroundBlogCard.vue";
@@ -48,4 +48,4 @@ import flower from "@/assets/img/ActImg/flower.jpg";
             </el-main>
         </el-container>
     </div>
-</template>
+</template> -->
