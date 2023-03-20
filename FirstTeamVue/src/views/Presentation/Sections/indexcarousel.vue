@@ -21,7 +21,7 @@ const images = reactive([
  
     <dev class="container">
         <dev class="row">
-        <div class="col-lg-6 mx-auto text-center mt-10">
+        <div class="col-lg-6 mx-auto text-center mt-6">
           <h2 class="mb-0">當地活動
           </h2>
           <!-- <h2 class="text-gradient text-warning  mb-3">

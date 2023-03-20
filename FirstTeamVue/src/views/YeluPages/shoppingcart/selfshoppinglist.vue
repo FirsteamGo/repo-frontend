@@ -97,7 +97,7 @@ console.log(props.sfitem);
 				Total : <span id="total">0</span>
 			</footer>
 
-			<RouterLink :to="{ name: 'selfshoppingcart' }"> <button type="button" class="btn btn-secondary"
+			<RouterLink :to="{ name: 'totalcart' }"> <button type="button" class="btn btn-secondary"
 					@click="addcart">加入購物車</button>
 			</RouterLink>
 		</div>
