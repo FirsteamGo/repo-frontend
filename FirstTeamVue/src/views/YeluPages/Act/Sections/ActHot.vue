@@ -8,7 +8,7 @@ import ActBackgroundBlogCard from "../Sections/ActBlogCards/ActBackgroundBlogCar
 
 //Vue Material Kit 2 components
 import tp from "@/assets/img/ActImg/Taipei.jpg";
-
+import Breadcrumbs from "@/examples/Breadcrumbs.vue";
 
 
 //const webApiBaseAddr = ref("https://localhost:7108/api/ActDetails")
@@ -66,16 +66,16 @@ const ActAll = useFilterData();
 //         if (item.活動id == 活動id) {
 
 //             item.Edit = true;
-//             ActAll.營區id.value = item.營區id;
-//             ActAll.營區名稱.value = item.營區名稱;
-//             ActAll.地區.value = item.地區;
-//             ActAll.縣市.value = item.縣市;
-//             ActAll.活動方式.value = item.活動方式;
-//             ActAll.活動種類.value = item.活動種類;
-//             ActAll.活動名稱.value = item.活動名稱;
-//             ActAll.活動介紹.value = item.活動介紹;
-//             ActAll.活動圖片.value = item.活動圖片;
-//             ActAll.門票價格.value = item.門票價格;
+//             營區id.value = item.營區id;
+//             營區名稱.value = item.營區名稱;
+//             地區.value = item.地區;
+//             縣市.value = item.縣市;
+//             活動方式.value = item.活動方式;
+//             活動種類.value = item.活動種類;
+//             活動名稱.value = item.活動名稱;
+//             活動介紹.value = item.活動介紹;
+//             活動圖片.value = item.活動圖片;
+//             門票價格.value = item.門票價格;
 //         }
 //         else { item.Edit = false; }
 
@@ -92,14 +92,14 @@ const ActAll = useFilterData();
 
 //         if (item.活動id == 活動id) {
 
-//             AddActData.活動id = item.活動id
-//             AddActData.地區 = item.地區;
-//             AddActData.縣市 = item.縣市;
-//             AddActData.活動種類 = item.活動種類;
-//             AddActData.活動名稱 = item.活動名稱;
-//             AddActData.活動介紹 = item.活動介紹;
-//             AddActData.活動圖片 = item.活動圖片;
-//             AddActData.門票價格 = item.門票價格;
+//             活動id = item.活動id
+//             地區 = item.地區;
+//             縣市 = item.縣市;
+//             活動種類 = item.活動種類;
+//             活動名稱 = item.活動名稱;
+//             活動介紹 = item.活動介紹;
+//             活動圖片 = item.活動圖片;
+//             門票價格 = item.門票價格;
 
 //             let ActData = JSON.stringify(AddActData)
 
@@ -114,7 +114,12 @@ const ActAll = useFilterData();
     <!-- 熱門精選內容 -->
     <div class="">
         <el-container>
-            <el-header></el-header>
+            <el-header>
+                <Breadcrumbs :routes="[
+                    { label: '首頁', route: '/' },
+                    { label: '當地活動', route: '/pages/Yelu-pages/act/ActIndex' },
+                    { label: '熱門精選' },]" />
+            </el-header>
             <el-main>
                 <section class="py-3">
                     <div class="row">
@@ -164,41 +169,42 @@ const ActAll = useFilterData();
                             </div>
                             <span class="dialog-footer">
                                 <div>
-                                    <img :src="`${ActAll.MVCimages}${ActAll.活動圖片}`" style="width: 400px; height: 300px;">
+                                    <img :src="`${ActAll.MVCimages}${ActAll.ActHot.活動圖片}`"
+                                        style="width: 400px; height: 300px;">
                                 </div>
                                 <div>
                                     <label class="form-lable">
-                                        <h4>活動名稱：<small class="text-muted"> {{ ActAll.活動名稱 }}</small></h4>
+                                        <h4>活動名稱：<small class="text-muted"> {{ ActAll.ActHot.活動名稱 }}</small></h4>
                                     </label>
 
                                 </div>
                                 <div>
                                     <label class="form-lable">
-                                        <h4>活動介紹：<small class="text-muted"> {{ ActAll.活動介紹 }}</small></h4>
+                                        <h4>活動介紹：<small class="text-muted"> {{ ActAll.ActHot.活動介紹 }}</small></h4>
                                     </label>
 
                                 </div>
                                 <div>
                                     <label class="form-lable"><span class="material-icons">festival
-                                        </span>營區名稱 | {{ ActAll.營區名稱 }}</label>
+                                        </span>營區名稱 | {{ ActAll.ActHot.營區名稱 }}</label>
                                 </div>
                                 <div>
                                     <label class="form-lable"><span class="material-icons">pin_drop
-                                        </span>地區 | {{ ActAll.地區 }}</label>
+                                        </span>地區 | {{ ActAll.ActHot.地區 }}</label>
                                 </div>
                                 <div>
                                     <label class="form-lable"><span class="material-icons">pin_drop
-                                        </span>縣市 | {{ ActAll.縣市 }}</label>
+                                        </span>縣市 | {{ ActAll.ActHot.縣市 }}</label>
                                 </div>
                                 <div>
-                                    <label class="form-lable">活動方式 | {{ ActAll.活動方式 }} </label>
+                                    <label class="form-lable">活動方式 | {{ ActAll.ActHot.活動方式 }} </label>
                                 </div>
                                 <div>
-                                    <label class="form-lable">活動種類 | {{ ActAll.活動種類 }} </label>
+                                    <label class="form-lable">活動種類 | {{ ActAll.ActHot.活動種類 }} </label>
                                 </div>
                                 <div>
                                     <label class="form-lable"><span class="material-icons">attach_money</span> TWD <span
-                                            class="text-primary">{{ ActAll.門票價格 }}</span> /次</label>
+                                            class="text-primary">{{ ActAll.ActHot.門票價格 }}</span> /次</label>
                                 </div>
                             </span>
                         </el-dialog>

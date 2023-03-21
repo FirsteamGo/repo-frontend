@@ -84,25 +84,25 @@ console.log(props.sfitem);
 
 
 					<!-- <table>
-																																													<tr v-for="(item, index) in sf " :key="item.自選飲食id" :value="index" class="item">
-																																														<td style="width:200px;">
-																																															<img :src="`${MVCimages}${sfitem[index].圖片}`" style="width:100px; height:100px">
-																																														</td>
-																																														<td style="width:200px;">
-																																															<p> {{ sfitem[index].商品名稱 }}</p>
-																																														</td>
-																																														<td style="width:300px;">
-																																															<p>{{ sfitem[index].商品內容 }}</p>
-																																														</td>
-																																														<td style="width:150px;">
-																																															<p>{{ sfitem[index].單價 }}</p>
-																																														</td>
-																																														<td style="width:60px;">
-																																															<p>{{ sfitem[index].需求份數 }}
-																																															</p>
-																																														</td>
-																																													</tr>
-																																												</table> -->
+																																														<tr v-for="(item, index) in sf " :key="item.自選飲食id" :value="index" class="item">
+																																															<td style="width:200px;">
+																																																<img :src="`${MVCimages}${sfitem[index].圖片}`" style="width:100px; height:100px">
+																																															</td>
+																																															<td style="width:200px;">
+																																																<p> {{ sfitem[index].商品名稱 }}</p>
+																																															</td>
+																																															<td style="width:300px;">
+																																																<p>{{ sfitem[index].商品內容 }}</p>
+																																															</td>
+																																															<td style="width:150px;">
+																																																<p>{{ sfitem[index].單價 }}</p>
+																																															</td>
+																																															<td style="width:60px;">
+																																																<p>{{ sfitem[index].需求份數 }}
+																																																</p>
+																																															</td>
+																																														</tr>
+																																													</table> -->
 				</div>
 
 			</header>
