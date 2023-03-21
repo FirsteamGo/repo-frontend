@@ -1,47 +1,20 @@
-<script setup>
-import { onMounted, onUnmounted, ref, reactive, computed } from "vue";
-const depot = reactive([]);
+<script  setup>
+import { onMounted, onUnmounted, ref, reactive,  watch } from "vue";
 
-// function showData() {
-//   depot.Name = localStorage.getItem("name");
-//   depot.Sex = localStorage.getItem("sex");
-//   depot.Age = localStorage.getItem("age");
-//   depot.Dog = localStorage.getItem("dog");
-//   depot.Car = localStorage.getItem("car");
-// }
-// onMounted(() => {
-//   showData();
-// });
+const data =JSON.parse(localStorage.getItem('shoplist'))
+console.log(data);
+
+
 </script>
 <template>
-  <table
-    id="shopCart"
-    class="table table-dark table-striped table-hover table-bordered"
-  >
-    <thead>
-      <tr>
-        <th scope="col">商品名稱</th>
-        <th scope="col">數量</th>
-        <th scope="col">總價</th>
-        <th scope="col">訂單成立時間</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <!-- <th scope="row">1</th> -->
-        <td>{{ depot.Name }}</td>
-        <td>{{ depot.Sex }}</td>
-        <td>{{ depot.Age }}</td>
-        <td>{{ depot.Dog }}</td>
-      </tr>
-      <tr>
-        <!-- <th scope="row">1</th> -->
-        <td>Cup</td>
-        <td>2</td>
-        <td>60</td>
-        <td>2023/03/19</td>
-      </tr>
-    </tbody>
-  </table>
+  <div>
+    <h2>商店購物車列表</h2>    
+        <el-table :data="data" style="width: 100%">
+            <el-table-column prop="商品細項id" label="商品細項id" width="180" />
+            <el-table-column prop="產品名稱" label="產品名稱" width="180" />
+            <el-table-column prop="商品數量" label="商品數量" />
+            <el-table-column prop="合計總價" label="合計總價" />
+          </el-table>
+  </div>
 </template>
 <style></style>

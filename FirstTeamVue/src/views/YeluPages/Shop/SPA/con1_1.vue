@@ -15,14 +15,14 @@ const visible = ref(false);
 const image = ref("");
 const shopItem = reactive([]);
 const 單價 = ref(0);
-const box = reactive([])
+const box = reactive([]);
 const shopcart = reactive({
   商品細項id:0,  
   產品名稱:'',
   單價:0,
   商品數量:0,
   合計總價:0,
-})
+});
 //const 產品名稱=ref('')
 //const quantity=reactive([])
 onMounted(async () => {
