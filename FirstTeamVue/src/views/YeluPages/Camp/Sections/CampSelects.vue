@@ -16,6 +16,8 @@ export default {
     const campstyles = ref(null);
 
     const regions = reactive(['北部', '中部', '南部', '東部']);
+    const en_regions = reactive(['North', 'West', 'South', 'East']);
+
     const cities = reactive({
       北部: ['新北', '桃園', '新竹'],
       中部: ['苗栗', '南投', '台中'],
@@ -38,6 +40,7 @@ export default {
       selectedRegion,
       selectedCity,
       regions,
+      en_regions,
       cities,
       styles,
       filteredCities,
@@ -74,7 +77,8 @@ export default {
               <span class="demonstration m-2">露營區域</span>
               <el-select v-model="selectedRegion" @change="filterCities" style="width: 100px;" placeholder="請選擇">
                 <el-option v-for="(region, index) in regions" :key="index" :value="region">
-                  <router-link :to="`/pages/Yelu-pages/Camp/${region}`" class=" p-8">{{ region }}</router-link>
+                  <router-link :to="`/pages/Yelu-pages/Camp/${en_regions[index]}`" class=" p-8">{{ region }}
+                  </router-link>
                 </el-option>
               </el-select>
 
