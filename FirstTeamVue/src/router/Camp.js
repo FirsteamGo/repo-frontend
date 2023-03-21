@@ -17,12 +17,12 @@ export default [
         component: () => import("../views/YeluPages/Camp/Sections/CampIndex.vue"),
     },
       {
-        path: "Sections/北部",
+        path: "Sections/CampNorth",
         name: "CampNorth",
         component: () => import("../views/YeluPages/Camp/Sections/CampNorth.vue"),
       },
       {
-        path: "Sections/中部",
+        path: "Sections/CampWest",
         name: "CampWest",
         component: () => import("../views/YeluPages/Camp/Sections/CampWest.vue"),
       },

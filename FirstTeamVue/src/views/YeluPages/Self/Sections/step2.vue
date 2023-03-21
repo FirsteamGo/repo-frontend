@@ -61,77 +61,11 @@
 
   
 <script setup>
-
   import axios from 'axios';
   import { reactive,ref,computed,onMounted } from 'vue';
   const webApi = ref("https://localhost:7108/api/SelfOrders");
-  const mvc = ref("https://localhost:7120/images/");
-  const now = new Date();
-  const SelfODID= reactive([])
-  const Seto = reactive([])
 
-  
-
-  const form = reactive({        
-    訂單編號: '',
-    預計人數: 0,
-    租賃商店id:0,
-    合計總價:0,  
-    評論: '',
-    評分: '',
-    data: [],  
-  })
-
-  const gitpricePerPerson = onMounted(()=>{
-     axios.get(webApi.value)
-    .then(res => {    
-          
-      SelfODID.splice(0, res.data.length, ...res.data);
-    })
-    .catch((err) => {
-      console.error(err);
-    })
-  })
-
-
-
-
-//訂單寫進資料庫
-const onSubmit = () => {
-// console.log('submit!')
-const selforder = `Set${now.getFullYear()}${(now.getMonth() + 1).toString().padStart(2, "0")}${now.getDate().toString().padStart(2, "0")}${now.getHours().toString().padStart(2, "0")}${now.getMinutes().toString().padStart(2, "0")}${now.getSeconds().toString().padStart(2, "0")}`;
-form.訂單編號=selforder;
-form.預計人數 = form.numberOfPeople;
-form.合計總價 = totalPrice.value; 
-// console.log(form);
-let Seto = JSON.stringify(form)
-
-localStorage.setItem('selforder', Seto)
-alert("請按下一步選擇飲食")
-
-
-}
-
-const selforder = `Set${now.getFullYear()}${(now.getMonth() + 1).toString().padStart(2, "0")}${now.getDate().toString().padStart(2, "0")}${now.getHours().toString().padStart(2, "0")}${now.getMinutes().toString().padStart(2, "0")}${now.getSeconds().toString().padStart(2, "0")}`;
-
-
-//訂單日期
-const formatDate = (dateString)=> {
-  const date = new Date(dateString);
-  const year = date.getFullYear();
-  const month = (date.getMonth() + 1).toString().padStart(2, "0");
-  const day = date.getDate().toString().padStart(2, "0");
-  return `${year}-${month}-${day}`;
-}
-
-//合計=人數x單價
-// const totalPrice = computed(() => {
-// const people = parseInt(form.numberOfPeople);
-// const price = parseInt(pricePerPerson.value);
-// return isNaN(people) || isNaN(price) ? 0 : people * price;
-// });
-
-
+ 
 
   </script>
 
