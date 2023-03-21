@@ -174,7 +174,7 @@ onUnmounted(() => {
 
           <div class="p-5">
             <div class="card bg-dark text-white" style="max-width: 400px;height: 400px;">
-              <img src="@/assets/img/self/self02.jpg" class="card-img" alt="..." style="width: 400px;height: 400px;">
+              <img src="@/assets/img/self/self05.jpg" class="card-img" alt="..." style="width: 400px;height: 400px;">
               <div class="card-img-overlay">
                 <h3 class="card-title">自選行程</h3>
                 <p class="card-text"><br>想怎麼玩自己搭配<br>吃喝玩住隨意配</p>
@@ -185,9 +185,9 @@ onUnmounted(() => {
 
           <div class="p-5">
             <div class="card bg-dark text-white" style="max-width: 400px;height: 400px;">
-                <img src="@/assets/img/self/self02.jpg" class="card-img" alt="..." style="width: 400px;height: 400px;">
+                <img src="@/assets/img/self/self05.jpg" class="card-img" alt="..." style="width: 400px;height: 400px;">
                 <div class="card-img-overlay">
-                  <h3 class="card-title">套裝行程</h3>
+                  <h3 class="card-title" >套裝行程</h3>
                   <p class="card-text">走進大自然，享受真正的自由<br>找到屬於自己的寧靜空間</p>
                   <p class="card-text">不用規劃拎包入住<br>套裝幫你完成你的夢想</p>
                 </div>
