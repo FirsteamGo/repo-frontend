@@ -112,8 +112,6 @@ const clear =()=>{
   box.splice(0);
 }
 
-
-
 </script>
 <template>
   <div class="">
@@ -126,7 +124,7 @@ const clear =()=>{
               v-for="(item, index) in shopPro"
               :key="item.商品細項id"
             >
-              <card2
+              <card2 class="cards"
                 :image="`${imagelist}${item.產品圖片}`"
                 :title="item.產品名稱"
                 :description="item.單價"
@@ -182,8 +180,7 @@ const clear =()=>{
                   </el-container>
                 </div>
 
-              <div >
-                       
+              <div >                     
               </div>
             </el-dialog>
           </div>
@@ -193,6 +190,10 @@ const clear =()=>{
   </div>
 </template>
 <style>
+/* .cards{
+  background-color: black;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+} */
 /* 彈跳視窗css設計 */
 .dialog{
   display: flex;
@@ -224,6 +225,8 @@ const clear =()=>{
   font-weight: bolder;
   font-size: large;
   border:none;
+  margin-left: -16px;
+  margin-top: -16px;
 }
 .detail:hover{
   color:#d4404a;

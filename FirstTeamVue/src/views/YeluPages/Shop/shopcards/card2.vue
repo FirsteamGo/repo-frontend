@@ -21,13 +21,24 @@ defineProps({
     type:String,
     required:true,
   },
+  action:{
+    type:Object,
+    route:String,
+    color:String,
+    label:String,
+    default:()=>({
+      route:"javascript:;",
+      color:"success",
+      label:'More info',
+    }),
+  }
 });
 </script>
 <template>
   <div class="card card-plain">
     <div class="card-header p-0 position-relative">
       <a class="d-block blur-shadow-image">
-        <img :src="image" :alt="title" class="img-fluid shadow border-radius-lg" loading="lazy" style="width: 255px;height: 150px;" />
+        <img :src="image" :alt="title" class="img-fluid shadow border-radius-lg" loading="lazy" style="width: 266px;height: 150px;" />
       </a>
     </div>
     <div class="card-body px-0">
@@ -40,14 +51,6 @@ defineProps({
       TW {{ description }}元
       </span>
       <p class="word">{{ content }}</p>
-      <!-- <a :href="action.route" class=" text-lg font-weight-bolder icon-move-right" :class="`text-${action.color}`">{{
-        action.label }}
-        <i class="fas fa-arrow-right text-xs ms-1"></i>
-      </a> -->
-     
-
-      <!--購物車應該在小視窗內-->
-      <!-- <el-button type="danger" :icon="Search" class="cartbtn font-weight-bolder">加入購物車</el-button> -->
     </div>
   </div>
 </template>
@@ -59,4 +62,5 @@ defineProps({
   color: rgba(0, 0, 0,0.6);
   font-weight: bold;
 }
+
 </style>
