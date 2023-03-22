@@ -36,7 +36,8 @@ import DefaultReviewCard from "@/examples/cards/reviewCards/DefaultReviewCard.vu
           <p>提供獨一無二的質感露營選品，實踐親近自然的生活價值，對戶外運動的熱愛和極致的探索精神，給予戶外愛好者，盡情的最佳選購!</p>
           <p>Provide unique quality camping products, practice the life value of being close to nature, love outdoor sports and the ultimate spirit of exploration, give outdoor lovers the best choice!</p>
           <hr class="horizontal dark my-5" />
-          <div class="container w-75 px-2">
+
+          <div class="container mx-4 px-2">
             <div class="row ">
               <div class="col-sm-6">
                
