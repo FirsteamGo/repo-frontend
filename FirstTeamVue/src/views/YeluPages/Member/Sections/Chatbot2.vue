@@ -15,6 +15,7 @@
 <script>
 import { reactive } from 'vue';
 
+
 export default {
   setup() {
     const state = reactive({
@@ -24,11 +25,11 @@ export default {
           sender: 'bot',
           text: '嗨，你今天想做什麼?',
           options: [
-            { id: 1, text: '我想去露營', nextStep: 2, redirectUrl: 'http://localhost:3001/pages/Yelu-pages/self' },
-            { id: 2, text: '我想買一些露營用品', nextStep: 2, redirectUrl: 'http://localhost:3001/pages/Yelu-pages/shop' },
-            { id: 3, text: '你幫我推薦', nextStep: 2, redirectUrl: 'http://localhost:3001/pages/Yelu-pages/set' },
-            { id: 4, text: '這裡有活動', nextStep: 2, redirectUrl: 'http://localhost:3001/pages/Yelu-pages/act' },
-            { id: 5, text: '這裡有很多營地', nextStep: 2, redirectUrl: 'http://localhost:3001/pages/Yelu-pages/camp/Sections/CampSouth' },
+            { id: 1, text: '我想去露營', nextStep: 2, redirectUrl: 'http://localhost:3000/pages/Yelu-pages/Self/stepall/step1' },
+            { id: 2, text: '我想買一些露營用品', nextStep: 2, redirectUrl: 'http://localhost:3000/pages/Yelu-pages/shop' },
+            { id: 3, text: '你幫我推薦', nextStep: 2, redirectUrl: 'http://localhost:3000/pages/Yelu-pages/set' },
+            { id: 4, text: '這裡有活動', nextStep: 2, redirectUrl: 'http://localhost:3000/pages/Yelu-pages/act/Sections/ActIndex' },
+            { id: 5, text: '這裡有很多營地', nextStep: 2, redirectUrl: 'http://localhost:3000/pages/Yelu-pages/Camp/Sections/CampIndex' },
             { id: 6, text: '這裡是後臺', nextStep: 2, redirectUrl: 'https://localhost:7120/' },
           ],
         },

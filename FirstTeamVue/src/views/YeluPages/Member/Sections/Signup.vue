@@ -1,3 +1,5 @@
+
+
 <script lang="ts" setup>
 import { reactive, ref } from 'vue'
 // import Memberphoto1 from "./Memberphoto1.vue";
@@ -82,8 +84,11 @@ const SignUpGet = () => {
 <template>
   
   <el-form ref="ruleFormRef" :model="ruleForm" label-width="120px">
+   
+    <div style="display: flex; justify-content: center;">
+      <Memberphoto1 style="width: 400px; margin-bottom: 20px;"/>
+    </div>
     
-    <Memberphoto1/>
 
     <!-- <el-form-item label="性別" prop="性別">
       <el-radio-group v-model="ruleForm.性別">
@@ -95,33 +100,33 @@ const SignUpGet = () => {
 
 
     <el-form-item label="姓名" prop="姓名">
-      <el-input v-model="ruleForm.姓名" />
+      <el-input v-model="ruleForm.姓名" style="width: 200px;"/>
     </el-form-item>
 
     <el-form-item label="連絡信箱" prop="連絡信箱">
-      <el-input v-model="ruleForm.連絡信箱" />
+      <el-input v-model="ruleForm.連絡信箱" style="width: 200px;"/>
     </el-form-item>
 
     <el-form-item label="會員帳號" prop="會員帳號">
-      <el-input v-model="ruleForm.會員帳號" />
+      <el-input v-model="ruleForm.會員帳號" style="width: 200px;"/>
     </el-form-item>
 
     <el-form-item label="會員密碼" prop="會員密碼">
-      <el-input v-model="ruleForm.會員密碼" />
+      <el-input v-model="ruleForm.會員密碼" style="width: 200px;"/>
     </el-form-item>
 
     <el-form-item label="電話號碼" prop="電話號碼">
-      <el-input v-model="ruleForm.電話號碼" />
+      <el-input v-model="ruleForm.電話號碼" style="width: 200px;"/>
     </el-form-item>
 
   
     <el-form-item label="出生日期" prop="出生日期">
-      <el-col :span="24">
+      <el-col :span="12">
         <el-date-picker
           v-model="ruleForm.出生日期"
           type="date"
           placeholder="您的出生日期"
-          style="width: 100%"
+          style="width: 200px; height: 32px;"
         />
       </el-col>
       
