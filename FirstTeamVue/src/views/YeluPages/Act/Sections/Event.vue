@@ -1,87 +1,80 @@
 <script setup>
 import { onMounted, onUnmounted, ref, reactive, computed } from "vue";
 import axios from "axios";
-// example components
+import { useActDataAtore } from "../../../../stores/ActData.js"
+
 import ActTransparentBlogCard from "../Sections/ActBlogCards/ActTransparentBlogCard.vue";
 import ActBackgroundBlogCard from "../Sections/ActBlogCards/ActBackgroundBlogCard.vue";
-import { Edit } from '@element-plus/icons-vue';
 
 import sun from "@/assets/img/ActImg/sun.jpg";
 import Breadcrumbs from "@/examples/Breadcrumbs.vue";
 
-const webApiBaseAddr = ref("https://localhost:7108/api/ActDetails")
-const MVCimages = ref("https://localhost:7120/images/")
-
-const dialogVisible = ref(false)
-const ActD = reactive([])
+const EventAll = useActDataAtore();
+onMounted(EventAll.EventActGet)
+// const webApiBaseAddr = ref("https://localhost:7108/api/ActDetails")
+// const MVCimages = ref("https://localhost:7120/images/")
+// const dialogVisible = ref(false)
+// const ActD = reactive([])
 //const ActDID = reactive([])
-const 活動id = ref(0)
-const 營區id = ref(0)
-const 營區名稱 = ref('')
-const 地區 = ref('')
-const 縣市 = ref('')
-const 活動方式 = ref('')
-const 活動種類 = ref('')
-const 活動名稱 = ref('')
-const 活動介紹 = ref('')
-const 活動圖片 = ref('')
-const 門票價格 = ref(0)
-const Event = reactive({ "活動": [], });
+// const 活動id = ref(0)
+// const 營區id = ref(0)
+// const 營區名稱 = ref('')
+// const 地區 = ref('')
+// const 縣市 = ref('')
+// const 活動方式 = ref('')
+// const 活動種類 = ref('')
+// const 活動名稱 = ref('')
+// const 活動介紹 = ref('')
+// const 活動圖片 = ref('')
+// const 門票價格 = ref(0)
+// const Event = reactive({ "活動": [], });
 
 //api抓資料
-onMounted(async () => {
-    await axios.get(webApiBaseAddr.value).then(res => {
-        //console.log(res.data);
-        for (let i = 0; i < res.data.length; i++) {
-            const AllAct = res.data[i];
-            const AllArea = AllAct.活動方式;
-
-            if (Event[AllArea]) {
-                Event[AllArea].push(AllAct);
-                //Act.splice(0, NorthArea.北區.length, ...NorthArea.北區)
-            } else {
-                console.log(`Unknown region: ${AllArea}`);
-            }
-        }
-        //console.log(Act);
-        //console.log(Event);
-    }).catch(err => {
-        console.log(err);
-    })
-})
+// onMounted(async () => {
+//     await axios.get(webApiBaseAddr.value).then(res => {
+//         for (let i = 0; i < res.data.length; i++) {
+//             const AllAct = res.data[i];
+//             const AllArea = AllAct.活動方式;
+//             if (Event[AllArea]) {
+//                 Event[AllArea].push(AllAct);
+//             } else {
+//                 console.log(`Unknown region: ${AllArea}`);
+//             }
+//         }
+//     }).catch(err => {
+//         console.log(err);
+//     })
+// })
 
 
 //彈跳視窗使用
-let Actdetail = (活動id) => {
-    var ActD = []
+// let Actdetail = (活動id) => {
+//     var ActD = []
 
-    for (let i = 0; i < Event.活動.length; i++) {
+//     for (let i = 0; i < Event.活動.length; i++) {
 
-        var item = Event.活動[i]
-        //console.log(item);
+//         var item = Event.活動[i]
 
-        if (item.活動id == 活動id) {
+//         if (item.活動id == 活動id) {
 
-            item.Edit = true;
-            營區id.value = item.營區id;
-            營區名稱.value = item.營區名稱;
-            地區.value = item.地區;
-            縣市.value = item.縣市;
-            活動方式.value = item.活動方式;
-            活動種類.value = item.活動種類;
-            活動名稱.value = item.活動名稱;
-            活動介紹.value = item.活動介紹;
-            活動圖片.value = item.活動圖片;
-            門票價格.value = item.門票價格;
-        }
-        else { item.Edit = false; }
+//             item.Edit = true;
+//             營區id.value = item.營區id;
+//             營區名稱.value = item.營區名稱;
+//             地區.value = item.地區;
+//             縣市.value = item.縣市;
+//             活動方式.value = item.活動方式;
+//             活動種類.value = item.活動種類;
+//             活動名稱.value = item.活動名稱;
+//             活動介紹.value = item.活動介紹;
+//             活動圖片.value = item.活動圖片;
+//             門票價格.value = item.門票價格;
+//         }
+//         else { item.Edit = false; }
 
-        ActD.push(item);
-    }
-    Event.活動.splice(0, ActD.length, ...ActD)
-    console.log(Event);
-}
-console.log(Event);
+//         ActD.push(item);
+//     }
+//     Event.活動.splice(0, ActD.length, ...ActD)
+// }
 </script>
 
 <template>
@@ -102,8 +95,8 @@ console.log(Event);
                             <ActBackgroundBlogCard :image="sun" title="探索展演、行程等" description="" />
                         </div>
                         <!-- 主頁卡片 -->
-                        <div class="card m-3 col-lg-2 col-sm-6" v-for="item in Event.活動">
-                            <ActTransparentBlogCard :image="`${MVCimages}${item.活動圖片}`" :title=item.活動名稱 />
+                        <div class="card m-3 col-lg-2 col-sm-6" v-for="item in EventAll.Event.活動">
+                            <ActTransparentBlogCard :image="`${EventAll.MVCimages}${item.活動圖片}`" :title=item.活動名稱 />
 
                             <div style="display: flex; justify-content: flex-start;">
                                 <div class="d-flex mt-3">
@@ -121,7 +114,7 @@ console.log(Event);
 
                             <div>
                                 <el-button type="info" class="text-lg font-weight-bolder icon-move-right"
-                                    @click="{ Actdetail(item.活動id); dialogVisible = true }">
+                                    @click="{ EventAll.EventDialog(item.活動id); EventAll.dialogVisible = true }">
                                     詳細資訊<i class="fas fa-arrow-right text-xs ms-1"></i>
                                 </el-button>
 
@@ -141,52 +134,54 @@ console.log(Event);
 
                     <!-- 彈跳視窗 -->
                     <div>
-                        <el-dialog v-model="dialogVisible" title="活動詳細資訊" width="50%" draggable>
+                        <el-dialog v-model="EventAll.dialogVisible" title="活動詳細資訊" width="50%" draggable>
                             <div class="modal-header">
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <span class="dialog-footer">
                                 <div>
-                                    <img :src="`${MVCimages}${活動圖片}`" style="width: 400px; height: 300px;">
+                                    <img :src="`${EventAll.MVCimages}${EventAll.ActEvent.活動圖片}`"
+                                        style="width: 400px; height: 300px;">
                                 </div>
                                 <div>
                                     <label class="form-lable">
-                                        <h4>活動名稱：<small class="text-muted"> {{ 活動名稱 }}</small></h4>
+                                        <h4>活動名稱：<small class="text-muted"> {{ EventAll.ActEvent.活動名稱 }}</small></h4>
                                     </label>
 
                                 </div>
                                 <div>
                                     <label class="form-lable">
-                                        <h4>活動介紹：<small class="text-muted"> {{ 活動介紹 }}</small></h4>
+                                        <h4>活動介紹：<small class="text-muted"> {{ EventAll.ActEvent.活動介紹 }}</small></h4>
                                     </label>
 
                                 </div>
                                 <div>
                                     <label class="form-lable"><span class="material-icons">festival
-                                        </span>營區名稱 | {{ 營區名稱 }}</label>
+                                        </span>營區名稱 | {{ EventAll.ActEvent.營區名稱 }}</label>
                                 </div>
                                 <div>
                                     <label class="form-lable"><span class="material-icons">pin_drop
-                                        </span>地區 | {{ 地區 }}</label>
+                                        </span>地區 | {{ EventAll.ActEvent.地區 }}</label>
                                 </div>
                                 <div>
                                     <label class="form-lable"><span class="material-icons">pin_drop
-                                        </span>縣市 | {{ 縣市 }}</label>
+                                        </span>縣市 | {{ EventAll.ActEvent.縣市 }}</label>
                                 </div>
                                 <div>
-                                    <label class="form-lable">活動方式 | {{ 活動方式 }} </label>
+                                    <label class="form-lable">活動方式 | {{ EventAll.ActEvent.活動方式 }} </label>
                                 </div>
                                 <div>
-                                    <label class="form-lable">活動種類 | {{ 活動種類 }} </label>
+                                    <label class="form-lable">活動種類 | {{ EventAll.ActEvent.活動種類 }} </label>
                                 </div>
                                 <div>
                                     <label class="form-lable"><span class="material-icons">attach_money</span> TWD <span
-                                            class="text-primary">{{ 門票價格 }}</span> /次</label>
+                                            class="text-primary">{{ EventAll.ActEvent.門票價格 }}</span> /次</label>
                                 </div>
                             </span>
                         </el-dialog>
                     </div>
-            </section>
-        </el-main>
-    </el-container>
-</div></template>
+                </section>
+            </el-main>
+        </el-container>
+    </div>
+</template>
