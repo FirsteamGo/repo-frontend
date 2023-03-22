@@ -1,10 +1,12 @@
 <script  setup>
 import card1 from "../Self/Sections/card.vue";
-import { reactive, ref } from "vue";
+import { reactive, ref, onMounted } from "vue";
 import CampIndex from "../Camp/Sections/CampIndex.vue";
 import step2 from "../Self/Sections/step2.vue";
 import step3 from "../Self/Sections/step3.vue";
 import selfshoppinglist from "../shoppingcart/selfshoppinglist.vue";
+import { useRoute } from "vue-router";
+const route = useRoute();
 
 const dialogVisible = ref(false);
 let sf = reactive([]);
@@ -12,15 +14,18 @@ let sfitem = reactive([]);
 const routerLinkPath = ref("step1");
 
 const getStorage = () => {
-  let itemString = localStorage.getItem("selfaddItemList");
-  sf = itemString.substring(0, itemString.length - 2).split(", ");
+  // let itemString = localStorage.getItem("selfaddItemList");
+  // sf = itemString.substring(0, itemString.length - 2).split(", ");
+  // // sfitem.length = 0;
+  // sfitem.splice(0, sfitem.length);
+  // for (let i = 0; i < sf.length; i++) {
+  //   sfitem.push(JSON.parse(localStorage.getItem("self" + sf[i])));
+  // }
+};
 
-  sfitem.length = 0;
-  for (let i = 0; i < sf.length; i++) {
-    sfitem.push(JSON.parse(localStorage.getItem("self" + sf[i])));
-  }
-
-  dialogVisible.value = true;
+//在step3.vue的 飲食項目點擊選購 傳送細項資料
+const getsf = (item) => {
+  sfitem.push(item);
 };
 
 const content = ref("CampIndex");
@@ -58,6 +63,15 @@ const next = () => {
     routerLinkPath.value = "step1";
   }
 };
+
+onMounted(() => {
+  if (route.name == "step2") {
+    next();
+  } else if (route.name == "step3") {
+    next();
+    next();
+  }
+});
 </script> 
 
 <script >
@@ -119,29 +133,46 @@ const next = () => {
       <el-step title="第三步: 挑選飲食 完成" />
     </el-steps>
 
-    <!-- <p>{{ active }}/{{ content }}/{{ routerLinkPath }}/{{ BtnStep }}</p> -->
-
     <router-link :to="{ name: routerLinkPath }">
       <!-- <router-link :to="{name:'step3'}"> -->
-      <el-button v-if="BtnStep" style="margin-top: 25px" @click="next">點我下一步</el-button>
+      <el-button v-if="BtnStep" style="margin-top: 25px" @click="next"
+        >點我下一步</el-button
+      >
     </router-link>
 
     <!-- Modal彈跳視窗裡面要顯示的東西 -->
-    <el-dialog v-model="dialogVisible" title="確認購買清單" width="80%" draggable>
+    <el-dialog
+      v-model="dialogVisible"
+      title="確認購買清單"
+      width="80%"
+      draggable
+    >
       <div class="modal-header">
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
       </div>
       <!-- 引用購物車組件(畫面) -->
       <!-- <selfshoppinglist :prop="dialogData"/> -->
       <selfshoppinglist :sfitem="sfitem" :sf="sf" />
     </el-dialog>
 
-    <el-button v-if="BtnCart" style="margin-top: 25px" @click="getStorage">檢視購物清單</el-button>
-    <el-button v-if="Step1" style="margin-top: 25px" @click="next">重新選擇</el-button>
+    <el-button
+      v-if="BtnCart"
+      style="margin-top: 25px"
+      @click="dialogVisible = true"
+      >檢視購物清單</el-button
+    >
+    <!-- <el-button v-if="Step1" style="margin-top: 25px" @click="next"
+      >重新選擇</el-button
+    > -->
 
     <!-- <component :is="component[index]"></component> -->
     <!-- <component :is="content"></component> -->
-    <router-view></router-view>
+    <router-view @getsf="getsf"></router-view>
   </div>
 </template>
 
