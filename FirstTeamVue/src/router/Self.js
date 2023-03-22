@@ -4,7 +4,7 @@ import SelfView from "@/views/YeluPages/Self/SelfView.vue";
 import test from "@/views/YeluPages/Self/test.vue";
 import test2 from "@/views/YeluPages/Self/test2.vue";
 import stepall from "@/views/YeluPages/Self/stepall.vue";
-import selfshoppingcart from "@/views/YeluPages/shoppingcart/selfshoppingcart.vue";
+import totalcart from "@/views/YeluPages/shoppingcart/totalcart.vue";
 
 export default [
     {
@@ -45,9 +45,9 @@ export default [
     // },
     {
 
-        path: "/pages/Yelu-pages/selfshoppingcart",
-        name: "selfshoppingcart",
-        component: selfshoppingcart,
+        path: "/pages/Yelu-pages/totalcart",
+        name: "totalcart",
+        component: totalcart,
 
     },
 

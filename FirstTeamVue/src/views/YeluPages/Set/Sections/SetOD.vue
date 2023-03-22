@@ -1,5 +1,6 @@
 <template>
-  <h4>套裝行程，可以幫你完成你的夢想！</h4>
+  <h4 style="text-align:center;">套裝行程，可以幫你完成你的夢想！</h4>
+ 
   <el-row>
     <el-col v-for="item in SetODID" :key="item" :span="8">
       <el-card :body-style="{ padding: '0px' }" shadow="always">
@@ -19,42 +20,44 @@
     </el-col>
   </el-row>
         <div>
-          <el-dialog v-model="dialogVisible" title="詳細資訊" width="50%" draggable>
+          <el-dialog v-model="dialogVisible" title="套裝詳細資訊" width="50%" draggable>
             <div class="modal-header">
 
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <span class="dialog-footer">
               <div>
-                <img :src="`${mvc}${image}`" >
+                <img :src="`${mvc}${image}`" style="width: 400px; height: 300px;">
               </div>
               <div>
                 <label class="form-lable">方案: {{套裝方案}}</label>                             
               </div>
               <div>
-                <label class="form-lable">細項: {{ 套裝細項 }}</label>
+                <label class="form-lable"><span class="material-icons">pin_drop
+                </span>地區  |  {{ 地區 }}</label>
               </div>
               <div>
-                <label class="form-lable">價格: {{ 套裝行程價格 }} 元 / 人</label>
+                <label class="form-lable"><span class="material-icons">pin_drop
+                </span>縣市  |   {{ 縣市 }}</label>
+              </div>
+              <div>
+                <label class="form-lable">露營方式: {{ 項目內容 }}</label>
+              </div>
+              <div>
+                <label class="form-lable">細項: {{ 套裝細項 }}</label>
               </div>
               <div>
                 <label class="form-lable">相關活動: {{ 活動名稱 }}</label>
               </div>
+  
               <div>
                 <label class="form-lable">營區名稱: {{ 營區名稱 }}</label>
               </div>
-              <div>
-                <label class="form-lable">營區地區: {{ 地區 }}</label>
-              </div>
-              <div>
-                <label class="form-lable">營區縣市:{{ 縣市 }}</label>
-              </div>
+              
+    
 
-              <div>
-                <label class="form-lable">露營方式: {{ 項目內容 }}</label>
-              </div>
-             
-            </span>
+              <label class="form-lable"><span class="material-icons">attach_money</span> TWD  
+              <span class="text-primary">{{套裝行程價格}} </span> / 人</label></span>
 
           </el-dialog>
         </div>

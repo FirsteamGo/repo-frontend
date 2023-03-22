@@ -1,4 +1,5 @@
 <script setup>
+import axios from "axios";
 // 從 Local Storage 讀取購物車資料
 import { reactive, ref, computed } from "vue";
 const MVCimages = ref("https://localhost:7120/images/");

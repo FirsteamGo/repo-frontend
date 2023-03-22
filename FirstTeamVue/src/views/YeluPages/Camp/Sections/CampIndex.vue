@@ -14,9 +14,9 @@ import CampSouth from "../Sections/CampSouth.vue";
     
 <CampNorth />
 
-<!-- <CampEast />
+<CampEast />
 <CampWest />
-<CampSouth /> -->
+<CampSouth />
 
 </template>
 

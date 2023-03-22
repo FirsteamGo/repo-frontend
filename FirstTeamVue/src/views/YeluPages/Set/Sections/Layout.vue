@@ -75,6 +75,7 @@
 
 <template>
 <!-- 步驟條 -->
+<div class="container mt-5 px-5">
   <el-steps :active="active" finish-status="success" >
     <el-step title="第一步: 套裝行程" />
     <el-step title="第二步: 填寫詳細資訊" />
@@ -91,7 +92,7 @@
 
   <component :is="content"></component>
 
-
+</div>
 </template>
 
 

@@ -128,9 +128,9 @@ onMounted(() => {
   <!-- 步驟條 -->
   <div class="container mt-5 px-5">
     <el-steps :active="active" finish-status="success">
-      <el-step title="第一步: 挑選營地" />
-      <el-step title="第二步: 相關活動" />
-      <el-step title="第三步: 挑選飲食 完成" />
+      <el-step title="第一步: 營地/活動" />
+      <el-step title="第二步: 填寫詳細資訊" />
+      <el-step title="第三步: 選飲食 完成" />
     </el-steps>
 
     <router-link :to="{ name: routerLinkPath }">

@@ -10,14 +10,13 @@ import CampNorth from "./Sections/CampNorth.vue";
 //image
 import bg from "@/assets/img/bg/bg06.jpg";
 
-
-
-
 //dep
 import Typed from "typed.js";
 
 //sections 放置要引入的頁面
 // import Information from "./Sections/AboutInformation.vue";
+
+
 
 
 const body = document.getElementsByTagName("body")[0];
@@ -43,6 +42,9 @@ onUnmounted(() => {
   body.classList.remove("about-us");
   body.classList.remove("bg-gray-200");
 });
+
+
+
 </script>
 <template>
   <DefaultNavbar :action="{
@@ -71,20 +73,72 @@ onUnmounted(() => {
     </div>
   </header>
 
-
-  <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
-
     <!-- 記得這裡設定引入標籤 -->
     <!-- <Information /> -->
     <!-- <CampCarousel /> -->
+    <!-- <CampSelects /> -->
 
-    <el-container>
-      <div class=" m-2">
-        <CampSelects />
-      </div>
-      <router-view></router-view>
-    </el-container>
-  </div>
+<div class="common-layout card card-body shadow-xl mx-3 mx-md-4 mt-n6">
+  <el-container >
+    <el-aside width="300px" >
+      <div class="accordion" id="accordionExample" >
+        <!-- 手風琴 -->
+          <div class="accordion-item">
+            <router-link to="/pages/Yelu-pages/camp/Sections/CampNorth">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <i class="material-icons ">home</i>北部營區 #NORTH CAMP</button></h2></router-link>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+              <!-- <div class="accordion-body"> -->
+               <code>新北 / 桃園 / 新竹</code>
+              <!-- </div> -->
+            </div>
+          </div>
+          <div class="accordion-item">
+            <router-link to="/pages/Yelu-pages/camp/Sections/CampWest">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <i class="material-icons ">home</i>中部營區 #WEST CAMP</button></h2></router-link>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+               <code>苗栗 / 南投 / 台中</code> 
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <router-link to="/pages/Yelu-pages/camp/Sections/CampSouth">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                <i class="material-icons ">home</i>南部營區 #SOUTH CAMP</button></h2></router-link>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <code>嘉義 / 台南 / 高雄</code>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <router-link to="/pages/Yelu-pages/camp/Sections/CampEast">
+            <h2 class="accordion-header" id="headingFour">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                <i class="material-icons ">home</i>東部營區#EAST CAMP</button></h2></router-link>
+            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <code>宜蘭 / 花蓮 / 台東</code>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 手風琴end -->
+
+            </el-aside>
+            <el-main>  <router-view></router-view></el-main>
+          </el-container>
+        </div>
+
+
+
+   
+    
 
 
   <yelufooter />

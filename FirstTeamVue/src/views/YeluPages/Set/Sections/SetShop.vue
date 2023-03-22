@@ -1,6 +1,6 @@
 <style>
 thead {
-  background-color: blue;
+  background-color: rgb(93, 115, 128);
   color: cornsilk;
 }
 td{
@@ -11,7 +11,7 @@ td{
 </style>
 
 <template>
-    <h3>套裝訂單購物車</h3>
+    <h3 style="text-align:center;">套裝訂單購物車</h3>
     
   <div  class="container">
    
@@ -19,9 +19,12 @@ td{
       <table class="table table-striped table-hover">
         <thead>
           <tr>
-            <td>會員資訊</td>            
-            <td>套裝行程</td>
-            <td>套裝行程規劃</td>            
+            <!-- <td>會員資訊</td> -->
+            <td><span class="material-icons mt-1">person</span></td>            
+            <!-- <td>套裝行程</td> -->
+            <td><span class="material-icons mt-1">luggage</span></td>      
+            <!-- <td>套裝行程規劃</td>  -->
+            <td><span class="material-icons mt-1">edit_calendar</span></td>      
             <td></td>
           </tr>
         </thead>
@@ -29,14 +32,16 @@ td{
         <tbody>
           <tr >          
 
-                <td>
-                    會員資訊<el-button type="primary" round @click="mem=true">詳細資訊</el-button>
+                <td><h5 class="mt-3">會員資訊</h5>
+                <div><el-button type="info" class="mt-3 mb-2" plain @click="mem=true">詳細資訊</el-button></div>    
                 </td>
-                <td>
-                    套裝行程<el-button type="primary" round @click="Setdetail=true">詳細資訊</el-button>
+                
+                <td><h5 class="mt-3">套裝行程</h5>
+                  <div><el-button type="info" class="mt-3 mb-2" plain @click="Setdetail=true">詳細資訊</el-button></div>
                 </td>
-                <td>
-                    套裝行程規劃<el-button type="primary" round @click="Setorderdetail=true">詳細資訊</el-button>
+
+                <td><h5 class="mt-3">套裝行程規劃</h5>
+                  <div><el-button type="info"  class="mt-3 mb-2" plain @click="Setorderdetail=true">詳細資訊</el-button></div>
                 </td>
                 
                 <td>
