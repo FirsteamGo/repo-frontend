@@ -1,4 +1,6 @@
 <script setup>
+import MaterialBadge from "../../../components/MaterialBadge.vue";
+
 import a from "@/assets/img/ActImg/a.jpg";
 import b from "@/assets/img/ActImg/b.jpg";
 import c from "@/assets/img/ActImg/c.jpg";
@@ -22,7 +24,8 @@ const images = reactive([
     <dev class="container">
         <dev class="row">
         <div class="col-lg-6 mx-auto text-center mt-8">
-          <h2 class="mb-0 myword">當地活動
+          <MaterialBadge  class="mb-3" color="warning"># Popular Activities</MaterialBadge>
+          <h2 class="mb-0 ">當地活動
           </h2>
           <!-- <h2 class="text-gradient text-warning  mb-3">
            Enjoy Your Camp

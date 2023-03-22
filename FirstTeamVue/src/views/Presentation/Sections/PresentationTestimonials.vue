@@ -1,4 +1,6 @@
 <script setup>
+import MaterialBadge from "../../../components/MaterialBadge.vue";
+
 import DefaultReviewCard from "@/examples/cards/reviewCards/DefaultReviewCard.vue";
 </script>
 <template>
@@ -6,7 +8,8 @@ import DefaultReviewCard from "@/examples/cards/reviewCards/DefaultReviewCard.vu
     <div class="container ">
       <div class="row">
         <div class="col-lg-6 mx-auto text-center mt-3" >
-          <h2 class="mb-0 testimonial-section2 myword">商店精選</h2>
+          <MaterialBadge  class="mb-3" color="warning"># Popular Store</MaterialBadge>
+          <h2 class="mb-0 ">商店精選</h2>
           <!-- <h2 class="text-gradient text-warning  mb-">
             Camping Store
           </h2> -->
