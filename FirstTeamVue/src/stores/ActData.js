@@ -250,10 +250,12 @@ export const useActDataAtore = defineStore('ActData', () => {
             else { item.Edit = false; }
 
             ActD.push(item);
+
         }
         Event.活動.splice(0, ActD.length, ...ActD)
-
+        alert(ActEvent.營區名稱.value)
     }
+
     //景點彈跳視窗
     let ViewPointDialog = (活動id) => {
         var ActD = []
@@ -399,6 +401,8 @@ export const useActDataAtore = defineStore('ActData', () => {
         Tour.觀光.splice(0, ActD.length, ...ActD)
 
     }
+
+
 
     return {
         HotActGet, EventActGet, ViewPointActGet, SportActGet, CultureActGet, WaterActGet, TourActGet, HotDialog, EventDialog, ViewPointDialog, SportDialog, CultureDialog, WaterDialog, TourDialog,

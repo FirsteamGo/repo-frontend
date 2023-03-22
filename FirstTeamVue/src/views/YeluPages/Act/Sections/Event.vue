@@ -119,7 +119,7 @@ onMounted(EventAll.EventActGet)
                                 </el-button>
 
                                 <!-- 重要!!!這邊要導到自選行程第二步!!!!!!! -->
-                                <RouterLink to="/pages/Yelu-pages/Self/Sections/step2">
+                                <RouterLink to="/pages/Yelu-pages/Self/stepall/step2">
                                     <el-button type="warning" class=" text-lg font-weight-bolder m-2"
                                         @click="SelfSet(item.營區細項id)">
                                         <span class="material-icons ">add_shopping_cart</span>
