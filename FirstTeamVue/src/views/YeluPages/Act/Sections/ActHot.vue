@@ -1,21 +1,19 @@
 <script setup>
 import { onMounted, onUnmounted, ref, reactive, computed } from "vue";
 import axios from "axios";
-import { useFilterData } from "../../../../stores/ActData.js"
-// example components
+import { useActDataAtore } from "../../../../stores/ActData.js"
+
 import ActTransparentBlogCard from "../Sections/ActBlogCards/ActTransparentBlogCard.vue";
 import ActBackgroundBlogCard from "../Sections/ActBlogCards/ActBackgroundBlogCard.vue";
 
-//Vue Material Kit 2 components
 import tp from "@/assets/img/ActImg/Taipei.jpg";
 import Breadcrumbs from "@/examples/Breadcrumbs.vue";
 
-
-//const webApiBaseAddr = ref("https://localhost:7108/api/ActDetails")
-//const MVCimages = ref("https://localhost:7120/images/")
-
-const ActAll = useFilterData();
-//const dialogVisible = ref(false)
+const ActAll = useActDataAtore();
+onMounted(ActAll.HotActGet)
+// const webApiBaseAddr = ref("https://localhost:7108/api/ActDetails")
+// const MVCimages = ref("https://localhost:7120/images/")
+// const dialogVisible = ref(false)
 // const ActD = reactive([])
 // const ActAll = reactive([])
 // const 活動id = ref(0)
@@ -146,7 +144,7 @@ const ActAll = useFilterData();
 
                             <div>
                                 <el-button type="info" class="text-lg font-weight-bolder icon-move-right"
-                                    @click="{ ActAll.Actdetail(item.活動id); ActAll.dialogVisible = true }">
+                                    @click="{ ActAll.HotDialog(item.活動id); ActAll.dialogVisible = true }">
                                     詳細資訊<i class="fas fa-arrow-right text-xs ms-1"></i>
                                 </el-button>
 
