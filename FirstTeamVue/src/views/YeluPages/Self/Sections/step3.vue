@@ -155,7 +155,7 @@ const add = (自選飲食id) => {
                   <!-- <label class="form-lable"><span class="material-icons">pin_drop</span> {{ item.商品名稱 }}</label> -->
 
                   <label class="form-lable"
-                    ><span class="material-icons">pin_drop</span>
+                    ><span class="material-icons">flatware</span>
                     {{ item.商品內容 }}</label
                   >
                 </div>
@@ -164,7 +164,7 @@ const add = (自選飲食id) => {
               <div>
                 <label class="form-lable"
                   ><span class="material-icons">attach_money</span> TWD
-                  <span class="text-primary">{{ item.單價 }}</span> /次</label
+                  <span class="text-primary">{{ item.單價 }} </span> / 組</label
                 >
               </div>
 
@@ -178,25 +178,14 @@ const add = (自選飲食id) => {
               </div>
 
               <div>
-                <button
-                  type="button"
-                  class="btn btn-outline-dark"
-                  size="medium"
+                <!-- <button type="button" class="btn btn-outline-dark" size="medium"  @click="add(item.自選飲食id , item , index)" >選購</button> -->
+                <el-button
+                  type="warning"
+                  class="text-lg font-weight-bolder m-2"
                   @click="add(item.自選飲食id)"
                 >
-                  選購
-                </button>
-
-                <!-- 重要!!!這邊要導到自選行程第二步!!!!!!! -->
-                <RouterLink to="/pages/Yelu-pages/Self/Sections/step2">
-                  <el-button
-                    type="warning"
-                    class="text-lg font-weight-bolder m-2"
-                    @click="SelfSet(item.營區細項id)"
-                  >
-                    <span class="material-icons">add_shopping_cart</span>
-                  </el-button>
-                </RouterLink>
+                  <span class="material-icons">add_shopping_cart</span>
+                </el-button>
               </div>
             </div>
           </div>

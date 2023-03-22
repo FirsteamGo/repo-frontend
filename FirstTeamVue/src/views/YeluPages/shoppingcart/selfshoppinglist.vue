@@ -118,7 +118,7 @@ let ListTotal = computed(() => {
         總計 : <span id="total">{{ ListTotal }} 元</span>
       </footer>
 
-      <RouterLink :to="{ name: 'selfshoppingcart' }">
+      <RouterLink :to="{ name: 'totalcart' }">
         <button type="button" class="btn btn-secondary" @click="addcart">
           加入購物車
         </button>
