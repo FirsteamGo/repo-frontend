@@ -132,17 +132,11 @@ const clear =()=>{
                 :description="item.單價"
                 :content="item.產品說明"
               />
-              <el-button
-                @click="
-                  {
-                    detail(item.商品細項id, item, index);
-                    visible = true;
-                  }
-                "
+              <el-button 
+                @click="{detail(item.商品細項id, item, index);visible = true;}"
                 class="detail"
-                type="danger"
-                >123</el-button
-              >
+                >更多資訊!<i class="fas fa-arrow-right text-xs ms-1"></i>
+              </el-button>
             </div>
             
             <el-dialog
@@ -150,31 +144,19 @@ const clear =()=>{
               class="dialog"
               title="商品列表"
               width="30%"
-              draggable
-              
-            >
-              <!-- <div class="modal-header">
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div> -->
-              <!-- <div class="dialog-body">
-              </div> -->
-      
-               
-              <!-- <div class="dialog-footer"> -->
-
+              draggable>
                 <div class="common-layout">
                   <el-container>
                     <el-aside width="50%">
                       <div>
-                        <label class="form-label">名稱:{{ dialogData.產品名稱 }}</label>
+                        <h6 style="color: black;font-weight: bolder;">名稱:{{ dialogData.產品名稱 }}</h6>
                       </div>
                       <div>
                         <label class="form-label">價錢:{{ dialogData.單價 }}</label>
+                      </div>
+                      
+                      <div>
+                        <label class="form-label">總價:{{ totalPrice }}</label>
                       </div>
                       <div>
                         <el-input-number
@@ -184,9 +166,6 @@ const clear =()=>{
                           :step="1"
                           class="inPut"
                         ></el-input-number>
-                      </div>
-                      <div>
-                        <label class="form-label">總價:{{ totalPrice }}</label>
                       </div>
                       <div style="margin-top: 20px;">
                         <el-button class="btn-2" @click="{clear();visible = false}">取消</el-button>
@@ -204,16 +183,8 @@ const clear =()=>{
                 </div>
 
               <div >
-                
-                
-                
-                
-              
-                  
+                       
               </div>
-
-                
-
             </el-dialog>
           </div>
         </section>
@@ -245,6 +216,21 @@ const clear =()=>{
 .form-label{
   color: black;
   font-weight: bolder;
+}
+/* 彈跳輸入框設定 */
+.detail{
+  background-color: white;
+  color: #d4404a;
+  font-weight: bolder;
+  font-size: large;
+  border:none;
+}
+.detail:hover{
+  color:#d4404a;
+  background-color: white;
+}
+.detail:active{
+  transform: scale(0.9);
 }
 /* 輸入css設計 */
 .inPut{

@@ -108,30 +108,18 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
 }
-/* .navBar {
-  justify-content: center;
-  background-color: blue;
-} */
+/* 導覽列css修正 */
 .navBar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  padding: 22px 16px 10px 20px;
+  border: 2px  ;
+  background-color: #f7f4f3;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+  position: sticky;
+  top:0;
+  z-index: 1;
 }
-/* .good > * {
-  flex: 10; 
-  text-align: center; 
-} */
 
-/* nav {
-  width: 100%;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  background-color: brown;
-}
-nav > a {
-  margin: 0 30px;
-  background-color: aqua;
-} */
 </style>

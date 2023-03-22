@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-import { ArrowDown } from "@element-plus/icons-vue";
+import { ArrowDown, Van } from "@element-plus/icons-vue";
 import { ShoppingCartFull } from "@element-plus/icons-vue";
 </script>
 <template>
   <div class="flex flex-wrap items-center">
     <el-dropdown>
       <el-button class="btn">
-        我還沒上車呀<el-icon class="el-icon--right"><arrow-down /></el-icon>
+        <Van style="width: 1em; height: 1em; margin-right: 8px; margin-bottom: 1px;"/>我還沒上車呀<el-icon class="el-icon--right"><arrow-down /></el-icon>
       </el-button>
 
       <template #dropdown>
@@ -56,10 +56,7 @@ import { ShoppingCartFull } from "@element-plus/icons-vue";
 .btn {
   display: flex;
   padding: 10px 20px;
-
-  background-color: #585963;
-
-  color: white;
+  color: black;
   font-size: 16px;
   font-weight: bolder;
   border: none;
