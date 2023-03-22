@@ -41,6 +41,27 @@ let ListTotal = computed(() => {
 
 <template>
   <body>
+    <!-- 這裡放詳細資訊 -->
+    <!-- <div>
+      <label class="form-lable">預計參加人數: {{ Selfo.numberOfPeople }}</label>
+    </div>
+    <div>
+      <label class="form-lable">入住時間:{{ formatDate(Selfo.data[0]) }}</label>
+    </div>
+    <div>
+      <label class="form-lable">退住時間:{{ formatDate(Selfo.data[1]) }}</label>
+    </div> -->
+    <!-- <div>
+	<label class="form-lable">合計總價: {{ Selfo.合計總價 }}</label>
+	</div> -->
+    <!-- <div>
+      <label class="form-lable">評分: {{ Selfo.評分 }}</label>
+    </div>
+    <div>
+      <label class="form-lable">評論: {{ Selfo.評論 }}</label>
+    </div> -->
+
+    <!-- 這裡放飲食 -->
     <div id="myCart">
       <!-- <h1>Shopping Cart</h1> -->
       <header id="cartList">

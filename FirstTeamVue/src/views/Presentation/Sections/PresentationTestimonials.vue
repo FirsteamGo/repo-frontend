@@ -30,39 +30,38 @@ import DefaultReviewCard from "@/examples/cards/reviewCards/DefaultReviewCard.vu
             
           </div>
         </div>
+
         <div class="col-lg-5 pl-lg-5 ml-auto">
           
           <p>提供獨一無二的質感露營選品，實踐親近自然的生活價值，對戶外運動的熱愛和極致的探索精神，給予戶外愛好者，盡情的最佳選購!</p>
           <p>Provide unique quality camping products, practice the life value of being close to nature, love outdoor sports and the ultimate spirit of exploration, give outdoor lovers the best choice!</p>
-          <!-- <ul class=" list-unstyled two-col clearfix " > 
-            
-              <li><span class="material-icons">sell</span>The North Face</li>
-            <li><span class="material-icons">sell</span>Snowpeak</li>
-            <li><span class="material-icons">sell</span>SADOMAIN</li>
-            <li><span class="material-icons">sell</span>Tyumen Titan</li>
-       
-            <li><span class="material-icons">sell</span>Life Code</li>
-            <li><span class="material-icons">sell</span>PolarStar</li>
-			      <li><span class="material-icons">sell</span>Naturehike</li>
-            <li><span class="material-icons">sell</span>IVECO</li>
-            <li><span class="material-icons">sell</span>Adria</li>
-      
-
-          </ul> -->
- 
-          <ul class="list-unstyled two-col clearfix brands-list">
-            <li><span class="material-icons">sell</span>The North Face</li>
-            <li><span class="material-icons">sell</span>Snowpeak</li>
-            <li><span class="material-icons">sell</span>SADOMAIN</li>
-            <li><span class="material-icons">sell</span>Life Code</li>  
-
-          </ul>
-        </div>
+          <hr class="horizontal dark my-5" />
+          <div class="container w-75 px-2">
+            <div class="row ">
+              <div class="col-sm-6">
+               
+              <h6><span class="material-icons">sell</span>The North Face</h6>
+              <h6><span class="material-icons">sell</span>Snowpeak</h6>
+              <h6><span class="material-icons">sell</span>SADOMAIN</h6>
+              <h6><span class="material-icons">sell</span>Tyumen Titan</h6>
           
-        </div>
+              </div>
+              <div class="col-sm-6">  
+              <h6><span class="material-icons">sell</span>Life Code</h6>
+              <h6><span class="material-icons">sell</span>PolarStar</h6>
+              <h6><span class="material-icons">sell</span>Naturehike</h6>
+              <h6><span class="material-icons">sell</span>IVECO</h6>
+           
+              </div>
+            </div>
+          </div>
+          
+
+        </div>  
       </div>
     </div>
   </div>
+</div>
 
 
 

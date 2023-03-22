@@ -1,17 +1,39 @@
 <template>
-  <!-- 輪播 -->
-  
-  <div class="card w-75 container mt-5 px-5 justify-content-center" >
+
+<!-- 所選營地/活動 -->
+<div class="container w-75 px-2">
+<div class="row">
  
-      <!-- <el-aside width="60%">
-    <el-carousel indicator-position="outside">
-      <el-carousel-item v-for="item in SelfODID" :key="item">
-        <img :src="`${mvc}${item.活動圖片}`" style=" height: 300px; display: block; margin: 0 auto;" />
-      </el-carousel-item>
-    </el-carousel>
-  </el-aside> -->
-  
-     
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><span class="badge bg-secondary"><span class="material-icons mx-2 ">task_alt</span>已選營地</span></h5>
+        <img src="@/assets/img/self/03.jpg" style=" height: 200px; display: block; margin: 0 auto;" />
+        <!-- <p>營區名稱</p> -->
+        <label class="m-3">營區名稱</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><span class="badge bg-secondary"><span class="material-icons mx-2 ">task_alt</span>已選活動</span></h5>
+        <img src="@/assets/img/self/03.jpg" style=" height: 200px; display: block; margin: 0 auto;" />
+        <label class="m-3">活動名稱</label>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+  <!-- 詳細資訊填寫 -->
+<div class="container card w-75 mt-5 mb-5 px-5 justify-content-center">
+  <div class="card-body">
+   
+    <div>
         <el-form :model="form" label-width="120px">
           <el-form-item label="訂單編號" hidden>{{ selforder }}</el-form-item>
 
@@ -38,11 +60,15 @@
           </el-form-item>
 
           <el-form-item>
-            <el-button type="primary" @click="onSubmit">確認</el-button>
+            <el-button type="warning" @click="onSubmit">確認</el-button>
           </el-form-item>
 
         </el-form>
+      </div>
+
   </div>
+</div>
+
 
 </template>
 
