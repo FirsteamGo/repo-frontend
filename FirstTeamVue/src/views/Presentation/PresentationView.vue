@@ -7,6 +7,8 @@ import NavbarDefault from "../..//examples/navbars/NavbarDefault.vue";
 import Header from "../../examples/Header.vue";
 import FilledInfoCard from "../../examples/cards/infoCards/FilledInfoCard.vue";
 import yelufooter from "../../examples/footers/yelufooter.vue";
+import MaterialBadge from "../../components/MaterialBadge.vue";
+
 
 //dep
 import Typed from "typed.js";
@@ -119,7 +121,8 @@ onUnmounted(() => {
     <!-- 行程選擇 -->
     <div class="container">
       <div class="col-lg-6 mx-auto text-center mt-6">
-          <h2 class="mb-0 myword">行程選擇</h2>
+        <MaterialBadge  class="mb-3" color="warning"># Popular Trip</MaterialBadge>
+          <h2 class="mb-0">行程選擇</h2>
           <p class="lead">Prefect Schedule.</p>
       </div>
 
@@ -195,8 +198,8 @@ onUnmounted(() => {
 
 
 <style>
-.myword{
+/* .myword{
   color: white;
   background-color: #fb8c00;
-}
+} */
 </style>
