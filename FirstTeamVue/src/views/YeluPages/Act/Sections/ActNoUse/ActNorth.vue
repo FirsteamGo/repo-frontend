@@ -1,4 +1,4 @@
-<!-- <script setup>
+<script setup>
 import { onMounted, onUnmounted, ref, reactive, computed } from "vue";
 import axios from "axios";
 // example components
@@ -14,13 +14,13 @@ const dialogVisible = ref(false)
 const ActD = reactive([])
 //const ActDID = reactive([])
 const 活動id = ref('')
-const 地區= ref('')
-const 縣市= ref('')
-const 活動種類= ref('')
-const 活動名稱= ref('')
-const 活動介紹= ref('')
-const 門票價格= ref(0)
-const 活動圖片= ref('')
+const 地區 = ref('')
+const 縣市 = ref('')
+const 活動種類 = ref('')
+const 活動名稱 = ref('')
+const 活動介紹 = ref('')
+const 門票價格 = ref(0)
+const 活動圖片 = ref('')
 const NorthArea = reactive({
     "北區": [],
     //"中區": [],
@@ -28,13 +28,13 @@ const NorthArea = reactive({
     //"東區": [],
 });
 
-const getEmployeeDTOes = onMounted(async () => {
+onMounted(async () => {
     await axios.get(webApiBaseAddr.value).then(res => {
         //console.log(res.data);
         for (let i = 0; i < res.data.length; i++) {
             const AllAct = res.data[i];
             const AllArea = AllAct.地區;
-            
+
             if (NorthArea[AllArea]) {
                 NorthArea[AllArea].push(AllAct);
                 //Act.splice(0, NorthArea.北區.length, ...NorthArea.北區)
@@ -42,33 +42,31 @@ const getEmployeeDTOes = onMounted(async () => {
                 console.log(`Unknown region: ${AllArea}`);
             }
         }
-        //console.log(Act);
-        //console.log(NorthArea);
     }).catch(err => {
         console.log(err);
     })
 })
 
-let Actdetail=(活動id)=>{
-    var ActD=[]
+let Actdetail = (活動id) => {
+    var ActD = []
 
-    for(let i = 0; i < NorthArea.北區.length; i++){
+    for (let i = 0; i < NorthArea.北區.length; i++) {
 
         var item = NorthArea.北區[i]
         //console.log(item);
 
-        if(item.活動id == 活動id){
+        if (item.活動id == 活動id) {
 
             item.Edit = true;
             地區.value = item.地區;
             縣市.value = item.縣市;
-            活動種類.value = item.活動種類; 
+            活動種類.value = item.活動種類;
             活動名稱.value = item.活動名稱;
             活動介紹.value = item.活動介紹;
             活動圖片.value = item.活動圖片;
             門票價格.value = item.門票價格;
         }
-        else{item.Edit = false;}
+        else { item.Edit = false; }
 
         ActD.push(item);
     }
@@ -76,7 +74,7 @@ let Actdetail=(活動id)=>{
     console.log(NorthArea);
 }
 console.log(NorthArea);
-</script> -->
+</script>
 
 <!-- <template>
     <div class="">

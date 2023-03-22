@@ -107,8 +107,7 @@ watch(
       (props.transparent && textDark.value) || !props.transparent
         ? 'text-dark font-weight-bolder ms-sm-3'
         : 'text-white font-weight-bolder ms-sm-3'
-    ]" :to="{ name: 'presentation' }" rel="tooltip" title="Designed and Coded by Creative Tim"
-      data-placement="bottom">
+    ]" :to="{ name: 'presentation' }" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom">
       <img src="../../assets/img/yelu.png" style="width: 50px; height: 50px;" alt="YELU">
     </RouterLink>
     <span>野 麓YELU</span>
@@ -162,97 +161,97 @@ watch(
             </a>
             <div
               class="dropdown-menu dropdown-menu-end dropdown-menu-animation dropdown-md dropdown-md-responsive p-3 border-radius-lg mt-0 mt-lg-3"
-                aria-labelledby="dropdownMenuBlocks">
-                <div class="d-none d-lg-block">
-                  <ul class="list-group">
-                    <li class="nav-item dropdown dropdown-hover dropdown-subitem list-group-item border-0 p-0">
-                      <a class="dropdown-item py-2 ps-3 border-radius-md" href="javascript:;">
-                        <router-link to="/pages/Yelu-pages/camp/Sections/CampNorth">
-                        <div class="d-flex">
-                          <div class="w-100 d-flex align-items-center justify-content-between">
-                            <div>
-                                <span class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                                  北部</span>
-                              <span class="text-sm">North District</span>
-                            </div>
+                  aria-labelledby="dropdownMenuBlocks">
+                  <div class="d-none d-lg-block">
+                    <ul class="list-group">
+                      <li class="nav-item dropdown dropdown-hover dropdown-subitem list-group-item border-0 p-0">
+                        <a class="dropdown-item py-2 ps-3 border-radius-md" href="javascript:;">
+                          <router-link to="/pages/Yelu-pages/camp/Sections/CampNorth">
+                          <div class="d-flex">
+                            <div class="w-100 d-flex align-items-center justify-content-between">
+                              <div>
+                                  <span class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
+                                    北部</span>
+                                <span class="text-sm">North District</span>
+                              </div>
                          
-                          </div>
-                        </div></router-link>
-                      </a>
-
-                    </li>
-                    <li class="nav-item dropdown dropdown-hover dropdown-subitem list-group-item border-0 p-0">
-                      <a class="dropdown-item py-2 ps-3 border-radius-md" href="javascript:;">
-                        <router-link to="/pages/Yelu-pages/camp/Sections/CampWest">
-                        <div class="d-flex">
-                          <div class="w-100 d-flex align-items-center justify-content-between">
-                            <div>
-                                <span
-                                  class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                                  中部</span>
-                              <span class="text-sm">Central District</span>
                             </div>
+                          </div></router-link>
+                        </a>
+
+                      </li>
+                      <li class="nav-item dropdown dropdown-hover dropdown-subitem list-group-item border-0 p-0">
+                        <a class="dropdown-item py-2 ps-3 border-radius-md" href="javascript:;">
+                          <router-link to="/pages/Yelu-pages/camp/Sections/CampWest">
+                          <div class="d-flex">
+                            <div class="w-100 d-flex align-items-center justify-content-between">
+                              <div>
+                                  <span
+                                    class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
+                                    中部</span>
+                                <span class="text-sm">Central District</span>
+                              </div>
                         
-                          </div>
-                        </div></router-link>
-                      </a>
-
-                    </li>
-                    <li class="nav-item dropdown dropdown-hover dropdown-subitem list-group-item border-0 p-0">
-                      <a class="dropdown-item py-2 ps-3 border-radius-md" href="javascript:;">
-                        <router-link to="/pages/Yelu-pages/camp/Sections/CampSouth">
-                        <div class="d-flex">
-                          <div class="w-100 d-flex align-items-center justify-content-between">
-                            <div>
-                                <span
-                                  class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                                  南部</span>
-                              <span class="text-sm">South District</span>
                             </div>
+                          </div></router-link>
+                        </a>
+
+                      </li>
+                      <li class="nav-item dropdown dropdown-hover dropdown-subitem list-group-item border-0 p-0">
+                        <a class="dropdown-item py-2 ps-3 border-radius-md" href="javascript:;">
+                          <router-link to="/pages/Yelu-pages/camp/Sections/CampSouth">
+                          <div class="d-flex">
+                            <div class="w-100 d-flex align-items-center justify-content-between">
+                              <div>
+                                  <span
+                                    class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
+                                    南部</span>
+                                <span class="text-sm">South District</span>
+                              </div>
                           
-                          </div>
-                        </div></router-link>
-                      </a>
-
-                    </li>
-                    <li class="nav-item dropdown dropdown-hover dropdown-subitem list-group-item border-0 p-0">
-                      <a class="dropdown-item py-2 ps-3 border-radius-md" href="javascript:;">
-                        <router-link to="/pages/Yelu-pages/camp/Sections/CampEast">
-                        <div class="d-flex">
-                          <div class="w-100 d-flex align-items-center justify-content-between">
-                            <div>
-                                <span
-                                  class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                                  東部</span>
-                              <span class="text-sm">East District</span>
                             </div>
-                         
-                          </div>
-                        </div></router-link>
-                      </a>
+                          </div></router-link>
+                        </a>
 
-                    </li>
-                  </ul>
-                </div>
-                以下是為了設定RWD 
-                <div class="row d-lg-none">
-                  <div class="col-md-12">
-                    <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
-                      北部
-                    </RouterLink>
-                    <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
-                      中部
-                    </RouterLink>
-                    <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
-                      南部
-                    </RouterLink>
-                    <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
-                      東部
-                    </RouterLink>
+                      </li>
+                      <li class="nav-item dropdown dropdown-hover dropdown-subitem list-group-item border-0 p-0">
+                        <a class="dropdown-item py-2 ps-3 border-radius-md" href="javascript:;">
+                          <router-link to="/pages/Yelu-pages/camp/Sections/CampEast">
+                          <div class="d-flex">
+                            <div class="w-100 d-flex align-items-center justify-content-between">
+                              <div>
+                                  <span
+                                    class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
+                                    東部</span>
+                                <span class="text-sm">East District</span>
+                              </div>
+                         
+                            </div>
+                          </div></router-link>
+                        </a>
+
+                      </li>
+                    </ul>
+                  </div>
+                  以下是為了設定RWD 
+                  <div class="row d-lg-none">
+                    <div class="col-md-12">
+                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
+                        北部
+                      </RouterLink>
+                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
+                        中部
+                      </RouterLink>
+                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
+                        南部
+                      </RouterLink>
+                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
+                        東部
+                      </RouterLink>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </li> -->
+              </li> -->
 
 
 
@@ -329,7 +328,7 @@ watch(
             <li class="nav-item mx-2">
               <a role="button" class="nav-link ps-2 d-flex cursor-pointer align-items-center" :class="getTextColor()"
                 aria-expanded="false">
-                <RouterLink to="/pages/Yelu-pages/act/Sections/ActIndex" class="dropdown-item border-radius-md">
+                <RouterLink to="/pages/Yelu-pages/act/ActIndex" class="dropdown-item border-radius-md">
                   <i class="material-icons opacity-6 me-2  text-md" :class="getTextColor()">hiking</i>
                   當地活動
                 </RouterLink>

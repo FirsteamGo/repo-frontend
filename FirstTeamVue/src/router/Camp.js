@@ -7,7 +7,7 @@ export default [
     component: CampView,
     children: [
       {
-        path: "Sections/CampHot",
+        path: "CampHot",
         name: "CampHot",
         component: () => import("../views/YeluPages/Camp/Sections/CampHot.vue"),
       },
@@ -17,22 +17,22 @@ export default [
         component: () => import("../views/YeluPages/Camp/Sections/CampIndex.vue"),
       },
       {
-        path: "北部",
+        path: "North",
         name: "CampNorth",
         component: () => import("../views/YeluPages/Camp/Sections/CampNorth.vue"),
       },
       {
-        path: "中部",
+        path: "West",
         name: "CampWest",
         component: () => import("../views/YeluPages/Camp/Sections/CampWest.vue"),
       },
       {
-        path: "南部",
+        path: "South",
         name: "CampSouth",
         component: () => import("../views/YeluPages/Camp/Sections/CampSouth.vue"),
       },
       {
-        path: "東部",
+        path: "East",
         name: "CampEast",
         component: () => import("../views/YeluPages/Camp/Sections/CampEast.vue"),
       },

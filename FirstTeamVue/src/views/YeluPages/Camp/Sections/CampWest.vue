@@ -40,7 +40,7 @@ onMounted(async () => {
             const AllAct = res.data[i];
             const AllArea = AllAct.地區;
             
-            if (WestArea[AllArea]) {
+            if (WestArea[AllArea]) { 
                 WestArea[AllArea].push(AllAct);
                
             } else {
@@ -52,7 +52,6 @@ onMounted(async () => {
         console.log(err);
     })
 })
-
 
 const dialogVisible = ref(false)
 const CampD = reactive([])
@@ -68,7 +67,7 @@ const 營區介紹 = ref('')
 const 項目內容 = ref('')
 const 容納人數 = ref(0)
 const WestArea = reactive({
-    // "北區": [],
+    //"北區": [],
     "中區": [],
     //"南區": [],
     //"東區": [],
@@ -97,7 +96,7 @@ let Campdetail = (營區細項id) => {
     for (let i = 0; i < WestArea.中區.length; i++) {
 
         // let item = CampDID[i] 抓全部這樣寫
-        var item = WestArea.中區[i]
+        var item = WestArea.中區[i] 
         //console.log(item);
 
         if (item.營區細項id == 營區細項id) {

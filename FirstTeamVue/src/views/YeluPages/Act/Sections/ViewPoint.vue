@@ -16,16 +16,16 @@ const ActD = reactive([])
 //const ActDID = reactive([])
 const 活動id = ref(0)
 const 營區id = ref(0)
-const 營區名稱= ref('')
-const 地區= ref('')
-const 縣市= ref('')
-const 活動方式= ref('')
-const 活動種類= ref('')
-const 活動名稱= ref('')
-const 活動介紹= ref('')
-const 活動圖片= ref('')
-const 門票價格= ref(0)
-const ViewPoint = reactive({"景點": [],});
+const 營區名稱 = ref('')
+const 地區 = ref('')
+const 縣市 = ref('')
+const 活動方式 = ref('')
+const 活動種類 = ref('')
+const 活動名稱 = ref('')
+const 活動介紹 = ref('')
+const 活動圖片 = ref('')
+const 門票價格 = ref(0)
+const ViewPoint = reactive({ "景點": [], });
 
 //api抓資料
 onMounted(async () => {
@@ -34,7 +34,7 @@ onMounted(async () => {
         for (let i = 0; i < res.data.length; i++) {
             const AllAct = res.data[i];
             const AllArea = AllAct.活動方式;
-            
+
             if (ViewPoint[AllArea]) {
                 ViewPoint[AllArea].push(AllAct);
                 //Act.splice(0, NorthArea.北區.length, ...NorthArea.北區)
@@ -51,29 +51,29 @@ onMounted(async () => {
 
 
 //彈跳視窗使用
-let Actdetail=(活動id)=>{
-    var ActD=[]
+let Actdetail = (活動id) => {
+    var ActD = []
 
-    for(let i = 0; i < ViewPoint.景點.length; i++){
+    for (let i = 0; i < ViewPoint.景點.length; i++) {
 
         var item = ViewPoint.景點[i]
         //console.log(item);
 
-        if(item.活動id == 活動id){
+        if (item.活動id == 活動id) {
 
             item.Edit = true;
             營區id.value = item.營區id;
-            營區名稱.value = item.營區名稱; 
+            營區名稱.value = item.營區名稱;
             地區.value = item.地區;
             縣市.value = item.縣市;
-            活動方式.value = item.活動方式; 
-            活動種類.value = item.活動種類; 
+            活動方式.value = item.活動方式;
+            活動種類.value = item.活動種類;
             活動名稱.value = item.活動名稱;
             活動介紹.value = item.活動介紹;
             活動圖片.value = item.活動圖片;
             門票價格.value = item.門票價格;
         }
-        else{item.Edit = false;}
+        else { item.Edit = false; }
 
         ActD.push(item);
     }
@@ -84,14 +84,13 @@ let Actdetail=(活動id)=>{
 </script>
 
 <template>
-<div class="">
+    <div class="">
         <el-container>
             <el-header>
-                <Breadcrumbs
-                    :routes="[
-                        { label: '首頁', route: '/' },
-                        { label: '當地活動', route: '/pages/Yelu-pages/act/Sections/ActIndex' },
-                        { label: '景點' },]"/>
+                <Breadcrumbs :routes="[
+                    { label: '首頁', route: '/' },
+                    { label: '當地活動', route: '/pages/Yelu-pages/act/ActIndex' },
+                    { label: '景點' },]" />
 
             </el-header>
             <el-main>
@@ -103,31 +102,37 @@ let Actdetail=(活動id)=>{
                         </div>
                         <!-- 主頁卡片 -->
                         <div class="card m-3 col-lg-2 col-sm-6" v-for="item in ViewPoint.景點">
-                            <ActTransparentBlogCard :image="`${MVCimages}${item.活動圖片}`" :title=item.活動名稱  />
-                            <div style="display: flex; justify-content: flex-start;">  
-                    <div class="d-flex mt-3">
-                        <label class="form-lable"><span class="material-icons">pin_drop</span> {{ item.縣市 }}</label>
-                        <label class="form-lable"><span class="material-icons">festival</span> {{ item.營區名稱 }}</label>
-                    </div>
-                </div>
-                    
-                <div>
-                    <label class="form-lable"><span class="material-icons">attach_money</span> TWD  <span class="text-primary">{{ item.門票價格 }}</span> /次</label>
-                </div>
+                            <ActTransparentBlogCard :image="`${MVCimages}${item.活動圖片}`" :title=item.活動名稱 />
+                            <div style="display: flex; justify-content: flex-start;">
+                                <div class="d-flex mt-3">
+                                    <label class="form-lable"><span class="material-icons">pin_drop</span> {{ item.縣市
+                                    }}</label>
+                                    <label class="form-lable"><span class="material-icons">festival</span> {{ item.營區名稱
+                                    }}</label>
+                                </div>
+                            </div>
 
-                <div>  
-                    <el-button type="info" class="text-lg font-weight-bolder icon-move-right"  @click="{Actdetail(item.活動id);dialogVisible = true }"  >
-                        詳細資訊<i  class="fas fa-arrow-right text-xs ms-1"></i> 
-                    </el-button>
-    
-                    <!-- 重要!!!這邊要導到自選行程第二步!!!!!!! --> 
-                    <RouterLink to="/pages/Yelu-pages/Self/Sections/step2"  >    
-                    <el-button type="warning" class=" text-lg font-weight-bolder m-2"  @click="SelfSet(item.營區細項id)">
-                        <span class="material-icons ">add_shopping_cart</span>
-                    </el-button> </RouterLink>
-                </div>     
-                </div>
-            </div>
+                            <div>
+                                <label class="form-lable"><span class="material-icons">attach_money</span> TWD <span
+                                        class="text-primary">{{ item.門票價格 }}</span> /次</label>
+                            </div>
+
+                            <div>
+                                <el-button type="info" class="text-lg font-weight-bolder icon-move-right"
+                                    @click="{ Actdetail(item.活動id); dialogVisible = true }">
+                                    詳細資訊<i class="fas fa-arrow-right text-xs ms-1"></i>
+                                </el-button>
+
+                                <!-- 重要!!!這邊要導到自選行程第二步!!!!!!! -->
+                                <RouterLink to="/pages/Yelu-pages/Self/Sections/step2">
+                                    <el-button type="warning" class=" text-lg font-weight-bolder m-2"
+                                        @click="SelfSet(item.營區細項id)">
+                                        <span class="material-icons ">add_shopping_cart</span>
+                                    </el-button>
+                                </RouterLink>
+                            </div>
+                        </div>
+                    </div>
 
 
 
@@ -136,49 +141,48 @@ let Actdetail=(活動id)=>{
                     <!-- 彈跳視窗 -->
                     <div>
                         <el-dialog v-model="dialogVisible" title="活動詳細資訊" width="50%" draggable>
-                                <div class="modal-header">
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
+                            <div class="modal-header">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
                             <span class="dialog-footer">
                                 <div>
-                                    <img :src="`${MVCimages}${活動圖片}`"  style="width: 400px; height: 300px;" >
+                                    <img :src="`${MVCimages}${活動圖片}`" style="width: 400px; height: 300px;">
                                 </div>
                                 <div>
                                     <label class="form-lable">
-                                    <h4>活動名稱：<small class="text-muted"> {{ 活動名稱 }}</small></h4></label>
-                                   
+                                        <h4>活動名稱：<small class="text-muted"> {{ 活動名稱 }}</small></h4>
+                                    </label>
+
                                 </div>
                                 <div>
                                     <label class="form-lable">
-                                    <h4>活動介紹：<small class="text-muted"> {{ 活動介紹 }}</small></h4></label>
-                                   
+                                        <h4>活動介紹：<small class="text-muted"> {{ 活動介紹 }}</small></h4>
+                                    </label>
+
                                 </div>
 
                                 <div>
                                     <label class="form-lable"><span class="material-icons">pin_drop
-                                    </span>地區  |  {{ 地區 }}</label>
+                                        </span>地區 | {{ 地區 }}</label>
                                 </div>
                                 <div>
                                     <label class="form-lable"><span class="material-icons">pin_drop
-                                    </span>縣市  |   {{ 縣市 }}</label>
+                                        </span>縣市 | {{ 縣市 }}</label>
                                 </div>
                                 <div>
-                                    <label class="form-lable">活動方式  |  {{ 活動方式 }} </label>
+                                    <label class="form-lable">活動方式 | {{ 活動方式 }} </label>
                                 </div>
                                 <div>
-                                    <label class="form-lable">活動種類  |  {{ 活動種類 }} </label>
+                                    <label class="form-lable">活動種類 | {{ 活動種類 }} </label>
                                 </div>
                                 <div>
-                                <label class="form-lable"> TWD  <span class="text-primary">{{ 門票價格 }}</span> /次</label>
+                                    <label class="form-lable"> TWD <span class="text-primary">{{ 門票價格 }}</span> /次</label>
                                 </div>
-                               
+
                             </span>
                         </el-dialog>
                     </div>
                 </section>
-            </el-main>
-        </el-container>
-    </div>
-
-    
-</template>
+        </el-main>
+    </el-container>
+</div></template>
