@@ -119,7 +119,7 @@ onMounted(SportAll.SportActGet)
 
                             <div>
                                 <el-button type="info" class="text-lg font-weight-bolder icon-move-right"
-                                    @click="{ SportAll.SportDialog(item.活動id); SportAll.dialogVisible = true }">
+                                    @click="{ SportAll.SportDialog(item.活動id); SportAll.ActSport.dialogVisible = true }">
                                     詳細資訊<i class="fas fa-arrow-right text-xs ms-1"></i>
                                 </el-button>
 
@@ -134,13 +134,9 @@ onMounted(SportAll.SportActGet)
                         </div>
                     </div>
 
-
-
-
-
                     <!-- 彈跳視窗 -->
                     <div>
-                        <el-dialog v-model="SportAll.dialogVisible" title="活動詳細資訊" width="50%" draggable>
+                        <el-dialog v-model="SportAll.ActSport.dialogVisible" title="活動詳細資訊" width="50%" draggable>
                             <div class="modal-header">
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>

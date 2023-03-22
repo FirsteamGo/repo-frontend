@@ -26,6 +26,7 @@ export const useActDataAtore = defineStore('ActData', () => {
 
     //每一個區域的彈跳視窗會使用的變數
     class ActAllVariable {
+        dialogVisible = ref(false)
         活動id = ref(0);
         營區id = ref(0);
         營區名稱 = ref('');
@@ -41,7 +42,7 @@ export const useActDataAtore = defineStore('ActData', () => {
 
     //個別獨立的變數
     const MVCimages = ref("https://localhost:7120/images/")
-    const dialogVisible = ref(false)
+    //const dialogVisible = ref(false)
     const ActHot = new ActAllVariable
     const ActEvent = new ActAllVariable
     const ActViewPoint = new ActAllVariable
@@ -401,7 +402,7 @@ export const useActDataAtore = defineStore('ActData', () => {
 
     return {
         HotActGet, EventActGet, ViewPointActGet, SportActGet, CultureActGet, WaterActGet, TourActGet, HotDialog, EventDialog, ViewPointDialog, SportDialog, CultureDialog, WaterDialog, TourDialog,
-        ActAllData, dialogVisible, ActEvent, Event, ViewPoint, Sport, Culture, Water, Tour, MVCimages, ActHot, ActViewPoint, ActSport, ActCulture, ActWater, ActTour,
+        ActAllData, ActEvent, Event, ViewPoint, Sport, Culture, Water, Tour, MVCimages, ActHot, ActViewPoint, ActSport, ActCulture, ActWater, ActTour,
     }
     // 活動id, 營區id, 營區名稱, 地區, 縣市, 活動方式, 活動種類, 活動名稱, 活動介紹, 活動圖片, 門票價格
 })

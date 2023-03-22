@@ -122,7 +122,7 @@ onMounted(WaterAll.WaterActGet)
 
                             <div>
                                 <el-button type="info" class="text-lg font-weight-bolder icon-move-right"
-                                    @click="{ WaterAll.WaterDialog(item.活動id); WaterAll.dialogVisible = true }">
+                                    @click="{ WaterAll.WaterDialog(item.活動id); WaterAll.ActWater.dialogVisible = true }">
                                     詳細資訊<i class="fas fa-arrow-right text-xs ms-1"></i>
                                 </el-button>
 
@@ -142,7 +142,7 @@ onMounted(WaterAll.WaterActGet)
 
                     <!-- 彈跳視窗 -->
                     <div>
-                        <el-dialog v-model="WaterAll.dialogVisible" title="活動詳細資訊" width="50%" draggable>
+                        <el-dialog v-model="WaterAll.ActWater.dialogVisible" title="活動詳細資訊" width="50%" draggable>
                             <div class="modal-header">
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
