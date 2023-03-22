@@ -29,7 +29,6 @@ console.log(props.sfitem);
 
 
 
-
 </script>
 
 
@@ -37,7 +36,7 @@ console.log(props.sfitem);
 <template>
 <body>
 <!-- 這裡放詳細資訊 -->
-	<div>
+	<!-- <div>
 	<label class="form-lable">預計參加人數: {{ Selfo.numberOfPeople }}</label>
 	</div>
 	<div>
@@ -46,15 +45,12 @@ console.log(props.sfitem);
 	<div>
 	<label class="form-lable">退住時間:{{ formatDate(Selfo.data[1]) }}</label>
 	</div>
-	<!-- <div>
-	<label class="form-lable">合計總價: {{ Selfo.合計總價 }}</label>
-	</div> -->
 	<div>
 	<label class="form-lable">評分: {{ Selfo.評分 }}</label>
 	</div>
 	<div>
 	<label class="form-lable">評論: {{ Selfo.評論 }}</label>
-	</div>
+	</div> -->
 
 
 <!-- 這裡放飲食 -->
@@ -67,6 +63,7 @@ console.log(props.sfitem);
 				<td style="width:300px;">商品內容</td>
 				<td style="width:170px;">單價($)</td>
 				<td style="width:60px;">數量</td>
+				<td style="width:60px;"></td>
 			</tr>
 		</table>
 
@@ -89,10 +86,11 @@ console.log(props.sfitem);
 					<p>{{ item.需求份數 }}
 						</p>
 					</td>
+				<td style="width:60px;">
+					<p><span class="material-icons">delete</span></p>
+				</td>
 				</tr>
 			</table>
-
-
 
 
 			<!-- <table>
@@ -128,10 +126,6 @@ console.log(props.sfitem);
 </div>
 </body>
 </template>
-
-
-
-
 
 
 
