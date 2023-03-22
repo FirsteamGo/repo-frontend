@@ -6,7 +6,9 @@ import { ShoppingCartFull } from "@element-plus/icons-vue";
   <div class="flex flex-wrap items-center">
     <el-dropdown>
       <el-button class="btn">
-        <Van style="width: 1em; height: 1em; margin-right: 8px; margin-bottom: 1px;"/>我還沒上車呀<el-icon class="el-icon--right"><arrow-down /></el-icon>
+        <Van
+          style="width: 1em; height: 1em; margin-right: 8px; margin-bottom: 1px"
+        />我還沒上車呀<el-icon class="el-icon--right"><arrow-down /></el-icon>
       </el-button>
 
       <template #dropdown>

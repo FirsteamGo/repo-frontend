@@ -114,12 +114,11 @@ onUnmounted(() => {
   justify-content: space-between;
   align-items: center;
   padding: 22px 16px 10px 20px;
-  border: 2px  ;
+  border: 2px;
   background-color: #f7f4f3;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
   position: sticky;
-  top:0;
+  top: 0;
   z-index: 1;
 }
-
 </style>

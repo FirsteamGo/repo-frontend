@@ -1,11 +1,13 @@
 <script lang="ts" setup>
-import { ArrowDown, Guide,} from "@element-plus/icons-vue";
+import { ArrowDown, Guide } from "@element-plus/icons-vue";
 </script>
 <template>
   <div class="flex flex-wrap items-center">
     <el-dropdown>
       <el-button class="btn">
-        <Guide style="width: 1em; height: 1em; margin-right: 8px; margin-bottom: 1px;"  />咖啡杯<el-icon class="el-icon--right"><arrow-down /></el-icon>
+        <Guide
+          style="width: 1em; height: 1em; margin-right: 8px; margin-bottom: 1px"
+        />咖啡杯<el-icon class="el-icon--right"><arrow-down /></el-icon>
       </el-button>
       <template #dropdown>
         <el-dropdown-menu class="my-dropdown-menu">
@@ -24,7 +26,6 @@ import { ArrowDown, Guide,} from "@element-plus/icons-vue";
     </el-dropdown>
   </div>
 </template>
-
 
 <style scoped>
 /* .example-showcase .el-dropdown + .el-dropdown {
