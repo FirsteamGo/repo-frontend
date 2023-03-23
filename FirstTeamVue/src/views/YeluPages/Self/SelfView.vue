@@ -8,12 +8,11 @@ import yelufooter from "../../../examples/footers/yelufooter.vue";
 //image
 import bg03 from "@/assets/img/bg/bg03.jpg";
 
-
-
 //dep
 import Typed from "typed.js";
 
 //sections 放置要引入的頁面
+import SelfLayout from "./Sections/SelfLayout.vue";
 import stepall from "./stepall.vue";
 import Breadcrumb from "./Sections/Breadcrumb.vue";
 
@@ -80,8 +79,7 @@ onUnmounted(() => {
             </h1>
            
             <p class="lead mb-4 text-white opacity-8">
-              We’re constantly trying to express ourselves and actualize our
-              dreams. If you have the opportunity to play this game
+              玩樂不停歇想怎麼玩自己安排 #YELU CAMP
             </p>
             
            
@@ -95,7 +93,7 @@ onUnmounted(() => {
   <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
 
     <!-- 記得這裡設定引入標籤 -->
-    
+    <!-- <SelfLayout /> -->
     <router-view></router-view>
     <!-- <stepall /> -->
 

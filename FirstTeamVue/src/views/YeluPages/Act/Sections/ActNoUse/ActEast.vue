@@ -1,4 +1,4 @@
-<script setup>
+<!-- <script setup>
 // example components
 import ActTransparentBlogCard from "../Sections/ActBlogCards/ActTransparentBlogCard.vue";
 import ActBackgroundBlogCard from "../Sections/ActBlogCards/ActBackgroundBlogCard.vue";
@@ -20,7 +20,7 @@ import flower from "@/assets/img/ActImg/flower.jpg";
             <el-header>
                 <div class="row">
                     <div class="">
-                        <h1 class="bkc">南部</h1>
+                        <h1 class="bkc">東部</h1>
                     </div>
                 </div>
             </el-header>
@@ -28,7 +28,7 @@ import flower from "@/assets/img/ActImg/flower.jpg";
                 <section class="py-3">
                     <div class="row">
                         <div class="col-lg-2 col-md-12 col-12 ">
-                            <ActBackgroundBlogCard :image="tn" title="古色古香美食天地" description="" />
+                            <ActBackgroundBlogCard :image="tt" title="望著美麗的深深太平洋" description="" />
                         </div>
                         <div class="col-lg-2 col-sm-6">
                             <ActTransparentBlogCard :image="sukra" title="2023 福壽山農場千櫻園＆武陵農場賞花一日遊" description="" />
@@ -44,4 +44,4 @@ import flower from "@/assets/img/ActImg/flower.jpg";
             </el-main>
         </el-container>
     </div>
-</template>
+</template> -->

@@ -7,77 +7,63 @@ export default [
         component: ActView,
         children: [
             {//熱門精選
-                path: "Sections/ActHot",
+                path: "ActHot",
                 name: "ActHot",
                 component: () => import("../views/YeluPages/Act/Sections/ActHot.vue"),
-                children: [
-                    {
-                        path: "ActBlogCards/ActBlogCardValue",
-                        name: "ActBlogCardValue",
-                        component: () => import("../views/YeluPages/Act/Sections/ActBlogCards/ActBlogCardValue.vue")
-                    },
-                ]
             },
             {
-                path: "Sections/North",
+                path: "North",
                 name: "ActNorth",
-                component: () => import("../views/YeluPages/Act/Sections/ActNorth.vue"),
+                component: () => import("../views/YeluPages/Act/Sections/ActNoUse/ActNorth.vue"),
 
             },
             {
-                path: "Sections/West",
+                path: "West",
                 name: "ActWest",
-                component: () => import("../views/YeluPages/Act/Sections/ActWest.vue"),
-                children: [
-                    {
-                        path: "ActBlogCards/ActBlogCardValue",
-                        name: "ActBlogCardValue",
-                        component: () => import("../views/YeluPages/Act/Sections/ActBlogCards/ActBlogCardValue.vue")
-                    },
-                ]
+                component: () => import("../views/YeluPages/Act/Sections/ActNoUse/ActWest.vue"),
             },
             {
-                path: "Sections/South",
+                path: "South",
                 name: "ActSouth",
-                component: () => import("../views/YeluPages/Act/Sections/ActSouth.vue"),
+                component: () => import("../views/YeluPages/Act/Sections/ActNoUse/ActSouth.vue"),
             },
             {
-                path: "Sections/East",
+                path: "East",
                 name: "ActEast",
-                component: () => import("../views/YeluPages/Act/Sections/ActEast.vue"),
+                component: () => import("../views/YeluPages/Act/Sections/ActNoUse/ActEast.vue"),
             },
             {//活動首頁
-                path: "Sections/ActIndex",
+                path: "ActIndex",
                 name: "ActIndex",
                 component: () => import("../views/YeluPages/Act/Sections/ActIndex.vue"),
             },
             {//活動方式:活動
-                path: "Sections/Event",
+                path: "Event",
                 name: "ActEvent",
                 component: () => import("../views/YeluPages/Act/Sections/Event.vue"),
             },
             {//活動方式:景點
-                path: "Sections/ViewPoint",
+                path: "ViewPoint",
                 name: "ActViewPoint",
                 component: () => import("../views/YeluPages/Act/Sections/ViewPoint.vue"),
             },
             {//活動方式:運動
-                path: "Sections/Sport",
+                path: "Sport",
                 name: "ActSport",
                 component: () => import("../views/YeluPages/Act/Sections/Sport.vue"),
             },
             {//活動方式:文化
-                path: "Sections/Culture",
+                path: "Culture",
                 name: "ActCulture",
                 component: () => import("../views/YeluPages/Act/Sections/Culture.vue"),
             },
             {//活動方式:水上
-                path: "Sections/WaterAct",
+                path: "WaterAct",
                 name: "WaterAct",
                 component: () => import("../views/YeluPages/Act/Sections/WaterAct.vue"),
             },
             {//活動方式:觀光
-                path: "Sections/Tour",
+                path: "Tour",
                 name: "ActTour",
                 component: () => import("../views/YeluPages/Act/Sections/Tour.vue"),
             },

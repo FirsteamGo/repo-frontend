@@ -36,19 +36,19 @@ const MVCimages = ref("https://localhost:7120/images/")
 //北區營地
 onMounted(async () => {
     await axios.get(webApiBaseAddr.value).then(res => {
-       
+
         for (let i = 0; i < res.data.length; i++) {
             const AllAct = res.data[i];
             const AllArea = AllAct.地區;
-            
+
             if (NorthArea[AllArea]) {
                 NorthArea[AllArea].push(AllAct);
-               
+
             } else {
                 console.log(`Unknown region: ${AllArea}`);
             }
         }
-    
+
     }).catch(err => {
         console.log(err);
     })
@@ -69,10 +69,7 @@ const 營區介紹 = ref('')
 const 項目內容 = ref('')
 const 容納人數 = ref(0)
 const NorthArea = reactive({
-    "北區": [],
-    //"中區": [],
-    //"南區": [],
-    //"東區": [],
+    北區: [],
 });
 
 
@@ -162,55 +159,51 @@ let SelfSet = (營區細項id) => {
 </script>
 
 <template>
-  
+    <div class="common-layout">
+        <el-container>
+            <el-header>
+                <div class="row">
+                    <div class="">
+                        <!-- 麵包屑 -->
+                        <Breadcrumbs :routes="[
+                            { label: '首頁', route: '/' },
+                            { label: '營區預訂' },
+                            { label: '北部' },
 
-
-
-<div class="common-layout">
-    <el-container>
-        <el-header>
-            <div class="row">
-                <div class="">
-                    <!-- 麵包屑 -->
-                    <Breadcrumbs
-                    :routes="[
-                        { label: '首頁', route: '/' },
-                        { label: '營區預訂' },
-                        { label: '北部' },
-                        
-                    ]"
-                    />
-                    <!-- <el-button type="info" plain>#北部精選</el-button> -->
-                </div>
-            </div>
-        </el-header>
-
-        <el-main>
-        <section class="py-3">
-            <div class="row">
-                    <!-- <div class="col-lg-2 col-md-12 col-12">
-                        <CampBackgroundBlogCard :image="sun" title="北部營區" description="" />
-                    </div> -->
-    
-                <div class="card m-3 col-lg-4 col-sm-6" v-for="item in NorthArea.北區">
-                    <div  style=" height:400px; display: flex; flex-direction: column; justify-content: space-between;">
-                        <!-- 卡片 -->
-                        <CampTransparentBlogCard :image="`${MVCimages}${item.圖片}`" :title=item.營區名稱
-                            :description=item.營區介紹 /> 
-                    </div>   
-                    <div class="d-flex mt-5">
-                        <label class="form-lable"><span class="material-icons">pin_drop</span> {{ item.縣市 }}</label>
-                        <label class="form-lable"><span class="material-icons">attach_money</span> TWD<span class="text-primary">{{ item.單價 }}</span>up</label>
+                        ]" />
+                        <!-- <el-button type="info" plain>#北部精選</el-button> -->
                     </div>
-                    <div class="container d-flex justify-content-end">
-                        <el-button type="info" class="text-lg font-weight-bolder icon-move-right  "
-                            @click="{ Campdetail(item.營區細項id); dialogVisible = true; }">
-                            選擇方案<span class="material-icons">touch_app</span>
-                        </el-button>
-                    </div>
-                    <hr>
                 </div>
-            </div>
+            </el-header>
+
+            <el-main>
+                <section class="py-3">
+                    <div class="row">
+                        <!-- <div class="col-lg-2 col-md-12 col-12">
+                                            <CampBackgroundBlogCard :image="sun" title="北部營區" description="" />
+                                        </div> -->
+
+                        <div class="card m-3 col-lg-4 col-sm-6" v-for="item in NorthArea.北區">
+                            <div
+                                style=" height:400px; display: flex; flex-direction: column; justify-content: space-between;">
+                                <!-- 卡片 -->
+                                <CampTransparentBlogCard :image="`${MVCimages}${item.圖片}`" :title=item.營區名稱
+                                    :description=item.營區介紹 />
+                            </div>
+                            <div class="d-flex mt-5">
+                                <label class="form-lable"><span class="material-icons">pin_drop</span> {{ item.縣市 }}</label>
+                                <label class="form-lable"><span class="material-icons">attach_money</span> TWD<span
+                                        class="text-primary">{{ item.單價 }}</span>up</label>
+                            </div>
+                            <div class="container d-flex justify-content-end">
+                                <el-button type="info" class="text-lg font-weight-bolder icon-move-right  "
+                                    @click="{ Campdetail(item.營區細項id); dialogVisible = true; }">
+                                    選擇方案<span class="material-icons">touch_app</span>
+                                </el-button>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
                     <!-- 彈跳視窗 -->
                     <div>
                         <el-dialog v-model="dialogVisible" title="營區詳細資訊" width="50%" draggable>
@@ -223,52 +216,59 @@ let SelfSet = (營區細項id) => {
                                 </div>
                                 <div>
                                     <!-- <label class="form-lable">
-                                    <h4>露營形式：<small class="text-muted"> {{ 項目內容 }}</small></h4></label> -->
+                                                        <h4>露營形式：<small class="text-muted"> {{ 項目內容 }}</small></h4></label> -->
                                     <label class="form-lable">
-                                    <h4>露營形式：<small class="text-muted"> {{ 項目內容 }}</small></h4></label>
+                                        <h4>露營形式：<small class="text-muted"> {{ 項目內容 }}</small></h4>
+                                    </label>
 
                                 </div>
                                 <div>
                                     <label class="form-lable">
-                                    <h4>營區名稱：<small class="text-muted"> {{ 營區名稱 }}</small></h4></label>
-                                   
+                                        <h4>營區名稱：<small class="text-muted"> {{ 營區名稱 }}</small></h4>
+                                    </label>
+
                                 </div>
                                 <div>
                                     <label class="form-lable">
-                                    <h4>營區介紹：<small class="text-muted"> {{ 營區介紹 }}</small></h4></label>
+                                        <h4>營區介紹：<small class="text-muted"> {{ 營區介紹 }}</small></h4>
+                                    </label>
                                 </div>
                                 <div>
                                     <label class="form-lable"><span class="material-icons">pin_drop
-                                    </span>地區  |  {{ 地區 }}</label>
+                                        </span>地區 | {{ 地區 }}</label>
                                 </div>
                                 <div>
                                     <label class="form-lable"><span class="material-icons">pin_drop
-                                    </span>縣市  |   {{ 縣市 }}</label>
+                                        </span>縣市 | {{ 縣市 }}</label>
                                 </div>
                                 <div>
                                     <label class="form-lable"><span class="material-icons">near_me
-                                    </span>營區地址  |   {{ 營區地址 }} </label>
+                                        </span>營區地址 | {{ 營區地址 }} </label>
                                 </div>
                                 <div>
                                     <label class="form-lable"><span class="material-icons">group
-                                    </span>容納人數  |   {{ 容納人數 }}人</label>
+                                        </span>容納人數 | {{ 容納人數 }}人</label>
                                 </div>
 
-                                <RouterLink :to="{ name: 'self' }" >    
-                                <el-button type="warning" class=" text-lg font-weight-bolder m-2" @click="SelfSet(item.營區細項id)">
-                                    自選行程<span class="material-icons p-2">
-                                        add_shopping_cart
-                                    </span>
-                                </el-button> </RouterLink>
-                              
-                           
-                                <RouterLink :to="{ name: 'set' }"  > 
-                                <el-button type="warning" class=" text-lg font-weight-bolder m-2" @click="SelfSet(item.營區細項id)">
-                                    套裝行程<span class="material-icons p-2">
-                                        add_shopping_cart
-                                    </span>
-                                </el-button></RouterLink>
-                            
+                                <RouterLink :to="{ name: 'self' }">
+                                    <el-button type="warning" class=" text-lg font-weight-bolder m-2"
+                                        @click="SelfSet(item.營區細項id)">
+                                        自選行程<span class="material-icons p-2">
+                                            add_shopping_cart
+                                        </span>
+                                    </el-button>
+                                </RouterLink>
+
+
+                                <RouterLink :to="{ name: 'set' }">
+                                    <el-button type="warning" class=" text-lg font-weight-bolder m-2"
+                                        @click="SelfSet(item.營區細項id)">
+                                        套裝行程<span class="material-icons p-2">
+                                            add_shopping_cart
+                                        </span>
+                                    </el-button>
+                                </RouterLink>
+
                                 <el-button type="info" plain @click="dialogVisible = false">
                                     <span class="material-icons p-2">home</span></el-button>
                             </span>
@@ -283,7 +283,4 @@ let SelfSet = (營區細項id) => {
 </template>
 
 
-<style>
-
-
-</style>
+<style></style>
