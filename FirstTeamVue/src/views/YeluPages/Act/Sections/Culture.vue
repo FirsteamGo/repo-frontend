@@ -119,14 +119,14 @@ onMounted(CultureAll.CultureActGet)
 
                             <div>
                                 <el-button type="info" class="text-lg font-weight-bolder icon-move-right"
-                                    @click="{ CultureAll.CultureDialog(item.活動id); CultureAll.ActCulture.dialogVisible = true }">
+                                    @click="{ CultureAll.CultureDialog(item.活動id); CultureAll.ActDialogAll.dialogVisible = true }">
                                     詳細資訊<i class="fas fa-arrow-right text-xs ms-1"></i>
                                 </el-button>
 
                                 <!-- 重要!!!這邊要導到自選行程第二步!!!!!!! -->
-                                <RouterLink to="/pages/Yelu-pages/Self/Sections/step2">
+                                <RouterLink to="/pages/Yelu-pages/Self/Stepall/step2">
                                     <el-button type="warning" class=" text-lg font-weight-bolder m-2"
-                                        @click="SelfSet(item.營區細項id)">
+                                        @click="CultureAll.CultureDialog(item.活動id)">
                                         <span class="material-icons ">add_shopping_cart</span>
                                     </el-button>
                                 </RouterLink>
@@ -140,44 +140,45 @@ onMounted(CultureAll.CultureActGet)
 
                     <!-- 彈跳視窗 -->
                     <div>
-                        <el-dialog v-model="CultureAll.ActCulture.dialogVisible" title="活動詳細資訊" width="50%" draggable>
+                        <el-dialog v-model="CultureAll.ActDialogAll.dialogVisible" title="活動詳細資訊" width="50%" draggable>
                             <div class="modal-header">
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <span class="dialog-footer">
                                 <div>
-                                    <img :src="`${CultureAll.MVCimages}${CultureAll.ActCulture.活動圖片}`"
+                                    <img :src="`${CultureAll.MVCimages}${CultureAll.ActDialogAll.活動圖片}`"
                                         style="width: 400px; height: 300px;">
                                 </div>
                                 <div>
                                     <label class="form-lable">
-                                        <h4>活動名稱：<small class="text-muted"> {{ CultureAll.ActCulture.活動名稱 }}</small></h4>
+                                        <h4>活動名稱：<small class="text-muted"> {{ CultureAll.ActDialogAll.活動名稱 }}</small></h4>
                                     </label>
 
                                 </div>
                                 <div>
                                     <label class="form-lable">
-                                        <h4>活動介紹：<small class="text-muted"> {{ CultureAll.ActCulture.活動介紹 }}</small></h4>
+                                        <h4>活動介紹：<small class="text-muted"> {{ CultureAll.ActDialogAll.活動介紹 }}</small></h4>
                                     </label>
 
                                 </div>
 
                                 <div>
                                     <label class="form-lable"><span class="material-icons">pin_drop
-                                        </span>地區 | {{ CultureAll.ActCulture.地區 }}</label>
+                                        </span>地區 | {{ CultureAll.ActDialogAll.地區 }}</label>
                                 </div>
                                 <div>
                                     <label class="form-lable"><span class="material-icons">pin_drop
-                                        </span>縣市 | {{ CultureAll.ActCulture.縣市 }}</label>
+                                        </span>縣市 | {{ CultureAll.ActDialogAll.縣市 }}</label>
                                 </div>
                                 <div>
-                                    <label class="form-lable">活動方式 | {{ CultureAll.ActCulture.活動方式 }} </label>
+                                    <label class="form-lable">活動方式 | {{ CultureAll.ActDialogAll.活動方式 }} </label>
                                 </div>
                                 <div>
-                                    <label class="form-lable">活動種類 | {{ CultureAll.ActCulture.活動種類 }} </label>
+                                    <label class="form-lable">活動種類 | {{ CultureAll.ActDialogAll.活動種類 }} </label>
                                 </div>
                                 <div>
-                                    <label class="form-lable"> TWD <span class="text-primary">{{ CultureAll.ActCulture.門票價格
+                                    <label class="form-lable"> TWD <span class="text-primary">{{
+                                        CultureAll.ActDialogAll.門票價格
                                     }}</span> /次</label>
                                 </div>
 

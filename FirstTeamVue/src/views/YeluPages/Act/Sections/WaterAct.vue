@@ -122,14 +122,14 @@ onMounted(WaterAll.WaterActGet)
 
                             <div>
                                 <el-button type="info" class="text-lg font-weight-bolder icon-move-right"
-                                    @click="{ WaterAll.WaterDialog(item.活動id); WaterAll.ActWater.dialogVisible = true }">
+                                    @click="{ WaterAll.WaterDialog(item.活動id); WaterAll.ActDialogAll.dialogVisible = true }">
                                     詳細資訊<i class="fas fa-arrow-right text-xs ms-1"></i>
                                 </el-button>
 
                                 <!-- 重要!!!這邊要導到自選行程第二步!!!!!!! -->
-                                <RouterLink to="/pages/Yelu-pages/Self/Sections/step2">
+                                <RouterLink to="/pages/Yelu-pages/Self/Stepall/step2">
                                     <el-button type="warning" class=" text-lg font-weight-bolder m-2"
-                                        @click="SelfSet(item.營區細項id)">
+                                        @click="WaterAll.WaterDialog(item.活動id)">
                                         <span class="material-icons ">add_shopping_cart</span>
                                     </el-button>
                                 </RouterLink>
@@ -142,44 +142,44 @@ onMounted(WaterAll.WaterActGet)
 
                     <!-- 彈跳視窗 -->
                     <div>
-                        <el-dialog v-model="WaterAll.ActWater.dialogVisible" title="活動詳細資訊" width="50%" draggable>
+                        <el-dialog v-model="WaterAll.ActDialogAll.dialogVisible" title="活動詳細資訊" width="50%" draggable>
                             <div class="modal-header">
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <span class="dialog-footer">
                                 <div>
-                                    <img :src="`${WaterAll.MVCimages}${WaterAll.ActWater.活動圖片}`"
+                                    <img :src="`${WaterAll.MVCimages}${WaterAll.ActDialogAll.活動圖片}`"
                                         style="width: 400px; height: 300px;">
                                 </div>
                                 <div>
                                     <label class="form-lable">
-                                        <h4>活動名稱：<small class="text-muted"> {{ WaterAll.ActWater.活動名稱 }}</small></h4>
+                                        <h4>活動名稱：<small class="text-muted"> {{ WaterAll.ActDialogAll.活動名稱 }}</small></h4>
                                     </label>
 
                                 </div>
                                 <div>
                                     <label class="form-lable">
-                                        <h4>活動介紹：<small class="text-muted"> {{ WaterAll.ActWater.活動介紹 }}</small></h4>
+                                        <h4>活動介紹：<small class="text-muted"> {{ WaterAll.ActDialogAll.活動介紹 }}</small></h4>
                                     </label>
 
                                 </div>
 
                                 <div>
                                     <label class="form-lable"><span class="material-icons">pin_drop
-                                        </span>地區 | {{ WaterAll.ActWater.地區 }}</label>
+                                        </span>地區 | {{ WaterAll.ActDialogAll.地區 }}</label>
                                 </div>
                                 <div>
                                     <label class="form-lable"><span class="material-icons">pin_drop
-                                        </span>縣市 | {{ WaterAll.ActWater.縣市 }}</label>
+                                        </span>縣市 | {{ WaterAll.ActDialogAll.縣市 }}</label>
                                 </div>
                                 <div>
-                                    <label class="form-lable">活動方式 | {{ WaterAll.ActWater.活動方式 }} </label>
+                                    <label class="form-lable">活動方式 | {{ WaterAll.ActDialogAll.活動方式 }} </label>
                                 </div>
                                 <div>
-                                    <label class="form-lable">活動種類 | {{ WaterAll.ActWater.活動種類 }} </label>
+                                    <label class="form-lable">活動種類 | {{ WaterAll.ActDialogAll.活動種類 }} </label>
                                 </div>
                                 <div>
-                                    <label class="form-lable"> TWD <span class="text-primary">{{ WaterAll.ActWater.門票價格
+                                    <label class="form-lable"> TWD <span class="text-primary">{{ WaterAll.ActDialogAll.門票價格
                                     }}</span> /次</label>
                                 </div>
 

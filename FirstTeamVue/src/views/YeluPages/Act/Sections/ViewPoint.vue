@@ -117,14 +117,14 @@ onMounted(ViewPointAll.ViewPointActGet)
 
                             <div>
                                 <el-button type="info" class="text-lg font-weight-bolder icon-move-right"
-                                    @click="{ ViewPointAll.ViewPointDialog(item.活動id); ViewPointAll.ActViewPoint.dialogVisible = true }">
+                                    @click="{ ViewPointAll.ViewPointDialog(item.活動id); ViewPointAll.ActDialogAll.dialogVisible = true }">
                                     詳細資訊<i class="fas fa-arrow-right text-xs ms-1"></i>
                                 </el-button>
 
                                 <!-- 重要!!!這邊要導到自選行程第二步!!!!!!! -->
-                                <RouterLink to="/pages/Yelu-pages/Self/Sections/step2">
+                                <RouterLink to="/pages/Yelu-pages/Self/Stepall/step2">
                                     <el-button type="warning" class=" text-lg font-weight-bolder m-2"
-                                        @click="SelfSet(item.營區細項id)">
+                                        @click="ViewPointAll.ViewPointDialog(item.活動id)">
                                         <span class="material-icons ">add_shopping_cart</span>
                                     </el-button>
                                 </RouterLink>
@@ -138,25 +138,25 @@ onMounted(ViewPointAll.ViewPointActGet)
 
                     <!-- 彈跳視窗 -->
                     <div>
-                        <el-dialog v-model="ViewPointAll.ActViewPoint.dialogVisible" title="活動詳細資訊" width="50%" draggable>
+                        <el-dialog v-model="ViewPointAll.ActDialogAll.dialogVisible" title="活動詳細資訊" width="50%" draggable>
                             <div class="modal-header">
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <span class="dialog-footer">
                                 <div>
-                                    <img :src="`${ViewPointAll.MVCimages}${ViewPointAll.ActViewPoint.活動圖片}`"
+                                    <img :src="`${ViewPointAll.MVCimages}${ViewPointAll.ActDialogAll.活動圖片}`"
                                         style="width: 400px; height: 300px;">
                                 </div>
                                 <div>
                                     <label class="form-lable">
-                                        <h4>活動名稱：<small class="text-muted"> {{ ViewPointAll.ActViewPoint.活動名稱 }}</small>
+                                        <h4>活動名稱：<small class="text-muted"> {{ ViewPointAll.ActDialogAll.活動名稱 }}</small>
                                         </h4>
                                     </label>
 
                                 </div>
                                 <div>
                                     <label class="form-lable">
-                                        <h4>活動介紹：<small class="text-muted"> {{ ViewPointAll.ActViewPoint.活動介紹 }}</small>
+                                        <h4>活動介紹：<small class="text-muted"> {{ ViewPointAll.ActDialogAll.活動介紹 }}</small>
                                         </h4>
                                     </label>
 
@@ -164,21 +164,21 @@ onMounted(ViewPointAll.ViewPointActGet)
 
                                 <div>
                                     <label class="form-lable"><span class="material-icons">pin_drop
-                                        </span>地區 | {{ ViewPointAll.ActViewPoint.地區 }}</label>
+                                        </span>地區 | {{ ViewPointAll.ActDialogAll.地區 }}</label>
                                 </div>
                                 <div>
                                     <label class="form-lable"><span class="material-icons">pin_drop
-                                        </span>縣市 | {{ ViewPointAll.ActViewPoint.縣市 }}</label>
+                                        </span>縣市 | {{ ViewPointAll.ActDialogAll.縣市 }}</label>
                                 </div>
                                 <div>
-                                    <label class="form-lable">活動方式 | {{ ViewPointAll.ActViewPoint.活動方式 }} </label>
+                                    <label class="form-lable">活動方式 | {{ ViewPointAll.ActDialogAll.活動方式 }} </label>
                                 </div>
                                 <div>
-                                    <label class="form-lable">活動種類 | {{ ViewPointAll.ActViewPoint.活動種類 }} </label>
+                                    <label class="form-lable">活動種類 | {{ ViewPointAll.ActDialogAll.活動種類 }} </label>
                                 </div>
                                 <div>
                                     <label class="form-lable"> TWD <span class="text-primary">{{
-                                        ViewPointAll.ActViewPoint.門票價格
+                                        ViewPointAll.ActDialogAll.門票價格
                                     }}</span> /次</label>
                                 </div>
 

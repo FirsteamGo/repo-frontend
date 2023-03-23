@@ -8,7 +8,7 @@ export const useActDataAtore = defineStore('ActData', () => {
 
     //每一個地區Get會取用的建構子
     class ActAllValue {
-        constructor(營區id, 活動id, 營區名稱, 地區, 縣市, 活動方式, 活動種類, 活動名稱, 活動介紹, 活動圖片, 門票價格) {
+        constructor(營區id, 活動id, 營區名稱, 地區, 縣市, 活動方式, 活動種類, 活動名稱, 活動介紹, 活動圖片, 門票價格, 圖片) {
 
             this.活動id = 活動id;
             this.營區id = 營區id;
@@ -21,6 +21,7 @@ export const useActDataAtore = defineStore('ActData', () => {
             this.活動介紹 = 活動介紹;
             this.活動圖片 = 活動圖片;
             this.門票價格 = 門票價格;
+            this.圖片 = 圖片;
         }
     }
 
@@ -38,18 +39,12 @@ export const useActDataAtore = defineStore('ActData', () => {
         活動介紹 = ref('');
         活動圖片 = ref('');
         門票價格 = ref(0);
+        圖片 = ref('');
     }
 
     //個別獨立的變數
     const MVCimages = ref("https://localhost:7120/images/")
-    //const dialogVisible = ref(false)
-    const ActHot = new ActAllVariable
-    const ActEvent = new ActAllVariable
-    const ActViewPoint = new ActAllVariable
-    const ActSport = new ActAllVariable
-    const ActCulture = new ActAllVariable
-    const ActWater = new ActAllVariable
-    const ActTour = new ActAllVariable
+    const ActDialogAll = new ActAllVariable
     const ActAllData = reactive([])
     const Event = reactive({ "活動": [], });
     const ViewPoint = reactive({ "景點": [], });
@@ -57,15 +52,23 @@ export const useActDataAtore = defineStore('ActData', () => {
     const Culture = reactive({ "文化": [], });
     const Water = reactive({ "水上": [], });
     const Tour = reactive({ "觀光": [], });
+    //const dialogVisible = ref(false)
+    // const ActEvent = new ActAllVariable
+    // const ActViewPoint = new ActAllVariable
+    // const ActSport = new ActAllVariable
+    // const ActCulture = new ActAllVariable
+    // const ActWater = new ActAllVariable
+    // const ActTour = new ActAllVariable
+
 
     //熱門精選Get
     const HotActGet = async () => {
         try {
             const res = await axios.get(
-                "https://localhost:7108/api/ActDetails"
+                "https://localhost:7108/api/CampDetails"
             );
             res.data.forEach((Actdetail) => {
-                const detail = new ActAllValue(Actdetail.營區id, Actdetail.活動id, Actdetail.營區名稱, Actdetail.地區, Actdetail.縣市, Actdetail.活動方式, Actdetail.活動種類, Actdetail.活動名稱, Actdetail.活動介紹, Actdetail.活動圖片, Actdetail.門票價格)
+                const detail = new ActAllValue(Actdetail.營區id, Actdetail.活動id, Actdetail.營區名稱, Actdetail.地區, Actdetail.縣市, Actdetail.活動方式, Actdetail.活動種類, Actdetail.活動名稱, Actdetail.活動介紹, Actdetail.活動圖片, Actdetail.門票價格, Actdetail.圖片)
                 ActAllData.push(detail);
             })
 
@@ -77,16 +80,17 @@ export const useActDataAtore = defineStore('ActData', () => {
     const EventActGet = async () => {
         try {
             const res = await axios.get(
-                "https://localhost:7108/api/ActDetails"
+                "https://localhost:7108/api/CampDetails"
             );
             res.data.forEach((Eventdetail) => {
-                const EventDt = new ActAllValue(Eventdetail.營區id, Eventdetail.活動id, Eventdetail.營區名稱, Eventdetail.地區, Eventdetail.縣市, Eventdetail.活動方式, Eventdetail.活動種類, Eventdetail.活動名稱, Eventdetail.活動介紹, Eventdetail.活動圖片, Eventdetail.門票價格)
+                const EventDt = new ActAllValue(Eventdetail.營區id, Eventdetail.活動id, Eventdetail.營區名稱, Eventdetail.地區, Eventdetail.縣市, Eventdetail.活動方式, Eventdetail.活動種類, Eventdetail.活動名稱, Eventdetail.活動介紹, Eventdetail.活動圖片, Eventdetail.門票價格, Eventdetail.圖片)
                 const AllEvent = EventDt.活動方式;
                 if (Event[AllEvent]) {
                     Event[AllEvent].push(EventDt)
                 } else {
                     console.log(`Unknown region: ${AllEvent}`);
                 }
+
             })
 
         } catch (error) {
@@ -97,10 +101,10 @@ export const useActDataAtore = defineStore('ActData', () => {
     const ViewPointActGet = async () => {
         try {
             const res = await axios.get(
-                "https://localhost:7108/api/ActDetails"
+                "https://localhost:7108/api/CampDetails"
             );
             res.data.forEach((Eventdetail) => {
-                const ViewPointDt = new ActAllValue(Eventdetail.營區id, Eventdetail.活動id, Eventdetail.營區名稱, Eventdetail.地區, Eventdetail.縣市, Eventdetail.活動方式, Eventdetail.活動種類, Eventdetail.活動名稱, Eventdetail.活動介紹, Eventdetail.活動圖片, Eventdetail.門票價格)
+                const ViewPointDt = new ActAllValue(Eventdetail.營區id, Eventdetail.活動id, Eventdetail.營區名稱, Eventdetail.地區, Eventdetail.縣市, Eventdetail.活動方式, Eventdetail.活動種類, Eventdetail.活動名稱, Eventdetail.活動介紹, Eventdetail.活動圖片, Eventdetail.門票價格, Eventdetail.圖片)
                 const AllEvent = ViewPointDt.活動方式;
                 if (ViewPoint[AllEvent]) {
                     ViewPoint[AllEvent].push(ViewPointDt)
@@ -117,10 +121,10 @@ export const useActDataAtore = defineStore('ActData', () => {
     const SportActGet = async () => {
         try {
             const res = await axios.get(
-                "https://localhost:7108/api/ActDetails"
+                "https://localhost:7108/api/CampDetails"
             );
             res.data.forEach((Eventdetail) => {
-                const SportDt = new ActAllValue(Eventdetail.營區id, Eventdetail.活動id, Eventdetail.營區名稱, Eventdetail.地區, Eventdetail.縣市, Eventdetail.活動方式, Eventdetail.活動種類, Eventdetail.活動名稱, Eventdetail.活動介紹, Eventdetail.活動圖片, Eventdetail.門票價格)
+                const SportDt = new ActAllValue(Eventdetail.營區id, Eventdetail.活動id, Eventdetail.營區名稱, Eventdetail.地區, Eventdetail.縣市, Eventdetail.活動方式, Eventdetail.活動種類, Eventdetail.活動名稱, Eventdetail.活動介紹, Eventdetail.活動圖片, Eventdetail.門票價格, Eventdetail.圖片)
                 const AllEvent = SportDt.活動方式;
                 if (Sport[AllEvent]) {
                     Sport[AllEvent].push(SportDt)
@@ -137,10 +141,10 @@ export const useActDataAtore = defineStore('ActData', () => {
     const CultureActGet = async () => {
         try {
             const res = await axios.get(
-                "https://localhost:7108/api/ActDetails"
+                "https://localhost:7108/api/CampDetails"
             );
             res.data.forEach((Eventdetail) => {
-                const CultureDt = new ActAllValue(Eventdetail.營區id, Eventdetail.活動id, Eventdetail.營區名稱, Eventdetail.地區, Eventdetail.縣市, Eventdetail.活動方式, Eventdetail.活動種類, Eventdetail.活動名稱, Eventdetail.活動介紹, Eventdetail.活動圖片, Eventdetail.門票價格)
+                const CultureDt = new ActAllValue(Eventdetail.營區id, Eventdetail.活動id, Eventdetail.營區名稱, Eventdetail.地區, Eventdetail.縣市, Eventdetail.活動方式, Eventdetail.活動種類, Eventdetail.活動名稱, Eventdetail.活動介紹, Eventdetail.活動圖片, Eventdetail.門票價格, Eventdetail.圖片)
                 const AllEvent = CultureDt.活動方式;
                 if (Culture[AllEvent]) {
                     Culture[AllEvent].push(CultureDt)
@@ -157,10 +161,10 @@ export const useActDataAtore = defineStore('ActData', () => {
     const WaterActGet = async () => {
         try {
             const res = await axios.get(
-                "https://localhost:7108/api/ActDetails"
+                "https://localhost:7108/api/CampDetails"
             );
             res.data.forEach((Eventdetail) => {
-                const WaterDt = new ActAllValue(Eventdetail.營區id, Eventdetail.活動id, Eventdetail.營區名稱, Eventdetail.地區, Eventdetail.縣市, Eventdetail.活動方式, Eventdetail.活動種類, Eventdetail.活動名稱, Eventdetail.活動介紹, Eventdetail.活動圖片, Eventdetail.門票價格)
+                const WaterDt = new ActAllValue(Eventdetail.營區id, Eventdetail.活動id, Eventdetail.營區名稱, Eventdetail.地區, Eventdetail.縣市, Eventdetail.活動方式, Eventdetail.活動種類, Eventdetail.活動名稱, Eventdetail.活動介紹, Eventdetail.活動圖片, Eventdetail.門票價格, Eventdetail.圖片)
                 const AllEvent = WaterDt.活動方式;
                 if (Water[AllEvent]) {
                     Water[AllEvent].push(WaterDt)
@@ -177,10 +181,10 @@ export const useActDataAtore = defineStore('ActData', () => {
     const TourActGet = async () => {
         try {
             const res = await axios.get(
-                "https://localhost:7108/api/ActDetails"
+                "https://localhost:7108/api/CampDetails"
             );
             res.data.forEach((Eventdetail) => {
-                const TourDt = new ActAllValue(Eventdetail.營區id, Eventdetail.活動id, Eventdetail.營區名稱, Eventdetail.地區, Eventdetail.縣市, Eventdetail.活動方式, Eventdetail.活動種類, Eventdetail.活動名稱, Eventdetail.活動介紹, Eventdetail.活動圖片, Eventdetail.門票價格)
+                const TourDt = new ActAllValue(Eventdetail.營區id, Eventdetail.活動id, Eventdetail.營區名稱, Eventdetail.地區, Eventdetail.縣市, Eventdetail.活動方式, Eventdetail.活動種類, Eventdetail.活動名稱, Eventdetail.活動介紹, Eventdetail.活動圖片, Eventdetail.門票價格, Eventdetail.圖片)
                 const AllEvent = TourDt.活動方式;
                 if (Tour[AllEvent]) {
                     Tour[AllEvent].push(TourDt)
@@ -207,16 +211,17 @@ export const useActDataAtore = defineStore('ActData', () => {
             if (item.活動id == 活動id) {
 
                 item.Edit = true;
-                ActHot.營區id.value = item.營區id;
-                ActHot.營區名稱.value = item.營區名稱;
-                ActHot.地區.value = item.地區;
-                ActHot.縣市.value = item.縣市;
-                ActHot.活動方式.value = item.活動方式;
-                ActHot.活動種類.value = item.活動種類;
-                ActHot.活動名稱.value = item.活動名稱;
-                ActHot.活動介紹.value = item.活動介紹;
-                ActHot.活動圖片.value = item.活動圖片;
-                ActHot.門票價格.value = item.門票價格;
+                ActDialogAll.營區id.value = item.營區id;
+                ActDialogAll.營區名稱.value = item.營區名稱;
+                ActDialogAll.地區.value = item.地區;
+                ActDialogAll.縣市.value = item.縣市;
+                ActDialogAll.活動方式.value = item.活動方式;
+                ActDialogAll.活動種類.value = item.活動種類;
+                ActDialogAll.活動名稱.value = item.活動名稱;
+                ActDialogAll.活動介紹.value = item.活動介紹;
+                ActDialogAll.活動圖片.value = item.活動圖片;
+                ActDialogAll.門票價格.value = item.門票價格;
+                ActDialogAll.圖片.value = item.圖片;
             }
             else { item.Edit = false; }
 
@@ -236,16 +241,17 @@ export const useActDataAtore = defineStore('ActData', () => {
             if (item.活動id == 活動id) {
 
                 item.Edit = true;
-                ActEvent.營區id.value = item.營區id;
-                ActEvent.營區名稱.value = item.營區名稱;
-                ActEvent.地區.value = item.地區;
-                ActEvent.縣市.value = item.縣市;
-                ActEvent.活動方式.value = item.活動方式;
-                ActEvent.活動種類.value = item.活動種類;
-                ActEvent.活動名稱.value = item.活動名稱;
-                ActEvent.活動介紹.value = item.活動介紹;
-                ActEvent.活動圖片.value = item.活動圖片;
-                ActEvent.門票價格.value = item.門票價格;
+                ActDialogAll.營區id.value = item.營區id;
+                ActDialogAll.營區名稱.value = item.營區名稱;
+                ActDialogAll.地區.value = item.地區;
+                ActDialogAll.縣市.value = item.縣市;
+                ActDialogAll.活動方式.value = item.活動方式;
+                ActDialogAll.活動種類.value = item.活動種類;
+                ActDialogAll.活動名稱.value = item.活動名稱;
+                ActDialogAll.活動介紹.value = item.活動介紹;
+                ActDialogAll.活動圖片.value = item.活動圖片;
+                ActDialogAll.門票價格.value = item.門票價格;
+                ActDialogAll.圖片.value = item.圖片;
             }
             else { item.Edit = false; }
 
@@ -253,9 +259,7 @@ export const useActDataAtore = defineStore('ActData', () => {
 
         }
         Event.活動.splice(0, ActD.length, ...ActD)
-        alert(ActEvent.營區名稱.value)
     }
-
     //景點彈跳視窗
     let ViewPointDialog = (活動id) => {
         var ActD = []
@@ -267,16 +271,17 @@ export const useActDataAtore = defineStore('ActData', () => {
             if (item.活動id == 活動id) {
 
                 item.Edit = true;
-                ActViewPoint.營區id.value = item.營區id;
-                ActViewPoint.營區名稱.value = item.營區名稱;
-                ActViewPoint.地區.value = item.地區;
-                ActViewPoint.縣市.value = item.縣市;
-                ActViewPoint.活動方式.value = item.活動方式;
-                ActViewPoint.活動種類.value = item.活動種類;
-                ActViewPoint.活動名稱.value = item.活動名稱;
-                ActViewPoint.活動介紹.value = item.活動介紹;
-                ActViewPoint.活動圖片.value = item.活動圖片;
-                ActViewPoint.門票價格.value = item.門票價格;
+                ActDialogAll.營區id.value = item.營區id;
+                ActDialogAll.營區名稱.value = item.營區名稱;
+                ActDialogAll.地區.value = item.地區;
+                ActDialogAll.縣市.value = item.縣市;
+                ActDialogAll.活動方式.value = item.活動方式;
+                ActDialogAll.活動種類.value = item.活動種類;
+                ActDialogAll.活動名稱.value = item.活動名稱;
+                ActDialogAll.活動介紹.value = item.活動介紹;
+                ActDialogAll.活動圖片.value = item.活動圖片;
+                ActDialogAll.門票價格.value = item.門票價格;
+                ActDialogAll.圖片.value = item.圖片;
             }
             else { item.Edit = false; }
 
@@ -296,16 +301,17 @@ export const useActDataAtore = defineStore('ActData', () => {
             if (item.活動id == 活動id) {
 
                 item.Edit = true;
-                ActSport.營區id.value = item.營區id;
-                ActSport.營區名稱.value = item.營區名稱;
-                ActSport.地區.value = item.地區;
-                ActSport.縣市.value = item.縣市;
-                ActSport.活動方式.value = item.活動方式;
-                ActSport.活動種類.value = item.活動種類;
-                ActSport.活動名稱.value = item.活動名稱;
-                ActSport.活動介紹.value = item.活動介紹;
-                ActSport.活動圖片.value = item.活動圖片;
-                ActSport.門票價格.value = item.門票價格;
+                ActDialogAll.營區id.value = item.營區id;
+                ActDialogAll.營區名稱.value = item.營區名稱;
+                ActDialogAll.地區.value = item.地區;
+                ActDialogAll.縣市.value = item.縣市;
+                ActDialogAll.活動方式.value = item.活動方式;
+                ActDialogAll.活動種類.value = item.活動種類;
+                ActDialogAll.活動名稱.value = item.活動名稱;
+                ActDialogAll.活動介紹.value = item.活動介紹;
+                ActDialogAll.活動圖片.value = item.活動圖片;
+                ActDialogAll.門票價格.value = item.門票價格;
+                ActDialogAll.圖片.value = item.圖片;
             }
             else { item.Edit = false; }
 
@@ -325,16 +331,17 @@ export const useActDataAtore = defineStore('ActData', () => {
             if (item.活動id == 活動id) {
 
                 item.Edit = true;
-                ActCulture.營區id.value = item.營區id;
-                ActCulture.營區名稱.value = item.營區名稱;
-                ActCulture.地區.value = item.地區;
-                ActCulture.縣市.value = item.縣市;
-                ActCulture.活動方式.value = item.活動方式;
-                ActCulture.活動種類.value = item.活動種類;
-                ActCulture.活動名稱.value = item.活動名稱;
-                ActCulture.活動介紹.value = item.活動介紹;
-                ActCulture.活動圖片.value = item.活動圖片;
-                ActCulture.門票價格.value = item.門票價格;
+                ActDialogAll.營區id.value = item.營區id;
+                ActDialogAll.營區名稱.value = item.營區名稱;
+                ActDialogAll.地區.value = item.地區;
+                ActDialogAll.縣市.value = item.縣市;
+                ActDialogAll.活動方式.value = item.活動方式;
+                ActDialogAll.活動種類.value = item.活動種類;
+                ActDialogAll.活動名稱.value = item.活動名稱;
+                ActDialogAll.活動介紹.value = item.活動介紹;
+                ActDialogAll.活動圖片.value = item.活動圖片;
+                ActDialogAll.門票價格.value = item.門票價格;
+                ActDialogAll.圖片.value = item.圖片;
             }
             else { item.Edit = false; }
 
@@ -354,16 +361,17 @@ export const useActDataAtore = defineStore('ActData', () => {
             if (item.活動id == 活動id) {
 
                 item.Edit = true;
-                ActWater.營區id.value = item.營區id;
-                ActWater.營區名稱.value = item.營區名稱;
-                ActWater.地區.value = item.地區;
-                ActWater.縣市.value = item.縣市;
-                ActWater.活動方式.value = item.活動方式;
-                ActWater.活動種類.value = item.活動種類;
-                ActWater.活動名稱.value = item.活動名稱;
-                ActWater.活動介紹.value = item.活動介紹;
-                ActWater.活動圖片.value = item.活動圖片;
-                ActWater.門票價格.value = item.門票價格;
+                ActDialogAll.營區id.value = item.營區id;
+                ActDialogAll.營區名稱.value = item.營區名稱;
+                ActDialogAll.地區.value = item.地區;
+                ActDialogAll.縣市.value = item.縣市;
+                ActDialogAll.活動方式.value = item.活動方式;
+                ActDialogAll.活動種類.value = item.活動種類;
+                ActDialogAll.活動名稱.value = item.活動名稱;
+                ActDialogAll.活動介紹.value = item.活動介紹;
+                ActDialogAll.活動圖片.value = item.活動圖片;
+                ActDialogAll.門票價格.value = item.門票價格;
+                ActDialogAll.圖片.value = item.圖片;
             }
             else { item.Edit = false; }
 
@@ -383,16 +391,17 @@ export const useActDataAtore = defineStore('ActData', () => {
             if (item.活動id == 活動id) {
 
                 item.Edit = true;
-                ActTour.營區id.value = item.營區id;
-                ActTour.營區名稱.value = item.營區名稱;
-                ActTour.地區.value = item.地區;
-                ActTour.縣市.value = item.縣市;
-                ActTour.活動方式.value = item.活動方式;
-                ActTour.活動種類.value = item.活動種類;
-                ActTour.活動名稱.value = item.活動名稱;
-                ActTour.活動介紹.value = item.活動介紹;
-                ActTour.活動圖片.value = item.活動圖片;
-                ActTour.門票價格.value = item.門票價格;
+                ActDialogAll.營區id.value = item.營區id;
+                ActDialogAll.營區名稱.value = item.營區名稱;
+                ActDialogAll.地區.value = item.地區;
+                ActDialogAll.縣市.value = item.縣市;
+                ActDialogAll.活動方式.value = item.活動方式;
+                ActDialogAll.活動種類.value = item.活動種類;
+                ActDialogAll.活動名稱.value = item.活動名稱;
+                ActDialogAll.活動介紹.value = item.活動介紹;
+                ActDialogAll.活動圖片.value = item.活動圖片;
+                ActDialogAll.門票價格.value = item.門票價格;
+                ActDialogAll.圖片.value = item.圖片;
             }
             else { item.Edit = false; }
 
@@ -403,10 +412,10 @@ export const useActDataAtore = defineStore('ActData', () => {
     }
 
 
-
     return {
-        HotActGet, EventActGet, ViewPointActGet, SportActGet, CultureActGet, WaterActGet, TourActGet, HotDialog, EventDialog, ViewPointDialog, SportDialog, CultureDialog, WaterDialog, TourDialog,
-        ActAllData, ActEvent, Event, ViewPoint, Sport, Culture, Water, Tour, MVCimages, ActHot, ActViewPoint, ActSport, ActCulture, ActWater, ActTour,
+        HotActGet, EventActGet, ViewPointActGet, SportActGet, CultureActGet, WaterActGet, TourActGet,
+        HotDialog, EventDialog, ViewPointDialog, SportDialog, CultureDialog, WaterDialog, TourDialog,
+        Event, ViewPoint, Sport, Culture, Water, Tour, MVCimages, ActDialogAll, ActAllData,
     }
-    // 活動id, 營區id, 營區名稱, 地區, 縣市, 活動方式, 活動種類, 活動名稱, 活動介紹, 活動圖片, 門票價格
+    //  ActEvent,ActViewPoint, ActSport, ActCulture, ActWater, ActTour,
 })

@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted, onUnmounted, ref, reactive, computed } from "vue";
 import axios from "axios";
-import { useActDataAtore } from "../../../../stores/ActData.js"
+import { useActDataAtore } from "../../../../stores/ActData.js";
 
 import ActTransparentBlogCard from "../Sections/ActBlogCards/ActTransparentBlogCard.vue";
 import ActBackgroundBlogCard from "../Sections/ActBlogCards/ActBackgroundBlogCard.vue";
@@ -11,6 +11,7 @@ import Breadcrumbs from "@/examples/Breadcrumbs.vue";
 
 const ActAll = useActDataAtore();
 onMounted(ActAll.HotActGet)
+
 // const webApiBaseAddr = ref("https://localhost:7108/api/ActDetails")
 // const MVCimages = ref("https://localhost:7120/images/")
 // const dialogVisible = ref(false)
@@ -144,14 +145,14 @@ onMounted(ActAll.HotActGet)
 
                             <div>
                                 <el-button type="info" class="text-lg font-weight-bolder icon-move-right"
-                                    @click="{ ActAll.HotDialog(item.活動id); ActAll.ActHot.dialogVisible = true }">
+                                    @click="{ ActAll.HotDialog(item.活動id); ActAll.ActDialogAll.dialogVisible = true }">
                                     詳細資訊<i class="fas fa-arrow-right text-xs ms-1"></i>
                                 </el-button>
 
                                 <!-- 重要!!!這邊要導到自選行程第二步!!!!!!! -->
-                                <RouterLink to="/pages/Yelu-pages/Self/Sections/step2">
+                                <RouterLink to="/pages/Yelu-pages/Self/Stepall/step2">
                                     <el-button type="warning" class=" text-lg font-weight-bolder m-2"
-                                        @click="SelfSet(item.營區細項id)">
+                                        @click="ActAll.HotDialog(item.活動id)">
                                         <span class="material-icons ">add_shopping_cart</span>
                                     </el-button>
                                 </RouterLink>
@@ -161,48 +162,48 @@ onMounted(ActAll.HotActGet)
 
                     <!-- 彈跳視窗 -->
                     <div>
-                        <el-dialog v-model="ActAll.ActHot.dialogVisible" title="活動詳細資訊" width="50%" draggable>
+                        <el-dialog v-model="ActAll.ActDialogAll.dialogVisible" title="活動詳細資訊" width="50%" draggable>
                             <div class="modal-header">
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <span class="dialog-footer">
                                 <div>
-                                    <img :src="`${ActAll.MVCimages}${ActAll.ActHot.活動圖片}`"
+                                    <img :src="`${ActAll.MVCimages}${ActAll.ActDialogAll.活動圖片}`"
                                         style="width: 400px; height: 300px;">
                                 </div>
                                 <div>
                                     <label class="form-lable">
-                                        <h4>活動名稱：<small class="text-muted"> {{ ActAll.ActHot.活動名稱 }}</small></h4>
+                                        <h4>活動名稱：<small class="text-muted"> {{ ActAll.ActDialogAll.活動名稱 }}</small></h4>
                                     </label>
 
                                 </div>
                                 <div>
                                     <label class="form-lable">
-                                        <h4>活動介紹：<small class="text-muted"> {{ ActAll.ActHot.活動介紹 }}</small></h4>
+                                        <h4>活動介紹：<small class="text-muted"> {{ ActAll.ActDialogAll.活動介紹 }}</small></h4>
                                     </label>
 
                                 </div>
                                 <div>
                                     <label class="form-lable"><span class="material-icons">festival
-                                        </span>營區名稱 | {{ ActAll.ActHot.營區名稱 }}</label>
+                                        </span>營區名稱 | {{ ActAll.ActDialogAll.營區名稱 }}</label>
                                 </div>
                                 <div>
                                     <label class="form-lable"><span class="material-icons">pin_drop
-                                        </span>地區 | {{ ActAll.ActHot.地區 }}</label>
+                                        </span>地區 | {{ ActAll.ActDialogAll.地區 }}</label>
                                 </div>
                                 <div>
                                     <label class="form-lable"><span class="material-icons">pin_drop
-                                        </span>縣市 | {{ ActAll.ActHot.縣市 }}</label>
+                                        </span>縣市 | {{ ActAll.ActDialogAll.縣市 }}</label>
                                 </div>
                                 <div>
-                                    <label class="form-lable">活動方式 | {{ ActAll.ActHot.活動方式 }} </label>
+                                    <label class="form-lable">活動方式 | {{ ActAll.ActDialogAll.活動方式 }} </label>
                                 </div>
                                 <div>
-                                    <label class="form-lable">活動種類 | {{ ActAll.ActHot.活動種類 }} </label>
+                                    <label class="form-lable">活動種類 | {{ ActAll.ActDialogAll.活動種類 }} </label>
                                 </div>
                                 <div>
                                     <label class="form-lable"><span class="material-icons">attach_money</span> TWD <span
-                                            class="text-primary">{{ ActAll.ActHot.門票價格 }}</span> /次</label>
+                                            class="text-primary">{{ ActAll.ActDialogAll.門票價格 }}</span> /次</label>
                                 </div>
                             </span>
                         </el-dialog>

@@ -1,39 +1,42 @@
 <template>
+  <!-- 所選營地/活動 -->
+  <div class="container w-75 px-2">
+    <div class="row">
 
-<!-- 所選營地/活動 -->
-<div class="container w-75 px-2">
-<div class="row">
- 
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title"><span class="badge bg-secondary"><span class="material-icons mx-2 ">task_alt</span>已選營地</span></h5>
-        <img src="@/assets/img/self/03.jpg" style=" height: 200px; display: block; margin: 0 auto;" />
-        <!-- <p>營區名稱</p> -->
-        <label class="m-3">營區名稱</label>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><span class="badge bg-secondary"><span
+                  class="material-icons mx-2 ">task_alt</span>已選營地</span></h5>
+            <img :src="`${ActData.MVCimages}${ActData.ActDialogAll.圖片}`"
+              style=" height: 200px; display: block; margin: 0 auto;" />
+            <!-- <p>營區名稱</p> -->
+            <label class="m-3">營區名稱 : {{ ActData.ActDialogAll.營區名稱 }}</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><span class="badge bg-secondary"><span
+                  class="material-icons mx-2 ">task_alt</span>已選活動</span></h5>
+            <img :src="`${ActData.MVCimages}${ActData.ActDialogAll.活動圖片}`"
+              style=" height: 200px; display: block; margin: 0 auto;" />
+            <label class="m-3">活動名稱 : {{ ActData.ActDialogAll.活動名稱 }}</label>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title"><span class="badge bg-secondary"><span class="material-icons mx-2 ">task_alt</span>已選活動</span></h5>
-        <img src="@/assets/img/self/03.jpg" style=" height: 200px; display: block; margin: 0 auto;" />
-        <label class="m-3">活動名稱</label>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
 
 
 
   <!-- 詳細資訊填寫 -->
-<div class="container card w-75 mt-5 mb-5 px-5 justify-content-center">
-  <div class="card-body">
-   
-    <div>
+  <div class="container card w-75 mt-5 mb-5 px-5 justify-content-center">
+    <div class="card-body">
+
+      <div>
         <el-form :model="form" label-width="120px">
           <el-form-item label="訂單編號" hidden>{{ selforder }}</el-form-item>
 
@@ -66,16 +69,16 @@
         </el-form>
       </div>
 
+    </div>
   </div>
-</div>
-
-
 </template>
 
   
 <script setup>
 import axios from 'axios';
 import { reactive, ref, computed, onMounted } from 'vue';
+import { useActDataAtore } from "../../../../stores/ActData.js";
+const ActData = useActDataAtore();
 const webApi = ref("https://localhost:7108/api/SelfOrders");
 const now = new Date();
 const form = reactive({
