@@ -14,11 +14,14 @@
               :src="`${ActData.MVCimages}${ActData.ActDialogAll.圖片}`"
               style="height: 200px; display: block; margin: 0 auto"
             />
-            <!-- <p>營區名稱</p> -->
-            <label class="m-3">營區名稱 : {{ whoFunc.營區名稱 }}</label>
-            <p class="m-3 myword">營區地址</p>
-            <p class="m-3 myword">營區名稱</p>
-            <p class="m-3 myword">單價</p>
+            <p class="m-3 myword">營區名稱 | {{ whoFunc.營區名稱 }}</p>
+            <p class="m-3 myword">營區地址 | {{}}</p>
+            <p class="m-3 myword">
+              <span class="material-icons">attach_money</span> TWD<span
+                class="text-primary"
+                >{{
+              }}</span>
+            </p>
           </div>
         </div>
       </div>
@@ -35,10 +38,14 @@
               :src="`${ActData.MVCimages}${ActData.ActDialogAll.活動圖片}`"
               style="height: 200px; display: block; margin: 0 auto"
             />
-            <label class="m-3">活動名稱 : {{ whoFunc.活動名稱 }}</label>
-            <p class="m-3 myword">活動名稱</p>
-            <p class="m-3 myword">活動地址</p>
-            <p class="m-3 myword">單價</p>
+            <p class="m-3 myword">活動名稱 | {{ whoFunc.活動名稱 }}</p>
+            <p class="m-3 myword">活動種類 | {{}}</p>
+            <p class="m-3 myword">
+              <span class="material-icons">attach_money</span> TWD<span
+                class="text-primary"
+                >{{
+              }}</span>
+            </p>
           </div>
         </div>
       </div>
