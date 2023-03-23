@@ -20,8 +20,8 @@ import nav2 from "../Shop/SPA/nav_2.vue";
 import nav3 from "../Shop/SPA/nav_3.vue";
 import nav4 from "../Shop/SPA/nav_4.vue";
 import nav5 from "../Shop/SPA/nav_5.vue";
+import navTotal from "./SPA/nav_total.vue";
 
-const columns = reactive([]);
 const body = document.getElementsByTagName("body")[0];
 //hooks
 onMounted(() => {
@@ -85,13 +85,16 @@ onUnmounted(() => {
       <el-header class="inputlocation"><inputContent /></el-header>
       <!-- <button @click="addtoCart">123</button> -->
       <el-container class="navBar">
+        <navTotal/>
         <nav1 />
         <nav2 />
         <nav3 />
         <nav4 />
         <nav5 />
       </el-container>
-      <el-main><router-view /></el-main>
+      <el-main>
+        <router-view />
+      </el-main>
     </div>
   </div>
   <yelufooter />
