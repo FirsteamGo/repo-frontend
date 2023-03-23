@@ -250,7 +250,7 @@ onMounted(EastAll.EastCampGet);
                                     </span>容納人數  |   {{ EastAll.CampDialogAll.容納人數 }}人</label>
                                 </div>
 
-                                <RouterLink :to="{ name: 'self' }" >    
+                                <RouterLink to="/pages/Yelu-pages/Self/stepall/step2/Camp" >    
                                 <el-button type="warning" class=" text-lg font-weight-bolder m-2" @click="SelfSet(item.營區細項id)">
                                     自選行程<span class="material-icons p-2">
                                         add_shopping_cart

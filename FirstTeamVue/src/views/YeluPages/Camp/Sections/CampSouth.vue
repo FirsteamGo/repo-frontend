@@ -184,8 +184,8 @@ onMounted(SouthAll.SouthCampGet);
                 <section class="py-3">
                     <div class="row">
                         <!-- <div class="col-lg-2 col-md-12 col-12">
-                                                        <CampBackgroundBlogCard :image="sun" title="北部營區" description="" />
-                                                    </div> -->
+                                                            <CampBackgroundBlogCard :image="sun" title="北部營區" description="" />
+                                                        </div> -->
 
                         <div class="card m-3 col-lg-4 col-sm-6" v-for="item in SouthAll.South.南部">
                             <div
@@ -221,7 +221,7 @@ onMounted(SouthAll.SouthCampGet);
                                 </div>
                                 <div>
                                     <!-- <label class="form-lable">
-                                                                    <h4>露營形式：<small class="text-muted"> {{ 項目內容 }}</small></h4></label> -->
+                                                                        <h4>露營形式：<small class="text-muted"> {{ 項目內容 }}</small></h4></label> -->
                                     <label class="form-lable">
                                         <h4>露營形式：<small class="text-muted"> {{ SouthAll.CampDialogAll.項目內容 }}</small></h4>
                                     </label>
@@ -255,7 +255,7 @@ onMounted(SouthAll.SouthCampGet);
                                         </span>容納人數 | {{ SouthAll.CampDialogAll.容納人數 }}人</label>
                                 </div>
 
-                                <RouterLink :to="{ name: 'self' }">
+                                <RouterLink to="/pages/Yelu-pages/Self/stepall/step2/Camp">
                                     <el-button type="warning" class=" text-lg font-weight-bolder m-2"
                                         @click="SelfSet(item.營區細項id)">
                                         自選行程<span class="material-icons p-2">
