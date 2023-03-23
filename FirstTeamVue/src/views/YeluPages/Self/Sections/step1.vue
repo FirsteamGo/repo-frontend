@@ -1,6 +1,7 @@
 <script  setup>
 import { ref, reactive, onMounted, computed,watch  } from 'vue'
 import axios from "axios";
+import CampIndex from '../../Camp/Sections/CampIndex.vue'
 const webApiBaseAddr = ref("https://localhost:7108/api/Camps");
 
 let Camps = reactive([])
@@ -99,8 +100,9 @@ export default {
 
 
 <template>
-
-    
+  <div class="m-5">
+    <CampIndex />
+  </div>
 </template>
   
   <style>

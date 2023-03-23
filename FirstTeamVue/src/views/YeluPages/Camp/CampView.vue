@@ -77,9 +77,9 @@ onUnmounted(() => {
   <div class="common-layout card card-body shadow-xl mx-5 mx-md-4 mt-n6 ">
     <el-container>
       <el-aside width="300px" >
-        <div class="accordion" id="accordionExample">
+        <div class="accordion ms-4" id="accordionExample">
           <!-- 手風琴 -->
-          <div class="accordion-item ">
+          <div class="accordion-item">
             <router-link to="/pages/Yelu-pages/camp/North">
               <h2 class="accordion-header" id="headingOne">
                 <button
