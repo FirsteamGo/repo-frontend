@@ -119,24 +119,24 @@ onMounted(SportAll.SportActGet)
 
                             <div class="m-3">
                                 <el-button type="info" class="text-lg font-weight-bolder icon-move-right"
-                                    @click="{ SportAll.SportDialog(item.活動id); SportAll.ActDialogAll.dialogVisible = true }">
+                                    @click="{ SportAll.SportDialog(item.活動id); SportAll.dialogVisibleArr[3] = true }">
                                     詳細資訊<i class="fas fa-arrow-right text-xs ms-1"></i>
                                 </el-button>
 
                                 <!-- 重要!!!這邊要導到自選行程第二步!!!!!!! -->
-                                <RouterLink to="/pages/Yelu-pages/Self/Stepall/step2">
-                                    <el-button type="warning" class=" text-lg font-weight-bolder m-2"
-                                        @click="SportAll.SportDialog(item.活動id)">
-                                        <span class="material-icons ">add_shopping_cart</span>
-                                    </el-button>
-                                </RouterLink>
+                                <!-- <RouterLink to="/pages/Yelu-pages/Self/Stepall/step2">
+                                                    <el-button type="warning" class=" text-lg font-weight-bolder m-2"
+                                                        @click="SportAll.SportDialog(item.活動id)">
+                                                        <span class="material-icons ">add_shopping_cart</span>
+                                                    </el-button>
+                                                </RouterLink> -->
                             </div>
                         </div>
                     </div>
 
                     <!-- 彈跳視窗 -->
                     <div>
-                        <el-dialog v-model="SportAll.ActDialogAll.dialogVisible" title="活動詳細資訊" width="50%" draggable>
+                        <el-dialog v-model="SportAll.dialogVisibleArr[3]" title="活動詳細資訊" width="50%" draggable>
                             <div class="modal-header">
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
@@ -180,9 +180,9 @@ onMounted(SportAll.SportActGet)
                                     }}</span> /次</label>
                                 </div>
                                 <!-- 重要!!!這邊要導到自選行程第二步!!!!!!! -->
-                                <RouterLink to="/pages/Yelu-pages/Self/stepall/step2">
+                                <RouterLink to="/pages/Yelu-pages/Self/stepall/step2/Act">
                                     <el-button type="warning" class="text-lg font-weight-bolder m-2"
-                                        @click="SelfSet(item.營區細項id)">
+                                        @click="SportAll.SportDialog(item.活動id)">
                                         自選行程<span class="material-icons">add_shopping_cart</span>
                                     </el-button>
                                 </RouterLink>

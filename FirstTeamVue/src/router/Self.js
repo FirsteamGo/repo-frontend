@@ -76,6 +76,11 @@ export default [
                             method: 'step2Method'
                         },
                     },
+                    {//自選第二步
+                        path: "step2/:whoFunc",
+                        name: "step2-p",
+                        component: () => import("../views/YeluPages/Self/Sections/step2.vue"),
+                    },
                     {//自選第三步
                         path: "step3",
                         name: "step3",

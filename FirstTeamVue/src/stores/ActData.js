@@ -27,7 +27,6 @@ export const useActDataAtore = defineStore('ActData', () => {
 
     //每一個區域的彈跳視窗會使用的變數
     class ActAllVariable {
-        dialogVisible = ref(false)
         活動id = ref(0);
         營區id = ref(0);
         營區名稱 = ref('');
@@ -52,7 +51,9 @@ export const useActDataAtore = defineStore('ActData', () => {
     const Culture = reactive({ "文化": [], });
     const Water = reactive({ "水上": [], });
     const Tour = reactive({ "觀光": [], });
-    //const dialogVisible = ref(false)
+    let dialogVisibleArr = reactive(new Array(7).fill(false))
+
+
     // const ActEvent = new ActAllVariable
     // const ActViewPoint = new ActAllVariable
     // const ActSport = new ActAllVariable
@@ -241,6 +242,7 @@ export const useActDataAtore = defineStore('ActData', () => {
             if (item.活動id == 活動id) {
 
                 item.Edit = true;
+
                 ActDialogAll.營區id.value = item.營區id;
                 ActDialogAll.營區名稱.value = item.營區名稱;
                 ActDialogAll.地區.value = item.地區;
@@ -415,7 +417,7 @@ export const useActDataAtore = defineStore('ActData', () => {
     return {
         HotActGet, EventActGet, ViewPointActGet, SportActGet, CultureActGet, WaterActGet, TourActGet,
         HotDialog, EventDialog, ViewPointDialog, SportDialog, CultureDialog, WaterDialog, TourDialog,
-        Event, ViewPoint, Sport, Culture, Water, Tour, MVCimages, ActDialogAll, ActAllData,
+        dialogVisibleArr, Event, ViewPoint, Sport, Culture, Water, Tour, MVCimages, ActDialogAll, ActAllData,
     }
     //  ActEvent,ActViewPoint, ActSport, ActCulture, ActWater, ActTour,
 })
