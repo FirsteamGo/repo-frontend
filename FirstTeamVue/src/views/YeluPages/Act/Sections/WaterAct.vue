@@ -183,7 +183,7 @@ onMounted(WaterAll.WaterActGet)
                                     }}</span> /次</label>
                                 </div>
                                 <!-- 重要!!!這邊要導到自選行程第二步!!!!!!! -->
-                                <RouterLink to="/pages/Yelu-pages/Self/stepall/step2">
+                                <RouterLink to="/pages/Yelu-pages/Self/stepall/step2/Act">
                                     <el-button
                                         type="warning"
                                         class="text-lg font-weight-bolder m-2"

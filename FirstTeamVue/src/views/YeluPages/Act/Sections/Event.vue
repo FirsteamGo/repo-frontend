@@ -125,11 +125,11 @@ onMounted(EventAll.EventActGet);
 
                                 <!-- 重要!!!這邊要導到自選行程第二步!!!!!!! -->
                                 <!-- <RouterLink to="/pages/Yelu-pages/Self/stepall/step2">
-                                            <el-button type="warning" class="text-lg font-weight-bolder m-2"
-                                                @click="EventAll.EventDialog(item.活動id)">
-                                                <span class="material-icons">add_shopping_cart</span>
-                                            </el-button>
-                                        </RouterLink> -->
+                                                    <el-button type="warning" class="text-lg font-weight-bolder m-2"
+                                                        @click="EventAll.EventDialog(item.活動id)">
+                                                        <span class="material-icons">add_shopping_cart</span>
+                                                    </el-button>
+                                                </RouterLink> -->
                             </div>
                         </div>
                     </div>
@@ -189,7 +189,7 @@ onMounted(EventAll.EventActGet);
                                         /次</label>
                                 </div>
                                 <!-- 重要!!!這邊要導到自選行程第二步!!!!!!! -->
-                                <RouterLink to="/pages/Yelu-pages/Self/stepall/step2">
+                                <RouterLink to="/pages/Yelu-pages/Self/stepall/step2/Act">
                                     <el-button type="warning" class="text-lg font-weight-bolder m-2"
                                         @click="EventAll.EventDialog(item.活動id)">
                                         自選行程<span class="material-icons">add_shopping_cart</span>
