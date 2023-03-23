@@ -65,7 +65,7 @@ const next = () => {
 };
 
 onMounted(() => {
-  if (route.name == "step2") {
+  if (route.name == "step2" || route.name == "step2-p") {
     next();
   } else if (route.name == "step3") {
     next();
