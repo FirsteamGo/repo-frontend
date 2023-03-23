@@ -8,7 +8,7 @@ export const useActDataAtore = defineStore('ActData', () => {
 
     //每一個地區Get會取用的建構子
     class ActAllValue {
-        constructor(營區id, 活動id, 營區名稱, 地區, 縣市, 活動方式, 活動種類, 活動名稱, 活動介紹, 活動圖片, 門票價格, 圖片) {
+        constructor(營區id, 活動id, 營區名稱, 地區, 縣市, 活動方式, 活動種類, 活動名稱, 活動介紹, 活動圖片, 門票價格, 圖片, 營區地址, 單價) {
 
             this.活動id = 活動id;
             this.營區id = 營區id;
@@ -22,6 +22,8 @@ export const useActDataAtore = defineStore('ActData', () => {
             this.活動圖片 = 活動圖片;
             this.門票價格 = 門票價格;
             this.圖片 = 圖片;
+            this.營區地址 = 營區地址;
+            this.單價 = 單價;
         }
     }
 
@@ -39,6 +41,8 @@ export const useActDataAtore = defineStore('ActData', () => {
         活動圖片 = ref('');
         門票價格 = ref(0);
         圖片 = ref('');
+        營區地址 = ref('');
+        單價 = ref(0);
     }
 
     //個別獨立的變數
@@ -69,7 +73,7 @@ export const useActDataAtore = defineStore('ActData', () => {
                 "https://localhost:7108/api/CampDetails"
             );
             res.data.forEach((Actdetail) => {
-                const detail = new ActAllValue(Actdetail.營區id, Actdetail.活動id, Actdetail.營區名稱, Actdetail.地區, Actdetail.縣市, Actdetail.活動方式, Actdetail.活動種類, Actdetail.活動名稱, Actdetail.活動介紹, Actdetail.活動圖片, Actdetail.門票價格, Actdetail.圖片)
+                const detail = new ActAllValue(Actdetail.營區id, Actdetail.活動id, Actdetail.營區名稱, Actdetail.地區, Actdetail.縣市, Actdetail.活動方式, Actdetail.活動種類, Actdetail.活動名稱, Actdetail.活動介紹, Actdetail.活動圖片, Actdetail.門票價格, Actdetail.圖片, Actdetail.營區地址, Actdetail.單價)
                 ActAllData.push(detail);
             })
 
@@ -83,8 +87,8 @@ export const useActDataAtore = defineStore('ActData', () => {
             const res = await axios.get(
                 "https://localhost:7108/api/CampDetails"
             );
-            res.data.forEach((Eventdetail) => {
-                const EventDt = new ActAllValue(Eventdetail.營區id, Eventdetail.活動id, Eventdetail.營區名稱, Eventdetail.地區, Eventdetail.縣市, Eventdetail.活動方式, Eventdetail.活動種類, Eventdetail.活動名稱, Eventdetail.活動介紹, Eventdetail.活動圖片, Eventdetail.門票價格, Eventdetail.圖片)
+            res.data.forEach((Actdetail) => {
+                const EventDt = new ActAllValue(Actdetail.營區id, Actdetail.活動id, Actdetail.營區名稱, Actdetail.地區, Actdetail.縣市, Actdetail.活動方式, Actdetail.活動種類, Actdetail.活動名稱, Actdetail.活動介紹, Actdetail.活動圖片, Actdetail.門票價格, Actdetail.圖片, Actdetail.營區地址, Actdetail.單價)
                 const AllEvent = EventDt.活動方式;
                 if (Event[AllEvent]) {
                     Event[AllEvent].push(EventDt)
@@ -104,8 +108,8 @@ export const useActDataAtore = defineStore('ActData', () => {
             const res = await axios.get(
                 "https://localhost:7108/api/CampDetails"
             );
-            res.data.forEach((Eventdetail) => {
-                const ViewPointDt = new ActAllValue(Eventdetail.營區id, Eventdetail.活動id, Eventdetail.營區名稱, Eventdetail.地區, Eventdetail.縣市, Eventdetail.活動方式, Eventdetail.活動種類, Eventdetail.活動名稱, Eventdetail.活動介紹, Eventdetail.活動圖片, Eventdetail.門票價格, Eventdetail.圖片)
+            res.data.forEach((Actdetail) => {
+                const ViewPointDt = new ActAllValue(Actdetail.營區id, Actdetail.活動id, Actdetail.營區名稱, Actdetail.地區, Actdetail.縣市, Actdetail.活動方式, Actdetail.活動種類, Actdetail.活動名稱, Actdetail.活動介紹, Actdetail.活動圖片, Actdetail.門票價格, Actdetail.圖片, Actdetail.營區地址, Actdetail.單價)
                 const AllEvent = ViewPointDt.活動方式;
                 if (ViewPoint[AllEvent]) {
                     ViewPoint[AllEvent].push(ViewPointDt)
@@ -124,8 +128,8 @@ export const useActDataAtore = defineStore('ActData', () => {
             const res = await axios.get(
                 "https://localhost:7108/api/CampDetails"
             );
-            res.data.forEach((Eventdetail) => {
-                const SportDt = new ActAllValue(Eventdetail.營區id, Eventdetail.活動id, Eventdetail.營區名稱, Eventdetail.地區, Eventdetail.縣市, Eventdetail.活動方式, Eventdetail.活動種類, Eventdetail.活動名稱, Eventdetail.活動介紹, Eventdetail.活動圖片, Eventdetail.門票價格, Eventdetail.圖片)
+            res.data.forEach((Actdetail) => {
+                const SportDt = new ActAllValue(Actdetail.營區id, Actdetail.活動id, Actdetail.營區名稱, Actdetail.地區, Actdetail.縣市, Actdetail.活動方式, Actdetail.活動種類, Actdetail.活動名稱, Actdetail.活動介紹, Actdetail.活動圖片, Actdetail.門票價格, Actdetail.圖片, Actdetail.營區地址, Actdetail.單價)
                 const AllEvent = SportDt.活動方式;
                 if (Sport[AllEvent]) {
                     Sport[AllEvent].push(SportDt)
@@ -144,8 +148,8 @@ export const useActDataAtore = defineStore('ActData', () => {
             const res = await axios.get(
                 "https://localhost:7108/api/CampDetails"
             );
-            res.data.forEach((Eventdetail) => {
-                const CultureDt = new ActAllValue(Eventdetail.營區id, Eventdetail.活動id, Eventdetail.營區名稱, Eventdetail.地區, Eventdetail.縣市, Eventdetail.活動方式, Eventdetail.活動種類, Eventdetail.活動名稱, Eventdetail.活動介紹, Eventdetail.活動圖片, Eventdetail.門票價格, Eventdetail.圖片)
+            res.data.forEach((Actdetail) => {
+                const CultureDt = new ActAllValue(Actdetail.營區id, Actdetail.活動id, Actdetail.營區名稱, Actdetail.地區, Actdetail.縣市, Actdetail.活動方式, Actdetail.活動種類, Actdetail.活動名稱, Actdetail.活動介紹, Actdetail.活動圖片, Actdetail.門票價格, Actdetail.圖片, Actdetail.營區地址, Actdetail.單價)
                 const AllEvent = CultureDt.活動方式;
                 if (Culture[AllEvent]) {
                     Culture[AllEvent].push(CultureDt)
@@ -164,8 +168,8 @@ export const useActDataAtore = defineStore('ActData', () => {
             const res = await axios.get(
                 "https://localhost:7108/api/CampDetails"
             );
-            res.data.forEach((Eventdetail) => {
-                const WaterDt = new ActAllValue(Eventdetail.營區id, Eventdetail.活動id, Eventdetail.營區名稱, Eventdetail.地區, Eventdetail.縣市, Eventdetail.活動方式, Eventdetail.活動種類, Eventdetail.活動名稱, Eventdetail.活動介紹, Eventdetail.活動圖片, Eventdetail.門票價格, Eventdetail.圖片)
+            res.data.forEach((Actdetail) => {
+                const WaterDt = new ActAllValue(Actdetail.營區id, Actdetail.活動id, Actdetail.營區名稱, Actdetail.地區, Actdetail.縣市, Actdetail.活動方式, Actdetail.活動種類, Actdetail.活動名稱, Actdetail.活動介紹, Actdetail.活動圖片, Actdetail.門票價格, Actdetail.圖片, Actdetail.營區地址, Actdetail.單價)
                 const AllEvent = WaterDt.活動方式;
                 if (Water[AllEvent]) {
                     Water[AllEvent].push(WaterDt)
@@ -184,8 +188,8 @@ export const useActDataAtore = defineStore('ActData', () => {
             const res = await axios.get(
                 "https://localhost:7108/api/CampDetails"
             );
-            res.data.forEach((Eventdetail) => {
-                const TourDt = new ActAllValue(Eventdetail.營區id, Eventdetail.活動id, Eventdetail.營區名稱, Eventdetail.地區, Eventdetail.縣市, Eventdetail.活動方式, Eventdetail.活動種類, Eventdetail.活動名稱, Eventdetail.活動介紹, Eventdetail.活動圖片, Eventdetail.門票價格, Eventdetail.圖片)
+            res.data.forEach((Actdetail) => {
+                const TourDt = new ActAllValue(Actdetail.營區id, Actdetail.活動id, Actdetail.營區名稱, Actdetail.地區, Actdetail.縣市, Actdetail.活動方式, Actdetail.活動種類, Actdetail.活動名稱, Actdetail.活動介紹, Actdetail.活動圖片, Actdetail.門票價格, Actdetail.圖片, Actdetail.營區地址, Actdetail.單價)
                 const AllEvent = TourDt.活動方式;
                 if (Tour[AllEvent]) {
                     Tour[AllEvent].push(TourDt)
@@ -223,6 +227,8 @@ export const useActDataAtore = defineStore('ActData', () => {
                 ActDialogAll.活動圖片.value = item.活動圖片;
                 ActDialogAll.門票價格.value = item.門票價格;
                 ActDialogAll.圖片.value = item.圖片;
+                ActDialogAll.營區地址.value = item.營區地址;
+                ActDialogAll.單價.value = item.單價;
             }
             else { item.Edit = false; }
 
@@ -254,6 +260,8 @@ export const useActDataAtore = defineStore('ActData', () => {
                 ActDialogAll.活動圖片.value = item.活動圖片;
                 ActDialogAll.門票價格.value = item.門票價格;
                 ActDialogAll.圖片.value = item.圖片;
+                ActDialogAll.營區地址.value = item.營區地址;
+                ActDialogAll.單價.value = item.單價;
             }
             else { item.Edit = false; }
 
@@ -284,6 +292,8 @@ export const useActDataAtore = defineStore('ActData', () => {
                 ActDialogAll.活動圖片.value = item.活動圖片;
                 ActDialogAll.門票價格.value = item.門票價格;
                 ActDialogAll.圖片.value = item.圖片;
+                ActDialogAll.營區地址.value = item.營區地址;
+                ActDialogAll.單價.value = item.單價;
             }
             else { item.Edit = false; }
 
@@ -314,6 +324,8 @@ export const useActDataAtore = defineStore('ActData', () => {
                 ActDialogAll.活動圖片.value = item.活動圖片;
                 ActDialogAll.門票價格.value = item.門票價格;
                 ActDialogAll.圖片.value = item.圖片;
+                ActDialogAll.營區地址.value = item.營區地址;
+                ActDialogAll.單價.value = item.單價;
             }
             else { item.Edit = false; }
 
@@ -344,6 +356,8 @@ export const useActDataAtore = defineStore('ActData', () => {
                 ActDialogAll.活動圖片.value = item.活動圖片;
                 ActDialogAll.門票價格.value = item.門票價格;
                 ActDialogAll.圖片.value = item.圖片;
+                ActDialogAll.營區地址.value = item.營區地址;
+                ActDialogAll.單價.value = item.單價;
             }
             else { item.Edit = false; }
 
@@ -374,6 +388,8 @@ export const useActDataAtore = defineStore('ActData', () => {
                 ActDialogAll.活動圖片.value = item.活動圖片;
                 ActDialogAll.門票價格.value = item.門票價格;
                 ActDialogAll.圖片.value = item.圖片;
+                ActDialogAll.營區地址.value = item.營區地址;
+                ActDialogAll.單價.value = item.單價;
             }
             else { item.Edit = false; }
 
@@ -404,6 +420,8 @@ export const useActDataAtore = defineStore('ActData', () => {
                 ActDialogAll.活動圖片.value = item.活動圖片;
                 ActDialogAll.門票價格.value = item.門票價格;
                 ActDialogAll.圖片.value = item.圖片;
+                ActDialogAll.營區地址.value = item.營區地址;
+                ActDialogAll.單價.value = item.單價;
             }
             else { item.Edit = false; }
 
