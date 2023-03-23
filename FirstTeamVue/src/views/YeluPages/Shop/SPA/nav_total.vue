@@ -8,7 +8,7 @@ import { Place } from "@element-plus/icons-vue";
         
         <Place
         style="width: 1em; height: 1em; margin-right: 8px; padding-top: 3px;font-size: 1.25rem;" 
-        />熱門精選
+        />精選商品
     </router-link>
   </div>
 </template>
