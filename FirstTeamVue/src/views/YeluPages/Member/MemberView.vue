@@ -11,7 +11,9 @@ import bg0 from "@/assets/img/bg9.jpg";
 //dep
 import Typed from "typed.js";
 import basic from "./Sections/BasicView.vue"
-import SMTP1 from "./Sections/SMTP1.vue"
+
+import Facebook from "./Sections/Facebook.vue"
+
 
 
 
@@ -70,13 +72,13 @@ const refreshEdit_Frame = () => {
       <div class="container">
         
         <basic/>
-        
+        <Facebook/>
 
       </div>
     </div>
   </header>
 
-  <SMTP1 />
+  
   
   <yelufooter />
 </template>

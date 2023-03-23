@@ -2,7 +2,7 @@
 import Login from "./Login.vue";
 import Signup from "./Signup.vue";
 
-import SMTP from "./SMTP.vue"
+import Shortnews from "./Shortnews.vue"
 
 
 const refreshEdit = () => {
@@ -58,7 +58,8 @@ const emits = defineEmits(['refreshEdit_Frame'])
                   </el-tab-pane>
                   <!-- <el-tab-pane label="Role">Role</el-tab-pane> -->
                   <!-- <el-tab-pane label="Task">Task</el-tab-pane> -->
-                  <SMTP/>
+                  
+                  <Shortnews/>
                 </el-tabs>
               </div>
             </div>
