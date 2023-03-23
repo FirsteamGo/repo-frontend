@@ -152,8 +152,7 @@ onUnmounted(() => {
                 >
                   <i class="material-icons">home</i>南部營區 #SOUTH CAMP
                 </button>
-              </h2></router-link
-            >
+              </h2></router-link>
             <div
               id="collapseThree"
               class="accordion-collapse collapse"
@@ -200,11 +199,20 @@ onUnmounted(() => {
             </div>
           </div>
         </div>
+
+        <!-- 地圖 -->
+        <div class="mt-5">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3634.7429887997278!2d120.77220251537011!3d24.355443871308932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3469057690ed35a9%3A0xd5d012046ae76b77!2z5pa35qmL6YOo6JC977yO6LyV5aWi6Zyy54ef!5e0!3m2!1szh-TW!2stw!4v1679535747344!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+
+
         <!-- 手風琴end -->
       </el-aside>
       <el-main> <router-view></router-view></el-main>
     </el-container>
   </div>
+
+
 
   <yelufooter />
 </template>
