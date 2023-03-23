@@ -35,6 +35,10 @@ let ListTotal = computed(() => {
   return ListTotalData;
 });
 // console.log(ListTotal);
+
+const deleteItem = (index) => {
+  props.sfitem.splice(index, 1);
+};
 </script>
 
 
@@ -72,6 +76,7 @@ let ListTotal = computed(() => {
             <td style="width: 300px">商品內容</td>
             <td style="width: 170px">單價($)</td>
             <td style="width: 60px">數量</td>
+            <td style="width: 60px"></td>
           </tr>
         </table>
         <!-- 動態新增 -->
@@ -102,6 +107,11 @@ let ListTotal = computed(() => {
               </td>
               <td style="width: 60px">
                 <p>{{ item.需求份數 }}</p>
+              </td>
+              <td style="width: 60px">
+                <el-button class="p-1" type="info" @click="deleteItem(index)"
+                  ><span class="material-icons">delete</span></el-button
+                >
               </td>
             </tr>
           </table>
