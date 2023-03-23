@@ -1,4 +1,47 @@
 <template>
+  <!-- 詳細資訊填寫 -->
+  <div class="container card w-75 mt-5 mb-5 px-5 justify-content-center">
+    <div class="card-body">
+      <div>
+        <el-form :model="form" label-width="120px">
+          <el-form-item label="訂單編號" hidden>{{ selforder }}</el-form-item>
+
+          <div class="container d-flex justify-content-start">
+
+            <el-form-item label="露營日期" class="demonstration">
+              <el-date-picker
+                v-model="form.data"
+                type="daterange"
+                range-separator="To"
+                start-placeholder="開始日期"
+                end-placeholder="結束日期"
+                size="default"
+            /></el-form-item>
+            </div>
+          <div class="container d-flex justify-content-start">
+
+            <el-form-item label="預計人數 :">
+              <el-input
+                type="text"
+                v-model="form.預計人數"
+                placeholder="請填入參加人數"
+              />
+            </el-form-item>
+          </div>
+
+  
+  
+          <div class="container d-flex justify-content-end ">
+              <el-form-item >
+                <el-button type="warning"  @click="onSubmit">確認</el-button>
+              </el-form-item>
+          </div>
+
+        </el-form>
+      </div>
+
+    </div>
+  </div>
   <!-- 所選營地/活動 -->
   <div class="container w-75 px-2">
     <div class="row">
@@ -52,52 +95,6 @@
     </div>
   </div>
 
-  <!-- 詳細資訊填寫 -->
-  <div class="container card w-75 mt-5 mb-5 px-5 justify-content-center">
-    <div class="card-body">
-      <div>
-        <el-form :model="form" label-width="120px">
-          <el-form-item label="訂單編號" hidden>{{ selforder }}</el-form-item>
-
-          <el-form-item label="露營日期" class="demonstration">
-            <el-date-picker
-              v-model="form.data"
-              type="daterange"
-              range-separator="To"
-              start-placeholder="開始日期"
-              end-placeholder="結束日期"
-              size="default"
-          /></el-form-item>
-
-          <el-form-item label="預計人數 :">
-            <el-input
-              type="text"
-              v-model="form.預計人數"
-              placeholder="請填入參加人數"
-            />
-          </el-form-item>
-
-          <el-form-item label="評論 :" style="width: 100%">
-            <el-input v-model="form.評論" type="textarea" />
-          </el-form-item>
-
-          <el-form-item label="評分 :">
-            <el-select v-model="form.評分" placeholder="請評分謝謝">
-              <el-option label="1" value="1" />
-              <el-option label="2" value="2" />
-              <el-option label="3" value="3" />
-              <el-option label="4" value="4" />
-              <el-option label="5" value="5" />
-            </el-select>
-          </el-form-item>
-
-          <el-form-item>
-            <el-button type="warning" @click="onSubmit">確認</el-button>
-          </el-form-item>
-        </el-form>
-      </div>
-    </div>
-  </div>
 </template>
 
   
