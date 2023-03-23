@@ -146,38 +146,36 @@ const add = (自選飲食id) => {
                 :title="item.商品名稱"
               />
               <!-- <img :src="`${MVCimages}${item.圖片}`" alt=""> -->
-
+             
               <div style="display: flex; justify-content: flex-start">
-                <div class="d-flex mt-3">
+                <div class="d-flex mt-3 mb-9">
                   <label class="form-lable" hidden>
                     {{ item.自選飲食id }}</label
                   >
                   <!-- <label class="form-lable"><span class="material-icons">pin_drop</span> {{ item.商品名稱 }}</label> -->
 
+              <div class="d-flex row  mb-6  bottom-button-wrapper">
                   <label class="form-lable"
                     ><span class="material-icons">flatware</span>
                     {{ item.商品內容 }}</label
                   >
-                </div>
-              </div>
 
-              <div>
-                <label class="form-lable"
+                  <label class="form-lable"
                   ><span class="material-icons">attach_money</span> TWD
                   <span class="text-primary">{{ item.單價 }} </span> / 組</label
-                >
+                  >
+             
+                  <div>
+                    <el-input-number
+                      v-model="quantity[index]"
+                      :min="1"
+                      :max="10"
+                      :step="1"
+                    ></el-input-number>
+                  </div>
               </div>
 
-              <div>
-                <el-input-number
-                  v-model="quantity[index]"
-                  :min="1"
-                  :max="10"
-                  :step="1"
-                ></el-input-number>
-              </div>
-
-              <div>
+              <div class="d-flex col mb-2 bottom-button-wrapper">    
                 <!-- <button type="button" class="btn btn-outline-dark" size="medium"  @click="add(item.自選飲食id , item , index)" >選購</button> -->
                 <el-button
                   type="warning"
@@ -186,7 +184,10 @@ const add = (自選飲食id) => {
                 >
                   <span class="material-icons">add_shopping_cart</span>
                 </el-button>
+         
               </div>
+            </div>
+          </div>
             </div>
           </div>
         </section>
@@ -223,4 +224,11 @@ thead {
   width: 100%;
   display: block;
 }
+
+.bottom-button-wrapper {
+  position: absolute;
+  bottom: 0;
+ 
+}
+
 </style>
