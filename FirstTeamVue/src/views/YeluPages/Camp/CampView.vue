@@ -74,12 +74,12 @@ onUnmounted(() => {
   <!-- <CampCarousel /> -->
   <!-- <CampSelects /> -->
 
-  <div class="common-layout card card-body shadow-xl mx-3 mx-md-4 mt-n6">
+  <div class="common-layout card card-body shadow-xl mx-5 mx-md-4 mt-n6 ">
     <el-container>
-      <el-aside width="300px">
+      <el-aside width="300px" >
         <div class="accordion" id="accordionExample">
           <!-- 手風琴 -->
-          <div class="accordion-item">
+          <div class="accordion-item ">
             <router-link to="/pages/Yelu-pages/camp/North">
               <h2 class="accordion-header" id="headingOne">
                 <button
@@ -90,19 +90,23 @@ onUnmounted(() => {
                   aria-expanded="true"
                   aria-controls="collapseOne"
                 >
-                  <i class="material-icons">home</i>北部營區 #NORTH CAMP
+                  <i class="material-icons ">home</i>北部營區 #NORTH CAMP
                 </button>
-              </h2></router-link
-            >
+              </h2></router-link>
             <div
               id="collapseOne"
               class="accordion-collapse collapse show"
               aria-labelledby="headingOne"
               data-bs-parent="#accordionExample"
             >
-              <!-- <div class="accordion-body"> -->
-              <code>新北 / 桃園 / 新竹</code>
-              <!-- </div> -->
+              <div class="word-body">
+                <div>
+                  <h6>新北 New Taipei</h6>
+                  <h6>桃園 Taoyuan</h6>
+                  <h6>新竹 Hsinchu</h6>
+                </div>
+              
+              </div>
             </div>
           </div>
           <div class="accordion-item">
@@ -126,8 +130,12 @@ onUnmounted(() => {
               aria-labelledby="headingTwo"
               data-bs-parent="#accordionExample"
             >
-              <div class="accordion-body">
-                <code>苗栗 / 南投 / 台中</code>
+              <div class="word-body">
+                <div>
+                  <h6>苗栗 Miaoli</h6>
+                  <h6>南投 Nantou</h6>
+                  <h6>台中 Taichung</h6>
+                </div>
               </div>
             </div>
           </div>
@@ -152,8 +160,12 @@ onUnmounted(() => {
               aria-labelledby="headingThree"
               data-bs-parent="#accordionExample"
             >
-              <div class="accordion-body">
-                <code>嘉義 / 台南 / 高雄</code>
+              <div class="word-body">
+                <div>
+                  <h6>嘉義 Chiayi</h6>
+                  <h6>台南 Tainan</h6>
+                  <h6>高雄 Kaohsiung</h6>
+                </div>
               </div>
             </div>
           </div>
@@ -178,8 +190,12 @@ onUnmounted(() => {
               aria-labelledby="headingFour"
               data-bs-parent="#accordionExample"
             >
-              <div class="accordion-body">
-                <code>宜蘭 / 花蓮 / 台東</code>
+              <div class="word-body">
+                <div>
+                  <h6>宜蘭 Yilan</h6>
+                  <h6>花蓮 Hualien</h6>
+                  <h6>台東 Taitung</h6>
+                </div>
               </div>
             </div>
           </div>
@@ -193,3 +209,12 @@ onUnmounted(() => {
   <yelufooter />
 </template>
 
+<style>
+
+.word-body{
+display: flex;
+/* justify-content: center;
+align-content: center; */
+margin-left: 30px;
+}
+</style>

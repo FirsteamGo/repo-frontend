@@ -120,7 +120,7 @@ onMounted(WaterAll.WaterActGet)
                                         class="text-primary">{{ item.門票價格 }}</span> /次</label>
                             </div>
 
-                            <div>
+                            <div class="m-3">
                                 <el-button type="info" class="text-lg font-weight-bolder icon-move-right"
                                     @click="{ WaterAll.WaterDialog(item.活動id); WaterAll.ActDialogAll.dialogVisible = true }">
                                     詳細資訊<i class="fas fa-arrow-right text-xs ms-1"></i>
@@ -182,7 +182,16 @@ onMounted(WaterAll.WaterActGet)
                                     <label class="form-lable"> TWD <span class="text-primary">{{ WaterAll.ActDialogAll.門票價格
                                     }}</span> /次</label>
                                 </div>
-
+                                <!-- 重要!!!這邊要導到自選行程第二步!!!!!!! -->
+                                <RouterLink to="/pages/Yelu-pages/Self/stepall/step2">
+                                    <el-button
+                                        type="warning"
+                                        class="text-lg font-weight-bolder m-2"
+                                        @click="SelfSet(item.營區細項id)"
+                                    >
+                                    自選行程<span class="material-icons">add_shopping_cart</span>
+                                    </el-button>
+                                    </RouterLink>
                             </span>
                         </el-dialog>
                     </div>

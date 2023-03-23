@@ -143,7 +143,7 @@ onMounted(ActAll.HotActGet)
                                         class="text-primary">{{ item.門票價格 }}</span> /次</label>
                             </div>
 
-                            <div>
+                            <div class="m-3">
                                 <el-button type="info" class="text-lg font-weight-bolder icon-move-right"
                                     @click="{ ActAll.HotDialog(item.活動id); ActAll.ActDialogAll.dialogVisible = true }">
                                     詳細資訊<i class="fas fa-arrow-right text-xs ms-1"></i>
@@ -205,6 +205,13 @@ onMounted(ActAll.HotActGet)
                                     <label class="form-lable"><span class="material-icons">attach_money</span> TWD <span
                                             class="text-primary">{{ ActAll.ActDialogAll.門票價格 }}</span> /次</label>
                                 </div>
+                                <!-- 重要!!!這邊要導到自選行程第二步!!!!!!! -->
+                                <RouterLink to="/pages/Yelu-pages/Self/stepall/step2">
+                                    <el-button type="warning" class="text-lg font-weight-bolder m-2"
+                                        @click="SelfSet(item.營區細項id)">
+                                        自選行程<span class="material-icons">add_shopping_cart</span>
+                                    </el-button>
+                                </RouterLink>
                             </span>
                         </el-dialog>
                     </div>
