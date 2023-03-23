@@ -13,17 +13,14 @@ import Tour from "../Sections/Tour.vue";
 
 <template>
   <!-- 跑馬燈 -->
-<Actcarousel />
-<Event />
-<ViewPoint />
-<Sport />
-<Culture />
-<WaterAct />
-<Tour />
-
+  <Actcarousel />
+  <Event />
+  <ViewPoint />
+  <Sport />
+  <Culture />
+  <WaterAct />
+  <Tour />
 </template>
 
 
-<style>
-
-</style>
+<style></style>

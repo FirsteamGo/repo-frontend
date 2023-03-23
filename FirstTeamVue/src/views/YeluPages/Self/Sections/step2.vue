@@ -11,7 +11,7 @@
             <img :src="`${ActData.MVCimages}${ActData.ActDialogAll.圖片}`"
               style=" height: 200px; display: block; margin: 0 auto;" />
             <!-- <p>營區名稱</p> -->
-            <label class="m-3">營區名稱 : {{ ActData.ActDialogAll.營區名稱 }}</label>
+            <label class="m-3">營區名稱 : {{ whoFunc.營區名稱 }}</label>
           </div>
         </div>
       </div>
@@ -23,7 +23,7 @@
                   class="material-icons mx-2 ">task_alt</span>已選活動</span></h5>
             <img :src="`${ActData.MVCimages}${ActData.ActDialogAll.活動圖片}`"
               style=" height: 200px; display: block; margin: 0 auto;" />
-            <label class="m-3">活動名稱 : {{ ActData.ActDialogAll.活動名稱 }}</label>
+            <label class="m-3">活動名稱 : {{ whoFunc.活動名稱 }}</label>
           </div>
         </div>
       </div>
@@ -78,7 +78,12 @@
 import axios from 'axios';
 import { reactive, ref, computed, onMounted } from 'vue';
 import { useActDataAtore } from "../../../../stores/ActData.js";
+import { useCampDataAtore } from "../../../../stores/CampData.js";
+import { useRoute } from "vue-router";
+const route = useRoute();
+
 const ActData = useActDataAtore();
+const CampData = useCampDataAtore();
 const webApi = ref("https://localhost:7108/api/SelfOrders");
 const now = new Date();
 const form = reactive({
@@ -108,14 +113,19 @@ const onSubmit = () => {
   alert("請按下一步進入購物車")
 }
 
+const whoFunc = ref('')
+onMounted(() => {
+  if (route.name == 'step2-p') {
+    // alert(route.params.whoFunc)
+    if (route.params.whoFunc == 'Camp') {
+      whoFunc.value = CampData.CampDialogAll
+    } else if (route.params.whoFunc == 'Act') {
+      whoFunc.value = ActData.ActDialogAll
+    }
+  }
+});
 
-</script>
-
-
-
-
-
-  
+</script>  
   
 <style>
 .el-carousel__item h3 {
