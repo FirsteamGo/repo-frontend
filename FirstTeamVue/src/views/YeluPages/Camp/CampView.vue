@@ -74,9 +74,9 @@ onUnmounted(() => {
   <!-- <CampCarousel /> -->
   <!-- <CampSelects /> -->
 
-  <div class="common-layout card card-body shadow-xl mx-5 mx-md-4 mt-n6 ">
+  <div class="common-layout card card-body shadow-xl mx-5 mx-md-4 mt-n6">
     <el-container>
-      <el-aside width="300px" >
+      <el-aside width="300px">
         <div class="accordion ms-4" id="accordionExample">
           <!-- 手風琴 -->
           <div class="accordion-item">
@@ -90,9 +90,10 @@ onUnmounted(() => {
                   aria-expanded="true"
                   aria-controls="collapseOne"
                 >
-                  <i class="material-icons ">home</i>北部營區 #NORTH CAMP
+                  <i class="material-icons">home</i>北部營區 #NORTH CAMP
                 </button>
-              </h2></router-link>
+              </h2>
+            </router-link>
             <div
               id="collapseOne"
               class="accordion-collapse collapse show"
@@ -101,11 +102,11 @@ onUnmounted(() => {
             >
               <div class="word-body">
                 <div>
+                  <!-- <router-link></router-link> -->
                   <h6>新北 New Taipei</h6>
                   <h6>桃園 Taoyuan</h6>
                   <h6>新竹 Hsinchu</h6>
                 </div>
-              
               </div>
             </div>
           </div>
@@ -122,8 +123,8 @@ onUnmounted(() => {
                 >
                   <i class="material-icons">home</i>中部營區 #WEST CAMP
                 </button>
-              </h2></router-link
-            >
+              </h2>
+            </router-link>
             <div
               id="collapseTwo"
               class="accordion-collapse collapse"
@@ -152,7 +153,8 @@ onUnmounted(() => {
                 >
                   <i class="material-icons">home</i>南部營區 #SOUTH CAMP
                 </button>
-              </h2></router-link>
+              </h2>
+            </router-link>
             <div
               id="collapseThree"
               class="accordion-collapse collapse"
@@ -181,8 +183,8 @@ onUnmounted(() => {
                 >
                   <i class="material-icons">home</i>東部營區#EAST CAMP
                 </button>
-              </h2></router-link
-            >
+              </h2>
+            </router-link>
             <div
               id="collapseFour"
               class="accordion-collapse collapse"
@@ -202,9 +204,16 @@ onUnmounted(() => {
 
         <!-- 地圖 -->
         <div class="mt-5">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3634.7429887997278!2d120.77220251537011!3d24.355443871308932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3469057690ed35a9%3A0xd5d012046ae76b77!2z5pa35qmL6YOo6JC977yO6LyV5aWi6Zyy54ef!5e0!3m2!1szh-TW!2stw!4v1679535747344!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
-
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3634.7429887997278!2d120.77220251537011!3d24.355443871308932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3469057690ed35a9%3A0xd5d012046ae76b77!2z5pa35qmL6YOo6JC977yO6LyV5aWi6Zyy54ef!5e0!3m2!1szh-TW!2stw!4v1679535747344!5m2!1szh-TW!2stw"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
 
         <!-- 手風琴end -->
       </el-aside>
@@ -212,17 +221,14 @@ onUnmounted(() => {
     </el-container>
   </div>
 
-
-
   <yelufooter />
 </template>
 
 <style>
-
-.word-body{
-display: flex;
-/* justify-content: center;
+.word-body {
+  display: flex;
+  /* justify-content: center;
 align-content: center; */
-margin-left: 30px;
+  margin-left: 30px;
 }
 </style>

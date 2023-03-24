@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { reactive, ref, onMounted } from 'vue'
-import Memberphoto1 from "./Memberphoto1.vue";
 import axios from 'axios';
+
 
 // 在 JavaScript 中，利用 const 來宣告一個常數變數 ruleFormRef，並將 ref() 賦予給他。
 
@@ -119,8 +119,8 @@ const EditCustomer = () => {
   
   <el-form ref="ruleFormRef" :model="ruleForm" label-width="120px" refreshEdit="refreshEdit()">
     
-    <Memberphoto1/>
-    <br>
+    
+    
     <el-form-item label="姓名">
       <el-input v-model="ruleForm.姓名" />
     </el-form-item>

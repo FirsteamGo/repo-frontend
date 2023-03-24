@@ -1,14 +1,14 @@
 <template>
   <el-row>
-    <el-col>
+    <el-col >
       <el-card :body-style="{ padding: '0px' }">
         <img
           :src="imageUrl"
           class="image"
         />
-        <div style="padding: 14px">
-          <h3>會員照片</h3>
-          <el-row class="mb-4">
+        <div style="padding: 14px;height: 130px; text-align: left;" >
+          <h3 style="margin-bottom: 20px;">會員照片</h3>
+          <el-row class="mb-4" >
             <input type="file" ref="fileInput" accept="image/*" @change="handleFileChange" style="width: 180px;height: 120px; font-size: small;margin-left:10px;margin-right: 10px;"/>
             <el-button type="primary" @click="uploadImage" class="btn-sm">上傳圖片</el-button>
           </el-row>

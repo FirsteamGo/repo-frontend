@@ -7,9 +7,14 @@ export default [
     component: CampView,
     children: [
       {
-        path: "CampHot",
-        name: "CampHot",
-        component: () => import("../views/YeluPages/Camp/Sections/CampHot.vue"),
+        path: "CampAllCity",
+        name: "CampAllCity",
+        component: () => import("../views/YeluPages/Camp/Sections/CampAllCity.vue"),
+      },
+      {
+        path: "CampAllCity/:whoCity",
+        name: "CampAllCity-c",
+        component: () => import("../views/YeluPages/Camp/Sections/CampAllCity.vue"),
       },
       {//營區首頁
         path: "CampIndex",

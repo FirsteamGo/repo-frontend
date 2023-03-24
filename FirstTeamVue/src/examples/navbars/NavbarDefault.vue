@@ -527,17 +527,16 @@ watch(
                 :class="getTextColor()"
                 aria-expanded="false"
               >
-                <RouterLink
-                  :to="{ name: 'member' }"
+                <a
+                  href="https://localhost:7120/"
                   class="dropdown-item border-radius-md"
                 >
                   <i
                     class="material-icons opacity-6 me-2 text-md"
                     :class="getTextColor()"
-                    title="野麓後台系統"
                     >settings</i
                   >
-                </RouterLink>
+                </a>
               </a>
             </li>
           </div>

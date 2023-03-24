@@ -11,13 +11,11 @@ import CampSouth from "../Sections/CampSouth.vue";
 
 
 <template>
-    
-<CampNorth />
+    <CampNorth />
 
-<CampEast />
-<CampWest />
-<CampSouth />
-
+    <CampEast />
+    <CampWest />
+    <CampSouth />
 </template>
 
 

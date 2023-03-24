@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, onUnmounted } from "vue";
+import { onMounted, onUnmounted,ref } from "vue";
 
 //example components
 import DefaultNavbar from "../../../examples/navbars/NavbarDefault.vue";
@@ -10,23 +10,17 @@ import bg0 from "@/assets/img/bg9.jpg";
 
 //dep
 import Typed from "typed.js";
+import basic from "./Sections/BasicView.vue"
 
-//sections 放置要引入的頁面
-// import Information from "./Sections/AboutInformation.vue";
-// import LinkDatabase from "./Sections/LinkDatabase.vue";
-// import Container from "./Sections/Container.vue";
-// import Container1 from "./Sections/Container1.vue";
-// import Container2 from "./Sections/Container2.vue";
-// import Breadcrumbs from "./Sections/Breadcrumbs.vue";
-// import Container3 from "./Sections/Container3.vue";
-// import Signup from "./Sections/Signup.vue";
-// import Login from "./Sections/Login.vue";
- import frame from "./Sections/Frame.vue";
- import frame1 from "./Sections/Frame1.vue";
-// import shoppingcar from "./Sections/shoppingcar.vue";
-// import shoppingcar1 from "./Sections/shoppingcar1.vue";
-// import SMTP from "./Sections/SMTP.vue";
-// import Chatbot2 from "./Sections/Chatbot2.vue";
+
+
+
+
+
+
+
+
+const ishidden = ref(false)
 
 const body = document.getElementsByTagName("body")[0];
 //hooks
@@ -55,7 +49,10 @@ onUnmounted(() => {
 const refreshEdit_Frame = () => {
   console.log('refreshEdit_Frame refreshEdit_Frame refreshEdit_Frame')
 }
+
 </script>
+
+
 <template>
   <DefaultNavbar
     :action="{
@@ -73,49 +70,15 @@ const refreshEdit_Frame = () => {
     >
       <span class="mask bg-gradient-dark opacity-6"></span>
       <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-8 text-center mx-auto my-auto">
-            <h1 class="text-white">
-              Title 
-            </h1>
-           
-            <p class="lead mb-4 text-white opacity-8">
-              We’re constantly trying to express ourselves and actualize our
-              dreams. If you have the opportunity to play this game
-            </p>
-            
-           
-          </div>
-        </div>
+        
+        <basic/>
+        
+
       </div>
     </div>
   </header>
 
-   <Breadcrumbs/>
-  <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
-
-    <!-- 記得這裡設定引入標籤 -->
-    <!-- <Information /> -->
-   
-    
-
-    <Container />
-    <Container1 />
-    <Container2 />
-    <Container3 />
-    <Signup />
-    <br>
-    <br>
-    <Login />
-    <frame @refreshEdit_Frame="refreshEdit_Frame"/>
-    <br>
-    <br>
-    <frame1 />
-    <shoppingcar />
-    <shoppingcar1 />
-    <SMTP />
-    <Chatbot2 />
-
-  </div>
+  
+  
   <yelufooter />
 </template>

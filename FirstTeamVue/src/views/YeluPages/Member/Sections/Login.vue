@@ -94,10 +94,11 @@ const LogInPost = () => {
 
         let dataString = JSON.stringify(result.data)
         localStorage.setItem("customerData", dataString)
-        //router.push('/pages/Yelu-pages/self') //可用於轉跳到其他頁面(搭配上面 useRouter()語法)
-
+        
 
         alert("登入成功")
+        router.push('/pages/Yelu-pages/member2') //可用於轉跳到其他頁面(搭配上面 useRouter()語法)
+
 
         // 使用了 JSON.stringify() 方法和 localStorage.setItem() 方法，用於將從後端 API 獲取的數據序列化成 JSON 字符串，並且保存到瀏覽器檢查 > Appliction > Local Storage 中。
         // 再使用 router.push() 方法將頁面路由跳轉到 '/'，
@@ -157,29 +158,27 @@ const options = Array.from({ length: 10000 }).map((_, idx) => ({
 
 
 // 要補功能
-const buttons = [
-  { type: 'primary', text: '忘記密碼' },
-] as const
+// const buttons = [
+//   { type: 'primary', text: '忘記密碼' },
+// ] as const
 
 ////////////////////////////////////////////測試
 
 
-const rememberMe = reactive({
-  checked: localStorage.getItem("rememberMe") === "true",
-});
+// const rememberMe = reactive({
+//   checked: localStorage.getItem("rememberMe") === "true",
+// });
 
-const handleSubmit = () => {
-  if (rememberMe.checked) {
-    localStorage.setItem("account", ruleForm.account);
-    localStorage.setItem("password", ruleForm.password);
-  } else {
-    localStorage.removeItem("account");
-    localStorage.removeItem("password");
-  }
+// const handleSubmit = () => {
+//   if (rememberMe.checked) {
+//     localStorage.setItem("account", ruleForm.account);
+//     localStorage.setItem("password", ruleForm.password);
+//   } else {
+//     localStorage.removeItem("account");
+//     localStorage.removeItem("password");
+//   }
 
-};
-
-
+// };
 
 
 
@@ -192,6 +191,12 @@ const handleSubmit = () => {
 
 
 <template>
+  
+
+
+
+
+
   <div class="form-container">
     <el-form ref="ruleFormRef" :model="ruleForm" :rules="rules" label-width="120px" class="demo-ruleForm" :size="formSize"
       status-icon>
@@ -207,25 +212,25 @@ const handleSubmit = () => {
 
 
       <!-- 要補功能 -->
-      <div>
+      <!-- <div>
         <el-form-item>
           <el-checkbox v-model="rememberMe.checked">記住帳號和密碼</el-checkbox>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="handleSubmit">記住帳密登入</el-button>
         </el-form-item>
-      </div>
+      </div> -->
 
       <!-- 勾選 checkbox 後，把會員帳號密碼，由 ruleForm 撈出，放在 localStorage 裡面。 -->
 
 
 
 
-      <el-button type="primary" @click="submitForm(ruleFormRef)">
+      <!-- <el-button type="primary" @click="submitForm(ruleFormRef)">
         登入
-      </el-button>
+      </el-button> -->
       <el-button type="primary" @click="LogInPost()">
-        登入測試 Get
+        登入測試
       </el-button>
 
       <div class="flex justify-space-between mb-4 flex-wrap gap-4">
