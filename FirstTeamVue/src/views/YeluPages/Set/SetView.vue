@@ -13,7 +13,7 @@ import Typed from "typed.js";
 import Layout from "./Sections/Layout.vue";
 import Breadcrumb from "./Sections/Breadcrumb.vue";
 import Actimage from "./Sections/Actimage.vue"
-
+import weather from './Sections/weather.vue'
 import testimage from "./Sections/GB/testimage.vue";
 //sections 放置要引入的頁面
 // import Information from "./Sections/AboutInformation.vue";
@@ -54,7 +54,7 @@ onUnmounted(() => {
   }" transparent />
   <header class="bg-gradient-dark">
     <div class="page-header min-vh-50
-  " :style="{ backgroundImage: `url(${bg05})` }">
+          " :style="{ backgroundImage: `url(${bg05})` }">
       <span class="mask bg-gradient-dark opacity-6"></span>
       <div class="container">
         <div class="row justify-content-center">
@@ -64,10 +64,10 @@ onUnmounted(() => {
             </h1>
 
             <p class="lead mb-4 text-white opacity-8">
-             不用規劃直接拎包入住! #YELU CAMP
-                <!--走進大自然，享受真正的自由！ <br>
-              離開城市，找到屬於自己的寧靜空間！ <br> 
-              可以幫你完成你的夢想！ <br>-->
+              不用規劃直接拎包入住! #YELU CAMP
+              <!--走進大自然，享受真正的自由！ <br>
+                      離開城市，找到屬於自己的寧靜空間！ <br> 
+                      可以幫你完成你的夢想！ <br>-->
             </p>
 
 
@@ -77,15 +77,20 @@ onUnmounted(() => {
     </div>
   </header>
 
-  
+
   <Breadcrumb />
 
   <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
-    <Actimage/>
-   
+
+    <Actimage />
+
+
+
     <Layout />
-   
-    
+
+
+    <!-- <weather/> -->
+
   </div>
   <yelufooter />
 </template>

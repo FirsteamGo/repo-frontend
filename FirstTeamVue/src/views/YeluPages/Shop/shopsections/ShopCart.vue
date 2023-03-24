@@ -2,16 +2,16 @@
 import { onMounted, onUnmounted, ref, reactive, computed } from "vue";
 const depot = reactive([]);
 
-function showData() {
-  depot.Name = localStorage.getItem("name");
-  depot.Sex = localStorage.getItem("sex");
-  depot.Age = localStorage.getItem("age");
-  depot.Dog = localStorage.getItem("dog");
-  depot.Car = localStorage.getItem("car");
-}
-onMounted(() => {
-  showData();
-});
+// function showData() {
+//   depot.Name = localStorage.getItem("name");
+//   depot.Sex = localStorage.getItem("sex");
+//   depot.Age = localStorage.getItem("age");
+//   depot.Dog = localStorage.getItem("dog");
+//   depot.Car = localStorage.getItem("car");
+// }
+// onMounted(() => {
+//   showData();
+// });
 </script>
 <template>
   <table

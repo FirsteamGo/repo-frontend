@@ -286,28 +286,28 @@ watch(
                           </div></router-link>
                         </a>
 
-                      </li>
-                    </ul>
-                  </div>
-                  以下是為了設定RWD 
-                  <div class="row d-lg-none">
-                    <div class="col-md-12">
-                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
-                        北部
-                      </RouterLink>
-                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
-                        中部
-                      </RouterLink>
-                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
-                        南部
-                      </RouterLink>
-                      <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
-                        東部
-                      </RouterLink>
-                    </div>
-                  </div>
+                  </li>
+                </ul>
+              </div>
+              以下是為了設定RWD 
+              <div class="row d-lg-none">
+                <div class="col-md-12">
+                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
+                    北部
+                  </RouterLink>
+                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
+                    中部
+                  </RouterLink>
+                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
+                    南部
+                  </RouterLink>
+                  <RouterLink class="dropdown-item ps-3 border-radius-md mb-1" :to="{ name: 'camp' }">
+                    東部
+                  </RouterLink>
                 </div>
-              </li> -->
+              </div>
+            </div>
+          </li> -->
 
           <!-- 導覽列第二個按鈕 -->
           <li class="nav-item dropdown dropdown-hover mx-2">

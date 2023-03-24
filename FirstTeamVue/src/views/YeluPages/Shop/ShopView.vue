@@ -45,21 +45,6 @@ onUnmounted(() => {
   body.classList.remove("about-us");
   body.classList.remove("bg-gray-200");
 });
-//測試用測試用測試用
-const addtoCart = () => {
-  const numbers = {
-    one: "one",
-    two: "two",
-    three: "three",
-    four: "four",
-  };
-  columns.value.push(numbers);
-  localStorage.setItem("name", "Ken");
-  localStorage.setItem("age", "26");
-  localStorage.setItem("sex", "male");
-  localStorage.setItem("car", "BMW");
-  localStorage.setItem("dog", "果果");
-};
 </script>
 <template>
   <DefaultNavbar
@@ -98,7 +83,7 @@ const addtoCart = () => {
       <!--輪播牆-->
       <el-header class="head"><carousel /></el-header>
       <el-header class="inputlocation"><inputContent /></el-header>
-      <button @click="addtoCart">123</button>
+      <!-- <button @click="addtoCart">123</button> -->
       <el-container class="navBar">
         <nav1 />
         <nav2 />
@@ -106,7 +91,6 @@ const addtoCart = () => {
         <nav4 />
         <nav5 />
       </el-container>
-
       <el-main><router-view /></el-main>
     </div>
   </div>
