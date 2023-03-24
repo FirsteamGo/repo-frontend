@@ -56,11 +56,24 @@ export const useCampDataAtore = defineStore('CampData', () => {
     //個別獨立的變數
     const MVCimages = ref("https://localhost:7120/images/")
     const CampDialogAll = new CampAllVariable
-    let dialogVisibleArr = reactive(new Array(4).fill(false));
+    let dialogVisibleArr = reactive(new Array(5).fill(false));
     const North = reactive({ "北部": [], });
     const West = reactive({ "中部": [], });
     const South = reactive({ "南部": [], });
     const East = reactive({ "東部": [], });
+
+    let Taoyuan = reactive({ "桃園市": [], });
+    let NewTp = reactive({ "新北市": [], });
+    let Hsinchu = reactive({ "新竹縣": [], });
+    let Miaoli = reactive({ "苗栗縣": [], });
+    let Nantou = reactive({ "南投縣": [], });
+    let Taichung = reactive({ "台中市": [], });
+    let Chiayi = reactive({ "嘉義縣": [], });
+    let Tainan = reactive({ "台南市": [], });
+    let Kaohsiung = reactive({ "高雄市": [], });
+    let Yilan = reactive({ "宜蘭縣": [], });
+    let Hualien = reactive({ "花蓮縣": [], });
+    let Taitung = reactive({ "台東縣": [], });
 
     //北部營區Get
     const NorthCampGet = async () => {
@@ -294,9 +307,56 @@ export const useCampDataAtore = defineStore('CampData', () => {
         }
         East.東部.splice(0, CampD.length, ...CampD)
     }
+
+
+
+    const AllCityCampGet = async () => {
+        try {
+            const res = await axios.get(
+                "https://localhost:7108/api/CampDetails"
+            );
+            res.data.forEach((Alldetail) => {
+                const AllDt = new CampAllValue(Alldetail.營區細項id, Alldetail.營區id, Alldetail.露營形式id, Alldetail.活動id, Alldetail.營區名稱, Alldetail.營區介紹, Alldetail.營區地址, Alldetail.地區, Alldetail.縣市, Alldetail.詳細內容, Alldetail.項目內容, Alldetail.單價, Alldetail.圖片, Alldetail.活動名稱, Alldetail.活動方式, Alldetail.活動種類, Alldetail.活動介紹, Alldetail.門票價格, Alldetail.活動圖片)
+                const AllCity = AllDt.縣市;
+                if (NewTp[AllCity]) {
+                    NewTp[AllCity].push(AllDt)
+                } else if (Taoyuan[AllCity]) {
+                    Taoyuan[AllCity].push(AllDt)
+                } else if (Hsinchu[AllCity]) {
+                    Hsinchu[AllCity].push(AllDt)
+                } else if (Miaoli[AllCity]) {
+                    Miaoli[AllCity].push(AllDt)
+                } else if (Nantou[AllCity]) {
+                    Nantou[AllCity].push(AllDt)
+                } else if (Taichung[AllCity]) {
+                    Taichung[AllCity].push(AllDt)
+                } else if (Chiayi[AllCity]) {
+                    Chiayi[AllCity].push(AllDt)
+                } else if (Tainan[AllCity]) {
+                    Tainan[AllCity].push(AllDt)
+                } else if (Kaohsiung[AllCity]) {
+                    Kaohsiung[AllCity].push(AllDt)
+                } else if (Yilan[AllCity]) {
+                    Yilan[AllCity].push(AllDt)
+                } else if (Hualien[AllCity]) {
+                    Hualien[AllCity].push(AllDt)
+                } else if (Taitung[AllCity]) {
+                    Taitung[AllCity].push(AllDt)
+                }
+                else {
+                    console.log(`Unknown region: ${AllCity}`);
+                }
+            })
+        } catch (error) {
+            console.error(error);
+        }
+    };
     return {
-        dialogVisibleArr, MVCimages, CampDialogAll, North, West, South, East,
-        NorthCampGet, WestCampGet, SouthCampGet, EastCampGet,
+        dialogVisibleArr, MVCimages, CampDialogAll,
+        North, West, South, East,
+        NewTp, Taoyuan, Hsinchu, Miaoli, Nantou, Taichung, Chiayi, Tainan, Kaohsiung, Yilan, Hualien, Taitung,
+        NorthCampGet, WestCampGet, SouthCampGet, EastCampGet, AllCityCampGet,
         NorthDialog, WestDialog, SouthDialog, EastDialog,
     }
+
 })
