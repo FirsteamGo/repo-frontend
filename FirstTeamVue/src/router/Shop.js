@@ -8,7 +8,7 @@ export default [
       {
         path:"",
         name:"商店首頁",
-        component:() => import("../views/YeluPages/Shop/SPA/try.vue"),
+        component:() => import("../views/YeluPages/Shop/SPA/ShopHomePage.vue"),
       },
       {
         path: "SPA/tnf",
