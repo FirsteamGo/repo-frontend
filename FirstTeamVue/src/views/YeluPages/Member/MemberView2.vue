@@ -10,13 +10,8 @@ import bg0 from "@/assets/img/bg9.jpg";
 
 //dep
 import Typed from "typed.js";
-import basic from "./Sections/BasicView.vue"
 
-
-
-
-
-
+import basic1 from "./Sections/Basic1View.vue"
 
 
 
@@ -71,14 +66,16 @@ const refreshEdit_Frame = () => {
       <span class="mask bg-gradient-dark opacity-6"></span>
       <div class="container">
         
-        <basic/>
-        
+        <basic1/>
 
       </div>
     </div>
   </header>
 
-  
-  
+   
+ 
+
+
+
   <yelufooter />
 </template>
