@@ -1,14 +1,19 @@
 <template>
     <div>
-        <h4>{{ data.datasetDescriptiontitle }}</h4>
+        <p style="font-weight: bold; font-size: large;">{{ data.datasetDescriptiontitle }}</p>
 
         <el-card class="box-card" v-for="item in weather_data.value" :key="item.locationName">
-            <h3 class="text" style="width: 50%;">{{ item.locationName }}</h3>
-            <div style="width: 50%;">
-                <el-button type="primary" round style="width: auto;margin:20px;" @click="showDetail(item)">
-                    天氣詳細資訊
-                </el-button>
-            </div>
+
+            <el-container>
+                <el-main style="text-align: center;">
+                    <h3>{{ item.locationName }}</h3>
+                </el-main>
+                <el-main>
+                    <el-button type="primary" round style="width: auto;" @click="showDetail(item)">
+                        天氣詳細資訊
+                    </el-button>
+                </el-main>
+            </el-container>
         </el-card>
 
         <el-dialog v-model="detailDialogVisible" title="天氣詳細資訊" width="50%" draggable>

@@ -27,6 +27,14 @@ export default {
       active: 0,
     }
   },
+  onMounted() {
+    this.$router.afterEach((to, from) => {
+      if (to.name === 'presentation') {
+        this.active = 0;
+        this.content = 'step1';
+      }
+    });
+  },
   methods: {
 
     next() {
@@ -43,14 +51,17 @@ export default {
         const setodData = JSON.parse(localStorage.getItem('setorder'))
         if (!setodData) {
           alert("麻煩請填寫下列所需資訊及確認套裝形成方案!");
-          console.log("麻煩請填寫下列所需資訊及確認套裝形成方案")
           return;
         }
       } else if (active.value == 2) {
-
-
+        const SetOD = JSON.parse(localStorage.getItem('setorderdetail'))
+        const setodData = JSON.parse(localStorage.getItem('setorder'))
+        if (!setodData || !SetOD) {
+          this.active = 0;
+        }
       }
       active.value++;
+      console.log(active.value);
       if (this.active === 3) {
         this.active = 0;
       }

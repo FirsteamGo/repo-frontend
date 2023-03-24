@@ -53,7 +53,7 @@
       <span class="dialog-footer">
         <div class="common-layout">
           <el-container>
-            <el-main width="50%"><img :src="`${mvc}${setod.活動圖片}`" style="width: 300px; height: 300px;"></el-main>
+            <el-aside width="60%"><img :src="`${mvc}${setod.活動圖片}`" style="width: 400px; height: 300px;"></el-aside>
             <el-main>
               <div>
                 <label class="form-lable">營區地區: {{ setod.地區 }}</label>
@@ -182,6 +182,10 @@ const totalPrice = computed(() => {
 
 .el-carousel__item:nth-child(2n + 1) {
   background-color: #d3dce6;
+}
+
+.form-lable {
+  margin-bottom: 10px;
 }
 </style>
   
