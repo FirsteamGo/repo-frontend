@@ -89,6 +89,17 @@ onUnmounted(() => {
     <Layout />
 
 
+    
+    <!-- <div>
+            <li class="nav-item mx-2">
+              <a role="button" class="nav-link ps-2 d-flex cursor-pointer align-items-center" :class="getTextColor()"
+                aria-expanded="false">
+                <a href="https://localhost:7120/" class="dropdown-item border-radius-md">
+                  <i class="material-icons opacity-6 me-2  text-md" :class="getTextColor()">settings</i>
+                </a>
+              </a>
+            </li>
+          </div> -->
     <!-- <weather/> -->
 
   </div>
