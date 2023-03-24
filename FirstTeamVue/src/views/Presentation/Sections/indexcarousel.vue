@@ -1,4 +1,6 @@
 <script setup>
+import MaterialBadge from "../../../components/MaterialBadge.vue";
+
 import a from "@/assets/img/ActImg/a.jpg";
 import b from "@/assets/img/ActImg/b.jpg";
 import c from "@/assets/img/ActImg/c.jpg";
@@ -21,8 +23,9 @@ const images = reactive([
  
     <dev class="container">
         <dev class="row">
-        <div class="col-lg-6 mx-auto text-center mt-10">
-          <h2 class="mb-0">當地活動
+        <div class="col-lg-6 mx-auto text-center mt-8">
+          <MaterialBadge  class="mb-3" color="warning"># Popular Activities</MaterialBadge>
+          <h2 class="mb-0 ">當地活動
           </h2>
           <!-- <h2 class="text-gradient text-warning  mb-3">
            Enjoy Your Camp
@@ -31,10 +34,12 @@ const images = reactive([
             Funny Explore.
           </p>
         </div>
-    <el-carousel :interval="4000" class="mt-5 mb-5" type="card" height="200px">
+    <el-carousel :interval="4000" class="mt-5 mb-5" type="card" height="280px">
       <el-carousel-item v-for="item in images" :key="item">
+        <router-link to="/pages/Yelu-pages/act/Sections/ActHot">
         <img :src="item.abc" alt="carousel image" class="carousel_image_type">
-      </el-carousel-item>
+      </router-link>
+    </el-carousel-item>
     </el-carousel>
     
     </dev>
@@ -63,6 +68,11 @@ const images = reactive([
     width: 100%;
     height: 100%;
     /* object-fit: cover; */
+}
+
+.myword{
+  color: white;
+  background-color: #fb8c00;
 }
   </style>
   

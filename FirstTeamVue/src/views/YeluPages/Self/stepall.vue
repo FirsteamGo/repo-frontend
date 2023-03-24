@@ -1,28 +1,36 @@
 <script  setup>
 import card1 from "../Self/Sections/card.vue";
-import { reactive, ref } from "vue";
+import { reactive, ref, onMounted } from "vue";
 import CampIndex from "../Camp/Sections/CampIndex.vue";
 import step2 from "../Self/Sections/step2.vue";
 import step3 from "../Self/Sections/step3.vue";
 import selfshoppinglist from "../shoppingcart/selfshoppinglist.vue";
+import { useRoute } from "vue-router";
+const route = useRoute();
 
-let dialogVisible = ref(false);
+const dialogVisible = ref(false);
 let sf = reactive([]);
 let sfitem = reactive([]);
-let routerLinkPath = ref("step1");
+const routerLinkPath = ref("step1");
 
 const getStorage = () => {
-  let itemString = localStorage.getItem("selfaddItemList");
-  sf = itemString.substring(0, itemString.length - 2).split(", ");
-  for (let i = 0; i < sf.length; i++) {
-    sfitem.push(JSON.parse(localStorage.getItem("self" + sf[i])));
-  }
-  // dialogVisible = true
+  // let itemString = localStorage.getItem("selfaddItemList");
+  // sf = itemString.substring(0, itemString.length - 2).split(", ");
+  // // sfitem.length = 0;
+  // sfitem.splice(0, sfitem.length);
+  // for (let i = 0; i < sf.length; i++) {
+  //   sfitem.push(JSON.parse(localStorage.getItem("self" + sf[i])));
+  // }
 };
 
-let content = ref("CampIndex");
-let BtnCart = ref(false);
-let BtnStep = ref(true);
+//在step3.vue的 飲食項目點擊選購 傳送細項資料
+const getsf = (item) => {
+  sfitem.push(item);
+};
+
+const content = ref("CampIndex");
+const BtnCart = ref(false);
+const BtnStep = ref(true);
 const active = ref(0);
 
 // let index = ref(0);
@@ -38,9 +46,9 @@ const next = () => {
     routerLinkPath.value = "step2";
   } else if (active.value == 2) {
     // content.value = "step3";
+    // index.value = 2;
     BtnCart.value = !BtnCart.value;
     BtnStep.value = !BtnStep.value;
-    // index.value = 2;
     routerLinkPath.value = "step3";
   } else if (active.value == 3) {
     // content.value = "step3";
@@ -48,21 +56,22 @@ const next = () => {
     routerLinkPath.value = "step3";
   } else {
     // content.value = "CampIndex";
-    BtnCart.value = false;
-    // Step1.value = false;
-    BtnStep.value = true;
     // index.value = 0;
+    // Step1.value = false;
+    BtnCart.value = false;
+    BtnStep.value = true;
     routerLinkPath.value = "step1";
   }
 };
 
-// const addcart = () => {
-//   next(); // 觸發next方法
-//   dialogVisible = false; // 彈跳視窗消失
-//   alert("已加入購物車");
-//   BtnCart = false;
-//   Step1 = true;
-// };
+onMounted(() => {
+  if (route.name == "step2" || route.name == "step2-p") {
+    next();
+  } else if (route.name == "step3") {
+    next();
+    next();
+  }
+});
 </script> 
 
 <script >
@@ -119,12 +128,10 @@ const next = () => {
   <!-- 步驟條 -->
   <div class="container mt-5 px-5">
     <el-steps :active="active" finish-status="success">
-      <el-step title="第一步: 挑選營地" />
-      <el-step title="第二步: 相關活動" />
-      <el-step title="第三步: 挑選飲食 完成" />
+      <el-step title="第一步: 營地/活動" />
+      <el-step title="第二步: 填寫詳細資訊" />
+      <el-step title="第三步: 選飲食 完成" />
     </el-steps>
-
-    <!-- <p>{{ active }}/{{ content }}/{{ routerLinkPath }}/{{ BtnStep }}</p> -->
 
     <router-link :to="{ name: routerLinkPath }">
       <!-- <router-link :to="{name:'step3'}"> -->
@@ -156,26 +163,18 @@ const next = () => {
     <el-button
       v-if="BtnCart"
       style="margin-top: 25px"
-      @click="
-        () => {
-          getStorage();
-          dialogVisible = true;
-        }
-      "
+      @click="dialogVisible = true"
       >檢視購物清單</el-button
     >
-    <el-button v-if="Step1" style="margin-top: 25px" @click="next"
+    <!-- <el-button v-if="Step1" style="margin-top: 25px" @click="next"
       >重新選擇</el-button
-    >
+    > -->
 
     <!-- <component :is="component[index]"></component> -->
     <!-- <component :is="content"></component> -->
-    <router-view></router-view>
+    <router-view @getsf="getsf"></router-view>
   </div>
 </template>
-
-<!-- <el-button v-if="showButtonA" style="margin-top: 25px" @click="dialogVisible = true" >檢視購物清單</el-button> -->
-
 
 
 <style>

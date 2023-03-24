@@ -7,6 +7,8 @@ import NavbarDefault from "../..//examples/navbars/NavbarDefault.vue";
 import Header from "../../examples/Header.vue";
 import FilledInfoCard from "../../examples/cards/infoCards/FilledInfoCard.vue";
 import yelufooter from "../../examples/footers/yelufooter.vue";
+import MaterialBadge from "../../components/MaterialBadge.vue";
+
 
 //dep
 import Typed from "typed.js";
@@ -119,66 +121,55 @@ onUnmounted(() => {
     <!-- 行程選擇 -->
     <div class="container">
       <div class="col-lg-6 mx-auto text-center mt-6">
+        <MaterialBadge  class="mb-3" color="warning"># Popular Trip</MaterialBadge>
           <h2 class="mb-0">行程選擇</h2>
-          <!-- <h2 class="text-gradient text-warning  mb-3">
-           Enjoy Your Camp
-          </h2> -->
-          <p class="lead">
-            Prefect Schedule.
-          </p>
-        </div>
-      <div class="row mt-6"> 
-        <div class="col-lg-4">
-          <FilledInfoCard
-            class="p-4"
-            :color="{ text: 'white', background: 'bg-gradient-warning ' }"
-            :icon="{ component: 'flag', color: 'white' }"
-            title="Getting Started"
-            description="Check the possible ways of working with our product and the necessary files for building your own project."
-            :action="{
-              route:
-                'https://www.creative-tim.com/learning-lab/vue/overview/material-kit/',
-              label: { text: 'Let\'s start', color: 'white' }
-            }"
-          />
-        </div>
-        <div class="col-lg-4">
-          <FilledInfoCard
-            class="p-4"
-            :color="{ text: 'white', background: 'bg-gradient-warning ' }"
-            :icon="{ component: 'flag', color: 'white' }"
-            title="Getting Started"
-            description="Check the possible ways of working with our product and the necessary files for building your own project."
-            :action="{
-              route:
-                'https://www.creative-tim.com/learning-lab/vue/overview/material-kit/',
-              label: { text: 'Let\'s start', color: 'white' }
-            }"
-          />
-        </div>
-        <div class="col-lg-4">
-          <FilledInfoCard
-            class="p-4"
-            :color="{ text: 'white', background: 'bg-gradient-warning ' }"
-            :icon="{ component: 'flag', color: 'white' }"
-            title="Getting Started"
-            description="Check the possible ways of working with our product and the necessary files for building your own project."
-            :action="{
-              route:
-                'https://www.creative-tim.com/learning-lab/vue/overview/material-kit/',
-              label: { text: 'Let\'s start', color: 'white' }
-            }"
-          />
-        </div>
+          <p class="lead">Prefect Schedule.</p>
       </div>
-    </div>
+
+    <!-- <div class="row mt-6">  -->
+      <div class="col-12 d-flex justify-content-center">
+
+          <div class="p-5">
+            <router-link to="/pages/Yelu-pages/Self/stepall/step1">
+            <div class="card bg-dark text-white" style="max-width: 400px;height: 380px;">
+              <img src="@/assets/img/self/self06.jpg" class="card-img" alt="..." style="width: 400px;height: 400px;">
+              <div class="card-img-overlay">
+                <h3 class="card-title">自選行程</h3>
+                <h4>Self-guided Camp</h4>
+                <p class="card-text">Like to experience the local culture</p>
+              </div>
+            </div>
+            <p class="card-text">想怎麼玩自己搭配<br>喜歡體驗在地文化<br>吃喝玩住隨意配</p>
+          </router-link>
+          </div>
+
+          <div class="p-5">
+            <router-link to="/pages/Yelu-pages/set">
+            <div class="card bg-dark text-white" style="max-width: 400px;height: 380px;">
+                <img src="@/assets/img/self/self07.jpg" class="card-img" alt="..." style="width: 400px;height: 400px;">
+                <div class="card-img-overlay">
+                  <h3 class="card-title" >套裝行程</h3>
+                  <h4>Package Camp</h4>
+                <p class="card-text">Go into nature and enjoy real freedom</p>
+
+                  <!-- <p class="card-text"><br>走進大自然，享受真正的自由<br>找到屬於自己的寧靜空間</p> -->
+                </div>
+              </div>
+              <p class="card-text"><br>不用規劃拎包入住<br>套裝幫你完成你的夢想</p>
+            </router-link>
+          </div>
+
+      </div>
+    <!-- </div> -->
+   
 
   <!-- 活動 -->
     <!-- <PresentationInformation /> -->
     <indexcarousel/>
   <!-- 商店 -->
      <PresentationTestimonials />
-  
+    </div>
+  </div>
     <!-- <div
       class="container-fluid mt-sm-5 border-radius-xl">
       <div
@@ -200,7 +191,15 @@ onUnmounted(() => {
     </div> -->
 
    
-  </div>
+
   <!-- <DefaultFooter /> -->
   <yelufooter/>
 </template>
+
+
+<style>
+/* .myword{
+  color: white;
+  background-color: #fb8c00;
+} */
+</style>

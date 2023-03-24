@@ -1,51 +1,46 @@
 <script setup>
-import { Search } from '@element-plus/icons-vue'
-import { ref, computed, reactive, onMounted } from 'vue'
-
-
+import { Search } from "@element-plus/icons-vue";
+import { ref, computed, reactive, onMounted } from "vue";
 </script>
 
 <script>
-// import { ref, reactive, onMounted, computed, watch } from 'vue';
-// import axios from 'axios';
-
 export default {
-    data() {
-        const selectedRegion = ref(null);
-        const selectedCity = ref(null);
-        const regions = reactive(['North', 'West', 'South', 'East']);
-        const ActType = reactive(['景點', '運動', '文化', '水上', '觀光', '活動'])
-        const cities = {
-            North: ['新北', '桃園', '新竹'],
-            West: ['苗栗', '南投', '台中'],
-            South: ['嘉義', '台南', '高雄'],
-            East: ['宜蘭', '花蓮', '台東'],
-        };
-        const filteredCities = computed(() => {
-            // return cities[regions[selectedRegion.value]];
-            // return cities[regions[regions.indexOf(selectedRegion.value)]];
-            return cities[selectedRegion.value];
-        });
+  data() {
+    const selectedRegion = ref(null);
+    const selectedCity = ref(null);
+    const regions = reactive(["North", "West", "South", "East"]);
+    const ActType = reactive(["景點", "運動", "文化", "水上", "觀光", "活動"]);
+    const cities = {
+      North: ["新北", "桃園", "新竹"],
+      West: ["苗栗", "南投", "台中"],
+      South: ["嘉義", "台南", "高雄"],
+      East: ["宜蘭", "花蓮", "台東"],
+    };
+    const filteredCities = computed(() => {
+      // return cities[regions[selectedRegion.value]];
+      // return cities[regions[regions.indexOf(selectedRegion.value)]];
+      return cities[selectedRegion.value];
+    });
 
-        function filterCities() {
-            selectedCity.value = null;
-        }
+    function filterCities() {
+      selectedCity.value = null;
+    }
 
-        return {
-            selectedRegion,
-            selectedCity,
-            regions,
-            cities,
-            filteredCities,
-            filterCities,
-            ActType,
-        };
-    },
+    return {
+      selectedRegion,
+      selectedCity,
+      regions,
+      cities,
+      filteredCities,
+      filterCities,
+      ActType,
+    };
+  },
 };
 </script>
 
 <template>
-    <div style="display: flex;justify-content: flex-end;" >
+  <div style="display: flex; justify-content: flex-end">
     <!-- <div>
         <span >區域</span>
     <el-select v-model="selectedRegion" @change="filterCities" class="select m-2"  placeholder="區域" size="large">
@@ -70,15 +65,17 @@ export default {
         <el-option v-for="ActTp in ActType" :key="ActTp" :value="ActTp" />{{ ActTp }}
     </el-select>
 </div> -->
-    
-<div> <span class="Search">關鍵字</span>
-        <el-input v-model="input" size="large" class="w-40 m-2" s placeholder="" />
-        <el-button type="success" :icon="Search">搜尋</el-button>
+
+    <div>
+      <span class="Search">關鍵字</span>
+      <el-input
+        v-model="input"
+        size="large"
+        class="w-40 m-2"
+        s
+        placeholder=""
+      />
+      <el-button type="success" :icon="Search">搜尋</el-button>
     </div>
-
-
-    </div> 
-
-
-    
+  </div>
 </template>
