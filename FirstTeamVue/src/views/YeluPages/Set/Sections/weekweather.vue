@@ -58,6 +58,7 @@ const detailDialogVisible = ref(false)
 onMounted(() => {
     axios.get(weekweather.value).then((res) => {
         weather_data.value = res.data.records.locations[0].location
+        console.log(weather_data.value);
         data.datasetDescriptiontitle = res.data.records.locations[0].datasetDescription
     })
 })

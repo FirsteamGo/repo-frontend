@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="containe mt-5 px-5">
 
-    <el-carousel :interval="2000" type="card" height="200px">
+    <el-carousel :interval="2000" type="card" height="400px">
       <el-carousel-item v-for=" item in SetODID" :key="item">
         <img :src="`${mvc}${item.活動圖片}`" style=" width: 100%; height: 100%;" alt="carousel image" />
       </el-carousel-item>
