@@ -40,7 +40,7 @@
 
           <div class="container d-flex justify-content-end">
             <el-form-item>
-              <el-button type="warning" @click="onSubmit">確認</el-button>
+              <el-button type="info" plain @click="onSubmit">送出</el-button>
             </el-form-item>
           </div>
         </el-form>
@@ -54,9 +54,8 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">
-              <span class="badge bg-secondary"
-                ><span class="material-icons mx-2">task_alt</span>已選營地</span
-              >
+              <span class="badge bg-success"
+                ><span class="material-icons mx-2">task_alt</span>已選營地</span>
             </h5>
             <img
               :src="`${whoFuncImg.MVCimages}${whoFunc.圖片}`"
@@ -67,8 +66,7 @@
             <p class="m-3 myword">
               <span class="material-icons">attach_money</span> TWD<span
                 class="text-primary"
-                >{{ whoFunc.單價 }}</span
-              >
+                >{{ whoFunc.單價 }}</span>
             </p>
           </div>
         </div>
@@ -78,21 +76,18 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">
-              <span class="badge bg-secondary"
-                ><span class="material-icons mx-2">task_alt</span>已選活動</span
-              >
+              <span class="badge bg-success"
+                ><span class="material-icons mx-2">task_alt</span>已選活動</span>
             </h5>
             <img
               :src="`${whoFuncImg.MVCimages}${whoFunc.活動圖片}`"
-              style="height: 200px; display: block; margin: 0 auto"
-            />
+              style="height: 200px; display: block; margin: 0 auto"/>
             <p class="m-3 myword">活動名稱 | {{ whoFunc.活動名稱 }}</p>
             <p class="m-3 myword">活動種類 | {{ whoFunc.活動種類 }}</p>
             <p class="m-3 myword">
               <span class="material-icons">attach_money</span> TWD<span
                 class="text-primary"
-                >{{ whoFunc.門票價格 }}</span
-              >
+                >{{ whoFunc.門票價格 }}</span>
             </p>
           </div>
         </div>

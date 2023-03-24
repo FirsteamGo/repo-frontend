@@ -44,30 +44,81 @@ const deleteItem = (index) => {
 
 
 <template>
-  <body>
-    <!-- 這裡放詳細資訊 -->
-    <!-- <div>
-      <label class="form-lable">預計參加人數: {{ Selfo.numberOfPeople }}</label>
-    </div>
-    <div>
-      <label class="form-lable">入住時間:{{ formatDate(Selfo.data[0]) }}</label>
-    </div>
-    <div>
-      <label class="form-lable">退住時間:{{ formatDate(Selfo.data[1]) }}</label>
-    </div> -->
-    <!-- <div>
-	<label class="form-lable">合計總價: {{ Selfo.合計總價 }}</label>
-	</div> -->
-    <!-- <div>
-      <label class="form-lable">評分: {{ Selfo.評分 }}</label>
-    </div>
-    <div>
-      <label class="form-lable">評論: {{ Selfo.評論 }}</label>
-    </div> -->
 
-    <!-- 這裡放飲食 -->
-    <div id="myCart">
-      <!-- <h1>Shopping Cart</h1> -->
+<div class="common-layout">
+  <!-- 這裡放詳細資訊 -->
+  <el-container>
+    <el-aside width="100px">
+      <div>
+        <label class="form-lable">露營日期：{{  }}</label>
+      </div>
+       <div>
+        <label class="form-lable">預計人數： {{  }}</label>
+      </div>
+      <div>
+        <label class="form-lable">備註：{{  }}</label>
+      </div>
+    </el-aside>
+
+  <!-- 這裡放營區+活動 -->
+<el-container>
+  <el-header height="300px">
+    <div class="container w-75 px-2">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">
+              <span class="badge bg-success"
+                ><span class="material-icons mx-2">task_alt</span>已選營地</span
+              >
+            </h5>
+            <!-- <img
+              :src="`${whoFuncImg.MVCimages}${whoFunc.圖片}`"
+              style="height: 200px; display: block; margin: 0 auto"
+            /> -->
+            <p class="m-3 myword">營區名稱 | {{  }}</p>
+            <p class="m-3 myword">營區地址 | {{  }}</p>
+            <p class="m-3 myword">
+              <span class="material-icons">attach_money</span> TWD<span
+                class="text-primary"
+                >{{  }}</span
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">
+              <span class="badge bg-success"
+                ><span class="material-icons mx-2">task_alt</span>已選活動</span
+              >
+            </h5>
+            <!-- <img
+              :src="`${whoFuncImg.MVCimages}${whoFunc.活動圖片}`"
+              style="height: 200px; display: block; margin: 0 auto"
+            /> -->
+            <p class="m-3 myword">活動名稱 | {{  }}</p>
+            <p class="m-3 myword">活動種類 | {{  }}</p>
+            <p class="m-3 myword">
+              <span class="material-icons">attach_money</span> TWD<span
+                class="text-primary"
+                >{{  }}</span
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</el-header>
+
+  <!-- 這裡放飲食 -->
+      <el-main>
+        <div id="myCart">
       <header id="cartList">
         <table style="border-bottom: 1px solid #ddd">
           <tr class="itemHead">
@@ -79,22 +130,18 @@ const deleteItem = (index) => {
             <td style="width: 60px"></td>
           </tr>
         </table>
-        <!-- 動態新增 -->
-        <!-- 會重複做的視為功能，功能要寫成函數 -->
-        <!-- 這邊寫飲食按下選購後的東西 -->
+    
         <div>
           <table>
             <tr
               v-for="(item, index) in props.sfitem"
               :key="item.自選飲食id"
               :value="index"
-              class="item"
-            >
+              class="item">
               <td style="width: 200px">
                 <img
                   :src="`${MVCimages}${item.圖片}`"
-                  style="width: 100px; height: 100px"
-                />
+                  style="width: 100px; height: 100px"/>
               </td>
               <td style="width: 200px">
                 <p>{{ item.商品名稱 }}</p>
@@ -115,36 +162,11 @@ const deleteItem = (index) => {
               </td>
             </tr>
           </table>
-
-          <!-- <table>
-            <tr
-              v-for="(item, index) in sf"
-              :key="item.自選飲食id"
-              :value="index"
-              class="item"
-            >
-              <td style="width: 200px">
-                <img
-                  :src="`${MVCimages}${sfitem[index].圖片}`"
-                  style="width: 100px; height: 100px"
-                />
-              </td>
-              <td style="width: 200px">
-                <p>{{ sfitem[index].商品名稱 }}</p>
-              </td>
-              <td style="width: 300px">
-                <p>{{ sfitem[index].商品內容 }}</p>
-              </td>
-              <td style="width: 150px">
-                <p>{{ sfitem[index].單價 }}</p>
-              </td>
-              <td style="width: 60px">
-                <p>{{ sfitem[index].需求份數 }}</p>
-              </td>
-            </tr>
-          </table> -->
         </div>
       </header>
+
+         
+
       <footer style="text-align: right">
         總計 : <span id="total">{{ ListTotal }} 元</span>
       </footer>
@@ -154,8 +176,21 @@ const deleteItem = (index) => {
           加入購物車
         </button>
       </RouterLink>
+
+
     </div>
-  </body>
+ 
+      </el-main>
+    </el-container>
+
+  </el-container>
+</div>
+
+
+
+
+
+  
 </template>
 
 
