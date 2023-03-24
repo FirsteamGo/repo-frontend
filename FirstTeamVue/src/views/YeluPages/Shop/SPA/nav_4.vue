@@ -2,7 +2,9 @@
   <div class="flex flex-wrap items-center">
     <el-dropdown>
       <el-button class="btn">
-        溫暖你的人<el-icon class="el-icon--right"><arrow-down /></el-icon>
+        <Sunny
+          style="width: 1em; height: 1em; margin-right: 8px; margin-bottom: 1px"
+        />溫暖你的人<el-icon class="el-icon--right"><arrow-down /></el-icon>
       </el-button>
       <template #dropdown>
         <el-dropdown-menu class="my-dropdown-menu">
@@ -23,7 +25,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ArrowDown } from "@element-plus/icons-vue";
+import { ArrowDown, Sunny } from "@element-plus/icons-vue";
 </script>
 <style scoped>
 /* .example-showcase .el-dropdown + .el-dropdown {
@@ -50,10 +52,7 @@ import { ArrowDown } from "@element-plus/icons-vue";
 .btn {
   display: flex;
   padding: 10px 20px;
-  /* background-color: #aa6836; */
-  background-color: #585963;
-
-  color: white;
+  color: black;
   font-size: 16px;
   font-weight: bolder;
   border: none;

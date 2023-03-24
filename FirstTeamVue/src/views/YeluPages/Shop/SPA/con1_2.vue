@@ -10,11 +10,10 @@ const webApiBaseAddr = ref("https://localhost:7108/api/ShopDetails");
 const imagelist = ref("https://localhost:7120/images/");
 let shopPro = reactive([]);
 
-const getEmployeeDTOes = onMounted(() => {
+onMounted(() => {
   axios
     .get(webApiBaseAddr.value)
     .then((res) => {
-      //console.log(res.data);
       shopPro.splice(0, res.data.length, ...res.data);
       console.log(shopPro);
     })

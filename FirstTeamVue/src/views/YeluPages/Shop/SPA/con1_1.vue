@@ -15,14 +15,15 @@ const visible = ref(false);
 const image = ref("");
 const shopItem = reactive([]);
 const 單價 = ref(0);
-const box = reactive([])
+const box = reactive([]);
+
 const shopcart = reactive({
-  商品細項id:0,  
-  產品名稱:'',
-  單價:0,
-  商品數量:0,
-  合計總價:0,
-})
+  商品細項id: 0,
+  產品名稱: "",
+  單價: 0,
+  商品數量: 0,
+  合計總價: 0,
+});
 //const 產品名稱=ref('')
 //const quantity=reactive([])
 onMounted(async () => {
@@ -41,6 +42,7 @@ const dialogData = reactive({
   數量: 1,
   產品名稱: "",
   單價: 0,
+  圖片: "",
 });
 
 //連動彈跳視窗
@@ -54,9 +56,11 @@ let detail = (商品細項ID) => {
       dialogData.產品名稱 = item.產品名稱;
       //console.log(產品名稱.value);
       dialogData.數量 = 1;
+      dialogData.圖片 = item.產品圖片;
       //取得從源頭帶過來的資料
-       box.push(item);
-       console.log(box);
+      box.push(item);
+
+      console.log(box);
     }
 
     shopItem.push(item);
@@ -74,40 +78,35 @@ const totalPrice = computed(() => {
     return " ";
   }
   return dialogData.數量 * dialogData.單價;
- 
 });
-//加入購物車按鈕 
+//加入購物車按鈕
 const addCart = () => {
- 
   // const shopordernu = `Shop${now.getFullYear()}${(now.getMonth() + 1).toString().padStart(2, "0")}${now.getDate().toString().padStart(2, "0")}${now.getHours().toString().padStart(2, "0")}${now.getMinutes().toString().padStart(2, "0")}${now.getSeconds().toString().padStart(2, "0")}`;
 
   const selectedItem = box[0];
-  
-  shopcart.商品細項id=selectedItem.商品細項id;
-  
-  shopcart.產品名稱=selectedItem.產品名稱;
-  shopcart.單價=selectedItem.單價;
-  shopcart.商品數量=dialogData.數量;
-  
-  shopcart.合計總價=totalPrice.value;
+
+  shopcart.商品細項id = selectedItem.商品細項id;
+
+  shopcart.產品名稱 = selectedItem.產品名稱;
+  shopcart.單價 = selectedItem.單價;
+  shopcart.商品數量 = dialogData.數量;
+
+  shopcart.合計總價 = totalPrice.value;
   console.log(shopcart);
 
   //三元運算
-  const existingDataString = localStorage.getItem('shoplist');
+  const existingDataString = localStorage.getItem("shoplist");
   const existingData = existingDataString ? JSON.parse(existingDataString) : [];
   // 新增資料
   existingData.push(shopcart);
   // 將資料儲存到 localStorage 中
-  localStorage.setItem('shoplist', JSON.stringify(existingData));
+  localStorage.setItem("shoplist", JSON.stringify(existingData));
   box.splice(0);
 };
 //清空暫存欄位
-const clear =()=>{
+const clear = () => {
   box.splice(0);
-}
-
-
-
+};
 </script>
 <template>
   <div class="">
@@ -121,6 +120,7 @@ const clear =()=>{
               :key="item.商品細項id"
             >
               <card2
+                class="cards"
                 :image="`${imagelist}${item.產品圖片}`"
                 :title="item.產品名稱"
                 :description="item.單價"
@@ -134,53 +134,80 @@ const clear =()=>{
                   }
                 "
                 class="detail"
-                type="danger"
-                >123</el-button
-              >
-              <div></div>
+                >更多資訊!<i class="fas fa-arrow-right text-xs ms-1"></i>
+              </el-button>
             </div>
+
             <el-dialog
               v-model="visible"
-              title="這是個示範"
-              width="50%"
+              class="dialog"
+              title="商品列表"
+              width="30%"
               draggable
             >
-              <div class="modal-header">
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
+              <div class="common-layout">
+                <el-container>
+                  <el-aside width="50%">
+                    <div>
+                      <h6 style="color: black; font-weight: bolder">
+                        名稱:{{ dialogData.產品名稱 }}
+                      </h6>
+                    </div>
+                    <div>
+                      <label class="form-label"
+                        >價錢:{{ dialogData.單價 }}</label
+                      >
+                    </div>
+
+                    <div>
+                      <label class="form-label">總價:{{ totalPrice }}</label>
+                    </div>
+                    <div>
+                      <el-input-number
+                        v-model="dialogData.數量"
+                        :min="1"
+                        :max="10"
+                        :step="1"
+                        class="inPut"
+                      ></el-input-number>
+                    </div>
+                    <div style="margin-top: 20px">
+                      <el-button
+                        class="btn-2"
+                        @click="
+                          {
+                            clear();
+                            visible = false;
+                          }
+                        "
+                        >取消</el-button
+                      >
+                      <el-button
+                        class="btn-1"
+                        @click="
+                          {
+                            addCart();
+                            visible = false;
+                          }
+                        "
+                      >
+                        加入購物車
+                      </el-button>
+                    </div>
+                  </el-aside>
+                  <el-main>
+                    <div>
+                      <img
+                        :src="`${imagelist}${dialogData.圖片}`"
+                        alt="商品圖片"
+                        style="height: 150px; width: 150px; margin-bottom: 20px"
+                      />
+                    </div>
+                  </el-main>
+                </el-container>
               </div>
-              <span class="dialog-footer">
-                <div>
-                  <label class="form-label">價錢:{{ dialogData.單價 }}</label>
-                </div>
-                <div>
-                  <label class="form-label"
-                    >名稱:{{ dialogData.產品名稱 }}</label
-                  >
-                </div>
-                <div>
-                  <el-input-number
-                    v-model="dialogData.數量"
-                    :min="1"
-                    :max="10"
-                    :step="1"
-                  ></el-input-number>
-                </div>
-                <div>
-                  <label class="form-label">總價:{{ totalPrice }}</label>
-                </div>
-                <!-- <div>
-                      <label class="form-table">單價:{{ 單價 }}元</label>
-                  </div> -->
-                <el-button @click="{clear();visible = false}">取消</el-button>
-                <el-button type="primary" @click="{addCart();  visible = false} ">
-                  加入購物車
-                </el-button>
-              </span>
+
+              <div></div>
             </el-dialog>
           </div>
         </section>
@@ -188,3 +215,73 @@ const clear =()=>{
     </el-container>
   </div>
 </template>
+<style>
+/* 彈跳視窗css設計 */
+.dialog {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+  border: 2.5px outset #c17767;
+  border-radius: 12px;
+  background-color: #e28413;
+  font-weight: bolder;
+}
+
+.dialog-body {
+  flex: 1;
+  padding-right: 10px;
+}
+.dialog-footer {
+  flex: 0 0 auto;
+  width: 250px;
+}
+.form-label {
+  color: black;
+  font-weight: bolder;
+}
+/* 彈跳輸入框設定 */
+.detail {
+  background-color: white;
+  color: #d4404a;
+  font-weight: bolder;
+  font-size: large;
+  border: none;
+  margin-left: -16px;
+  margin-top: -16px;
+}
+.detail:hover {
+  color: #d4404a;
+  background-color: white;
+}
+.detail:active {
+  transform: scale(0.9);
+}
+/* 輸入css設計 */
+.inPut {
+  border: 2px dashed black;
+}
+/* 按鈕css */
+.btn-1 {
+  color: black;
+  background-color: #3c908e;
+  font-weight: bolder;
+}
+.btn-1:hover {
+  background-color: rgba(60, 144, 142, 0.85);
+  color: black;
+}
+.btn-2 {
+  background-color: #d53439;
+  color: black;
+  font-weight: bolder;
+}
+.btn-2:hover {
+  background-color: rgba(213, 52, 57, 0.7);
+  color: black;
+}
+.images {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: auto;
+}
+</style>

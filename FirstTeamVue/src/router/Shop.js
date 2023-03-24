@@ -6,6 +6,11 @@ export default [
     component: ShopView,
     children: [
       {
+        path:"",
+        name:"商店首頁",
+        component:() => import("../views/YeluPages/Shop/SPA/ShopHomePage.vue"),
+      },
+      {
         path: "SPA/tnf",
         name: "tnf",
         component: () => import("../views/YeluPages/Shop/SPA/con1_1.vue"),
