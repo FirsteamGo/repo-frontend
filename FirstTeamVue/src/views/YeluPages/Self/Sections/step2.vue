@@ -1,43 +1,4 @@
 <template>
-  <!-- 所選營地/活動 -->
-  <div class="container w-75 px-2">
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">
-              <span class="badge bg-secondary"><span class="material-icons mx-2">task_alt</span>已選營地</span>
-            </h5>
-            <img :src="`${whoFuncImg.MVCimages}${whoFunc.圖片}`" style="height: 200px; display: block; margin: 0 auto" />
-            <p class="m-3 myword">營區名稱 | {{ whoFunc.營區名稱 }}</p>
-            <p class="m-3 myword">營區地址 | {{ whoFunc.營區地址 }}</p>
-            <p class="m-3 myword">
-              <span class="material-icons">attach_money</span> TWD<span class="text-primary">{{ whoFunc.單價
-              }}</span>
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-6">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">
-              <span class="badge bg-secondary"><span class="material-icons mx-2">task_alt</span>已選活動</span>
-            </h5>
-            <img :src="`${whoFuncImg.MVCimages}${whoFunc.活動圖片}`" style="height: 200px; display: block; margin: 0 auto" />
-            <p class="m-3 myword">活動名稱 | {{ whoFunc.活動名稱 }}</p>
-            <p class="m-3 myword">活動種類 | {{ whoFunc.活動種類 }}</p>
-            <p class="m-3 myword">
-              <span class="material-icons">attach_money</span> TWD<span class="text-primary">{{ whoFunc.門票價格
-              }}</span>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- 詳細資訊填寫 -->
   <div class="container card w-75 mt-5 mb-5 px-5 justify-content-center">
     <div class="card-body">
@@ -45,32 +6,96 @@
         <el-form :model="form" label-width="120px">
           <el-form-item label="訂單編號" hidden>{{ selforder }}</el-form-item>
 
-          <el-form-item label="露營日期" class="demonstration">
-            <el-date-picker v-model="form.data" type="daterange" range-separator="To" start-placeholder="開始日期"
-              end-placeholder="結束日期" size="default" /></el-form-item>
+          <div class="container d-flex justify-content-start">
+            <el-form-item label="露營日期" class="demonstration">
+              <el-date-picker
+                v-model="form.data"
+                type="daterange"
+                range-separator="To"
+                start-placeholder="開始日期"
+                end-placeholder="結束日期"
+                size="default"
+            /></el-form-item>
+          </div>
 
-          <el-form-item label="預計人數 :">
-            <el-input type="text" v-model="form.預計人數" placeholder="請填入參加人數" />
-          </el-form-item>
+          <div class="container d-flex justify-content-start">
+            <el-form-item label="預計人數 :">
+              <el-input
+                type="text"
+                v-model="form.預計人數"
+                placeholder="請填入參加人數"
+              />
+            </el-form-item>
+          </div>
 
-          <el-form-item label="評論 :" style="width: 100%">
-            <el-input v-model="form.評論" type="textarea" />
-          </el-form-item>
+          <div class="container d-flex justify-content-start">
+            <el-form-item label="備註 :" style="width: 75%">
+              <el-input
+                v-model="form.評論"
+                type="textarea"
+                placeholder="任何特殊需求請填寫在這裡"
+              /> </el-form-item
+            >`
+          </div>
 
-          <el-form-item label="評分 :">
-            <el-select v-model="form.評分" placeholder="請評分謝謝">
-              <el-option label="1" value="1" />
-              <el-option label="2" value="2" />
-              <el-option label="3" value="3" />
-              <el-option label="4" value="4" />
-              <el-option label="5" value="5" />
-            </el-select>
-          </el-form-item>
-
-          <el-form-item>
-            <el-button type="warning" @click="onSubmit">確認</el-button>
-          </el-form-item>
+          <div class="container d-flex justify-content-end">
+            <el-form-item>
+              <el-button type="warning" @click="onSubmit">確認</el-button>
+            </el-form-item>
+          </div>
         </el-form>
+      </div>
+    </div>
+  </div>
+  <!-- 所選營地/活動 -->
+  <div class="container w-75 px-2">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">
+              <span class="badge bg-secondary"
+                ><span class="material-icons mx-2">task_alt</span>已選營地</span
+              >
+            </h5>
+            <img
+              :src="`${whoFuncImg.MVCimages}${whoFunc.圖片}`"
+              style="height: 200px; display: block; margin: 0 auto"
+            />
+            <p class="m-3 myword">營區名稱 | {{ whoFunc.營區名稱 }}</p>
+            <p class="m-3 myword">營區地址 | {{ whoFunc.營區地址 }}</p>
+            <p class="m-3 myword">
+              <span class="material-icons">attach_money</span> TWD<span
+                class="text-primary"
+                >{{ whoFunc.單價 }}</span
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">
+              <span class="badge bg-secondary"
+                ><span class="material-icons mx-2">task_alt</span>已選活動</span
+              >
+            </h5>
+            <img
+              :src="`${whoFuncImg.MVCimages}${whoFunc.活動圖片}`"
+              style="height: 200px; display: block; margin: 0 auto"
+            />
+            <p class="m-3 myword">活動名稱 | {{ whoFunc.活動名稱 }}</p>
+            <p class="m-3 myword">活動種類 | {{ whoFunc.活動種類 }}</p>
+            <p class="m-3 myword">
+              <span class="material-icons">attach_money</span> TWD<span
+                class="text-primary"
+                >{{ whoFunc.門票價格 }}</span
+              >
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -100,12 +125,12 @@ const form = reactive({
 const selfordernu = `Self${now.getFullYear()}${(now.getMonth() + 1)
   .toString()
   .padStart(2, "0")}${now.getDate().toString().padStart(2, "0")}${now
-    .getHours()
-    .toString()
-    .padStart(2, "0")}${now.getMinutes().toString().padStart(2, "0")}${now
-      .getSeconds()
-      .toString()
-      .padStart(2, "0")}`;
+  .getHours()
+  .toString()
+  .padStart(2, "0")}${now.getMinutes().toString().padStart(2, "0")}${now
+  .getSeconds()
+  .toString()
+  .padStart(2, "0")}`;
 const onSubmit = () => {
   form.訂單編號 = selfordernu;
   if (form.data.length === 2) {
