@@ -11,7 +11,8 @@ import CampBackgroundBlogCard from "./CampBlogCards/CampBackgroundBlogCard.vue";
 
 const route = useRoute();
 const CityAll = useCampDataAtore();
-let NewCt = reactive();
+
+onMounted(CityAll.AllCityCampGet);
 // const Taoyuan = reactive([]);
 // const Hsinchu = reactive([]);
 // const Miaoli = reactive([]);
@@ -23,15 +24,12 @@ let NewCt = reactive();
 // const Yilan = reactive([]);
 // const Hualien = reactive([]);
 // const Taitung = reactive([]);
-onMounted(() => {
-    CityAll.AllCityCampGet();
-
+let NewCity = computed(() => {
+    let NewCt = reactive();
     if (route.name == "CampAllCity-c") {
-        // alert(route.params.whoFunc)
-        alert(route.params.whoCity)
+        //alert(route.params.whoCity)
         if (route.params.whoCity == "NewTp") {
             NewCt = CityAll.NewTp.新北市;
-            console.log(NewCt);
         } else if (route.params.whoCity == "Taoyuan") {
             NewCt = CityAll.Taoyuan.桃園市;
 
@@ -66,7 +64,9 @@ onMounted(() => {
             NewCt = CityAll.Taitung.台東縣;
 
         }
+        return NewCt;
     }
+
 })
 </script>
 
@@ -92,10 +92,10 @@ onMounted(() => {
                 <section class="py-3">
                     <div class="row">
                         <!-- <div class="col-lg-2 col-md-12 col-12">
-                                                                                                                                                                                                                                                                                                                        <CampBackgroundBlogCard :image="sun" title="北部營區" description="" />
-                                                                                                                                                                                                                                                                                                                    </div> -->
+                                                                                                                                                                                                                                                                                                                                                                                <CampBackgroundBlogCard :image="sun" title="北部營區" description="" />
+                                                                                                                                                                                                                                                                                                                                                                            </div> -->
 
-                        <div class="card m-3 col-lg-4 col-sm-6" v-for="item in NewCt">
+                        <div class="card m-3 col-lg-4 col-sm-6" v-for="item in NewCity">
                             <div
                                 style=" height:400px; display: flex; flex-direction: column; justify-content: space-between;">
                                 <!-- 卡片 -->
@@ -129,7 +129,7 @@ onMounted(() => {
                                 </div>
                                 <div>
                                     <!-- <label class="form-lable">
-                                                                                                                                                                                                                                                                                                                                    <h4>露營形式：<small class="text-muted"> {{ 項目內容 }}</small></h4></label> -->
+                                                                                                                                                                                                                                                                                                                                                                                            <h4>露營形式：<small class="text-muted"> {{ 項目內容 }}</small></h4></label> -->
                                     <label class="form-lable">
                                         <h4>露營形式：<small class="text-muted"> {{ CityAll.CampDialogAll.項目內容 }}</small></h4>
                                     </label>
