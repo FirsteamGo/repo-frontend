@@ -57,7 +57,7 @@ td {
 
               <span class="dialog-footer">
                 <div>
-                  <img :src="`${mvc}${setod.活動圖片}`">
+                  <img :src="`${mvc}${setod.活動圖片}`" style="width: 300px; height: 300px;">
                 </div>
                 <div>
                   <label class="form-lable">營區地區: {{ setod.地區 }}</label>
@@ -106,10 +106,10 @@ td {
                   <label class="form-lable">合計總價: {{ seto.合計總價 }}</label>
                 </div>
                 <div>
-                  <label class="form-lable">評分: {{ seto.評分 }}</label>
+                  <label class="form-lable">期望值: {{ seto.評分 }}</label>
                 </div>
                 <div>
-                  <label class="form-lable">評論: {{ seto.評論 }}</label>
+                  <label class="form-lable">備註: {{ seto.評論 }}</label>
                 </div>
               </span>
             </td>

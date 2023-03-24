@@ -21,11 +21,11 @@
           <el-form-item label="合計總價 :">{{ totalPrice }} 元</el-form-item>
 
 
-          <el-form-item label="評論 :" style="width: 100%;">
+          <el-form-item label="備註 :" style="width: 100%;">
             <el-input v-model="form.評論" type="textarea" />
           </el-form-item>
-          <el-form-item label="評分 :">
-            <el-select v-model="form.評分" placeholder="請評分謝謝">
+          <el-form-item label="期望值 :">
+            <el-select v-model="form.評分" placeholder="請給期望值謝謝">
               <el-option label="1" value="1" />
               <el-option label="2" value="2" />
               <el-option label="3" value="3" />
@@ -51,33 +51,39 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <span class="dialog-footer">
-        <div>
-          <img :src="`${mvc}${setod.活動圖片}`">
+        <div class="common-layout">
+          <el-container>
+            <el-main width="50%"><img :src="`${mvc}${setod.活動圖片}`" style="width: 300px; height: 300px;"></el-main>
+            <el-main>
+              <div>
+                <label class="form-lable">營區地區: {{ setod.地區 }}</label>
+              </div>
+              <div>
+                <label class="form-lable">營區縣市:{{ setod.縣市 }}</label>
+              </div>
+              <div>
+                <label class="form-lable">營區名稱: {{ setod.營區名稱 }}</label>
+              </div>
+              <div>
+                <label class="form-lable">露營方式: {{ setod.項目內容 }}</label>
+              </div>
+              <div>
+                <label class="form-lable">相關活動: {{ setod.活動名稱 }}</label>
+              </div>
+              <div>
+                <label class="form-lable">方案: {{ setod.套裝方案 }}</label>
+              </div>
+              <div>
+                <label class="form-lable">細項: {{ setod.套裝細項 }}</label>
+              </div>
+              <div>
+                <label class="form-lable">單價: {{ setod.套裝行程價格 }} 元 / 人</label>
+              </div>
+            </el-main>
+          </el-container>
         </div>
-        <div>
-          <label class="form-lable">營區地區: {{ setod.地區 }}</label>
-        </div>
-        <div>
-          <label class="form-lable">營區縣市:{{ setod.縣市 }}</label>
-        </div>
-        <div>
-          <label class="form-lable">營區名稱: {{ setod.營區名稱 }}</label>
-        </div>
-        <div>
-          <label class="form-lable">露營方式: {{ setod.項目內容 }}</label>
-        </div>
-        <div>
-          <label class="form-lable">相關活動: {{ setod.活動名稱 }}</label>
-        </div>
-        <div>
-          <label class="form-lable">方案: {{ setod.套裝方案 }}</label>
-        </div>
-        <div>
-          <label class="form-lable">細項: {{ setod.套裝細項 }}</label>
-        </div>
-        <div>
-          <label class="form-lable">單價: {{ setod.套裝行程價格 }} 元 / 人</label>
-        </div>
+
+
 
       </span>
 

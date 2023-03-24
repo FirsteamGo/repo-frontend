@@ -9,7 +9,7 @@
 import step1 from './SetOD.vue'
 import step2 from './SetO.vue'
 import step3 from './SetShop.vue'
-import weekweather from './weekweather copy.vue'
+import weekweather from './weekweather.vue'
 import { ref, onMounted, reactive } from 'vue'
 import { RouterLink } from "vue-router";
 
