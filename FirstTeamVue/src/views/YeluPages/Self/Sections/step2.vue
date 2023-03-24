@@ -16,26 +16,32 @@
                 start-placeholder="開始日期"
                 end-placeholder="結束日期"
                 size="default"
-            /></el-form-item>
+              /></el-form-item>
             </div>
-          <div class="container d-flex justify-content-start">
 
-            <el-form-item label="預計人數 :">
-              <el-input
-                type="text"
-                v-model="form.預計人數"
-                placeholder="請填入參加人數"
-              />
-            </el-form-item>
-          </div>
-
-  
-  
-          <div class="container d-flex justify-content-end ">
-              <el-form-item >
-                <el-button type="warning"  @click="onSubmit">確認</el-button>
+            <div class="container d-flex justify-content-start">
+              <el-form-item label="預計人數 :">
+                <el-input
+                  type="text"
+                  v-model="form.預計人數"
+                  placeholder="請填入參加人數"
+                />
               </el-form-item>
-          </div>
+            </div>
+
+            <div class="container d-flex justify-content-start">
+              <el-form-item label="備註 :" style="width: 75%;" >
+                <el-input v-model="form.評論" type="textarea" placeholder="任何特殊需求請填寫在這裡"/>
+              </el-form-item>`
+            </div>
+
+  
+    
+            <div class="container d-flex justify-content-end ">
+                <el-form-item >
+                  <el-button type="warning"  @click="onSubmit">確認</el-button>
+                </el-form-item>
+            </div>
 
         </el-form>
       </div>
