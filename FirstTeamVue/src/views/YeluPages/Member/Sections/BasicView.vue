@@ -3,6 +3,8 @@ import Login from "./Login.vue";
 import Signup from "./Signup.vue";
 
 import Shortnews from "./Shortnews.vue"
+import OpenAI from "./OpenAI.vue"
+
 
 
 const refreshEdit = () => {
@@ -60,6 +62,8 @@ const emits = defineEmits(['refreshEdit_Frame'])
                   <!-- <el-tab-pane label="Task">Task</el-tab-pane> -->
                   
                   <Shortnews/>
+                  <OpenAI/>
+                  
                 </el-tabs>
               </div>
             </div>

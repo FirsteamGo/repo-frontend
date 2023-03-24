@@ -12,7 +12,7 @@ import bg0 from "@/assets/img/bg9.jpg";
 import Typed from "typed.js";
 import basic from "./Sections/BasicView.vue"
 
-import Facebook from "./Sections/Facebook.vue"
+
 
 
 
@@ -72,7 +72,7 @@ const refreshEdit_Frame = () => {
       <div class="container">
         
         <basic/>
-        <Facebook/>
+        
 
       </div>
     </div>
