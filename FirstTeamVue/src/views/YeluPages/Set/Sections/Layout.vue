@@ -9,12 +9,12 @@
 import step1 from './SetOD.vue'
 import step2 from './SetO.vue'
 import step3 from './SetShop.vue'
-
+import weekweather from './weekweather copy.vue'
 import { ref, onMounted, reactive } from 'vue'
 import { RouterLink } from "vue-router";
 
 const active = ref(0)
-
+const drawer = ref(false)
 export default {
   components: {
     step1,
@@ -83,10 +83,14 @@ export default {
     <div style="margin-top: 12px">
       <el-button v-if="active > 0" @click="back">上一步</el-button>
       <el-button v-if="active < 2" @click="next">下一步</el-button>
+      <el-button style="margin-left: 16px" @click="drawer = true">氣象資訊</el-button>
 
     </div>
 
     <p></p>
+    <el-drawer v-model="drawer" title="I am the title" :with-header="false">
+      <weekweather />
+    </el-drawer>
 
     <component :is="content"></component>
 
