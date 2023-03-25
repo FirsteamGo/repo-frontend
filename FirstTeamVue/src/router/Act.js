@@ -6,31 +6,20 @@ export default [
         name: "act",
         component: ActView,
         children: [
+            {//四地區
+                path: "ActAllAera",
+                name: "ActAllAera",
+                component: () => import("../views/YeluPages/Act/Sections/ActAllAera.vue"),
+            },
+            {//四地區參數
+                path: "ActAllAera/:whoAera",
+                name: "ActAllAera-a",
+                component: () => import("../views/YeluPages/Act/Sections/ActAllAera.vue"),
+            },
             {//熱門精選
                 path: "ActHot",
                 name: "ActHot",
                 component: () => import("../views/YeluPages/Act/Sections/ActHot.vue"),
-            },
-            {
-                path: "North",
-                name: "ActNorth",
-                component: () => import("../views/YeluPages/Act/Sections/ActNoUse/ActNorth.vue"),
-
-            },
-            {
-                path: "West",
-                name: "ActWest",
-                component: () => import("../views/YeluPages/Act/Sections/ActNoUse/ActWest.vue"),
-            },
-            {
-                path: "South",
-                name: "ActSouth",
-                component: () => import("../views/YeluPages/Act/Sections/ActNoUse/ActSouth.vue"),
-            },
-            {
-                path: "East",
-                name: "ActEast",
-                component: () => import("../views/YeluPages/Act/Sections/ActNoUse/ActEast.vue"),
             },
             {//活動首頁
                 path: "ActIndex",

@@ -1,6 +1,6 @@
 <script  setup>
 import card1 from "../Self/Sections/card.vue";
-import { reactive, ref, onMounted } from "vue";
+import { reactive, ref, onMounted, onBeforeUpdate, onUpdated } from "vue";
 import CampIndex from "../Camp/Sections/CampIndex.vue";
 import step2 from "../Self/Sections/step2.vue";
 import step3 from "../Self/Sections/step3.vue";
@@ -47,8 +47,6 @@ const next = () => {
   } else if (active.value == 2) {
     // content.value = "step3";
     // index.value = 2;
-    BtnCart.value = !BtnCart.value;
-    BtnStep.value = !BtnStep.value;
     routerLinkPath.value = "step3";
   } else if (active.value == 3) {
     // content.value = "step3";
@@ -58,18 +56,35 @@ const next = () => {
     // content.value = "CampIndex";
     // index.value = 0;
     // Step1.value = false;
-    BtnCart.value = false;
-    BtnStep.value = true;
     routerLinkPath.value = "step1";
   }
 };
 
+//畫面首次載入後執行
 onMounted(() => {
-  if (route.name == "step2" || route.name == "step2-p") {
-    next();
+  if (route.name == "step1") {
+    routerLinkPath.value = "step1";
+  } else if (route.name == "step2" || route.name == "step2-p") {
+    routerLinkPath.value = "step2";
   } else if (route.name == "step3") {
-    next();
-    next();
+    routerLinkPath.value = "step3";
+  }
+});
+
+//畫面更新後執行
+onUpdated(() => {
+  if (route.name == "step1") {
+    active.value = 0;
+    BtnCart.value = false;
+    BtnStep.value = true;
+  } else if (route.name == "step2" || route.name == "step2-p") {
+    active.value = 1;
+    BtnCart.value = false;
+    BtnStep.value = true;
+  } else if (route.name == "step3") {
+    active.value = 2;
+    BtnCart.value = true;
+    BtnStep.value = false;
   }
 });
 </script> 
