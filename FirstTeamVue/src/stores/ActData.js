@@ -55,15 +55,25 @@ export const useActDataAtore = defineStore('ActData', () => {
     const Culture = reactive({ "文化": [], });
     const Water = reactive({ "水上": [], });
     const Tour = reactive({ "觀光": [], });
-    let dialogVisibleArr = reactive(new Array(7).fill(false))
 
+    const North = reactive({ "北部": [], });
+    const West = reactive({ "中部": [], });
+    const South = reactive({ "南部": [], });
+    const East = reactive({ "東部": [], });
 
-    // const ActEvent = new ActAllVariable
-    // const ActViewPoint = new ActAllVariable
-    // const ActSport = new ActAllVariable
-    // const ActCulture = new ActAllVariable
-    // const ActWater = new ActAllVariable
-    // const ActTour = new ActAllVariable
+    let Taoyuan = reactive({ "桃園市": [], });
+    let NewTp = reactive({ "新北市": [], });
+    let Hsinchu = reactive({ "新竹縣": [], });
+    let Miaoli = reactive({ "苗栗縣": [], });
+    let Nantou = reactive({ "南投縣": [], });
+    let Taichung = reactive({ "台中市": [], });
+    let Chiayi = reactive({ "嘉義縣": [], });
+    let Tainan = reactive({ "台南市": [], });
+    let Kaohsiung = reactive({ "高雄市": [], });
+    let Yilan = reactive({ "宜蘭縣": [], });
+    let Hualien = reactive({ "花蓮縣": [], });
+    let Taitung = reactive({ "台東縣": [], });
+    let dialogVisibleArr = reactive(new Array(23).fill(false))
 
 
     //熱門精選Get
@@ -198,6 +208,75 @@ export const useActDataAtore = defineStore('ActData', () => {
                 }
             })
 
+        } catch (error) {
+            console.error(error);
+        }
+    };
+    //北中南東部Get
+    const AllAreaActGet = async () => {
+        try {
+            const res = await axios.get(
+                "https://localhost:7108/api/CampDetails"
+            );
+            res.data.forEach((Actdetail) => {
+                const AreaDt = new ActAllValue(Actdetail.營區id, Actdetail.活動id, Actdetail.營區名稱, Actdetail.地區, Actdetail.縣市, Actdetail.活動方式, Actdetail.活動種類, Actdetail.活動名稱, Actdetail.活動介紹, Actdetail.活動圖片, Actdetail.門票價格, Actdetail.圖片, Actdetail.營區地址, Actdetail.單價)
+                const AllArea = AreaDt.地區;
+                if (North[AllArea]) {
+                    North[AllArea].push(AreaDt)
+                } else if (West[AllArea]) {
+                    West[AllArea].push(AreaDt)
+                } else if (South[AllArea]) {
+                    South[AllArea].push(AreaDt)
+                } else if (East[AllArea]) {
+                    East[AllArea].push(AreaDt)
+                }
+                else {
+                    console.log(`Unknown region: ${AllArea}`);
+                }
+            })
+
+        } catch (error) {
+            console.error(error);
+        }
+    };
+    //12縣市Get
+    const AllCityCampGet = async () => {
+        try {
+            const res = await axios.get(
+                "https://localhost:7108/api/CampDetails"
+            );
+            res.data.forEach((Actdetail) => {
+                const AllDt = new ActAllValue(Actdetail.營區id, Actdetail.活動id, Actdetail.營區名稱, Actdetail.地區, Actdetail.縣市, Actdetail.活動方式, Actdetail.活動種類, Actdetail.活動名稱, Actdetail.活動介紹, Actdetail.活動圖片, Actdetail.門票價格, Actdetail.圖片, Actdetail.營區地址, Actdetail.單價)
+                const AllCity = AllDt.地區;
+                if (NewTp[AllCity]) {
+                    NewTp[AllCity].push(AllDt)
+                } else if (Taoyuan[AllCity]) {
+                    Taoyuan[AllCity].push(AllDt)
+                } else if (Hsinchu[AllCity]) {
+                    Hsinchu[AllCity].push(AllDt)
+                } else if (Miaoli[AllCity]) {
+                    Miaoli[AllCity].push(AllDt)
+                } else if (Nantou[AllCity]) {
+                    Nantou[AllCity].push(AllDt)
+                } else if (Taichung[AllCity]) {
+                    Taichung[AllCity].push(AllDt)
+                } else if (Chiayi[AllCity]) {
+                    Chiayi[AllCity].push(AllDt)
+                } else if (Tainan[AllCity]) {
+                    Tainan[AllCity].push(AllDt)
+                } else if (Kaohsiung[AllCity]) {
+                    Kaohsiung[AllCity].push(AllDt)
+                } else if (Yilan[AllCity]) {
+                    Yilan[AllCity].push(AllDt)
+                } else if (Hualien[AllCity]) {
+                    Hualien[AllCity].push(AllDt)
+                } else if (Taitung[AllCity]) {
+                    Taitung[AllCity].push(AllDt)
+                }
+                else {
+                    console.log(`Unknown region: ${AllCity}`);
+                }
+            })
         } catch (error) {
             console.error(error);
         }
@@ -433,9 +512,12 @@ export const useActDataAtore = defineStore('ActData', () => {
 
 
     return {
-        HotActGet, EventActGet, ViewPointActGet, SportActGet, CultureActGet, WaterActGet, TourActGet,
+        HotActGet, EventActGet, ViewPointActGet, SportActGet, CultureActGet, WaterActGet, TourActGet, AllAreaActGet, AllCityCampGet,
         HotDialog, EventDialog, ViewPointDialog, SportDialog, CultureDialog, WaterDialog, TourDialog,
-        dialogVisibleArr, Event, ViewPoint, Sport, Culture, Water, Tour, MVCimages, ActDialogAll, ActAllData,
+        dialogVisibleArr, Event, ViewPoint, Sport, Culture, Water, Tour,
+        North, West, South, East,
+        NewTp, Taoyuan, Hsinchu, Miaoli, Nantou, Taichung, Chiayi, Tainan, Kaohsiung, Yilan, Hualien, Taitung,
+        MVCimages, ActDialogAll, ActAllData,
     }
     //  ActEvent,ActViewPoint, ActSport, ActCulture, ActWater, ActTour,
 })
