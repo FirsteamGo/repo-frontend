@@ -1,4 +1,4 @@
-<script setup>
+<!-- <script setup>
 import { onMounted, onUnmounted, ref, reactive, computed } from "vue";
 import axios from "axios";
 // example components
@@ -107,8 +107,9 @@ const addCart = () => {
 const clear = () => {
   box.splice(0);
 };
-</script>
-<template>
+</script> -->
+
+<!-- <template>
   <div class="">
     <el-container>
       <el-main>
@@ -199,6 +200,121 @@ const clear = () => {
                     <div>
                       <img
                         :src="`${imagelist}${dialogData.圖片}`"
+                        alt="商品圖片"
+                        style="height: 150px; width: 150px; margin-bottom: 20px"
+                      />
+                    </div>
+                  </el-main>
+                </el-container>
+              </div>
+
+              <div></div>
+            </el-dialog>
+          </div>
+        </section>
+      </el-main>
+    </el-container>
+  </div>
+</template> -->
+<script setup>
+import { ref, reactive, computed, onMounted } from "vue";
+import {useCampShop} from "../../../../stores/CampShop.js";
+import card2 from "../shopcards/card2.vue";
+const tnfAll=useCampShop();
+onMounted(tnfAll.tnfProduct);
+let num=1;
+</script>
+<template>
+  <div class="">
+    <el-container>
+      <el-main>
+        <section class="py-3">
+          <div class="row">
+            <div
+              class="col-lg-2 col-sm-6"
+              v-for="item in tnfAll.tnf.TheNorthFace"
+              :key="item.商品細項id"
+            >
+              <card2
+                class="cards"
+                :image="`${tnfAll.Images}${item.產品圖片}`"
+                :title="item.產品名稱"
+                :description="item.單價"
+                :content="item.產品說明"
+              />
+              <el-button
+                @click="
+                  {
+                    tnfAll.tnfDialog(item.商品細項id);
+                    tnfAll.dialogvision[1]=true;
+                  }
+                "
+                class="detail"
+                >更多資訊!<i class="fas fa-arrow-right text-xs ms-1"></i>
+              </el-button>
+            </div>
+
+            <el-dialog
+              v-model="tnfAll.dialogvision[1]"
+              class="dialog"
+              title="商品列表"
+              width="30%"
+              draggable
+            >
+              <div class="common-layout">
+                <el-container>
+                  <el-aside width="50%">
+                    <div>
+                      <h6 style="color: black; font-weight: bolder">
+                        名稱:{{ tnfAll.ShopproductsInfo.產品名稱 }}
+                      </h6>
+                    </div>
+                    <div>
+                      <label class="form-label"
+                        >價錢:{{ tnfAll.ShopproductsInfo.單價 }}</label
+                      >
+                    </div>
+
+                    <div>
+                      <label class="form-label">總價:{{ tnfAll.ShopproductsInfo.單價*num }}</label>
+                    </div>
+                    <div>
+                      <el-input-number
+                        v-model="num"
+                        :min="1"
+                        :max="10"
+                        :step="1"
+                        class="inPut"
+                      ></el-input-number>
+                    </div>
+                    <div style="margin-top: 20px">
+                      <el-button
+                        class="btn-2"
+                        @click="
+                          {
+                            clear();
+                            visible = false;
+                          }
+                        "
+                        >取消</el-button
+                      >
+                      <el-button
+                        class="btn-1"
+                        @click="
+                          {
+                            addCart();
+                            visible = false;
+                          }
+                        "
+                      >
+                        加入購物車
+                      </el-button>
+                    </div>
+                  </el-aside>
+                  <el-main>
+                    <div>
+                      <img
+                        :src="`${tnfAll.Images}${tnfAll.ShopproductsInfo.產品圖片}`"
                         alt="商品圖片"
                         style="height: 150px; width: 150px; margin-bottom: 20px"
                       />

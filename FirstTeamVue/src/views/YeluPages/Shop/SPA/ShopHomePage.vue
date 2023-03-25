@@ -215,19 +215,11 @@ import { ref, reactive, computed, onMounted } from "vue";
 import {useCampShop} from "../../../../stores/CampShop.js";
 import card2 from "../shopcards/card2.vue";
 const ShopAll=useCampShop();
-onMounted(ShopAll.Topgoods, );
-//console.log("this is "+ShopAll.ShopproductsInfo.單價.value);
+onMounted(ShopAll.Topgoods);
+console.log("this is "+ShopAll.ShopCart);
 let num=ref(1);
 
-const box = reactive([]);
 
-const shopcart = reactive({
-  商品細項id: 0,
-  產品名稱: "",
-  單價: 0,
-  商品數量: 0,
-  合計總價: 0,
-});
 </script>
 
 <template>
@@ -251,7 +243,7 @@ const shopcart = reactive({
               <el-button
                 @click="
                   {
-                    //ShopAll.goodsDialog(item.商品細項id);
+                    ShopAll.goodsDialog(item.商品細項id);
                     ShopAll.dialogvision[0]=true;
                   }
                 "

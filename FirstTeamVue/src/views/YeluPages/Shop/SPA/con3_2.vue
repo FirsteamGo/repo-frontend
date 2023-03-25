@@ -1,27 +1,10 @@
 <script setup>
-import { onMounted, onUnmounted, ref, reactive, computed } from "vue";
-import axios from "axios";
-// example components
-
+import { onMounted } from "vue";
+import {useCampShop} from "../../../../stores/CampShop.js";
 import card2 from "../shopcards/card2.vue";
-
-//Vue Material Kit 2 components
-const webApiBaseAddr = ref("https://localhost:7108/api/ShopDetails");
-const imagelist = ref("https://localhost:7120/images/");
-let shopPro = reactive([]);
-
-const getEmployeeDTOes = onMounted(() => {
-  axios
-    .get(webApiBaseAddr.value)
-    .then((res) => {
-      //console.log(res.data);
-      shopPro.splice(0, res.data.length, ...res.data);
-      console.log(shopPro);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
+const lifeAll=useCampShop();
+onMounted(lifeAll.lifecodeProduct);
+let num=1;
 </script>
 <template>
   <div class="">
@@ -29,16 +12,174 @@ const getEmployeeDTOes = onMounted(() => {
       <el-main>
         <section class="py-3">
           <div class="row">
-            <div class="col-lg-2 col-sm-6" v-for="item in shopPro">
+            <div
+              class="col-lg-2 col-sm-6"
+              v-for="item in lifeAll.lifecode.LifeCode"
+              :key="item.商品細項id"
+            >
               <card2
-                :image="`${imagelist}${item.產品圖片}`"
+                class="cards"
+                :image="`${lifeAll.Images}${item.產品圖片}`"
                 :title="item.產品名稱"
                 :description="item.單價"
+                :content="item.產品說明"
               />
+              <el-button
+                @click="
+                  {
+                    lifeAll.lifecodeDialog(item.商品細項id);
+                    lifeAll.dialogvision[6]=true;
+                  }
+                "
+                class="detail"
+                >更多資訊!<i class="fas fa-arrow-right text-xs ms-1"></i>
+              </el-button>
             </div>
+
+            <el-dialog
+              v-model="lifeAll.dialogvision[6]"
+              class="dialog"
+              title="商品列表"
+              width="30%"
+              draggable
+            >
+              <div class="common-layout">
+                <el-container>
+                  <el-aside width="50%">
+                    <div>
+                      <h6 style="color: black; font-weight: bolder">
+                        名稱:{{ lifeAll.ShopproductsInfo.產品名稱 }}
+                      </h6>
+                    </div>
+                    <div>
+                      <label class="form-label"
+                        >價錢:{{ lifeAll.ShopproductsInfo.單價 }}</label
+                      >
+                    </div>
+
+                    <div>
+                      <label class="form-label">總價:{{ lifeAll.ShopproductsInfo.單價*num }}</label>
+                    </div>
+                    <div>
+                      <el-input-number
+                        v-model="num"
+                        :min="1"
+                        :max="10"
+                        :step="1"
+                        class="inPut"
+                      ></el-input-number>
+                    </div>
+                    <div style="margin-top: 20px">
+                      <el-button
+                        class="btn-2"
+                        @click="
+                          {
+                            clear();
+                            visible = false;
+                          }
+                        "
+                        >取消</el-button
+                      >
+                      <el-button
+                        class="btn-1"
+                        @click="
+                          {
+                            addCart();
+                            visible = false;
+                          }
+                        "
+                      >
+                        加入購物車
+                      </el-button>
+                    </div>
+                  </el-aside>
+                  <el-main>
+                    <div>
+                      <img
+                        :src="`${lifeAll.Images}${lifeAll.ShopproductsInfo.產品圖片}`"
+                        alt="商品圖片"
+                        style="height: 150px; width: 150px; margin-bottom: 20px"
+                      />
+                    </div>
+                  </el-main>
+                </el-container>
+              </div>
+
+              <div></div>
+            </el-dialog>
           </div>
         </section>
       </el-main>
     </el-container>
   </div>
 </template>
+<style>
+/* 彈跳視窗css設計 */
+.dialog {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+  border: 2.5px outset #c17767;
+  border-radius: 12px;
+  background-color: #e28413;
+  font-weight: bolder;
+}
+
+.dialog-body {
+  flex: 1;
+  padding-right: 10px;
+}
+.dialog-footer {
+  flex: 0 0 auto;
+  width: 250px;
+}
+.form-label {
+  color: black;
+  font-weight: bolder;
+}
+/* 彈跳輸入框設定 */
+.detail {
+  background-color: white;
+  color: #d4404a;
+  font-weight: bolder;
+  font-size: large;
+  border: none;
+  margin-left: -16px;
+  margin-top: -16px;
+}
+.detail:hover {
+  color: #d4404a;
+  background-color: white;
+}
+.detail:active {
+  transform: scale(0.9);
+}
+/* 輸入css設計 */
+.inPut {
+  border: 2px dashed black;
+}
+/* 按鈕css */
+.btn-1 {
+  color: black;
+  background-color: #3c908e;
+  font-weight: bolder;
+}
+.btn-1:hover {
+  background-color: rgba(60, 144, 142, 0.85);
+  color: black;
+}
+.btn-2 {
+  background-color: #d53439;
+  color: black;
+  font-weight: bolder;
+}
+.btn-2:hover {
+  background-color: rgba(213, 52, 57, 0.7);
+  color: black;
+}
+.images {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: auto;
+}
+</style>
