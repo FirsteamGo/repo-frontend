@@ -75,6 +75,13 @@ import { ref, reactive, onMounted } from 'vue'
 import { Edit } from '@element-plus/icons-vue';
 import axios from 'axios';
 
+//呼叫 pinia
+import { useSetPinia } from "../../../../stores/setpiana";
+const EventAll = useSetPinia();
+
+
+// onMounted(EventAll.EventActGet);
+
 const webApi = ref("https://localhost:7108/api/SetOrderDetails");
 const mvc = ref("https://localhost:7120/images/")
 

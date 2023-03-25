@@ -12,10 +12,10 @@
           <el-form-item label="訂單編號：" hidden>{{ setordernu }}</el-form-item>
           <el-form-item label="套裝方案：">{{ setod.套裝方案 }}</el-form-item>
 
-          <el-form-item label="露營日期：" class="demonstration">
+          <el-form-item label="露營日期：" class="demonstration" prop="data" required="請選擇露營日期">
             <el-date-picker v-model="form.data" type="daterange" range-separator="To" start-placeholder="開始日期"
               end-placeholder="結束日期" size="default" /></el-form-item>
-          <el-form-item label="預計人數 :">
+          <el-form-item label="預計人數 :" prop="numberOfPeople" required="請輸入數字">
             <el-input type="text" v-model="form.numberOfPeople" placeholder="請填入參加人數" />
           </el-form-item>
           <el-form-item label="合計總價 :">{{ totalPrice }} 元</el-form-item>

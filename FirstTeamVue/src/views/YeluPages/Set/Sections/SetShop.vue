@@ -141,8 +141,6 @@ import { RouterLink } from 'vue-router';
 const mvc = ref("https://localhost:7120/images/");
 const webApi = ref("https://localhost:7108/api/SetOrders");
 
-
-
 const seto = JSON.parse(localStorage.getItem('setorder'))
 const setod = JSON.parse(localStorage.getItem('setorderdetail'))
 const meda = JSON.parse(localStorage.getItem('customerData'))
