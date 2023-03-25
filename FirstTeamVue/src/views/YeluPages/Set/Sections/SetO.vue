@@ -144,7 +144,6 @@ const onSubmit = () => {
   localStorage.setItem('setorder', Seto)
   alert("請按下一步進入購物車")
 
-
 }
 
 const setordernu = `Set${now.getFullYear()}${(now.getMonth() + 1).toString().padStart(2, "0")}${now.getDate().toString().padStart(2, "0")}${now.getHours().toString().padStart(2, "0")}${now.getMinutes().toString().padStart(2, "0")}${now.getSeconds().toString().padStart(2, "0")}`;

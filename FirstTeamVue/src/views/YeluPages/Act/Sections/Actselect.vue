@@ -9,17 +9,25 @@ export default {
     const selectedRegion = ref(null);
     const selectedCity = ref(null);
     const regions = reactive(["North", "West", "South", "East"]);
-    const ActType = reactive(["景點", "運動", "文化", "水上", "觀光", "活動"]);
+    const Areas = reactive(["北部", "中部", "南部", "東部"]);
     const cities = {
-      North: ["新北", "桃園", "新竹"],
-      West: ["苗栗", "南投", "台中"],
-      South: ["嘉義", "台南", "高雄"],
-      East: ["宜蘭", "花蓮", "台東"],
+      North: ["NewTp", "Taoyuan", "Hsinchu"],
+      West: ["Miaoli", "Nantou", "Taichung"],
+      South: ["Chiayi", "Tainan", "Kaohsiung"],
+      East: ["Yilan", "Hualien", "Taitung"],
     };
+    const cities_CH = {
+      North: ["新北市", "桃園市", "新竹縣"],
+      West: ["苗栗縣", "南投縣", "台中市"],
+      South: ["嘉義縣", "台南市", "高雄市"],
+      East: ["宜蘭縣", "花蓮縣", "台東縣"],
+    };
+
     const filteredCities = computed(() => {
       // return cities[regions[selectedRegion.value]];
       // return cities[regions[regions.indexOf(selectedRegion.value)]];
-      return cities[selectedRegion.value];
+      const index = Areas.findIndex((item) => item === selectedRegion.value)
+      return cities_CH[regions[index]];
     });
 
     function filterCities() {
@@ -34,6 +42,7 @@ export default {
       filteredCities,
       filterCities,
       ActType,
+      Areas,
     };
   },
 };
@@ -46,25 +55,23 @@ export default {
       <el-select v-model="selectedRegion" @change="filterCities" class="select m-2" placeholder="區域" size="large">
         <el-option disabled value="">請選擇</el-option>
         <div>
-          <el-option v-for="(region, index) in regions" :key="index" :value="region">
-            <router-link :to="`/pages/Yelu-pages/act/ActAllAera/${region}`" class=" p-8">{{ region
+          <el-option v-for="(region, index) in regions" :key="index" :value="Areas[index]">
+            <router-link :to="`/pages/Yelu-pages/act/ActAllAera/${region}`" class=" p-8">{{ Areas[index]
             }}</router-link>
           </el-option>
         </div>
       </el-select>
     </div>
 
-    <div> <span>縣市</span>
+    <div>
+      <span>縣市</span>
       <el-select v-model="selectedCity" class="m-2" placeholder="縣市" size="large">
-        <el-option v-for="(city, index) in filteredCities" :key="index" :value="city">{{ city }}</el-option>
+        <el-option v-for="(city, index) in filteredCities" :key="index" :value="city">
+          <router-link :to="`/pages/Yelu-pages/act/ActAllCity/${city}`" class=" p-8">{{ city
+          }}</router-link>
+        </el-option>
       </el-select>
     </div>
-
-    <!-- <div><span>活動種類</span>
-          <el-select class="m-2" placeholder="活動種類" size="large">
-              <el-option v-for="ActTp in ActType" :key="ActTp" :value="ActTp" />{{ ActTp }}
-          </el-select>
-      </div> -->
 
     <div>
       <span class="Search">關鍵字</span>

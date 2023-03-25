@@ -47,6 +47,21 @@ let LableAera = computed(() => {
     }
 })
 
+let AreaDialog = computed(() => {
+    let areaDialog = reactive();
+    if (route.name == "ActAllAera-a") {
+        if (route.params.whoAera == "North") {
+            areaDialog = AeraAll.NorthDialog;
+        } else if (route.params.whoAera == "West") {
+            areaDialog = AeraAll.WestDialog;
+        } else if (route.params.whoAera == "South") {
+            areaDialog = AeraAll.SouthDialog;
+        } else if (route.params.whoAera == "East") {
+            areaDialog = AeraAll.EastDialog;
+        }
+        return areaDialog;
+    }
+})
 
 </script>
 
@@ -86,7 +101,7 @@ let LableAera = computed(() => {
 
                             <div class="m-3">
                                 <el-button type="info" class="text-lg font-weight-bolder icon-move-right"
-                                    @click="{ AeraAll.HotDialog(item.活動id); AeraAll.dialogVisibleArr[0] = true }">
+                                    @click="{ AreaDialog(item.活動id); AeraAll.dialogVisibleArr[7] = true }">
                                     詳細資訊<i class="fas fa-arrow-right text-xs ms-1"></i>
                                 </el-button>
                             </div>
@@ -95,7 +110,7 @@ let LableAera = computed(() => {
 
                     <!-- 彈跳視窗 -->
                     <div>
-                        <el-dialog v-model="AeraAll.dialogVisibleArr[0]" title="活動詳細資訊" width="50%" draggable>
+                        <el-dialog v-model="AeraAll.dialogVisibleArr[7]" title="活動詳細資訊" width="50%" draggable>
                             <div class="modal-header">
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
