@@ -7,42 +7,174 @@
         </div>
         
 		<header id="cartList">
+			<!-- <div>
+				<h3>露營商店</h3>
 			<table style="border-bottom:1px solid #ddd;">
 				<tr class="itemHead">
-                    <td style="width:200px;">商品名稱</td>
-					<td style="width:280px;">商品內容</td>
-					<td style="width:170px;">單價($)</td>
+					<td style="width:200px;" hidden>商品細項id</td>
+					<td style="width:200px;">商品圖片</td>
+					<td style="width:280px;">商品名稱</td>
 					<td style="width:70px;">數量</td>
+					<td style="width:170px;">單價($)</td>
 				</tr>
 			</table>
-			<!-- 動態新增 -->
-			<!-- 會重複做的視為功能，功能要寫成函數 -->
-			<!-- <div>
-				<table>
-					<tr class="item">
-						<td style="width:200px;">
-							<img src="imgs/formosa.jpg" width="80px">
-						</td>
-						<td style="width:280px;">
-							<p>Formosa</p>
-							<button>Delete</button>
-						</td>
-						<td style="width:170px;">
-							<p>5000</p>
-						</td>
-						<td style="width:60px;">
-							<p>
-								<input type="number" value="1" min="1">
-							</p>
-						</td>
-					</tr>
-				</table>
 			</div> -->
+<h3>露營商店</h3>
+<el-header height="300px">
+<!-- <table style="border-bottom:1px solid #ddd;"> -->
+<div class="container w-100 px-2">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">
+              <span class="badge bg-success"
+                ><span class="material-icons mx-2">task_alt</span>已選商品</span>
+            </h5>
+            <!-- <img
+              :src="`${whoFuncImg.MVCimages}${whoFunc.圖片}`"
+              style="height: 200px; display: block; margin: 0 auto"
+            /> -->
+            <p class="m-3 myword">商品名稱 | {{  }}</p>
+            <p class="m-3 myword">商品數量 | {{  }}</p>
+            <p class="m-3 myword">
+              <span class="material-icons">attach_money</span> TWD<span
+                class="text-primary">{{  }}</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<!-- </table> -->
+</el-header>
+
+
+<h3>自選行程</h3>
+<el-header height="400px">
+<!-- <table style="border-bottom:1px solid #ddd;"> -->
+<div class="container w-100 px-2">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">
+              <span class="badge bg-success"
+                ><span class="material-icons mx-2">task_alt</span>已選營地</span>
+            </h5>
+            <!-- <img
+              :src="`${whoFuncImg.MVCimages}${whoFunc.圖片}`"
+              style="height: 200px; display: block; margin: 0 auto"
+            /> -->
+            <p class="m-3 myword">營區名稱 | {{  }}</p>
+            <p class="m-3 myword">營區地址 | {{  }}</p>
+            <p class="m-3 myword">露營時間 | {{  }}</p>
+            <p class="m-3 myword">露營人數 | {{  }}</p>
+            <p class="m-3 myword">
+              <span class="material-icons">attach_money</span> TWD<span
+                class="text-primary">{{  }}</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">
+              <span class="badge bg-success"
+                ><span class="material-icons mx-2">task_alt</span>已選活動</span>
+            </h5>
+            <!-- <img
+              :src="`${whoFuncImg.MVCimages}${whoFunc.活動圖片}`"
+              style="height: 200px; display: block; margin: 0 auto"/> -->
+            <p class="m-3 myword">活動名稱 | {{  }}</p>
+            <p class="m-3 myword">活動種類 | {{  }}</p>
+            <p class="m-3 myword">
+              <span class="material-icons">attach_money</span> TWD<span
+                class="text-primary"
+                >{{  }}</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+	  <div class="col-sm-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">
+              <span class="badge bg-success"
+                ><span class="material-icons mx-2">task_alt</span>已選飲食</span>
+            </h5>
+            <!-- <img
+              :src="`${whoFuncImg.MVCimages}${whoFunc.活動圖片}`"
+              style="height: 200px; display: block; margin: 0 auto"/> -->
+            <p class="m-3 myword">商品名稱 | {{  }}</p>
+            <p class="m-3 myword">商品數量 | {{  }}</p>
+            <p class="m-3 myword">
+              <span class="material-icons">attach_money</span> TWD<span
+                class="text-primary"
+                >{{  }}</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+<!-- </table> -->
+</el-header>
+
+
+
+<h3>套裝行程</h3>
+<el-header height="600px">
+<!-- <table style="border-bottom:1px solid #ddd;"> -->
+<div class="container w-100 px-2">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">
+              <span class="badge bg-success"
+                ><span class="material-icons mx-2">task_alt</span>已選套裝行程</span>
+            </h5>
+            <!-- <img
+              :src="`${whoFuncImg.MVCimages}${whoFunc.圖片}`"
+              style="height: 200px; display: block; margin: 0 auto"
+            /> -->
+            <p class="m-3 myword">營區名稱 | {{  }}</p>
+            <p class="m-3 myword">營區地址 | {{  }}</p>
+            <p class="m-3 myword">露營時間 | {{  }}</p>
+            <p class="m-3 myword">露營人數 | {{  }}</p>
+            <p class="m-3 myword">露營方式 | {{  }}</p>
+            <p class="m-3 myword">方案 | {{  }}</p>
+            <p class="m-3 myword">套裝活動 | {{  }}</p>
+            <p class="m-3 myword">
+              <span class="material-icons">attach_money</span> TWD<span
+                class="text-primary">{{  }}</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      
+
+    </div>
+  </div>
+<!-- </table> -->
+</el-header>
+
+			
+
 		</header>
+<!-- 合計 -->
 		<footer style="text-align:right;">
 			Total : <span id="total">0</span>
 		</footer>
-    
+    <!-- 按鈕 -->
      <div class="d-flex justify-content-end m-5">
         <router-link to="/">
          <el-button type="info" class="text-lg" style="margin: 5px;">重新購買
