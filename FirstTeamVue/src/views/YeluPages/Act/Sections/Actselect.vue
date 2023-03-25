@@ -41,7 +41,7 @@ export default {
       cities,
       filteredCities,
       filterCities,
-      ActType,
+      //ActType,
       Areas,
     };
   },

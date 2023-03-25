@@ -76,7 +76,6 @@ export const useActDataAtore = defineStore('ActData', () => {
     let dialogVisibleArr = reactive(new Array(9).fill(false))
     // 0.熱門 1.活動 2.景點 3.運動 4.文化 5.水上 6.觀光 7.北中南東 8.12縣市
 
-
     //熱門精選Get
     const HotActGet = async () => {
         try {

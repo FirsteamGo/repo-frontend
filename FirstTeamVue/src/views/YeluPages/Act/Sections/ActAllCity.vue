@@ -13,33 +13,35 @@ const route = useRoute();
 const CityAll = useActDataAtore();
 onMounted(CityAll.AllCityCampGet);
 
+
+
 let NewCity = computed(() => {
     let NewCt = reactive();
     if (route.name == "ActAllCity-a") {
         //alert(route.params.whoCity)
-        if (route.params.whoCity == "NewTp") {
+        if (route.params.whoCity == "新北市") {
             NewCt = CityAll.NewTp.新北市;
-        } else if (route.params.whoCity == "Taoyuan") {
+        } else if (route.params.whoCity == "桃園市") {
             NewCt = CityAll.Taoyuan.桃園市;
-        } else if (route.params.whoCity == "Hsinchu") {
+        } else if (route.params.whoCity == "新竹縣") {
             NewCt = CityAll.Hsinchu.新竹縣;
-        } else if (route.params.whoCity == "Miaoli") {
+        } else if (route.params.whoCity == "苗栗縣") {
             NewCt = CityAll.Miaoli.苗栗縣;
-        } else if (route.params.whoCity == "Nantou") {
+        } else if (route.params.whoCity == "南投縣") {
             NewCt = CityAll.Nantou.南投縣;
-        } else if (route.params.whoCity == "Taichung") {
+        } else if (route.params.whoCity == "台中市") {
             NewCt = CityAll.Taichung.台中市;
-        } else if (route.params.whoCity == "Chiayi") {
+        } else if (route.params.whoCity == "嘉義縣") {
             NewCt = CityAll.Chiayi.嘉義縣;
-        } else if (route.params.whoCity == "Tainan") {
+        } else if (route.params.whoCity == "台南市") {
             NewCt = CityAll.Tainan.台南市;
-        } else if (route.params.whoCity == "Kaohsiung") {
+        } else if (route.params.whoCity == "高雄市") {
             NewCt = CityAll.Kaohsiung.高雄市;
-        } else if (route.params.whoCity == "Yilan") {
+        } else if (route.params.whoCity == "宜蘭縣") {
             NewCt = CityAll.Yilan.宜蘭縣;
-        } else if (route.params.whoCity == "Hualien") {
+        } else if (route.params.whoCity == "花蓮縣") {
             NewCt = CityAll.Hualien.花蓮縣;
-        } else if (route.params.whoCity == "Taitung") {
+        } else if (route.params.whoCity == "台東縣") {
             NewCt = CityAll.Taitung.台東縣;
         }
         return NewCt;
@@ -50,34 +52,68 @@ let NewCityDialog = computed(() => {
     let CityDialog = reactive();
     if (route.name == "ActAllCity-a") {
         //alert(route.params.whoCity)
-        if (route.params.whoCity == "NewTp") {
+        if (route.params.whoCity == "新北市") {
             CityDialog = CityAll.NewTpDialog;
-        } else if (route.params.whoCity == "Taoyuan") {
+        } else if (route.params.whoCity == "桃園市") {
             CityDialog = CityAll.TaoyuanDialog;
-        } else if (route.params.whoCity == "Hsinchu") {
+        } else if (route.params.whoCity == "新竹縣") {
             CityDialog = CityAll.HsinchuDialog;
-        } else if (route.params.whoCity == "Miaoli") {
+        } else if (route.params.whoCity == "苗栗縣") {
             CityDialog = CityAll.MiaoliDialog;
-        } else if (route.params.whoCity == "Nantou") {
+        } else if (route.params.whoCity == "南投縣") {
             CityDialog = CityAll.NantouDialog;
-        } else if (route.params.whoCity == "Taichung") {
+        } else if (route.params.whoCity == "台中市") {
             CityDialog = CityAll.TaichungDialog;
-        } else if (route.params.whoCity == "Chiayi") {
+        } else if (route.params.whoCity == "嘉義縣") {
             CityDialog = CityAll.ChiayiDialog;
-        } else if (route.params.whoCity == "Tainan") {
+        } else if (route.params.whoCity == "台南市") {
             CityDialog = CityAll.TainanDialog;
-        } else if (route.params.whoCity == "Kaohsiung") {
+        } else if (route.params.whoCity == "高雄市") {
             CityDialog = CityAll.KaohsiungDialog;
-        } else if (route.params.whoCity == "Yilan") {
+        } else if (route.params.whoCity == "宜蘭縣") {
             CityDialog = CityAll.YilanDialog;
-        } else if (route.params.whoCity == "Hualien") {
+        } else if (route.params.whoCity == "花蓮縣") {
             CityDialog = CityAll.HualienDialog;
-        } else if (route.params.whoCity == "Taitung") {
+        } else if (route.params.whoCity == "台東縣") {
             CityDialog = CityAll.TaitungDialog;
         }
         return CityDialog;
     }
 })
+
+let CityLabel = computed(() => {
+    let Citylabel = ref('');
+    if (route.name == "ActAllCity-a") {
+        //alert(route.params.whoCity)
+        if (route.params.whoCity == "新北市") {
+            Citylabel.value = "新北市活動";
+        } else if (route.params.whoCity == "桃園市") {
+            CityDialog.value = "桃園市活動";
+        } else if (route.params.whoCity == "新竹縣") {
+            CityDialog.value = "新竹縣活動";
+        } else if (route.params.whoCity == "苗栗縣") {
+            CityDialog.value = "苗栗縣活動";
+        } else if (route.params.whoCity == "南投縣") {
+            CityDialog.value = "南投縣活動";
+        } else if (route.params.whoCity == "台中市") {
+            CityDialog.value = "台中市活動";
+        } else if (route.params.whoCity == "嘉義縣") {
+            CityDialog.value = "嘉義縣活動";
+        } else if (route.params.whoCity == "台南市") {
+            CityDialog.value = "台南市活動";
+        } else if (route.params.whoCity == "高雄市") {
+            CityDialog.value = "高雄市活動";
+        } else if (route.params.whoCity == "宜蘭縣") {
+            CityDialog.value = "宜蘭縣活動";
+        } else if (route.params.whoCity == "花蓮縣") {
+            CityDialog.value = "花蓮縣活動";
+        } else if (route.params.whoCity == "台東縣") {
+            CityDialog.value = "台東縣活動";
+        }
+        return Citylabel;
+    }
+})
+
 </script>
 
 <template>
@@ -87,7 +123,7 @@ let NewCityDialog = computed(() => {
                 <Breadcrumbs :routes="[
                     { label: '首頁', route: '/' },
                     { label: '當地活動', route: '/pages/Yelu-pages/act/ActIndex' },
-                    { label: '活動' },
+                    { label: CityLabel.value },
                 ]" />
             </el-header>
             <el-main>
@@ -95,7 +131,7 @@ let NewCityDialog = computed(() => {
                     <div class="row">
                         <!-- 左邊導覽卡片 -->
                         <div class="col-lg-2 col-md-12 col-12">
-                            <ActBackgroundBlogCard :image="sun" title="探索展演、行程等" description="" />
+                            <ActBackgroundBlogCard :image="sun" :title=CityLabel.value description="" />
                         </div>
                         <!-- 主頁卡片 -->
                         <div class="card m-3 col-lg-2 col-sm-6" v-for="item in NewCity">
@@ -130,11 +166,11 @@ let NewCityDialog = computed(() => {
 
                                 <!-- 重要!!!這邊要導到自選行程第二步!!!!!!! -->
                                 <!-- <RouterLink to="/pages/Yelu-pages/Self/stepall/step2">
-                                                                                        <el-button type="warning" class="text-lg font-weight-bolder m-2"
-                                                                                            @click="EventAll.EventDialog(item.活動id)">
-                                                                                            <span class="material-icons">add_shopping_cart</span>
-                                                                                        </el-button>
-                                                                                    </RouterLink> -->
+                                                                                                                                                <el-button type="warning" class="text-lg font-weight-bolder m-2"
+                                                                                                                                                    @click="EventAll.EventDialog(item.活動id)">
+                                                                                                                                                    <span class="material-icons">add_shopping_cart</span>
+                                                                                                                                                </el-button>
+                                                                                                                                            </RouterLink> -->
                             </div>
 
 
