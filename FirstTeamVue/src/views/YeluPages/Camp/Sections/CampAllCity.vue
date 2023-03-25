@@ -1,71 +1,95 @@
 <script setup>
 import { onMounted, onUnmounted, ref, reactive, computed } from "vue";
-import axios from "axios";
 import { useCampDataAtore } from "../../../../stores/CampData.js";
 import { useRoute } from "vue-router";
 
-
 import CampTransparentBlogCard from "./CampBlogCards/CampTransparentBlogCard.vue";
 import Breadcrumbs from "@/examples/Breadcrumbs.vue";
-import CampBackgroundBlogCard from "./CampBlogCards/CampBackgroundBlogCard.vue";
 
 const route = useRoute();
 const CityAll = useCampDataAtore();
-let NewCt = reactive();
-// const Taoyuan = reactive([]);
-// const Hsinchu = reactive([]);
-// const Miaoli = reactive([]);
-// const Nantou = reactive([]);
-// const Taichung = reactive([]);
-// const Chiayi = reactive([]);
-// const Tainan = reactive([]);
-// const Kaohsiung = reactive([]);
-// const Yilan = reactive([]);
-// const Hualien = reactive([]);
-// const Taitung = reactive([]);
-onMounted(() => {
-    CityAll.AllCityCampGet();
+onMounted(CityAll.AllCityCampGet);
 
+let NewCity = computed(() => {
+    let NewCt = reactive();
     if (route.name == "CampAllCity-c") {
-        // alert(route.params.whoFunc)
-        alert(route.params.whoCity)
+        //alert(route.params.whoCity)
         if (route.params.whoCity == "NewTp") {
             NewCt = CityAll.NewTp.新北市;
-            console.log(NewCt);
         } else if (route.params.whoCity == "Taoyuan") {
             NewCt = CityAll.Taoyuan.桃園市;
-
         } else if (route.params.whoCity == "Hsinchu") {
             NewCt = CityAll.Hsinchu.新竹縣;
-
         } else if (route.params.whoCity == "Miaoli") {
             NewCt = CityAll.Miaoli.苗栗縣;
-
         } else if (route.params.whoCity == "Nantou") {
             NewCt = CityAll.Nantou.南投縣;
-
         } else if (route.params.whoCity == "Taichung") {
             NewCt = CityAll.Taichung.台中市;
-
         } else if (route.params.whoCity == "Chiayi") {
             NewCt = CityAll.Chiayi.嘉義縣;
-
         } else if (route.params.whoCity == "Tainan") {
             NewCt = CityAll.Tainan.台南市;
-
         } else if (route.params.whoCity == "Kaohsiung") {
             NewCt = CityAll.Kaohsiung.高雄市;
-
         } else if (route.params.whoCity == "Yilan") {
             NewCt = CityAll.Yilan.宜蘭縣;
-
         } else if (route.params.whoCity == "Hualien") {
             NewCt = CityAll.Hualien.花蓮縣;
-
         } else if (route.params.whoCity == "Taitung") {
             NewCt = CityAll.Taitung.台東縣;
-
         }
+        return NewCt;
+    }
+})
+
+let NewCityDialog = computed(() => {
+    let CityDialog = reactive();
+    if (route.name == "CampAllCity-c") {
+        //alert(route.params.whoCity)
+        if (route.params.whoCity == "NewTp") {
+            CityDialog = CityAll.NewTpDialog;
+        } else if (route.params.whoCity == "Taoyuan") {
+            CityDialog = CityAll.TaoyuanDialog;
+        } else if (route.params.whoCity == "Hsinchu") {
+            CityDialog = CityAll.HsinchuDialog;
+        } else if (route.params.whoCity == "Miaoli") {
+            CityDialog = CityAll.MiaoliDialog;
+        } else if (route.params.whoCity == "Nantou") {
+            CityDialog = CityAll.NantouDialog;
+        } else if (route.params.whoCity == "Taichung") {
+            CityDialog = CityAll.TaichungDialog;
+        } else if (route.params.whoCity == "Chiayi") {
+            CityDialog = CityAll.ChiayiDialog;
+        } else if (route.params.whoCity == "Tainan") {
+            CityDialog = CityAll.TainanDialog;
+        } else if (route.params.whoCity == "Kaohsiung") {
+            CityDialog = CityAll.KaohsiungDialog;
+        } else if (route.params.whoCity == "Yilan") {
+            CityDialog = CityAll.YilanDialog;
+        } else if (route.params.whoCity == "Hualien") {
+            CityDialog = CityAll.HualienDialog;
+        } else if (route.params.whoCity == "Taitung") {
+            CityDialog = CityAll.TaitungDialog;
+        }
+        return CityDialog;
+    }
+})
+
+let AreaLable = computed(() => {
+    let Arealable = ref('');
+    if (route.name == "CampAllCity-c") {
+        //alert(route.params.whoCity)
+        if (route.params.whoCity == "NewTp" || route.params.whoCity == "Taoyuan" || route.params.whoCity == "Hsinchu") {
+            Arealable.value = '北部';
+        } else if (route.params.whoCity == "Miaoli" || route.params.whoCity == "Nantou" || route.params.whoCity == "Taichung") {
+            Arealable.value = '中部'
+        } else if (route.params.whoCity == "Chiayi" || route.params.whoCity == "Tainan" || route.params.whoCity == "Kaohsiung") {
+            Arealable.value = '南部'
+        } else if (route.params.whoCity == "Yilan" || route.params.whoCity == "Hualien" || route.params.whoCity == "Taitung") {
+            Arealable.value = '東部'
+        }
+        return Arealable;
     }
 })
 </script>
@@ -80,10 +104,9 @@ onMounted(() => {
                         <Breadcrumbs :routes="[
                             { label: '首頁', route: '/' },
                             { label: '營區預訂' },
-                            { label: '北部' },
+                            { label: AreaLable.value },
 
                         ]" />
-                        <!-- <el-button type="info" plain>#北部精選</el-button> -->
                     </div>
                 </div>
             </el-header>
@@ -92,10 +115,10 @@ onMounted(() => {
                 <section class="py-3">
                     <div class="row">
                         <!-- <div class="col-lg-2 col-md-12 col-12">
-                                                                                                                                                                                                                                                                                                                        <CampBackgroundBlogCard :image="sun" title="北部營區" description="" />
-                                                                                                                                                                                                                                                                                                                    </div> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <CampBackgroundBlogCard :image="sun" title="北部營區" description="" />
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div> -->
 
-                        <div class="card m-3 col-lg-4 col-sm-6" v-for="item in NewCt">
+                        <div class="card m-3 col-lg-4 col-sm-6" v-for="item in NewCity">
                             <div
                                 style=" height:400px; display: flex; flex-direction: column; justify-content: space-between;">
                                 <!-- 卡片 -->
@@ -109,7 +132,7 @@ onMounted(() => {
                             </div>
                             <div class="container d-flex justify-content-end">
                                 <el-button type="info" class="text-lg font-weight-bolder icon-move-right  "
-                                    @click="{ NorthAll.NorthDialog(item.營區細項id); CityAll.dialogVisibleArr[4] = true; }">
+                                    @click="{ NewCityDialog(item.營區細項id); CityAll.dialogVisibleArr[4] = true; }">
                                     選擇方案<span class="material-icons">touch_app</span>
                                 </el-button>
                             </div>
@@ -129,7 +152,7 @@ onMounted(() => {
                                 </div>
                                 <div>
                                     <!-- <label class="form-lable">
-                                                                                                                                                                                                                                                                                                                                    <h4>露營形式：<small class="text-muted"> {{ 項目內容 }}</small></h4></label> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <h4>露營形式：<small class="text-muted"> {{ 項目內容 }}</small></h4></label> -->
                                     <label class="form-lable">
                                         <h4>露營形式：<small class="text-muted"> {{ CityAll.CampDialogAll.項目內容 }}</small></h4>
                                     </label>
