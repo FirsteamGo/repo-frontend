@@ -176,12 +176,7 @@ const Del = () => {
 <style>
 .detail:hover:after {
   content: "詳細資訊";
-  position: absolute;
-  top: 100%;
-
-  background: #bbb;
   padding: 5px;
-  border: 1px solid #ccc;
 }
 
 .form-lable {
