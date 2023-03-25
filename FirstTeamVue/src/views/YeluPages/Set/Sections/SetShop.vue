@@ -115,13 +115,8 @@ td {
             </td>
 
             <td>
-
-              <router-link :to="{ name: 'presentation' }" class="btn btn-primary" @click="Del()"> <span
-                  class="material-icons">
-                  delete
-                </span></router-link>
+              <button class="btn btn-primary" @click="Del()"><span class="material-icons">delete</span></button>
               <button class="btn btn-warning" @click="insert()">確認送出訂單</button>
-
               <div>
                 <label style="font-weight: bolder; font-size: large; color: rgb(100,0,0);">若想修改請刪除後重新填寫訂單</label>
               </div>
@@ -200,7 +195,7 @@ const Del = () => {
   alert("已刪除套裝行程購物車")
   localStorage.removeItem('setorderdetail');
   localStorage.removeItem('setorder');
-
+  window.location.reload();
 }
 
 </script>
