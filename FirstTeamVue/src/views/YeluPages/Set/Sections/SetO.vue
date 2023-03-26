@@ -12,10 +12,10 @@
           <el-form-item label="訂單編號：" hidden>{{ setordernu }}</el-form-item>
           <el-form-item label="套裝方案：">{{ setod.套裝方案 }}</el-form-item>
 
-          <el-form-item label="露營日期：" class="demonstration">
+          <el-form-item label="露營日期：" class="demonstration" prop="data" required="請選擇露營日期">
             <el-date-picker v-model="form.data" type="daterange" range-separator="To" start-placeholder="開始日期"
               end-placeholder="結束日期" size="default" /></el-form-item>
-          <el-form-item label="預計人數 :">
+          <el-form-item label="預計人數 :" prop="numberOfPeople" required="請輸入數字">
             <el-input type="text" v-model="form.numberOfPeople" placeholder="請填入參加人數" />
           </el-form-item>
           <el-form-item label="合計總價 :">{{ totalPrice }} 元</el-form-item>
@@ -56,29 +56,30 @@
             <el-aside width="60%"><img :src="`${mvc}${setod.活動圖片}`" style="width: 400px; height: 300px;"></el-aside>
             <el-main>
               <div>
-                <label class="form-lable">營區地區: {{ setod.地區 }}</label>
+                <label class="form-lable">方案: {{ setod.套裝方案 }}</label>
               </div>
               <div>
-                <label class="form-lable">營區縣市:{{ setod.縣市 }}</label>
+                <label class="form-lable"><span class="material-icons">pin_drop
+                  </span>地區 | {{ setod.地區 }}</label>
               </div>
               <div>
-                <label class="form-lable">營區名稱: {{ setod.營區名稱 }}</label>
+                <label class="form-lable"><span class="material-icons">pin_drop
+                  </span>縣市 | {{ setod.縣市 }}</label>
               </div>
               <div>
                 <label class="form-lable">露營方式: {{ setod.項目內容 }}</label>
               </div>
               <div>
-                <label class="form-lable">相關活動: {{ setod.活動名稱 }}</label>
-              </div>
-              <div>
-                <label class="form-lable">方案: {{ setod.套裝方案 }}</label>
-              </div>
-              <div>
                 <label class="form-lable">細項: {{ setod.套裝細項 }}</label>
               </div>
               <div>
-                <label class="form-lable">單價: {{ setod.套裝行程價格 }} 元 / 人</label>
+                <label class="form-lable">相關活動: {{ setod.活動名稱 }}</label>
               </div>
+              <div>
+                <label class="form-lable">營區名稱: {{ setod.營區名稱 }}</label>
+              </div>
+              <label class="form-lable"><span class="material-icons">attach_money</span> TWD
+                <span class="text-primary">{{ setod.套裝行程價格 }} </span> / 人</label>
             </el-main>
           </el-container>
         </div>
@@ -133,16 +134,21 @@ const gitpricePerPerson = onMounted(() => {
 
 const onSubmit = () => {
 
-  console.log('submit!')
-  const setordernu = `Set${now.getFullYear()}${(now.getMonth() + 1).toString().padStart(2, "0")}${now.getDate().toString().padStart(2, "0")}${now.getHours().toString().padStart(2, "0")}${now.getMinutes().toString().padStart(2, "0")}${now.getSeconds().toString().padStart(2, "0")}`;
-  form.訂單編號 = setordernu;
-  form.預計人數 = form.numberOfPeople;
-  form.合計總價 = totalPrice.value;
-  console.log(form);
-  let Seto = JSON.stringify(form)
+  if (form.numberOfPeople != null || form.data[0] != null || form.data[1] != null) {
+    const setordernu = `Set${now.getFullYear()}${(now.getMonth() + 1).toString().padStart(2, "0")}${now.getDate().toString().padStart(2, "0")}${now.getHours().toString().padStart(2, "0")}${now.getMinutes().toString().padStart(2, "0")}${now.getSeconds().toString().padStart(2, "0")}`;
+    form.訂單編號 = setordernu;
+    form.預計人數 = form.numberOfPeople;
+    form.合計總價 = totalPrice.value;
+    console.log(form);
+    let Seto = JSON.stringify(form)
 
-  localStorage.setItem('setorder', Seto)
-  alert("請按下一步進入購物車")
+    localStorage.setItem('setorder', Seto)
+    alert("請按下一步進入購物車")
+  }
+  else {
+    alert("請填寫表格內容，謝謝!")
+    return
+  }
 
 }
 

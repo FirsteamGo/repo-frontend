@@ -230,7 +230,7 @@ const options = Array.from({ length: 10000 }).map((_, idx) => ({
         登入
       </el-button> -->
       <el-button type="primary" @click="LogInPost()">
-        登入測試
+        登入
       </el-button>
 
       <div class="flex justify-space-between mb-4 flex-wrap gap-4">

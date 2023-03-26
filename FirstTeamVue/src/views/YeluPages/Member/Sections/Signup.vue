@@ -15,15 +15,53 @@ const ruleFormRef = ref()
 // 創建一個 ruleform 紀錄要存放的資料
 const ruleForm = reactive({
   // picture:'',
-  性別: '',
-  姓名: '',
-  連絡信箱: '',
-  會員帳號: '',
-  會員密碼: '',
-  電話號碼: '',
-  出生日期: '',
+  CustomerPhoto: '',
+  CustomerGender: '',
+  customerName: '',
+  customerEmail: '',
+  customerAccount: '',
+  customerPassword: '',
+  customerPhone: '',
+  customerBirthDate: '',
 
 })
+
+// 確認欄位有沒有填資料
+const rules = reactive({
+
+    customerName: [
+        { required: true, message: '請輸入姓名', trigger: 'blur' },
+        { min: 2, max: 20, message: '姓名長度至少大於2個字', trigger: 'blur' },
+    ],
+    customerEmail: [
+        { required: true, type: 'email', message: '請輸入電子郵件', trigger: 'blur' },
+    ],
+     customerAccount: [
+        { required: true, message: '請輸入會員帳號', trigger: 'blur' },
+    ],
+    customerPassword: [
+        { required: true, message: '請輸入密碼', trigger: 'blur' },
+        { min: 6, max: 10, message: '請輸入6~10個字元', trigger: 'blur' },
+        { pattern: '(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]).{6,10}', message: '必須包含英數字、特殊字元', trigger: 'blur' },
+    ],
+    customerPhone: [
+        { required: true, message: '請輸入電話號碼', trigger: 'blur' },
+        // { length: 12, message: '請輸入正確電話號碼', trigger: 'blur' },
+        // { pattern: /\d{4}-\d{3}-\d{3}/, message: '請輸入正確電話號碼', trigger: 'blur' },
+    ],
+    customerBirthDate: [
+        {
+            type: 'date',
+            required: true,
+            message: '請選擇生日',
+            trigger: 'blur',
+        },
+    ],
+    
+})
+
+
+
 
 
 // 註冊鈕驗證功能
@@ -46,13 +84,14 @@ const url = ref("https://localhost:7108/api/MemberInfoes/SignUp") // 要改網�
 const SignUpPost = () => {
   axios.post(`${url.value}`, {
     // "picture": ruleForm.picture,
-    "性別": ruleForm.性別,
-    "姓名": ruleForm.姓名,
-    "連絡信箱": ruleForm.連絡信箱,
-    "會員帳號": ruleForm.會員帳號,
-    "會員密碼": ruleForm.會員密碼,
-    "電話號碼": ruleForm.電話號碼,
-    "出生日期": ruleForm.出生日期,
+    "照片": ruleForm.CustomerPhoto,
+    "性別": ruleForm.CustomerGender,
+    "姓名": ruleForm.customerName,
+    "連絡信箱": ruleForm.customerEmail,
+    "會員帳號": ruleForm.customerAccount,
+    "會員密碼": ruleForm.customerPassword,
+    "電話號碼": ruleForm.customerPhone,
+    "出生日期": ruleForm.customerBirthDate,
   }).then(result => {
     console.log(result.data);
     alert("註冊成功")
@@ -68,13 +107,14 @@ const SignUpGet = () => {
     .then(result => {
       console.log(result.data);
       // ruleForm.picture = result.data.picture
-      ruleForm.性別 = result.data.性別
-      ruleForm.姓名 = result.data.姓名
-      ruleForm.連絡信箱 = result.data.連絡信箱
-      ruleForm.會員帳號 = result.data.會員帳號
-      ruleForm.電話號碼 = result.data.電話號碼
-      ruleForm.出生日期 = result.data.出生日期
-      ruleForm.會員密碼 = result.data.會員密碼
+      ruleForm.CustomerPhoto = result.data.照片
+      ruleForm.CustomerGender = result.data.性別
+      ruleForm.customerName = result.data.姓名
+      ruleForm.customerEmail = result.data.連絡信箱
+      ruleForm.customerAccount = result.data.會員帳號
+      ruleForm.customerPhone = result.data.電話號碼
+      ruleForm.customerBirthDate = result.data.出生日期
+      ruleForm.customerPassword = result.data.會員密碼
     })
     .catch(error => {
       console.log(error);
@@ -85,7 +125,7 @@ const sendEmail = () => {
   emailjs.init('fX63Yjh2AO1BY_O5U');
   const template_params = {
     from_name: "skunk00605@yahoo.com.tw",
-    to: ruleForm.連絡信箱,
+    to: ruleForm.customerEmail,
 
   };
   emailjs
@@ -102,7 +142,7 @@ const sendEmail = () => {
 </script>
 
 <template>
-  <el-form ref="ruleFormRef" :model="ruleForm" label-width="120px">
+  <el-form ref="ruleFormRef" :model="ruleForm" :rules="rules" label-width="120px" class="demo-ruleForm">
 
     <div style="display: flex; justify-content: center;">
       <Memberphoto1 style="width: 400px; margin-bottom: 20px;" />
@@ -118,33 +158,33 @@ const sendEmail = () => {
     <!--v-if="ruleForm.性別"-->
 
 
-    <el-form-item label="姓名" prop="姓名">
-      <el-input v-model="ruleForm.姓名" style="width: 200px;" />
+    <el-form-item label="姓名" prop="customerName" required>
+      <el-input v-model="ruleForm.customerName" style="width: 200px;" />
     </el-form-item>
 
-    <el-form-item label="連絡信箱" prop="連絡信箱">
-      <el-input v-model="ruleForm.連絡信箱" style="width: 200px;" />
+    <el-form-item label="連絡信箱" prop="customerEmail" required>
+      <el-input v-model="ruleForm.customerEmail" style="width: 200px;" />
       <el-button @click="$event => sendEmail()">
         發送驗證信
       </el-button>
     </el-form-item>
 
-    <el-form-item label="會員帳號" prop="會員帳號">
-      <el-input v-model="ruleForm.會員帳號" style="width: 200px;" />
+    <el-form-item label="會員帳號" prop="customerAccount" required>
+      <el-input v-model="ruleForm.customerAccount" style="width: 200px;" />
     </el-form-item>
 
-    <el-form-item label="會員密碼" prop="會員密碼">
-      <el-input v-model="ruleForm.會員密碼" style="width: 200px;" />
+    <el-form-item label="會員密碼" prop="customerPassword" required>
+      <el-input v-model="ruleForm.customerPassword" style="width: 200px;" />
     </el-form-item>
 
-    <el-form-item label="電話號碼" prop="電話號碼">
-      <el-input v-model="ruleForm.電話號碼" style="width: 200px;" />
+    <el-form-item label="電話號碼" prop="customerPhone" required>
+      <el-input v-model="ruleForm.customerPhone" style="width: 200px;" />
     </el-form-item>
 
 
-    <el-form-item label="出生日期" prop="出生日期">
+    <el-form-item label="出生日期" prop="customerBirthDate">
       <el-col :span="12">
-        <el-date-picker v-model="ruleForm.出生日期" type="date" placeholder="您的出生日期" style="width: 200px; height: 32px;" />
+        <el-date-picker v-model="ruleForm.customerBirthDate" type="date" placeholder="您的出生日期" style="width: 200px; height: 32px;" />
       </el-col>
 
     </el-form-item>
