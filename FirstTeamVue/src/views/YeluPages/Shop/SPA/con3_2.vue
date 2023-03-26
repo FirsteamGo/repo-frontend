@@ -4,7 +4,6 @@ import {useCampShop} from "../../../../stores/CampShop.js";
 import card2 from "../shopcards/card2.vue";
 const lifeAll=useCampShop();
 onMounted(lifeAll.lifecodeProduct);
-let num=1;
 </script>
 <template>
   <div class="">
@@ -58,11 +57,11 @@ let num=1;
                     </div>
 
                     <div>
-                      <label class="form-label">總價:{{ lifeAll.ShopproductsInfo.單價*num }}</label>
+                      <label class="form-label">總價:{{ lifeAll.ShopproductsInfo.單價*lifeAll.ShopproductsInfo.數量 }}</label>
                     </div>
                     <div>
                       <el-input-number
-                        v-model="num"
+                        v-model="lifeAll.ShopproductsInfo.數量"
                         :min="1"
                         :max="10"
                         :step="1"
@@ -74,8 +73,7 @@ let num=1;
                         class="btn-2"
                         @click="
                           {
-                            clear();
-                            visible = false;
+                            lifeAll.dialogvision[6]=false;
                           }
                         "
                         >取消</el-button
@@ -84,8 +82,8 @@ let num=1;
                         class="btn-1"
                         @click="
                           {
-                            addCart();
-                            visible = false;
+                            lifeAll.shopCart();
+                            lifeAll.dialogvision[6]=false;
                           }
                         "
                       >

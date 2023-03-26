@@ -35,12 +35,14 @@
               :src="`${whoFuncImg.MVCimages}${whoFunc.圖片}`"
               style="height: 200px; display: block; margin: 0 auto"
             /> -->
-            <p class="m-3 myword">商品名稱 | {{  }}</p>
-            <p class="m-3 myword">商品數量 | {{  }}</p>
+            <div v-for="item in StoreCarts.ShopCart ">
+            <p class="m-3 myword">商品名稱 | {{item.商品名稱 }}</p>
+            <p class="m-3 myword">商品數量 | {{ item.數量 }}</p>
             <p class="m-3 myword">
               <span class="material-icons">attach_money</span> TWD<span
                 class="text-primary">{{  }}</span>
             </p>
+          </div>
           </div>
         </div>
       </div>
@@ -193,8 +195,18 @@
 
 
 <!-- 寫從localStorage取出資料 -->
-<script>
+<script setup>
+import { reactive, onMounted,ref } from 'vue';
+import { useCampShop } from '../../../stores/CampShop.js';
 
+const StoreCarts=useCampShop();
+const data=reactive([]);
+
+
+onMounted(()=>{
+  data=StoreCarts.storesss();
+  
+});
 
 
 </script>

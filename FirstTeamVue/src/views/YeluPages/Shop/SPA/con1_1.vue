@@ -217,12 +217,13 @@ const clear = () => {
   </div>
 </template> -->
 <script setup>
-import { ref, reactive, computed, onMounted } from "vue";
+import { onMounted} from "vue";
 import {useCampShop} from "../../../../stores/CampShop.js";
 import card2 from "../shopcards/card2.vue";
 const tnfAll=useCampShop();
 onMounted(tnfAll.tnfProduct);
-let num=1;
+console.log(tnfAll.ShopCart.單價);
+//console.log(JSON.parse(localStorage.getItem("shopList"))[0].單價._rawValue._rawValue);
 </script>
 <template>
   <div class="">
@@ -274,13 +275,12 @@ let num=1;
                         >價錢:{{ tnfAll.ShopproductsInfo.單價 }}</label
                       >
                     </div>
-
                     <div>
-                      <label class="form-label">總價:{{ tnfAll.ShopproductsInfo.單價*num }}</label>
+                      <label class="form-label">總價:{{ tnfAll.ShopproductsInfo.單價* tnfAll.ShopproductsInfo.數量}}</label>
                     </div>
                     <div>
                       <el-input-number
-                        v-model="num"
+                        v-model="tnfAll.ShopproductsInfo.數量"
                         :min="1"
                         :max="10"
                         :step="1"
@@ -292,8 +292,7 @@ let num=1;
                         class="btn-2"
                         @click="
                           {
-                            clear();
-                            visible = false;
+                            tnfAll.dialogvision[1]=false;
                           }
                         "
                         >取消</el-button
@@ -302,8 +301,8 @@ let num=1;
                         class="btn-1"
                         @click="
                           {
-                            addCart();
-                            visible = false;
+                          tnfAll.shopCart();
+                          tnfAll.dialogvision[1]=false;
                           }
                         "
                       >
