@@ -47,7 +47,11 @@ const next = () => {
   } else if (active.value == 2) {
     // content.value = "step3";
     // index.value = 2;
-    routerLinkPath.value = "step3";
+    if (route.name == "step2-p") {
+      routerLinkPath.value = "step3-p";
+    } else {
+      routerLinkPath.value = "step3";
+    }
   } else if (active.value == 3) {
     // content.value = "step3";
     // index.value = 2;
@@ -62,13 +66,14 @@ const next = () => {
 
 //畫面首次載入後執行
 onMounted(() => {
-  if (route.name == "step1") {
-    routerLinkPath.value = "step1";
-  } else if (route.name == "step2" || route.name == "step2-p") {
-    routerLinkPath.value = "step2";
-  } else if (route.name == "step3") {
-    routerLinkPath.value = "step3";
-  }
+  // if (route.name == "step1") {
+  //   routerLinkPath.value = "step1";
+  // } else if (route.name == "step2" || route.name == "step2-p") {
+  //   routerLinkPath.value = "step2";
+  // } else if (route.name == "step3") {
+  //   routerLinkPath.value = "step3";
+  // }
+  routerLinkPath.value = route.name;
 });
 
 //畫面更新後執行
@@ -81,7 +86,7 @@ onUpdated(() => {
     active.value = 1;
     BtnCart.value = false;
     BtnStep.value = true;
-  } else if (route.name == "step3") {
+  } else if (route.name == "step3" || route.name == "step3-p") {
     active.value = 2;
     BtnCart.value = true;
     BtnStep.value = false;

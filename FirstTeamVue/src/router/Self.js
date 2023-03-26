@@ -86,6 +86,11 @@ export default [
                         name: "step3",
                         component: () => import("../views/YeluPages/Self/Sections/step3.vue"),
                     },
+                    {//自選第三步
+                        path: "step3/:whoFunc",
+                        name: "step3-p",
+                        component: () => import("../views/YeluPages/Self/Sections/step3.vue"),
+                    },
                 ]
 
             },
