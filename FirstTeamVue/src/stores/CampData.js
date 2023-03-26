@@ -62,8 +62,8 @@ export const useCampDataAtore = defineStore('CampData', () => {
     const South = reactive({ "南部": [], });
     const East = reactive({ "東部": [], });
 
-    let Taoyuan = reactive({ "桃園市": [], });
     let NewTp = reactive({ "新北市": [], });
+    let Taoyuan = reactive({ "桃園市": [], });
     let Hsinchu = reactive({ "新竹縣": [], });
     let Miaoli = reactive({ "苗栗縣": [], });
     let Nantou = reactive({ "南投縣": [], });
