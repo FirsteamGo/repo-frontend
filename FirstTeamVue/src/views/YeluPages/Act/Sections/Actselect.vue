@@ -49,9 +49,9 @@ export default {
 </script>
 
 <template>
-  <div style="display: flex; justify-content: flex-end">
+  <div style="display: flex; justify-content: center;">
     <div>
-      <span>區域</span>
+      <span style="font-size: larger; font-weight: bolder;">選擇區域</span>
       <el-select v-model="selectedRegion" @change="filterCities" class="select m-2" placeholder="區域" size="large">
         <el-option disabled value="">請選擇</el-option>
         <div>
@@ -64,7 +64,7 @@ export default {
     </div>
 
     <div>
-      <span>縣市</span>
+      <span style="font-size: larger; font-weight: bolder;" class=" ms-4">選擇縣市</span>
       <el-select v-model="selectedCity" class="m-2" placeholder="縣市" size="large">
         <el-option v-for="(city, index) in filteredCities" :key="index" :value="city">
           <router-link :to="`/pages/Yelu-pages/act/ActAllCity/${city}`" class=" p-8">{{ city
@@ -73,10 +73,10 @@ export default {
       </el-select>
     </div>
 
-    <div>
-      <span class="Search">關鍵字</span>
-      <el-input v-model="input" size="large" class="w-40 m-2" s placeholder="" />
-      <el-button type="success" :icon="Search">搜尋</el-button>
-    </div>
+    <!-- <div>
+                                            <span class="Search">關鍵字</span>
+                                            <el-input v-model="input" size="large" class="w-40 m-2" s placeholder="" />
+                                            <el-button type="success" :icon="Search">搜尋</el-button>
+                                          </div> -->
   </div>
 </template>

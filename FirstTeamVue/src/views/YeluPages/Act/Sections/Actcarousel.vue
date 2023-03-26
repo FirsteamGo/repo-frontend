@@ -21,11 +21,13 @@ const images = reactive([
 </script>
 
 <template>
-    <el-carousel :interval="2000" type="card" class=" mt-3">
-        <el-carousel-item v-for="item in images" :key="item">
-            <img :src=item.abc alt="carousel image" class="carousel_image_type">
-        </el-carousel-item>
-    </el-carousel>
+    <div>
+        <el-carousel :interval="2000" type="card" class=" mt-3">
+            <el-carousel-item v-for="item in images" :key="item">
+                <img :src=item.abc alt="carousel image" class="carousel_image_type">
+            </el-carousel-item>
+        </el-carousel>
+    </div>
 </template>
 
 <style scoped>

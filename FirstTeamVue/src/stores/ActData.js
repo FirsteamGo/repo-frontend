@@ -10,8 +10,8 @@ export const useActDataAtore = defineStore('ActData', () => {
     class ActAllValue {
         constructor(營區id, 活動id, 營區名稱, 地區, 縣市, 活動方式, 活動種類, 活動名稱, 活動介紹, 活動圖片, 門票價格, 圖片, 營區地址, 單價) {
 
-            this.活動id = 活動id;
             this.營區id = 營區id;
+            this.活動id = 活動id;
             this.營區名稱 = 營區名稱;
             this.地區 = 地區;
             this.縣市 = 縣市;

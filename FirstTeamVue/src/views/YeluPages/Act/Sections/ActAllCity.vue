@@ -88,27 +88,27 @@ let CityLabel = computed(() => {
         if (route.params.whoCity == "新北市") {
             Citylabel.value = "新北市活動";
         } else if (route.params.whoCity == "桃園市") {
-            CityDialog.value = "桃園市活動";
+            Citylabel.value = "桃園市活動";
         } else if (route.params.whoCity == "新竹縣") {
-            CityDialog.value = "新竹縣活動";
+            Citylabel.value = "新竹縣活動";
         } else if (route.params.whoCity == "苗栗縣") {
-            CityDialog.value = "苗栗縣活動";
+            Citylabel.value = "苗栗縣活動";
         } else if (route.params.whoCity == "南投縣") {
-            CityDialog.value = "南投縣活動";
+            Citylabel.value = "南投縣活動";
         } else if (route.params.whoCity == "台中市") {
-            CityDialog.value = "台中市活動";
+            Citylabel.value = "台中市活動";
         } else if (route.params.whoCity == "嘉義縣") {
-            CityDialog.value = "嘉義縣活動";
+            Citylabel.value = "嘉義縣活動";
         } else if (route.params.whoCity == "台南市") {
-            CityDialog.value = "台南市活動";
+            Citylabel.value = "台南市活動";
         } else if (route.params.whoCity == "高雄市") {
-            CityDialog.value = "高雄市活動";
+            Citylabel.value = "高雄市活動";
         } else if (route.params.whoCity == "宜蘭縣") {
-            CityDialog.value = "宜蘭縣活動";
+            Citylabel.value = "宜蘭縣活動";
         } else if (route.params.whoCity == "花蓮縣") {
-            CityDialog.value = "花蓮縣活動";
+            Citylabel.value = "花蓮縣活動";
         } else if (route.params.whoCity == "台東縣") {
-            CityDialog.value = "台東縣活動";
+            Citylabel.value = "台東縣活動";
         }
         return Citylabel;
     }
@@ -166,11 +166,11 @@ let CityLabel = computed(() => {
 
                                 <!-- 重要!!!這邊要導到自選行程第二步!!!!!!! -->
                                 <!-- <RouterLink to="/pages/Yelu-pages/Self/stepall/step2">
-                                                                                                                                                <el-button type="warning" class="text-lg font-weight-bolder m-2"
-                                                                                                                                                    @click="EventAll.EventDialog(item.活動id)">
-                                                                                                                                                    <span class="material-icons">add_shopping_cart</span>
-                                                                                                                                                </el-button>
-                                                                                                                                            </RouterLink> -->
+                                                                                                                                                    <el-button type="warning" class="text-lg font-weight-bolder m-2"
+                                                                                                                                                        @click="EventAll.EventDialog(item.活動id)">
+                                                                                                                                                        <span class="material-icons">add_shopping_cart</span>
+                                                                                                                                                    </el-button>
+                                                                                                                                                </RouterLink> -->
                             </div>
 
 
