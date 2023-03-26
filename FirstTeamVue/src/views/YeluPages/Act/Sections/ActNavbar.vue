@@ -6,7 +6,7 @@
 <template>
   <div class="row" style="justify-content: center;">
 
-    <div class="col-12 col-md-6 m-5 d-flex justify-content-center">
+    <div class="col-12 col-md-6 m-3 d-flex justify-content-center">
       <router-link to="/pages/Yelu-pages/act/ActHot">
         <div class="card m-2"
           style="width: 150px; height: 150px; display: flex; flex-wrap: wrap;flex-direction: column; justify-content: center; align-items: center;">

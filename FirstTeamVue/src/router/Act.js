@@ -16,6 +16,16 @@ export default [
                 name: "ActAllAera-a",
                 component: () => import("../views/YeluPages/Act/Sections/ActAllAera.vue"),
             },
+            {//12縣市
+                path: "ActAllCity",
+                name: "ActAllCity",
+                component: () => import("../views/YeluPages/Act/Sections/ActAllCity.vue"),
+            },
+            {//12縣市參數
+                path: "ActAllCity/:whoCity",
+                name: "ActAllCity-a",
+                component: () => import("../views/YeluPages/Act/Sections/ActAllCity.vue"),
+            },
             {//熱門精選
                 path: "ActHot",
                 name: "ActHot",
