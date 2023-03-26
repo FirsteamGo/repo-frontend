@@ -20,7 +20,7 @@
 			</table>
 			</div> -->
         <h3>露營商店</h3>
-        <el-header height="300px">
+        <el-header height="500px">
           <!-- <table style="border-bottom:1px solid #ddd;"> -->
           <div class="container w-100 px-2">
             <div class="row">
@@ -51,7 +51,7 @@
 
 
         <h3>自選行程</h3>
-        <el-header height="400px">
+        <el-header height="600px">
           <!-- <table style="border-bottom:1px solid #ddd;"> -->
           <div class="container w-100 px-2">
             <div class="row">
@@ -120,7 +120,7 @@
 
 
         <h3>套裝行程</h3>
-        <el-header height="600px">
+        <el-header height="750px">
           <!-- <table style="border-bottom:1px solid #ddd;"> -->
           <div class="container w-100 px-2">
             <div class="row">
@@ -148,13 +148,11 @@
               </div>
 
 
-
             </div>
           </div>
 
           <!-- </table> -->
         </el-header>
-
 
 
       </header>

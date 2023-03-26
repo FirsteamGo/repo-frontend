@@ -62,7 +62,7 @@ const deleteItem = (index) => {
 
   <!-- 這裡放營區+活動 -->
 <el-container>
-  <el-header height="300px">
+  <el-header height="400px">
     <div class="container w-75 px-2">
     <div class="row">
       <div class="col-sm-6">
