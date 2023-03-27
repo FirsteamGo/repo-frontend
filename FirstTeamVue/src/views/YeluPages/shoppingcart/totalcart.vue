@@ -67,7 +67,8 @@
             /> -->
                     <p class="m-3 myword">營區名稱 | {{ }}</p>
                     <p class="m-3 myword">營區地址 | {{ }}</p>
-                    <p class="m-3 myword">露營時間 | {{ }}</p>
+                    <p class="m-3 myword">入住時間 | {{ }}</p>
+                    <p class="m-3 myword">退住時間 | {{ }}</p>
                     <p class="m-3 myword">露營人數 | {{ }}</p>
                     <p class="m-3 myword">
                       <span class="material-icons">attach_money</span> TWD<span class="text-primary">{{ }}</span>
@@ -94,15 +95,58 @@
                 </div>
               </div>
 
-              <div class="col-sm-4">
+             
+            <div class="card m-3">
+              <div class="card-body">
+              <h5><span class="badge bg-success"><span class="material-icons mx-2">task_alt</span>已選飲食</span>
+              </h5>
+                <table style="border-bottom:1px solid #ddd;">
+                <tr class="itemHead myword">
+                  <td style="width: 200px">商品圖片</td>
+                    <td style="width: 200px">商品名稱</td>
+                    <td style="width: 300px">商品內容</td>
+                    <td style="width: 170px">單價($)</td>
+                    <td style="width: 60px">數量</td>
+                    <td style="width: 60px"></td>
+                  </tr>
+                </table>
+                <table>
+                  <!-- <tr v-for="(item, index) in props.sfitem" :key="item.自選飲食id" :value="index" class="item"> -->
+                  <tr>
+                    <td style="width: 200px">
+                      <!-- <img :src="`${MVCimages}${item.圖片}`" style="width: 100px; height: 100px" /> -->
+                    </td>
+                    <td style="width: 200px">
+                      <p>{{ }}</p>
+                    </td>
+                    <td style="width: 300px">
+                      <p>{{  }}</p>
+                    </td>
+                    <td style="width: 150px">
+                      <p>{{}}</p>
+                    </td>
+                    <td style="width: 60px">
+                      <p>{{  }}</p>
+                    </td>
+                  </tr>
+                  <div class="d-flex justify-content-end myword">
+                  <span class="material-icons ">attach_money</span>總計 TWD
+                  <span class="text-primary">{{   }}</span>
+                  </div>
+                </table>
+            </div>
+          </div>
+    
+            
+              <!-- <div class="col-sm-4">
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">
                       <span class="badge bg-success"><span class="material-icons mx-2">task_alt</span>已選飲食</span>
                     </h5>
-                    <!-- <img
+                    <img
               :src="`${whoFuncImg.MVCimages}${whoFunc.活動圖片}`"
-              style="height: 200px; display: block; margin: 0 auto"/> -->
+              style="height: 200px; display: block; margin: 0 auto"/>
                     <p class="m-3 myword">商品名稱 | {{ }}</p>
                     <p class="m-3 myword">商品數量 | {{ }}</p>
                     <p class="m-3 myword">
@@ -110,7 +154,7 @@
                     </p>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
             </div>
           </div>
