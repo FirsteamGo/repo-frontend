@@ -2,12 +2,12 @@ import ShopView from "@/views/YeluPages/Shop/ShopView.vue";
 export default [
   {
     path: "/pages/Yelu-pages/shop",
-    name: "shop",
+    name: "商店首頁",
     component: ShopView,
     children: [
       {
         path:"",
-        name:"商店首頁",
+        name:"shop",
         component:() => import("../views/YeluPages/Shop/SPA/ShopHomePage.vue"),
       },
       {

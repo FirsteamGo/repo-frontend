@@ -216,8 +216,8 @@ import {useCampShop} from "../../../../stores/CampShop.js";
 import card2 from "../shopcards/card2.vue";
 const ShopAll=useCampShop();
 onMounted(ShopAll.Topgoods);
-console.log("this is "+ShopAll.ShopCart);
-let num=ref(1);
+
+
 
 
 </script>
@@ -274,11 +274,11 @@ let num=ref(1);
                     </div>
 
                     <div>
-                      <label class="form-label">總價:{{ ShopAll.ShopproductsInfo.單價*num}}</label>
+                      <label class="form-label">總價:{{ ShopAll.ShopproductsInfo.單價*ShopAll.ShopproductsInfo.數量}}</label>
                     </div>
                     <div>
                       <el-input-number
-                        v-model="num"
+                        v-model="ShopAll.ShopproductsInfo.數量"
                         :min="1"
                         :max="10"
                         :step="1"
@@ -291,8 +291,7 @@ let num=ref(1);
                         class="btn-2"
                         @click="
                           {
-                            clear();
-                            visible = false;
+                            ShopAll.dialogvision[0] = false;
                           }
                         "
                         >取消</el-button
@@ -301,8 +300,8 @@ let num=ref(1);
                         class="btn-1"
                         @click="
                           {
-                            addCart();
-                            visible = false;
+                            ShopAll.shopCart();
+                            ShopAll.dialogvision[0] = false;
                           }
                         "
                       >

@@ -204,7 +204,7 @@ onMounted(()=>{
   const shopdetail=StoreCarts.storesss();
   for(let i=0;i<shopdetail.length;i++){
     Shopdata.產品名稱=shopdetail[i].產品名稱;
-    Shopdata.數量=parseInt(shopdetail[i].數量);
+    Shopdata.數量=parseInt(shopdetail[i].count);
     Shopdata.單價=parseInt(shopdetail[i].單價);
     Shopdata.總價=Shopdata.數量*Shopdata.單價;
     

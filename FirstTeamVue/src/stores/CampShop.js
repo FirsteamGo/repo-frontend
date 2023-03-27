@@ -36,6 +36,7 @@ class shopcart{
     總價=ref(0);
 }
 
+let count = ref(1);
 
 //個別選單獨立Info?
 const Images=ref("https://localhost:7120/images/");
@@ -535,6 +536,6 @@ let adriaDialog=(商品細項id)=>{
 return{
     tnf, snowpeak, sadomain, titan, forest, lifecode, polarstar, naturehike, iveco, adria, Topgoods, tnfProduct, snowpeakProduct, sadomainProduct, titanProduct, forestProduct, lifecodeProduct, polarstarProduct, 
     naturehikeProduct, ivecoProduct, adriaProduct, Images, ShopproductsInfo, CampShopInfo, dialogvision, goodsDialog, tnfDialog, snowpeakDialog, sadomainDialog, titanDialog, forestDialog, lifecodeDialog, polarstarDialog,
-    natureDialog, ivecoDialog, adriaDialog, shopCart, ShopCart, storesss, 
+    natureDialog, ivecoDialog, adriaDialog, shopCart, ShopCart, storesss, count,
 };
 })

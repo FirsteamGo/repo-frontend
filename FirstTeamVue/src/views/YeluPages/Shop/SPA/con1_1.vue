@@ -223,7 +223,6 @@ import card2 from "../shopcards/card2.vue";
 const tnfAll=useCampShop();
 onMounted(tnfAll.tnfProduct);
 console.log(tnfAll.ShopCart.單價);
-//console.log(JSON.parse(localStorage.getItem("shopList"))[0].單價._rawValue._rawValue);
 </script>
 <template>
   <div class="">
@@ -276,17 +275,18 @@ console.log(tnfAll.ShopCart.單價);
                       >
                     </div>
                     <div>
-                      <label class="form-label">總價:{{ tnfAll.ShopproductsInfo.單價* tnfAll.ShopproductsInfo.數量}}</label>
+                      <label class="form-label">總價:{{tnfAll.ShopproductsInfo.單價 * tnfAll.count}}</label>
                     </div>
                     <div>
                       <el-input-number
-                        v-model="tnfAll.ShopproductsInfo.數量"
+                        v-model="tnfAll.count"
                         :min="1"
                         :max="10"
                         :step="1"
                         class="inPut"
                       ></el-input-number>
                     </div>
+                    
                     <div style="margin-top: 20px">
                       <el-button
                         class="btn-2"
