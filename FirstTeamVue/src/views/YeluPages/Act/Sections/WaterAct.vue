@@ -168,6 +168,10 @@ onMounted(WaterAll.WaterActGet)
                                     </label>
 
                                 </div>
+                                <div>
+                                    <label class="form-lable"><span class="material-icons">festival
+                                        </span>營區名稱 | {{ WaterAll.ActDialogAll.營區名稱 }}</label>
+                                </div>
 
                                 <div>
                                     <label class="form-lable"><span class="material-icons">pin_drop

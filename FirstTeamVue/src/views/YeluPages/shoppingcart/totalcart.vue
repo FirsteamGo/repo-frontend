@@ -305,7 +305,11 @@
           >
         </router-link>
         <router-link to="/">
-          <el-button type="warning" class="text-lg" style="margin: 5px"
+          <el-button
+            @click="thank()"
+            type="warning"
+            class="text-lg"
+            style="margin: 5px"
             >結帳 <span class="material-icons">credit_card</span></el-button
           >
         </router-link>
@@ -406,6 +410,9 @@ const Del = () => {
   localStorage.removeItem("setorderdetail");
   localStorage.removeItem("setorder");
   window.location.reload();
+};
+const thank = () => {
+  alert("感謝購買!!");
 };
 </script>
 

@@ -5,7 +5,7 @@ import axios from "axios";
 import DefaultNavbar from "../../../examples/navbars/NavbarDefault.vue";
 
 //image
-import bg0 from "@/assets/img/bg/bg01.jpg";
+import bg0 from "@/assets/img/bg/bg04.jpg";
 
 //dep
 import Typed from "typed.js";
@@ -75,7 +75,7 @@ const getEmployeeDTOes = onMounted(() => {
         <div class="row justify-content-center">
           <div class="col-lg-8 text-center mx-auto my-auto">
             <h1 class="text-white">
-              在地體驗
+              當地活動
             </h1>
             <p class="lead mb-4 text-white opacity-8">
               探索屬於你的最佳體驗 #YELU CAMP
