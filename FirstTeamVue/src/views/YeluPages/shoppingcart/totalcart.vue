@@ -294,8 +294,17 @@
         </el-header>
       </header>
       <!-- 合計 -->
-      <footer style="text-align: right">
-        Total : <span id="total">0</span>
+      <footer class="m-3 myword" style="text-align: right">
+        <span class="material-icons">attach_money</span>訂單總價 : TWD
+        <span id="total" class="text-primary"
+          >{{
+            Shopdata.總價 +
+            合計總價 +
+            SelfData.ListTotal +
+            SelfData.CampDialogAll.門票價格 +
+            SelfData.CampDialogAll.單價
+          }}
+        </span>
       </footer>
       <!-- 按鈕 -->
       <div class="d-flex justify-content-end m-5">
