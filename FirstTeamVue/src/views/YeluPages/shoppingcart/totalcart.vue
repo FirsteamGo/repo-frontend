@@ -79,7 +79,10 @@
                       營區地址 | {{ SelfData.CampDialogAll.營區地址 }}
                     </p>
                     <p class="m-3 myword">
-                      露營時間 | {{ SelfData.form.露營天數 }}
+                     入住日期 | {{ SelfData.form.露營天數 }}
+                    </p>
+                    <p class="m-3 myword">
+                      退住日期 | {{ SelfData.form.露營天數 }}
                     </p>
                     <p class="m-3 myword">
                       露營人數 | {{ SelfData.form.預計人數 }}
