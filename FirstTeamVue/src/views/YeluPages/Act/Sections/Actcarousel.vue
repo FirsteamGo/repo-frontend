@@ -11,7 +11,6 @@ import { template } from "lodash";
 
 
 const images = reactive([
-    { abc: a },
     { abc: b },
     { abc: c },
     { abc: d },
@@ -22,7 +21,7 @@ const images = reactive([
 
 <template>
     <div>
-        <el-carousel :interval="2000" type="card" class=" mt-3">
+        <el-carousel :interval="2000" arrow="always" height="400px">
             <el-carousel-item v-for="item in images" :key="item">
                 <img :src=item.abc alt="carousel image" class="carousel_image_type">
             </el-carousel-item>
