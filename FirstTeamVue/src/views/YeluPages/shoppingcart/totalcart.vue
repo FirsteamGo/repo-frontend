@@ -28,10 +28,7 @@
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">
-                      <span class="badge bg-success"
-                        ><span class="material-icons mx-2">task_alt</span
-                        >已選商品</span
-                      >
+                      <span class="badge bg-success"><span class="material-icons mx-2">task_alt</span>已選商品</span>
                     </h5>
                     <img
                       :src="`${mvc}${Shopdata.產品圖片}`"
@@ -63,20 +60,13 @@
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">
-                      <span class="badge bg-success"
-                        ><span class="material-icons mx-2">task_alt</span
-                        >已選營地</span
-                      >
+                      <span class="badge bg-success"><span class="material-icons mx-2">task_alt</span>已選營地</span>
                     </h5>
-                    <img
-                      :src="`${SelfData.MVCimages}${SelfData.CampDialogAll.圖片}`"
-                      style="
-                        height: 200px;
-                        width: 280px;
-                        display: block;
-                        margin: 0 auto;
-                      "
-                    />
+                    <img :src="`${SelfData.MVCimages}${SelfData.CampDialogAll.圖片}`" style="height: 200px;
+                            width: 280px;
+                            display: block;
+                            margin: 0 auto;
+                          " />
                     <p class="m-3 myword">
                       營區名稱 | {{ SelfData.CampDialogAll.營區名稱 }}
                     </p>
@@ -93,10 +83,8 @@
                       露營人數 | {{ SelfData.form.預計人數 }}
                     </p>
                     <p class="m-3 myword">
-                      <span class="material-icons">attach_money</span> TWD<span
-                        class="text-primary"
-                        >{{ SelfData.CampDialogAll.單價 }}</span
-                      >
+                      <span class="material-icons">attach_money</span> TWD<span class="text-primary">{{
+                        SelfData.CampDialogAll.單價 }}</span>
                     </p>
                   </div>
                 </div>
@@ -106,20 +94,14 @@
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">
-                      <span class="badge bg-success"
-                        ><span class="material-icons mx-2">task_alt</span
-                        >已選活動</span
-                      >
+                      <span class="badge bg-success"><span class="material-icons mx-2">task_alt</span>已選活動</span>
                     </h5>
-                    <img
-                      :src="`${SelfData.MVCimages}${SelfData.CampDialogAll.活動圖片}`"
-                      style="
-                        height: 200px;
-                        width: 280px;
-                        display: block;
-                        margin: 0 auto;
-                      "
-                    />
+                    <img :src="`${SelfData.MVCimages}${SelfData.CampDialogAll.活動圖片}`" style="
+                            height: 200px;
+                            width: 280px;
+                            display: block;
+                            margin: 0 auto;
+                          " />
                     <p class="m-3 myword">
                       活動名稱 | {{ SelfData.CampDialogAll.活動名稱 }}
                     </p>
@@ -127,24 +109,19 @@
                       活動種類 | {{ SelfData.CampDialogAll.活動種類 }}
                     </p>
                     <p class="m-3 myword">
-                      <span class="material-icons">attach_money</span> TWD<span
-                        class="text-primary"
-                        >{{ SelfData.CampDialogAll.門票價格 }}</span
-                      >
+                      <span class="material-icons">attach_money</span> TWD<span class="text-primary">{{
+                        SelfData.CampDialogAll.門票價格 }}</span>
                     </p>
                   </div>
                 </div>
               </div>
 
+
               <div class="card m-3">
                 <div class="card-body">
-                  <h5>
-                    <span class="badge bg-success"
-                      ><span class="material-icons mx-2">task_alt</span
-                      >已選飲食</span
-                    >
+                  <h5><span class="badge bg-success"><span class="material-icons mx-2">task_alt</span>已選飲食</span>
                   </h5>
-                  <table style="border-bottom: 1px solid #ddd">
+                  <table style="border-bottom:1px solid #ddd;">
                     <tr class="itemHead myword">
                       <td style="width: 200px">商品圖片</td>
                       <td style="width: 200px">商品名稱</td>
@@ -218,10 +195,7 @@
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">
-                      <span class="badge bg-success"
-                        ><span class="material-icons mx-2">task_alt</span
-                        >已選套裝行程</span
-                      >
+                      <span class="badge bg-success"><span class="material-icons mx-2">task_alt</span>已選套裝行程</span>
                     </h5>
                     <el-container>
                       <el-main width="60%">
@@ -285,20 +259,16 @@
       <!-- 按鈕 -->
       <div class="d-flex justify-content-end m-5">
         <router-link to="/">
-          <el-button type="info" class="text-lg" style="margin: 5px"
-            >重新購買 <span class="material-icons">refresh</span></el-button
-          >
+          <el-button type="info" class="text-lg" style="margin: 5px">重新購買 <span
+              class="material-icons">refresh</span></el-button>
         </router-link>
         <router-link to="/">
-          <el-button type="warning" class="text-lg" style="margin: 5px"
-            >結帳 <span class="material-icons">credit_card</span></el-button
-          >
+          <el-button @click="thank()" type="warning" class="text-lg" style="margin: 5px">結帳 <span
+              class="material-icons">credit_card</span></el-button>
         </router-link>
         <router-link to="/">
           <el-button type="info" plain class="text-lg" style="margin: 5px">
-            <span class="material-icons p-2">home</span></el-button
-          ></router-link
-        >
+            <span class="material-icons p-2">home</span></el-button></router-link>
       </div>
     </div>
   </body>
@@ -383,7 +353,11 @@ const Del = () => {
   localStorage.removeItem("setorderdetail");
   localStorage.removeItem("setorder");
   window.location.reload();
-};
+}
+
+const thank = () => {
+  alert('感謝購買!!')
+}
 </script>
 
 
