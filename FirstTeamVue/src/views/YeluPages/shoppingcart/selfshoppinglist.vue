@@ -151,6 +151,9 @@ const formatDate = (dateString) => {
         <el-main>
           <div id="myCart">
             <header id="cartList">
+              <h5 class="card-title">
+                      <span class="badge bg-success"><span class="material-icons mx-2">task_alt</span>已選飲食</span>
+                    </h5>
               <table style="border-bottom: 1px solid #ddd">
                 <tr class="itemHead">
                   <td style="width: 200px">商品圖片</td>
@@ -188,10 +191,10 @@ const formatDate = (dateString) => {
                 </table>
               </div>
             </header>
-
-            <footer style="text-align: right">
-              總計 : <span id="total">{{ ListTotal }} 元</span>
-            </footer>
+            <p class="m-3 myword" style="text-align: right">
+                      <span class="material-icons">attach_money</span>飲食總計 : TWD
+                      <span id="total" class="text-primary">{{ ListTotal }} </span></p>
+           
 
             <RouterLink :to="{ name: 'totalcart' }">
               <button type="button" class="btn btn-secondary" @click="addcart">

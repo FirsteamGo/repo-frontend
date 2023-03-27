@@ -33,10 +33,9 @@
                         >已選商品</span
                       >
                     </h5>
-                    <!-- <img
-              :src="`${whoFuncImg.MVCimages}${whoFunc.圖片}`"
-              style="height: 200px; display: block; margin: 0 auto"
-            /> -->
+                    <img
+              :src="`${Shopdata.mvc}${Shopdata.圖片}`"
+              style="height: 200px; display: block; margin: 0 auto"/>
                     <div>
                       <p class="m-3 myword">商品名稱 | {{ Shopdata.產品名稱 }}</p>
                       <p class="m-3 myword">商品數量 | {{ Shopdata.數量 }}</p>
@@ -53,18 +52,16 @@
         </el-header>
 
         <h3>自選行程</h3>
-        <el-header height="600px">
+        <el-header height="1000px">
           <!-- <table style="border-bottom:1px solid #ddd;"> -->
-          <div class="container w-100 px-2">
+          <div class="container w-100 px-2 ">
             <div class="row">
-              <div class="col-sm-4">
+             
+              <div class="col-sm-6">
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">
-                      <span class="badge bg-success"
-                        ><span class="material-icons mx-2">task_alt</span
-                        >已選營地</span
-                      >
+                      <span class="badge bg-success"><span class="material-icons mx-2">task_alt</span>已選營地</span>
                     </h5>
                     <img
                       :src="`${SelfData.MVCimages}${SelfData.CampDialogAll.圖片}`"
@@ -97,14 +94,11 @@
                 </div>
               </div>
 
-              <div class="col-sm-4">
+              <div class="col-sm-6">
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">
-                      <span class="badge bg-success"
-                        ><span class="material-icons mx-2">task_alt</span
-                        >已選活動</span
-                      >
+                      <span class="badge bg-success"><span class="material-icons mx-2">task_alt</span>已選活動</span>
                     </h5>
                     <img
                       :src="`${SelfData.MVCimages}${SelfData.CampDialogAll.活動圖片}`"
@@ -166,7 +160,7 @@
                     </td>
                   </tr>
                   <div class="d-flex justify-content-end myword">
-                  <span class="material-icons ">attach_money</span>總計 TWD
+                  <span class="material-icons ">attach_money</span>TWD
                   <span class="text-primary">{{   }}</span>
                   </div>
                 </table>
@@ -204,25 +198,24 @@
         </el-header>
 
         <h3>套裝行程</h3>
-        <el-header height="750px">
+        <el-header height="700px">
           <!-- <table style="border-bottom:1px solid #ddd;"> -->
           <div class="container w-100 px-2">
             <div class="row">
               <div class="col-sm-12">
-                <div class="card">
+                <div class="card" >
                   <div class="card-body">
                     <h5 class="card-title">
                       <span class="badge bg-success"
                         ><span class="material-icons mx-2">task_alt</span
-                        >已選套裝行程</span
-                      >
+                        >已選套裝行程</span>
                     </h5>
                     <el-container>
-                      <el-main width="60%">
+                      <el-main width="60%" >
                         <img :src="`${mvc}${setod.活動圖片}`"
                           style=" display: block; height: 300px;width: 350px; margin-top:30px ;" />
                       </el-main>
-                      <el-main style="margin-top: 0; height: 300px;">
+                      <el-main style="margin-top: 0; height: 550px;">
                         <p class="m-3 myword">營區名稱 | {{ 營區名稱 }}</p>
                         <p class="m-3 myword">營區縣市 | {{ 縣市 }}</p>
                         <p class="m-3 myword">露營入住時間 | {{ formatDate(入住時間) }}</p>
