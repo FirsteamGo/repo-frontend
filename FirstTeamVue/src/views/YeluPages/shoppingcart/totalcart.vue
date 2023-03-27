@@ -289,7 +289,7 @@ const SelfData = useSelfDataAtore();
 const StoreCarts=useCampShop();
 let Shopdata=reactive({
   產品名稱:"",
-  圖片:"",
+  產品圖片:"",
   數量:0,
   單價:0,
   總價:0,
@@ -302,6 +302,7 @@ onMounted(()=>{
     Shopdata.數量=parseInt(shopdetail[i].數量);
     Shopdata.單價=parseInt(shopdetail[i].單價);
     Shopdata.總價=Shopdata.數量*Shopdata.單價;
+    Shopdata.產品圖片=shopdetail[i].產品圖片;
   }
 });
 

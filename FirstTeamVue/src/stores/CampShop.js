@@ -34,6 +34,7 @@ class shopcart{
     單價=ref(0);
     數量=ref(1);
     總價=ref(0);
+    產品圖片=ref('');
 }
 
 
@@ -67,6 +68,7 @@ const shopCart=()=>{
     ShopCart.單價=ShopproductsInfo.單價.value;
     ShopCart.數量=count.value;
     ShopCart.總價=ShopproductsInfo.單價*count.value;
+    ShopCart.產品圖片=ShopproductsInfo.產品圖片;
 
     const addPro=localStorage.getItem("shopList");
     const add=addPro ? JSON.parse(addPro):[];
