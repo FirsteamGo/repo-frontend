@@ -4,13 +4,6 @@ import { ref, reactive, onMounted } from "vue";
 
 export const useSelfDataAtore = defineStore('SelfData', () => {
 
-    // form.data
-    // form.預計人數
-    // form.評論
-
-    const az = ref("1")
-
-
     const form = reactive({
         訂單編號: "",
         data: [],
@@ -20,23 +13,16 @@ export const useSelfDataAtore = defineStore('SelfData', () => {
         露營天數: 0,
     });
 
+    const az = ref("1") //測試用變數
 
-    // //個別獨立的變數
-    // const MVCimages = ref("https://localhost:7120/images/")
-    // const CampDialogAll = new CampAllVariable
-    // let dialogVisibleArr = reactive(new Array(5).fill(false));
-    // const North = reactive({ "北部": [], });
-    // let Taitung = reactive({ "台東縣": [], });
-
-    //北部營區Get
+    //測試用方法
     const NorthCampGet = async () => {
         az.value++
         alert(az.value + '***')
     };
 
-
     return {
-        form, az, NorthCampGet,
+        form, //az, NorthCampGet,
     }
 
 })
