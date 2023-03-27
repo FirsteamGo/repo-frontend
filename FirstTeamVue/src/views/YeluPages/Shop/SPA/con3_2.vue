@@ -57,11 +57,11 @@ onMounted(lifeAll.lifecodeProduct);
                     </div>
 
                     <div>
-                      <label class="form-label">總價:{{ lifeAll.ShopproductsInfo.單價*lifeAll.ShopproductsInfo.數量 }}</label>
+                      <label class="form-label">總價:{{ lifeAll.ShopproductsInfo.單價*lifeAll.count }}</label>
                     </div>
                     <div>
                       <el-input-number
-                        v-model="lifeAll.ShopproductsInfo.數量"
+                        v-model="lifeAll.count"
                         :min="1"
                         :max="10"
                         :step="1"

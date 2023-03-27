@@ -33,16 +33,18 @@
                         >已選商品</span
                       >
                     </h5>
-                    <!-- <img
-              :src="`${whoFuncImg.MVCimages}${whoFunc.圖片}`"
-              style="height: 200px; display: block; margin: 0 auto"
-            /> -->
+                    <img
+                      :src="`${mvc}${Shopdata.產品圖片}`"
+                      style="height: 200px; display: block; margin: 0 auto"
+                    />
                     <div>
-                      <p class="m-3 myword">商品名稱 | {{ Shopdata.產品名稱 }}</p>
-                      <p class="m-3 myword">商品數量 | {{ Shopdata.數量 }}</p>
                       <p class="m-3 myword">
-                        <span class="material-icons">attach_money</span> TWD<span class="text-primary">{{ Shopdata.總價
-                        }}</span>
+                        商品名稱 | {{ Shopdata.產品名稱 }}
+                      </p>
+                      <p class="m-3 myword">商品數量 | {{ Shopdata.數量}}</p>
+                      <p class="m-3 myword">
+                        <span class="material-icons">attach_money</span>
+                        TWD<span class="text-primary">{{ Shopdata.總價 }}</span>
                       </p>
                     </div>
                   </div>
@@ -53,11 +55,11 @@
         </el-header>
 
         <h3>自選行程</h3>
-        <el-header height="600px">
+        <el-header height="1000px">
           <!-- <table style="border-bottom:1px solid #ddd;"> -->
           <div class="container w-100 px-2">
             <div class="row">
-              <div class="col-sm-4">
+              <div class="col-sm-6">
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">
@@ -82,7 +84,10 @@
                       營區地址 | {{ SelfData.CampDialogAll.營區地址 }}
                     </p>
                     <p class="m-3 myword">
-                      露營時間 | {{ SelfData.form.露營天數 }}
+                      入住日期 | {{ formatDate(SelfData.form.data[0]) }}
+                    </p>
+                    <p class="m-3 myword">
+                      退住日期 | {{ formatDate(SelfData.form.data[1]) }}
                     </p>
                     <p class="m-3 myword">
                       露營人數 | {{ SelfData.form.預計人數 }}
@@ -97,7 +102,7 @@
                 </div>
               </div>
 
-              <div class="col-sm-4">
+              <div class="col-sm-6">
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">
@@ -131,49 +136,51 @@
                 </div>
               </div>
 
-             
-            <div class="card m-3">
-              <div class="card-body">
-              <h5><span class="badge bg-success"><span class="material-icons mx-2">task_alt</span>已選飲食</span>
-              </h5>
-                <table style="border-bottom:1px solid #ddd;">
-                <tr class="itemHead myword">
-                  <td style="width: 200px">商品圖片</td>
-                    <td style="width: 200px">商品名稱</td>
-                    <td style="width: 300px">商品內容</td>
-                    <td style="width: 170px">單價($)</td>
-                    <td style="width: 60px">數量</td>
-                    <td style="width: 60px"></td>
-                  </tr>
-                </table>
-                <table>
-                  <!-- <tr v-for="(item, index) in props.sfitem" :key="item.自選飲食id" :value="index" class="item"> -->
-                  <tr>
-                    <td style="width: 200px">
-                      <!-- <img :src="`${MVCimages}${item.圖片}`" style="width: 100px; height: 100px" /> -->
-                    </td>
-                    <td style="width: 200px">
-                      <p>{{ }}</p>
-                    </td>
-                    <td style="width: 300px">
-                      <p>{{  }}</p>
-                    </td>
-                    <td style="width: 150px">
-                      <p>{{}}</p>
-                    </td>
-                    <td style="width: 60px">
-                      <p>{{  }}</p>
-                    </td>
-                  </tr>
-                  <div class="d-flex justify-content-end myword">
-                  <span class="material-icons ">attach_money</span>總計 TWD
-                  <span class="text-primary">{{   }}</span>
-                  </div>
-                </table>
-            </div>
-          </div>
-    
-            
+              <div class="card m-3">
+                <div class="card-body">
+                  <h5>
+                    <span class="badge bg-success"
+                      ><span class="material-icons mx-2">task_alt</span
+                      >已選飲食</span
+                    >
+                  </h5>
+                  <table style="border-bottom: 1px solid #ddd">
+                    <tr class="itemHead myword">
+                      <td style="width: 200px">商品圖片</td>
+                      <td style="width: 200px">商品名稱</td>
+                      <td style="width: 300px">商品內容</td>
+                      <td style="width: 170px">單價($)</td>
+                      <td style="width: 60px">數量</td>
+                      <td style="width: 60px"></td>
+                    </tr>
+                  </table>
+                  <table>
+                    <tr v-for="(item, index) in SelfData.sfitem" :key="item.自選飲食id" :value="index" class="item">
+                    
+                      <td style="width: 200px">
+                        <img :src="`${SelfData.MVCimages}${item.圖片}`" style="width: 100px; height: 100px" />
+                      </td>
+                      <td style="width: 200px">
+                        <p>{{item.商品名稱}}</p>
+                      </td>
+                      <td style="width: 300px">
+                        <p>{{item.商品內容}}</p>
+                      </td>
+                      <td style="width: 150px">
+                        <p>{{item.單價}}</p>
+                      </td>
+                      <td style="width: 60px">
+                        <p>{{item.需求份數}}</p>
+                      </td>
+                    </tr>
+                    <div class="d-flex justify-content-end myword">
+                      <span class="material-icons">attach_money</span>TWD
+                      <span class="text-primary">{{}}</span>
+                    </div>
+                  </table>
+                </div>
+              </div>
+
               <!-- <div class="col-sm-4">
                 <div class="card">
                   <div class="card-body">
@@ -197,14 +204,13 @@
                   </div>
                 </div>
               </div> -->
-
             </div>
           </div>
           <!-- </table> -->
         </el-header>
 
         <h3>套裝行程</h3>
-        <el-header height="750px">
+        <el-header height="700px">
           <!-- <table style="border-bottom:1px solid #ddd;"> -->
           <div class="container w-100 px-2">
             <div class="row">
@@ -219,27 +225,48 @@
                     </h5>
                     <el-container>
                       <el-main width="60%">
-                        <img :src="`${mvc}${setod.活動圖片}`"
-                          style=" display: block; height: 300px;width: 350px; margin-top:30px ;" />
+                        <img
+                          :src="`${mvc}${setod.活動圖片}`"
+                          style="
+                            display: block;
+                            height: 300px;
+                            width: 350px;
+                            margin-top: 30px;
+                          "
+                        />
                       </el-main>
-                      <el-main style="margin-top: 0; height: 300px;">
+                      <el-main style="margin-top: 0; height: 550px">
                         <p class="m-3 myword">營區名稱 | {{ 營區名稱 }}</p>
                         <p class="m-3 myword">營區縣市 | {{ 縣市 }}</p>
-                        <p class="m-3 myword">露營入住時間 | {{ formatDate(入住時間) }}</p>
-                        <p class="m-3 myword">露營退住時間 | {{ formatDate(退住時間) }}</p>
+                        <p class="m-3 myword">
+                          露營入住時間 | {{ formatDate(入住時間) }}
+                        </p>
+                        <p class="m-3 myword">
+                          露營退住時間 | {{ formatDate(退住時間) }}
+                        </p>
                         <p class="m-3 myword">露營人數 | {{ 預定人數 }}</p>
                         <p class="m-3 myword">露營方式 | {{ 項目內容 }}</p>
                         <p class="m-3 myword">方案 | {{ 套裝方案 }}</p>
                         <p class="m-3 myword">套裝活動 | {{ 活動名稱 }}</p>
                         <p class="m-3 myword">
-                          <span class="material-icons">attach_money</span> TWD<span class="text-primary">{{ 合計總價
-                          }}</span>
-
+                          <span class="material-icons">attach_money</span>
+                          TWD<span class="text-primary">{{ 合計總價 }}</span>
                         </p>
-                        <button class="btn btn-primary" @click="Del()"><span class="material-icons">delete</span></button>
-                        <button class="btn btn-warning" @click="insert()">確認送出訂單</button>
-                        <p style="font-weight: bolder; font-size: large; color: rgb(100,0,0);">若想修改請刪除後重新填寫訂單</p>
-
+                        <button class="btn btn-primary" @click="Del()">
+                          <span class="material-icons">delete</span>
+                        </button>
+                        <button class="btn btn-warning" @click="insert()">
+                          確認送出訂單
+                        </button>
+                        <p
+                          style="
+                            font-weight: bolder;
+                            font-size: large;
+                            color: rgb(100, 0, 0);
+                          "
+                        >
+                          若想修改請刪除後重新填寫訂單
+                        </p>
                       </el-main>
                     </el-container>
                   </div>
@@ -286,21 +313,23 @@ import { useCampShop } from "../../../stores/CampShop.js";
 import { useSelfDataAtore } from "../../../stores/SelfData.js";
 const SelfData = useSelfDataAtore();
 
-const StoreCarts = useCampShop();
-let Shopdata = reactive({
-  產品名稱: "",
-  數量: "",
-  單價: "",
-  總價: 0,
+const StoreCarts=useCampShop();
+let Shopdata=reactive({
+  產品名稱:"",
+  產品圖片:"",
+  數量:0,
+  單價:0,
+  總價:0,
 });
 
-onMounted(() => {
-  const shopdetail = StoreCarts.storesss();
-  for (let i = 0; i < shopdetail.length; i++) {
-    Shopdata.產品名稱 = shopdetail[i].產品名稱;
-    Shopdata.數量 = parseInt(shopdetail[i].count);
-    Shopdata.單價 = parseInt(shopdetail[i].單價);
-    Shopdata.總價 = Shopdata.數量 * Shopdata.單價;
+onMounted(()=>{
+  const shopdetail=StoreCarts.storesss();
+  for(let i=0;i<shopdetail.length;i++){
+    Shopdata.產品名稱=shopdetail[i].產品名稱;
+    Shopdata.數量=parseInt(shopdetail[i].數量);
+    Shopdata.單價=parseInt(shopdetail[i].單價);
+    Shopdata.總價=Shopdata.數量*Shopdata.單價;
+    Shopdata.產品圖片=shopdetail[i].產品圖片;
   }
 });
 
@@ -325,7 +354,7 @@ const formatDate = (dateString) => {
   const month = (date.getMonth() + 1).toString().padStart(2, "0");
   const day = date.getDate().toString().padStart(2, "0");
   return `${year}-${month}-${day}`;
-}
+};
 const insert = () => {
   var p = reactive({
     套裝訂單id: 0,
@@ -338,25 +367,23 @@ const insert = () => {
     合計總價: 合計總價.value,
     評論: 評論.value,
     評分: 評分.value,
-
-
   });
   // console.log(p);
   axios
     .post(`${webApi.value}`, p)
-    .then(res => { alert(res.data); })
+    .then((res) => {
+      alert(res.data);
+    })
     .catch((err) => {
       console.log(err);
     });
-
-}
+};
 const Del = () => {
-  alert("已刪除套裝行程購物車")
-  localStorage.removeItem('setorderdetail');
-  localStorage.removeItem('setorder');
+  alert("已刪除套裝行程購物車");
+  localStorage.removeItem("setorderdetail");
+  localStorage.removeItem("setorder");
   window.location.reload();
-}
-
+};
 </script>
 
 

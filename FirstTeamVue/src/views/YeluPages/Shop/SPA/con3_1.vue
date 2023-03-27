@@ -57,11 +57,11 @@ onMounted(forestAll.forestProduct);
                     </div>
 
                     <div>
-                      <label class="form-label">總價:{{ forestAll.ShopproductsInfo.單價*forestAll.ShopproductsInfo.數量 }}</label>
+                      <label class="form-label">總價:{{ forestAll.ShopproductsInfo.單價 * forestAll.count }}</label>
                     </div>
                     <div>
                       <el-input-number
-                        v-model="forestAll.ShopproductsInfo.數量"
+                        v-model="forestAll.count"
                         :min="1"
                         :max="10"
                         :step="1"

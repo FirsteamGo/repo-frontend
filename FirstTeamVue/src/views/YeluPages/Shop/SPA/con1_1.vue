@@ -222,7 +222,6 @@ import {useCampShop} from "../../../../stores/CampShop.js";
 import card2 from "../shopcards/card2.vue";
 const tnfAll=useCampShop();
 onMounted(tnfAll.tnfProduct);
-console.log(tnfAll.ShopCart.單價);
 </script>
 <template>
   <div class="">

@@ -57,11 +57,11 @@ onMounted(titanAll.titanProduct);
                     </div>
 
                     <div>
-                      <label class="form-label">總價:{{ titanAll.ShopproductsInfo.單價*titanAll.ShopproductsInfo.數量 }}</label>
+                      <label class="form-label">總價:{{ titanAll.ShopproductsInfo.單價*titanAll.count }}</label>
                     </div>
                     <div>
                       <el-input-number
-                        v-model="titanAll.ShopproductsInfo.數量"
+                        v-model="titanAll.count"
                         :min="1"
                         :max="10"
                         :step="1"

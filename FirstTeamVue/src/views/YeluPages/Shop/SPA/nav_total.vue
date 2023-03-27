@@ -14,15 +14,6 @@ import { Place } from "@element-plus/icons-vue";
 </template>
 
 <style scoped>
-/* .example-showcase .el-dropdown + .el-dropdown {
-    margin-left: 15px;
-  }
-  .example-showcase .el-dropdown-link {
-    cursor: pointer;
-    color: var(--el-color-primary);
-    display: flex;
-    align-items: center;
-  } */
 .el-dropdown-item {
   display: flex;
   flex-direction: column;
