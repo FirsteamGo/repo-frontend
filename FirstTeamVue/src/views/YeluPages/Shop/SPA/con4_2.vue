@@ -57,11 +57,11 @@ onMounted(natureAll.naturehikeProduct);
                     </div>
 
                     <div>
-                      <label class="form-label">總價:{{ natureAll.ShopproductsInfo.單價*natureAll.ShopproductsInfo.數量 }}</label>
+                      <label class="form-label">總價:{{ natureAll.ShopproductsInfo.單價 * natureAll.count }}</label>
                     </div>
                     <div>
                       <el-input-number
-                        v-model="natureAll.ShopproductsInfo.數量"
+                        v-model="natureAll.count"
                         :min="1"
                         :max="10"
                         :step="1"

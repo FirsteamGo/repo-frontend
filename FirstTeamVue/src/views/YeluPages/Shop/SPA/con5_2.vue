@@ -57,11 +57,11 @@ onMounted(adriaAll.adriaProduct);
                     </div>
 
                     <div>
-                      <label class="form-label">總價:{{ adriaAll.ShopproductsInfo.單價*adriaAll.ShopproductsInfo.數量 }}</label>
+                      <label class="form-label">總價:{{ adriaAll.ShopproductsInfo.單價*adriaAll.count }}</label>
                     </div>
                     <div>
                       <el-input-number
-                        v-model="adriaAll.ShopproductsInfo.數量"
+                        v-model="adriaAll.count"
                         :min="1"
                         :max="10"
                         :step="1"
