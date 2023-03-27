@@ -60,6 +60,8 @@ onMounted(() => {
       whoFunc.value = ActData.ActDialogAll;
       whoFuncImg.value = ActData;
     }
+
+    SelfData.CampDialogAll = whoFunc.value;
   }
 });
 const formatDate = (dateString) => {
@@ -104,8 +106,15 @@ const formatDate = (dateString) => {
                     <h5 class="card-title">
                       <span class="badge bg-success"><span class="material-icons mx-2">task_alt</span>已選營地</span>
                     </h5>
-                    <img :src="`${whoFuncImg.MVCimages}${whoFunc.圖片}`"
-                      style="height: 200px;width: 280px; display: block; margin: 0 auto" />
+                    <img
+                      :src="`${whoFuncImg.MVCimages}${whoFunc.圖片}`"
+                      style="
+                        height: 200px;
+                        width: 280px;
+                        display: block;
+                        margin: 0 auto;
+                      "
+                    />
                     <p class="m-3 myword">營區名稱 | {{ whoFunc.營區名稱 }}</p>
                     <p class="m-3 myword">營區地址 | {{ whoFunc.營區地址 }}</p>
                     <p class="m-3 myword">
@@ -122,8 +131,15 @@ const formatDate = (dateString) => {
                     <h5 class="card-title">
                       <span class="badge bg-success"><span class="material-icons mx-2">task_alt</span>已選活動</span>
                     </h5>
-                    <img :src="`${whoFuncImg.MVCimages}${whoFunc.活動圖片}`"
-                      style="height: 200px;width: 280px; display: block; margin: 0 auto" />
+                    <img
+                      :src="`${whoFuncImg.MVCimages}${whoFunc.活動圖片}`"
+                      style="
+                        height: 200px;
+                        width: 280px;
+                        display: block;
+                        margin: 0 auto;
+                      "
+                    />
                     <p class="m-3 myword">活動種類 | {{ whoFunc.活動名稱 }}</p>
                     <p class="m-3 myword">活動名稱 | {{ whoFunc.活動種類 }}</p>
                     <p class="m-3 myword">
