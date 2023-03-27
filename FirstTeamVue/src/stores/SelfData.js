@@ -13,6 +13,11 @@ export const useSelfDataAtore = defineStore('SelfData', () => {
         露營天數: 0,
     });
 
+    const CampDialogAll = reactive({})
+
+    const MVCimages = ref("https://localhost:7120/images/")
+
+
     const az = ref("1") //測試用變數
 
     //測試用方法
@@ -22,7 +27,7 @@ export const useSelfDataAtore = defineStore('SelfData', () => {
     };
 
     return {
-        form, //az, NorthCampGet,
+        form, CampDialogAll, MVCimages, //az, NorthCampGet,
     }
 
 })
