@@ -313,21 +313,23 @@ import { useCampShop } from "../../../stores/CampShop.js";
 import { useSelfDataAtore } from "../../../stores/SelfData.js";
 const SelfData = useSelfDataAtore();
 
-const StoreCarts = useCampShop();
-let Shopdata = reactive({
-  產品名稱: "",
-  數量: "",
-  單價: "",
-  總價: 0,
+const StoreCarts=useCampShop();
+let Shopdata=reactive({
+  產品名稱:"",
+  產品圖片:"",
+  數量:0,
+  單價:0,
+  總價:0,
 });
 
-onMounted(() => {
-  const shopdetail = StoreCarts.storesss();
-  for (let i = 0; i < shopdetail.length; i++) {
-    Shopdata.產品名稱 = shopdetail[i].產品名稱;
-    Shopdata.數量 = parseInt(shopdetail[i].count);
-    Shopdata.單價 = parseInt(shopdetail[i].單價);
-    Shopdata.總價 = Shopdata.數量 * Shopdata.單價;
+onMounted(()=>{
+  const shopdetail=StoreCarts.storesss();
+  for(let i=0;i<shopdetail.length;i++){
+    Shopdata.產品名稱=shopdetail[i].產品名稱;
+    Shopdata.數量=parseInt(shopdetail[i].數量);
+    Shopdata.單價=parseInt(shopdetail[i].單價);
+    Shopdata.總價=Shopdata.數量*Shopdata.單價;
+    Shopdata.產品圖片=shopdetail[i].產品圖片;
   }
 });
 

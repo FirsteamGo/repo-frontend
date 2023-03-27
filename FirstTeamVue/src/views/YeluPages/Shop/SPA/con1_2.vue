@@ -57,11 +57,11 @@ onMounted(snowAll.snowpeakProduct);
                     </div>
 
                     <div>
-                      <label class="form-label">總價:{{ snowAll.ShopproductsInfo.單價* snowAll.ShopproductsInfo.數量 }}</label>
+                      <label class="form-label">總價:{{ snowAll.ShopproductsInfo.單價* snowAll.count }}</label>
                     </div>
                     <div>
                       <el-input-number
-                        v-model="snowAll.ShopproductsInfo.數量"
+                        v-model="snowAll.count"
                         :min="1"
                         :max="10"
                         :step="1"

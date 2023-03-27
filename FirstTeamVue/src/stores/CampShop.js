@@ -34,9 +34,10 @@ class shopcart{
     單價=ref(0);
     數量=ref(1);
     總價=ref(0);
+    產品圖片=ref('');
 }
 
-let count = ref(1);
+
 
 //個別選單獨立Info?
 const Images=ref("https://localhost:7120/images/");
@@ -58,13 +59,16 @@ const iveco =reactive({"IVECO":[],});
 const adria =reactive({"ADRIA":[],});
 let dialogvision=reactive(new Array(10).fill(false));
 
+
+let count = ref(1);
 //購物車方法
 const shopCart=()=>{
     ShopCart.商品細項id=ShopproductsInfo.商品細項id;
     ShopCart.產品名稱=ShopproductsInfo.產品名稱;
     ShopCart.單價=ShopproductsInfo.單價.value;
-    ShopCart.數量=ShopproductsInfo.數量.value;
-    ShopCart.總價=ShopproductsInfo.單價*ShopproductsInfo.數量;
+    ShopCart.數量=count.value;
+    ShopCart.總價=ShopproductsInfo.單價*count.value;
+    ShopCart.產品圖片=ShopproductsInfo.產品圖片;
 
     const addPro=localStorage.getItem("shopList");
     const add=addPro ? JSON.parse(addPro):[];

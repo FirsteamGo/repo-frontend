@@ -57,11 +57,11 @@ onMounted(ivecoAll.ivecoProduct);
                     </div>
 
                     <div>
-                      <label class="form-label">總價:{{ ivecoAll.ShopproductsInfo.單價*ivecoAll.ShopproductsInfo.數量 }}</label>
+                      <label class="form-label">總價:{{ ivecoAll.ShopproductsInfo.單價 * ivecoAll.count }}</label>
                     </div>
                     <div>
                       <el-input-number
-                        v-model="ivecoAll.ShopproductsInfo.數量"
+                        v-model="ivecoAll.count"
                         :min="1"
                         :max="10"
                         :step="1"

@@ -7,14 +7,13 @@ import DefaultNavbar from "../../../examples/navbars/NavbarDefault.vue";
 import yelufooter from "../../../examples/footers/yelufooter.vue";
 
 //image
-import bg0 from "@/assets/img/bg9.jpg";
+import bg0 from "@/assets/img/shop/bgImg.jpg";
 
 //dep
 import Typed from "typed.js";
 
 //sections 放置要引入的頁面
 import carousel from "../Shop/shopsections/carousel.vue";
-import inputContent from "../Shop/shopsections/inputcontent.vue";
 import nav1 from "../Shop/SPA/nav_1.vue";
 import nav2 from "../Shop/SPA/nav_2.vue";
 import nav3 from "../Shop/SPA/nav_3.vue";
@@ -68,7 +67,7 @@ onUnmounted(() => {
             <h1 class="text-white">YELU Shop</h1>
 
             <p class="lead mb-4 text-white opacity-10">
-              In YELU, you can find any camping equipment you need here!
+              在野麓，你能找到所有想要的裝備與工具!
             </p>
           </div>
         </div>
@@ -82,8 +81,6 @@ onUnmounted(() => {
     <div class="common-layout">
       <!--輪播牆-->
       <el-header class="head"><carousel /></el-header>
-      <el-header class="inputlocation"><inputContent /></el-header>
-      <!-- <button @click="addtoCart">123</button> -->
       <el-container class="navBar">
         <navTotal/>
         <nav1 />

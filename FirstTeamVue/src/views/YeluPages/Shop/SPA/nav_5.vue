@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { ArrowDown, Van } from "@element-plus/icons-vue";
-import { ShoppingCartFull } from "@element-plus/icons-vue";
 </script>
 <template>
   <div class="flex flex-wrap items-center">
@@ -27,22 +26,9 @@ import { ShoppingCartFull } from "@element-plus/icons-vue";
       </template>
     </el-dropdown>
   </div>
-  <!--購物車連結-->
-  <router-link to="/pages/Yelu-pages/cart"
-    ><el-button :icon="ShoppingCartFull" class="cartIcon" circle
-  /></router-link>
 </template>
 
 <style scoped>
-/* .example-showcase .el-dropdown + .el-dropdown {
-      margin-left: 15px;
-    }
-    .example-showcase .el-dropdown-link {
-      cursor: pointer;
-      color: var(--el-color-primary);
-      display: flex;
-      align-items: center;
-    } */
 .el-dropdown-item {
   display: flex;
   flex-direction: column;

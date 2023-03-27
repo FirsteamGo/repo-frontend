@@ -1,13 +1,33 @@
+<script setup>
+import { reactive } from "vue";
+
+import e1 from "@/assets/img/shop/e1.jpg";
+import e2 from "@/assets/img/shop/e2.jpg";
+import e3 from "@/assets/img/shop/e3.jpg";
+import e4 from "@/assets/img/shop/e4.jpg";
+
+const Images=reactive([
+  {items:e1},
+  {items:e2},
+  {items:e3},
+  {items:e4},
+]);
+</script>
 <template>
   <div class="block text-center" m="t-4">
     <el-carousel trigger="click" height="150px">
-      <el-carousel-item v-for="item in 4" :key="item">
-        <h3 class="small justify-center" text="2xl">{{ item }}</h3>
+      <el-carousel-item v-for="item in Images" :key="item">
+        <img :src="item.items" alt="carousel image" class="carousel">
       </el-carousel-item>
     </el-carousel>
   </div>
 </template>
 <style scoped>
+img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .demonstration {
   color: var(--el-text-color-secondary);
 }

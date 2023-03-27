@@ -57,11 +57,11 @@ onMounted(sadoAll.sadomainProduct);
                     </div>
 
                     <div>
-                      <label class="form-label">總價:{{ sadoAll.ShopproductsInfo.單價*sadoAll.ShopproductsInfo.數量 }}</label>
+                      <label class="form-label">總價:{{ sadoAll.ShopproductsInfo.單價 * sadoAll.count }}</label>
                     </div>
                     <div>
                       <el-input-number
-                        v-model="sadoAll.ShopproductsInfo.數量"
+                        v-model="sadoAll.count"
                         :min="1"
                         :max="10"
                         :step="1"
