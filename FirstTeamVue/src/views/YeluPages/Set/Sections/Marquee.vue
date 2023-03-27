@@ -78,16 +78,17 @@ export default {
     align-items: center;
     flex-direction: column;
     transition: margin-top 2s ease-in-out;
-    background-color: rgb(143, 237, 143);
+    background-color: rgb(245, 183, 12);
+
 }
 
 .message {
     margin-bottom: 10px;
-    font-size: 14px;
+    font-size: 20px;
     /* 調整文字大小 */
     font-family: Arial, sans-serif;
     /* 調整字體 */
-    color: rgb(237, 19, 19);
+    color: rgb(252, 240, 240);
 }
 </style>
   
