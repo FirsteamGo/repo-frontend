@@ -34,20 +34,20 @@
               :src="`${whoFuncImg.MVCimages}${whoFunc.圖片}`"
               style="height: 200px; display: block; margin: 0 auto"
             /> -->
-            <div>
-            <p class="m-3 myword">商品名稱 | {{ Shopdata.產品名稱 }}</p>
-            <p class="m-3 myword">商品數量 | {{ Shopdata.數量 }}</p>
-            <p class="m-3 myword">
-              <span class="material-icons">attach_money</span> TWD<span
-                class="text-primary">{{ Shopdata.總價 }}</span>
-            </p>
+                    <div>
+                      <p class="m-3 myword">商品名稱 | {{ Shopdata.產品名稱 }}</p>
+                      <p class="m-3 myword">商品數量 | {{ Shopdata.數量 }}</p>
+                      <p class="m-3 myword">
+                        <span class="material-icons">attach_money</span> TWD<span class="text-primary">{{ Shopdata.總價
+                        }}</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          </div>
-          </div>
-          </div>
-        </div>
-      </div>
-    </el-header>
+        </el-header>
 
 
         <h3>自選行程</h3>
@@ -131,25 +131,30 @@
                       <span class="badge bg-success"><span class="material-icons mx-2">task_alt</span>已選套裝行程</span>
                     </h5>
                     <el-container>
-                    <el-main width="60%"  >
-                    <img :src="`${mvc}${setod.活動圖片}`" style=" display: block; height: 300px;width: 350px; margin-top:30px ;" />
-                    </el-main>
-                    <el-main style="margin-top: 0;">
-                    <p class="m-3 myword">營區名稱 | {{ 營區名稱 }}</p>
-                    <p class="m-3 myword">營區縣市 | {{ 縣市 }}</p>
-                    <p class="m-3 myword">露營入住時間 | {{ formatDate(入住時間) }}</p>
-                    <p class="m-3 myword">露營退住時間 | {{ formatDate(退住時間) }}</p>
-                    <p class="m-3 myword">露營人數 | {{ 預定人數 }}</p>
-                    <p class="m-3 myword">露營方式 | {{ 項目內容 }}</p>
-                    <p class="m-3 myword">方案 | {{ 套裝方案 }}</p>
-                    <p class="m-3 myword">套裝活動 | {{ 活動名稱 }}</p>
-                    <p class="m-3 myword">
-                      <span class="material-icons">attach_money</span> TWD<span class="text-primary">{{ 合計總價
-                      }}</span>
-                      
-                    </p>
-                    </el-main>
-                  </el-container>
+                      <el-main width="60%">
+                        <img :src="`${mvc}${setod.活動圖片}`"
+                          style=" display: block; height: 300px;width: 350px; margin-top:30px ;" />
+                      </el-main>
+                      <el-main style="margin-top: 0; height: 300px;">
+                        <p class="m-3 myword">營區名稱 | {{ 營區名稱 }}</p>
+                        <p class="m-3 myword">營區縣市 | {{ 縣市 }}</p>
+                        <p class="m-3 myword">露營入住時間 | {{ formatDate(入住時間) }}</p>
+                        <p class="m-3 myword">露營退住時間 | {{ formatDate(退住時間) }}</p>
+                        <p class="m-3 myword">露營人數 | {{ 預定人數 }}</p>
+                        <p class="m-3 myword">露營方式 | {{ 項目內容 }}</p>
+                        <p class="m-3 myword">方案 | {{ 套裝方案 }}</p>
+                        <p class="m-3 myword">套裝活動 | {{ 活動名稱 }}</p>
+                        <p class="m-3 myword">
+                          <span class="material-icons">attach_money</span> TWD<span class="text-primary">{{ 合計總價
+                          }}</span>
+
+                        </p>
+                        <button class="btn btn-primary" @click="Del()"><span class="material-icons">delete</span></button>
+                        <button class="btn btn-warning" @click="insert()">確認送出訂單</button>
+                        <p style="font-weight: bolder; font-size: large; color: rgb(100,0,0);">若想修改請刪除後重新填寫訂單</p>
+
+                      </el-main>
+                    </el-container>
                   </div>
                 </div>
               </div>
@@ -190,28 +195,28 @@
 <!-- 寫從localStorage取出資料 -->
 <script setup>
 import axios from 'axios';
-import { reactive, onMounted,ref } from 'vue';
+import { reactive, onMounted, ref } from 'vue';
 import { useCampShop } from '../../../stores/CampShop.js';
 
-const StoreCarts=useCampShop();
-let Shopdata=reactive({
-  產品名稱:"",
-  數量:"",
-  單價:'',
-  總價:0,
+const StoreCarts = useCampShop();
+let Shopdata = reactive({
+  產品名稱: "",
+  數量: "",
+  單價: '',
+  總價: 0,
 });
 
 
-onMounted(()=>{
-  const shopdetail=StoreCarts.storesss();
-  for(let i=0;i<shopdetail.length;i++){
-    Shopdata.產品名稱=shopdetail[i].產品名稱;
-    Shopdata.數量=parseInt(shopdetail[i].數量);
-    Shopdata.單價=parseInt(shopdetail[i].單價);
-    Shopdata.總價=Shopdata.數量*Shopdata.單價;
-    
+onMounted(() => {
+  const shopdetail = StoreCarts.storesss();
+  for (let i = 0; i < shopdetail.length; i++) {
+    Shopdata.產品名稱 = shopdetail[i].產品名稱;
+    Shopdata.數量 = parseInt(shopdetail[i].count);
+    Shopdata.單價 = parseInt(shopdetail[i].單價);
+    Shopdata.總價 = Shopdata.數量 * Shopdata.單價;
+
   }
-  
+
 });
 
 
@@ -236,6 +241,36 @@ const formatDate = (dateString) => {
   const month = (date.getMonth() + 1).toString().padStart(2, "0");
   const day = date.getDate().toString().padStart(2, "0");
   return `${year}-${month}-${day}`;
+}
+const insert = () => {
+  var p = reactive({
+    套裝訂單id: 0,
+    套裝行程id: 套裝行程ID.value,
+    會員id: 會員ID.value,
+    套裝訂單編號: 套裝訂單編號.value,
+    入住時間: 入住時間.value,
+    退住時間: 退住時間.value,
+    預計人數: 預定人數.value,
+    合計總價: 合計總價.value,
+    評論: 評論.value,
+    評分: 評分.value,
+
+
+  });
+  // console.log(p);
+  axios
+    .post(`${webApi.value}`, p)
+    .then(res => { alert(res.data); })
+    .catch((err) => {
+      console.log(err);
+    });
+
+}
+const Del = () => {
+  alert("已刪除套裝行程購物車")
+  localStorage.removeItem('setorderdetail');
+  localStorage.removeItem('setorder');
+  window.location.reload();
 }
 
 </script>
