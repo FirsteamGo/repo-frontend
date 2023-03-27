@@ -35,11 +35,11 @@
               style="height: 200px; display: block; margin: 0 auto"
             /> -->
             <div>
-            <p class="m-3 myword">商品名稱 | {{ data.產品名稱 }}</p>
-            <p class="m-3 myword">商品數量 | {{ data.數量 }}</p>
+            <p class="m-3 myword">商品名稱 | {{ Shopdata.產品名稱 }}</p>
+            <p class="m-3 myword">商品數量 | {{ Shopdata.數量 }}</p>
             <p class="m-3 myword">
               <span class="material-icons">attach_money</span> TWD<span
-                class="text-primary">{{ data.總價 }}</span>
+                class="text-primary">{{ Shopdata.總價 }}</span>
             </p>
           </div>
           </div>
@@ -130,7 +130,11 @@
                     <h5 class="card-title">
                       <span class="badge bg-success"><span class="material-icons mx-2">task_alt</span>已選套裝行程</span>
                     </h5>
-                    <img :src="`${mvc}${setod.活動圖片}`" style="height: 200px; display: block; margin: 0 auto" />
+                    <el-container>
+                    <el-main width="60%"  >
+                    <img :src="`${mvc}${setod.活動圖片}`" style=" display: block; height: 300px;width: 350px; margin-top:30px ;" />
+                    </el-main>
+                    <el-main style="margin-top: 0;">
                     <p class="m-3 myword">營區名稱 | {{ 營區名稱 }}</p>
                     <p class="m-3 myword">營區縣市 | {{ 縣市 }}</p>
                     <p class="m-3 myword">露營入住時間 | {{ formatDate(入住時間) }}</p>
@@ -142,7 +146,10 @@
                     <p class="m-3 myword">
                       <span class="material-icons">attach_money</span> TWD<span class="text-primary">{{ 合計總價
                       }}</span>
+                      
                     </p>
+                    </el-main>
+                  </el-container>
                   </div>
                 </div>
               </div>
@@ -187,7 +194,7 @@ import { reactive, onMounted,ref } from 'vue';
 import { useCampShop } from '../../../stores/CampShop.js';
 
 const StoreCarts=useCampShop();
-let data=reactive({
+let Shopdata=reactive({
   產品名稱:"",
   數量:"",
   單價:'',
@@ -198,10 +205,10 @@ let data=reactive({
 onMounted(()=>{
   const shopdetail=StoreCarts.storesss();
   for(let i=0;i<shopdetail.length;i++){
-    data.產品名稱=shopdetail[i].產品名稱;
-    data.數量=parseInt(shopdetail[i].數量);
-    data.單價=parseInt(shopdetail[i].單價);
-    data.總價=data.數量*data.單價;
+    Shopdata.產品名稱=shopdetail[i].產品名稱;
+    Shopdata.數量=parseInt(shopdetail[i].數量);
+    Shopdata.單價=parseInt(shopdetail[i].單價);
+    Shopdata.總價=Shopdata.數量*Shopdata.單價;
     
   }
   
