@@ -115,13 +115,8 @@ td {
             </td>
 
             <td>
-
-              <router-link :to="{ name: 'presentation' }" class="btn btn-primary" @click="Del()"> <span
-                  class="material-icons">
-                  delete
-                </span></router-link>
+              <button class="btn btn-primary" @click="Del()"><span class="material-icons">delete</span></button>
               <button class="btn btn-warning" @click="insert()">確認送出訂單</button>
-
               <div>
                 <label style="font-weight: bolder; font-size: large; color: rgb(100,0,0);">若想修改請刪除後重新填寫訂單</label>
               </div>
@@ -145,8 +140,6 @@ import { ref, reactive, onMounted } from 'vue';
 import { RouterLink } from 'vue-router';
 const mvc = ref("https://localhost:7120/images/");
 const webApi = ref("https://localhost:7108/api/SetOrders");
-
-
 
 const seto = JSON.parse(localStorage.getItem('setorder'))
 const setod = JSON.parse(localStorage.getItem('setorderdetail'))
@@ -187,7 +180,7 @@ const insert = () => {
 
 
   });
-  console.log(p);
+  // console.log(p);
   axios
     .post(`${webApi.value}`, p)
     .then(res => { alert(res.data); })
@@ -200,7 +193,7 @@ const Del = () => {
   alert("已刪除套裝行程購物車")
   localStorage.removeItem('setorderdetail');
   localStorage.removeItem('setorder');
-
+  window.location.reload();
 }
 
 </script>

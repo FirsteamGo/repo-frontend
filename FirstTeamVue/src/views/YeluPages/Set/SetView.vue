@@ -15,6 +15,7 @@ import Breadcrumb from "./Sections/Breadcrumb.vue";
 import Actimage from "./Sections/Actimage.vue"
 import weather from './Sections/weather.vue'
 import testimage from "./Sections/GB/testimage.vue";
+import Marquee from "./Sections/Marquee.vue";
 //sections 放置要引入的頁面
 // import Information from "./Sections/AboutInformation.vue";
 
@@ -54,7 +55,7 @@ onUnmounted(() => {
   }" transparent />
   <header class="bg-gradient-dark">
     <div class="page-header min-vh-50
-              " :style="{ backgroundImage: `url(${bg05})` }">
+                              " :style="{ backgroundImage: `url(${bg05})` }">
       <span class="mask bg-gradient-dark opacity-6"></span>
       <div class="container">
         <div class="row justify-content-center">
@@ -66,8 +67,8 @@ onUnmounted(() => {
             <p class="lead mb-4 text-white opacity-8">
               不用規劃直接拎包入住! #YELU CAMP
               <!--走進大自然，享受真正的自由！ <br>
-                          離開城市，找到屬於自己的寧靜空間！ <br> 
-                          可以幫你完成你的夢想！ <br>-->
+                                          離開城市，找到屬於自己的寧靜空間！ <br> 
+                                          可以幫你完成你的夢想！ <br>-->
             </p>
 
 
@@ -82,19 +83,21 @@ onUnmounted(() => {
 
   <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
 
+    <Marquee />
     <Actimage />
     <Layout />
 
+
     <!-- <div>
-                <li class="nav-item mx-2">
-                  <a role="button" class="nav-link ps-2 d-flex cursor-pointer align-items-center" :class="getTextColor()"
-                    aria-expanded="false">
-                    <a href="https://localhost:7120/" class="dropdown-item border-radius-md">
-                      <i class="material-icons opacity-6 me-2  text-md" :class="getTextColor()">settings</i>
-                    </a>
-                  </a>
-                </li>
-              </div> -->
+                                <li class="nav-item mx-2">
+                                  <a role="button" class="nav-link ps-2 d-flex cursor-pointer align-items-center" :class="getTextColor()"
+                                    aria-expanded="false">
+                                    <a href="https://localhost:7120/" class="dropdown-item border-radius-md">
+                                      <i class="material-icons opacity-6 me-2  text-md" :class="getTextColor()">settings</i>
+                                    </a>
+                                  </a>
+                                </li>
+                              </div> -->
     <!-- <weather/> -->
 
   </div>
