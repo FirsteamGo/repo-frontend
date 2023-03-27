@@ -351,10 +351,13 @@ onMounted(() => {
 });
 
 const mvc = ref("https://localhost:7120/images/");
+const webApi = ref("https://localhost:7108/api/SetOrders");
 const seto = JSON.parse(localStorage.getItem("setorder"));
 const setod = JSON.parse(localStorage.getItem("setorderdetail"));
 const meda = JSON.parse(localStorage.getItem("customerData"));
-
+let 套裝行程ID = ref(setod.套裝行程id);
+let 會員ID = ref(meda.會員id);
+let 套裝訂單編號 = ref(seto.訂單編號);
 const 入住時間 = reactive(seto.data[0]);
 const 退住時間 = reactive(seto.data[1]);
 const 預定人數 = reactive(seto.numberOfPeople);
@@ -364,7 +367,10 @@ const 縣市 = reactive(setod.縣市);
 const 項目內容 = reactive(setod.項目內容);
 const 套裝方案 = reactive(setod.套裝方案);
 const 活動名稱 = reactive(setod.活動名稱);
-console.log(預定人數.value);
+let 評論 = ref(seto.評論);
+let 評分 = ref(seto.評分);
+console.log(入住時間);
+
 const formatDate = (dateString) => {
   const date = new Date(dateString);
   const year = date.getFullYear();
@@ -378,10 +384,10 @@ const insert = () => {
     套裝行程id: 套裝行程ID.value,
     會員id: 會員ID.value,
     套裝訂單編號: 套裝訂單編號.value,
-    入住時間: 入住時間.value,
-    退住時間: 退住時間.value,
-    預計人數: 預定人數.value,
-    合計總價: 合計總價.value,
+    入住時間: 入住時間,
+    退住時間: 退住時間,
+    預計人數: 預定人數,
+    合計總價: 合計總價,
     評論: 評論.value,
     評分: 評分.value,
   });
