@@ -39,7 +39,7 @@
                     />
                     <div>
                       <p class="m-3 myword">
-                        商品名稱 | {{ Shopdata.產品名稱+1111+Shopdata.產品圖片 }}
+                        商品名稱 | {{ Shopdata.產品名稱 }}
                       </p>
                       <p class="m-3 myword">商品數量 | {{ Shopdata.數量}}</p>
                       <p class="m-3 myword">
