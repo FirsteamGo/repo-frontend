@@ -14,7 +14,7 @@ export default {
     data() {
         return {
             messages: [],
-            pauseDuration: 1000, // 停頓時間，單位毫秒
+            pauseDuration: 0, // 停頓時間，單位毫秒
             pauseTimer: null // 停頓計時器
         };
     },
@@ -28,6 +28,7 @@ export default {
             .get(url)
             .then(response => {
                 const data = response.data;
+                // console.log(data);
                 // 將資料格式化為跑馬燈可用的格式
                 this.messages = data.records.location.map(location => `${location.locationName}: ${location.weatherElement[0].time[0].parameter.parameterName}`);
 
@@ -76,7 +77,7 @@ export default {
     width: 500px;
     align-items: center;
     flex-direction: column;
-    transition: margin-top 1s ease-in-out;
+    transition: margin-top 2s ease-in-out;
     background-color: rgb(143, 237, 143);
 }
 
