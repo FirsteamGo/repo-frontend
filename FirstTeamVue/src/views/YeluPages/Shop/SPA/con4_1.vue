@@ -57,11 +57,11 @@ onMounted(polarAll.polarstarProduct);
                     </div>
 
                     <div>
-                      <label class="form-label">總價:{{ polarAll.ShopproductsInfo.單價*polarAll.ShopproductsInfo.數量 }}</label>
+                      <label class="form-label">總價:{{ polarAll.ShopproductsInfo.單價*polarAll.count }}</label>
                     </div>
                     <div>
                       <el-input-number
-                        v-model="polarAll.ShopproductsInfo.數量"
+                        v-model="polarAll.count"
                         :min="1"
                         :max="10"
                         :step="1"
