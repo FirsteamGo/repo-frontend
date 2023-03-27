@@ -205,8 +205,8 @@ const options = Array.from({ length: 10000 }).map((_, idx) => ({
         <el-input v-model="ruleForm.account" />
       </el-form-item>
 
-      <el-form-item label="密碼" prop="password">
-        <el-input v-model="ruleForm.password" />
+      <el-form-item label="密碼" prop="password" >
+        <el-input v-model="ruleForm.password" type="password"/>
       </el-form-item>
 
 

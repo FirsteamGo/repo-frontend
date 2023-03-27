@@ -107,11 +107,14 @@ import axios from "axios";
 import { reactive, ref, computed, onMounted } from "vue";
 import { useActDataAtore } from "../../../../stores/ActData.js";
 import { useCampDataAtore } from "../../../../stores/CampData.js";
+import { useSelfDataAtore } from "../../../../stores/SelfData.js";
 import { useRoute } from "vue-router";
 const route = useRoute();
 
 const ActData = useActDataAtore();
 const CampData = useCampDataAtore();
+const SelfData = useSelfDataAtore();
+
 const webApi = ref("https://localhost:7108/api/SelfOrders");
 const now = new Date();
 const form = reactive({
@@ -145,7 +148,9 @@ const onSubmit = () => {
   console.log(form);
   let Selfo = JSON.stringify(form);
 
-  localStorage.setItem("selforder", Selfo);
+  SelfData.form = form;
+
+  // localStorage.setItem("selforder", Selfo);
   alert("請按下一步進入購物車");
 };
 

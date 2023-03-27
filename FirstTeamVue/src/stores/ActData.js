@@ -10,8 +10,8 @@ export const useActDataAtore = defineStore('ActData', () => {
     class ActAllValue {
         constructor(營區id, 活動id, 營區名稱, 地區, 縣市, 活動方式, 活動種類, 活動名稱, 活動介紹, 活動圖片, 門票價格, 圖片, 營區地址, 單價) {
 
-            this.活動id = 活動id;
             this.營區id = 營區id;
+            this.活動id = 活動id;
             this.營區名稱 = 營區名稱;
             this.地區 = 地區;
             this.縣市 = 縣市;
@@ -61,8 +61,8 @@ export const useActDataAtore = defineStore('ActData', () => {
     const South = reactive({ "南部": [], });
     const East = reactive({ "東部": [], });
 
-    let Taoyuan = reactive({ "桃園市": [], });
     let NewTp = reactive({ "新北市": [], });
+    let Taoyuan = reactive({ "桃園市": [], });
     let Hsinchu = reactive({ "新竹縣": [], });
     let Miaoli = reactive({ "苗栗縣": [], });
     let Nantou = reactive({ "南投縣": [], });
@@ -73,8 +73,8 @@ export const useActDataAtore = defineStore('ActData', () => {
     let Yilan = reactive({ "宜蘭縣": [], });
     let Hualien = reactive({ "花蓮縣": [], });
     let Taitung = reactive({ "台東縣": [], });
-    let dialogVisibleArr = reactive(new Array(23).fill(false))
-
+    let dialogVisibleArr = reactive(new Array(9).fill(false))
+    // 0.熱門 1.活動 2.景點 3.運動 4.文化 5.水上 6.觀光 7.北中南東 8.12縣市
 
     //熱門精選Get
     const HotActGet = async () => {
@@ -247,7 +247,7 @@ export const useActDataAtore = defineStore('ActData', () => {
             );
             res.data.forEach((Actdetail) => {
                 const AllDt = new ActAllValue(Actdetail.營區id, Actdetail.活動id, Actdetail.營區名稱, Actdetail.地區, Actdetail.縣市, Actdetail.活動方式, Actdetail.活動種類, Actdetail.活動名稱, Actdetail.活動介紹, Actdetail.活動圖片, Actdetail.門票價格, Actdetail.圖片, Actdetail.營區地址, Actdetail.單價)
-                const AllCity = AllDt.地區;
+                const AllCity = AllDt.縣市;
                 if (NewTp[AllCity]) {
                     NewTp[AllCity].push(AllDt)
                 } else if (Taoyuan[AllCity]) {
@@ -509,11 +509,524 @@ export const useActDataAtore = defineStore('ActData', () => {
         Tour.觀光.splice(0, ActD.length, ...ActD)
 
     }
+    //北部彈跳視窗
+    let NorthDialog = (活動id) => {
+        var ActD = []
 
+        for (let i = 0; i < North.北部.length; i++) {
+
+            let item = North.北部[i]
+
+            if (item.活動id == 活動id) {
+
+                item.Edit = true;
+                ActDialogAll.營區id.value = item.營區id;
+                ActDialogAll.營區名稱.value = item.營區名稱;
+                ActDialogAll.地區.value = item.地區;
+                ActDialogAll.縣市.value = item.縣市;
+                ActDialogAll.活動方式.value = item.活動方式;
+                ActDialogAll.活動種類.value = item.活動種類;
+                ActDialogAll.活動名稱.value = item.活動名稱;
+                ActDialogAll.活動介紹.value = item.活動介紹;
+                ActDialogAll.活動圖片.value = item.活動圖片;
+                ActDialogAll.門票價格.value = item.門票價格;
+                ActDialogAll.圖片.value = item.圖片;
+                ActDialogAll.營區地址.value = item.營區地址;
+                ActDialogAll.單價.value = item.單價;
+            }
+            else { item.Edit = false; }
+
+            ActD.push(item);
+        }
+        North.北部.splice(0, ActD.length, ...ActD)
+
+    }
+    //中部彈跳視窗
+    let WestDialog = (活動id) => {
+        var ActD = []
+
+        for (let i = 0; i < West.中部.length; i++) {
+
+            let item = West.中部[i]
+
+            if (item.活動id == 活動id) {
+
+                item.Edit = true;
+                ActDialogAll.營區id.value = item.營區id;
+                ActDialogAll.營區名稱.value = item.營區名稱;
+                ActDialogAll.地區.value = item.地區;
+                ActDialogAll.縣市.value = item.縣市;
+                ActDialogAll.活動方式.value = item.活動方式;
+                ActDialogAll.活動種類.value = item.活動種類;
+                ActDialogAll.活動名稱.value = item.活動名稱;
+                ActDialogAll.活動介紹.value = item.活動介紹;
+                ActDialogAll.活動圖片.value = item.活動圖片;
+                ActDialogAll.門票價格.value = item.門票價格;
+                ActDialogAll.圖片.value = item.圖片;
+                ActDialogAll.營區地址.value = item.營區地址;
+                ActDialogAll.單價.value = item.單價;
+            }
+            else { item.Edit = false; }
+
+            ActD.push(item);
+        }
+        West.中部.splice(0, ActD.length, ...ActD)
+
+    }
+    //南部彈跳視窗
+    let SouthDialog = (活動id) => {
+        var ActD = []
+
+        for (let i = 0; i < South.南部.length; i++) {
+
+            let item = South.南部[i]
+
+            if (item.活動id == 活動id) {
+
+                item.Edit = true;
+                ActDialogAll.營區id.value = item.營區id;
+                ActDialogAll.營區名稱.value = item.營區名稱;
+                ActDialogAll.地區.value = item.地區;
+                ActDialogAll.縣市.value = item.縣市;
+                ActDialogAll.活動方式.value = item.活動方式;
+                ActDialogAll.活動種類.value = item.活動種類;
+                ActDialogAll.活動名稱.value = item.活動名稱;
+                ActDialogAll.活動介紹.value = item.活動介紹;
+                ActDialogAll.活動圖片.value = item.活動圖片;
+                ActDialogAll.門票價格.value = item.門票價格;
+                ActDialogAll.圖片.value = item.圖片;
+                ActDialogAll.營區地址.value = item.營區地址;
+                ActDialogAll.單價.value = item.單價;
+            }
+            else { item.Edit = false; }
+
+            ActD.push(item);
+        }
+        South.南部.splice(0, ActD.length, ...ActD)
+
+    }
+    //東部彈跳視窗
+    let EastDialog = (活動id) => {
+        var ActD = []
+
+        for (let i = 0; i < East.東部.length; i++) {
+
+            let item = East.東部[i]
+
+            if (item.活動id == 活動id) {
+
+                item.Edit = true;
+                ActDialogAll.營區id.value = item.營區id;
+                ActDialogAll.營區名稱.value = item.營區名稱;
+                ActDialogAll.地區.value = item.地區;
+                ActDialogAll.縣市.value = item.縣市;
+                ActDialogAll.活動方式.value = item.活動方式;
+                ActDialogAll.活動種類.value = item.活動種類;
+                ActDialogAll.活動名稱.value = item.活動名稱;
+                ActDialogAll.活動介紹.value = item.活動介紹;
+                ActDialogAll.活動圖片.value = item.活動圖片;
+                ActDialogAll.門票價格.value = item.門票價格;
+                ActDialogAll.圖片.value = item.圖片;
+                ActDialogAll.營區地址.value = item.營區地址;
+                ActDialogAll.單價.value = item.單價;
+            }
+            else { item.Edit = false; }
+
+            ActD.push(item);
+        }
+        East.東部.splice(0, ActD.length, ...ActD)
+
+    }
+    //新北市彈跳視窗
+    let NewTpDialog = (活動id) => {
+        var ActD = []
+
+        for (let i = 0; i < NewTp.新北市.length; i++) {
+
+            let item = NewTp.新北市[i]
+
+            if (item.活動id == 活動id) {
+
+                item.Edit = true;
+                ActDialogAll.營區id.value = item.營區id;
+                ActDialogAll.營區名稱.value = item.營區名稱;
+                ActDialogAll.地區.value = item.地區;
+                ActDialogAll.縣市.value = item.縣市;
+                ActDialogAll.活動方式.value = item.活動方式;
+                ActDialogAll.活動種類.value = item.活動種類;
+                ActDialogAll.活動名稱.value = item.活動名稱;
+                ActDialogAll.活動介紹.value = item.活動介紹;
+                ActDialogAll.活動圖片.value = item.活動圖片;
+                ActDialogAll.門票價格.value = item.門票價格;
+                ActDialogAll.圖片.value = item.圖片;
+                ActDialogAll.營區地址.value = item.營區地址;
+                ActDialogAll.單價.value = item.單價;
+            }
+            else { item.Edit = false; }
+
+            ActD.push(item);
+        }
+        NewTp.新北市.splice(0, ActD.length, ...ActD)
+
+    }
+    //桃園市彈跳視窗
+    let TaoyuanDialog = (活動id) => {
+        var ActD = []
+
+        for (let i = 0; i < Taoyuan.桃園市.length; i++) {
+
+            let item = Taoyuan.桃園市[i]
+
+            if (item.活動id == 活動id) {
+
+                item.Edit = true;
+                ActDialogAll.營區id.value = item.營區id;
+                ActDialogAll.營區名稱.value = item.營區名稱;
+                ActDialogAll.地區.value = item.地區;
+                ActDialogAll.縣市.value = item.縣市;
+                ActDialogAll.活動方式.value = item.活動方式;
+                ActDialogAll.活動種類.value = item.活動種類;
+                ActDialogAll.活動名稱.value = item.活動名稱;
+                ActDialogAll.活動介紹.value = item.活動介紹;
+                ActDialogAll.活動圖片.value = item.活動圖片;
+                ActDialogAll.門票價格.value = item.門票價格;
+                ActDialogAll.圖片.value = item.圖片;
+                ActDialogAll.營區地址.value = item.營區地址;
+                ActDialogAll.單價.value = item.單價;
+            }
+            else { item.Edit = false; }
+
+            ActD.push(item);
+        }
+        Taoyuan.桃園市.splice(0, ActD.length, ...ActD)
+
+    }
+    //新竹縣彈跳視窗
+    let HsinchuDialog = (活動id) => {
+        var ActD = []
+
+        for (let i = 0; i < Hsinchu.新竹縣.length; i++) {
+
+            let item = Hsinchu.新竹縣[i]
+
+            if (item.活動id == 活動id) {
+
+                item.Edit = true;
+                ActDialogAll.營區id.value = item.營區id;
+                ActDialogAll.營區名稱.value = item.營區名稱;
+                ActDialogAll.地區.value = item.地區;
+                ActDialogAll.縣市.value = item.縣市;
+                ActDialogAll.活動方式.value = item.活動方式;
+                ActDialogAll.活動種類.value = item.活動種類;
+                ActDialogAll.活動名稱.value = item.活動名稱;
+                ActDialogAll.活動介紹.value = item.活動介紹;
+                ActDialogAll.活動圖片.value = item.活動圖片;
+                ActDialogAll.門票價格.value = item.門票價格;
+                ActDialogAll.圖片.value = item.圖片;
+                ActDialogAll.營區地址.value = item.營區地址;
+                ActDialogAll.單價.value = item.單價;
+            }
+            else { item.Edit = false; }
+
+            ActD.push(item);
+        }
+        Hsinchu.新竹縣.splice(0, ActD.length, ...ActD)
+
+    }
+    //苗栗縣彈跳視窗
+    let MiaoliDialog = (活動id) => {
+        var ActD = []
+
+        for (let i = 0; i < Miaoli.苗栗縣.length; i++) {
+
+            let item = Miaoli.苗栗縣[i]
+
+            if (item.活動id == 活動id) {
+
+                item.Edit = true;
+                ActDialogAll.營區id.value = item.營區id;
+                ActDialogAll.營區名稱.value = item.營區名稱;
+                ActDialogAll.地區.value = item.地區;
+                ActDialogAll.縣市.value = item.縣市;
+                ActDialogAll.活動方式.value = item.活動方式;
+                ActDialogAll.活動種類.value = item.活動種類;
+                ActDialogAll.活動名稱.value = item.活動名稱;
+                ActDialogAll.活動介紹.value = item.活動介紹;
+                ActDialogAll.活動圖片.value = item.活動圖片;
+                ActDialogAll.門票價格.value = item.門票價格;
+                ActDialogAll.圖片.value = item.圖片;
+                ActDialogAll.營區地址.value = item.營區地址;
+                ActDialogAll.單價.value = item.單價;
+            }
+            else { item.Edit = false; }
+
+            ActD.push(item);
+        }
+        Miaoli.苗栗縣.splice(0, ActD.length, ...ActD)
+
+    }
+    //南投縣彈跳視窗
+    let NantouDialog = (活動id) => {
+        var ActD = []
+
+        for (let i = 0; i < Nantou.南投縣.length; i++) {
+
+            let item = Nantou.南投縣[i]
+
+            if (item.活動id == 活動id) {
+
+                item.Edit = true;
+                ActDialogAll.營區id.value = item.營區id;
+                ActDialogAll.營區名稱.value = item.營區名稱;
+                ActDialogAll.地區.value = item.地區;
+                ActDialogAll.縣市.value = item.縣市;
+                ActDialogAll.活動方式.value = item.活動方式;
+                ActDialogAll.活動種類.value = item.活動種類;
+                ActDialogAll.活動名稱.value = item.活動名稱;
+                ActDialogAll.活動介紹.value = item.活動介紹;
+                ActDialogAll.活動圖片.value = item.活動圖片;
+                ActDialogAll.門票價格.value = item.門票價格;
+                ActDialogAll.圖片.value = item.圖片;
+                ActDialogAll.營區地址.value = item.營區地址;
+                ActDialogAll.單價.value = item.單價;
+            }
+            else { item.Edit = false; }
+
+            ActD.push(item);
+        }
+        Nantou.南投縣.splice(0, ActD.length, ...ActD)
+
+    }
+    //台中市彈跳視窗
+    let TaichungDialog = (活動id) => {
+        var ActD = []
+
+        for (let i = 0; i < Taichung.台中市.length; i++) {
+
+            let item = Taichung.台中市[i]
+
+            if (item.活動id == 活動id) {
+
+                item.Edit = true;
+                ActDialogAll.營區id.value = item.營區id;
+                ActDialogAll.營區名稱.value = item.營區名稱;
+                ActDialogAll.地區.value = item.地區;
+                ActDialogAll.縣市.value = item.縣市;
+                ActDialogAll.活動方式.value = item.活動方式;
+                ActDialogAll.活動種類.value = item.活動種類;
+                ActDialogAll.活動名稱.value = item.活動名稱;
+                ActDialogAll.活動介紹.value = item.活動介紹;
+                ActDialogAll.活動圖片.value = item.活動圖片;
+                ActDialogAll.門票價格.value = item.門票價格;
+                ActDialogAll.圖片.value = item.圖片;
+                ActDialogAll.營區地址.value = item.營區地址;
+                ActDialogAll.單價.value = item.單價;
+            }
+            else { item.Edit = false; }
+
+            ActD.push(item);
+        }
+        Taichung.台中市.splice(0, ActD.length, ...ActD)
+
+    }
+    //嘉義縣彈跳視窗
+    let ChiayiDialog = (活動id) => {
+        var ActD = []
+
+        for (let i = 0; i < Chiayi.嘉義縣.length; i++) {
+
+            let item = Chiayi.嘉義縣[i]
+
+            if (item.活動id == 活動id) {
+
+                item.Edit = true;
+                ActDialogAll.營區id.value = item.營區id;
+                ActDialogAll.營區名稱.value = item.營區名稱;
+                ActDialogAll.地區.value = item.地區;
+                ActDialogAll.縣市.value = item.縣市;
+                ActDialogAll.活動方式.value = item.活動方式;
+                ActDialogAll.活動種類.value = item.活動種類;
+                ActDialogAll.活動名稱.value = item.活動名稱;
+                ActDialogAll.活動介紹.value = item.活動介紹;
+                ActDialogAll.活動圖片.value = item.活動圖片;
+                ActDialogAll.門票價格.value = item.門票價格;
+                ActDialogAll.圖片.value = item.圖片;
+                ActDialogAll.營區地址.value = item.營區地址;
+                ActDialogAll.單價.value = item.單價;
+            }
+            else { item.Edit = false; }
+
+            ActD.push(item);
+        }
+        Chiayi.嘉義縣.splice(0, ActD.length, ...ActD)
+
+    }
+    //台南市彈跳視窗
+    let TainanDialog = (活動id) => {
+        var ActD = []
+
+        for (let i = 0; i < Tainan.台南市.length; i++) {
+
+            let item = Tainan.台南市[i]
+
+            if (item.活動id == 活動id) {
+
+                item.Edit = true;
+                ActDialogAll.營區id.value = item.營區id;
+                ActDialogAll.營區名稱.value = item.營區名稱;
+                ActDialogAll.地區.value = item.地區;
+                ActDialogAll.縣市.value = item.縣市;
+                ActDialogAll.活動方式.value = item.活動方式;
+                ActDialogAll.活動種類.value = item.活動種類;
+                ActDialogAll.活動名稱.value = item.活動名稱;
+                ActDialogAll.活動介紹.value = item.活動介紹;
+                ActDialogAll.活動圖片.value = item.活動圖片;
+                ActDialogAll.門票價格.value = item.門票價格;
+                ActDialogAll.圖片.value = item.圖片;
+                ActDialogAll.營區地址.value = item.營區地址;
+                ActDialogAll.單價.value = item.單價;
+            }
+            else { item.Edit = false; }
+
+            ActD.push(item);
+        }
+        Tainan.台南市.splice(0, ActD.length, ...ActD)
+
+    }
+    //高雄市彈跳視窗
+    let KaohsiungDialog = (活動id) => {
+        var ActD = []
+
+        for (let i = 0; i < Kaohsiung.高雄市.length; i++) {
+
+            let item = Kaohsiung.高雄市[i]
+
+            if (item.活動id == 活動id) {
+
+                item.Edit = true;
+                ActDialogAll.營區id.value = item.營區id;
+                ActDialogAll.營區名稱.value = item.營區名稱;
+                ActDialogAll.地區.value = item.地區;
+                ActDialogAll.縣市.value = item.縣市;
+                ActDialogAll.活動方式.value = item.活動方式;
+                ActDialogAll.活動種類.value = item.活動種類;
+                ActDialogAll.活動名稱.value = item.活動名稱;
+                ActDialogAll.活動介紹.value = item.活動介紹;
+                ActDialogAll.活動圖片.value = item.活動圖片;
+                ActDialogAll.門票價格.value = item.門票價格;
+                ActDialogAll.圖片.value = item.圖片;
+                ActDialogAll.營區地址.value = item.營區地址;
+                ActDialogAll.單價.value = item.單價;
+            }
+            else { item.Edit = false; }
+
+            ActD.push(item);
+        }
+        Kaohsiung.高雄市.splice(0, ActD.length, ...ActD)
+
+    }
+    //宜蘭縣彈跳視窗
+    let YilanDialog = (活動id) => {
+        var ActD = []
+
+        for (let i = 0; i < Yilan.宜蘭縣.length; i++) {
+
+            let item = Yilan.宜蘭縣[i]
+
+            if (item.活動id == 活動id) {
+
+                item.Edit = true;
+                ActDialogAll.營區id.value = item.營區id;
+                ActDialogAll.營區名稱.value = item.營區名稱;
+                ActDialogAll.地區.value = item.地區;
+                ActDialogAll.縣市.value = item.縣市;
+                ActDialogAll.活動方式.value = item.活動方式;
+                ActDialogAll.活動種類.value = item.活動種類;
+                ActDialogAll.活動名稱.value = item.活動名稱;
+                ActDialogAll.活動介紹.value = item.活動介紹;
+                ActDialogAll.活動圖片.value = item.活動圖片;
+                ActDialogAll.門票價格.value = item.門票價格;
+                ActDialogAll.圖片.value = item.圖片;
+                ActDialogAll.營區地址.value = item.營區地址;
+                ActDialogAll.單價.value = item.單價;
+            }
+            else { item.Edit = false; }
+
+            ActD.push(item);
+        }
+        Yilan.宜蘭縣.splice(0, ActD.length, ...ActD)
+
+    }
+    //花蓮縣彈跳視窗
+    let HualienDialog = (活動id) => {
+        var ActD = []
+
+        for (let i = 0; i < Hualien.花蓮縣.length; i++) {
+
+            let item = Hualien.花蓮縣[i]
+
+            if (item.活動id == 活動id) {
+
+                item.Edit = true;
+                ActDialogAll.營區id.value = item.營區id;
+                ActDialogAll.營區名稱.value = item.營區名稱;
+                ActDialogAll.地區.value = item.地區;
+                ActDialogAll.縣市.value = item.縣市;
+                ActDialogAll.活動方式.value = item.活動方式;
+                ActDialogAll.活動種類.value = item.活動種類;
+                ActDialogAll.活動名稱.value = item.活動名稱;
+                ActDialogAll.活動介紹.value = item.活動介紹;
+                ActDialogAll.活動圖片.value = item.活動圖片;
+                ActDialogAll.門票價格.value = item.門票價格;
+                ActDialogAll.圖片.value = item.圖片;
+                ActDialogAll.營區地址.value = item.營區地址;
+                ActDialogAll.單價.value = item.單價;
+            }
+            else { item.Edit = false; }
+
+            ActD.push(item);
+        }
+        Hualien.花蓮縣.splice(0, ActD.length, ...ActD)
+
+    }
+    //台東縣彈跳視窗
+    let TaitungDialog = (活動id) => {
+        var ActD = []
+
+        for (let i = 0; i < Taitung.台東縣.length; i++) {
+
+            let item = Taitung.台東縣[i]
+
+            if (item.活動id == 活動id) {
+
+                item.Edit = true;
+                ActDialogAll.營區id.value = item.營區id;
+                ActDialogAll.營區名稱.value = item.營區名稱;
+                ActDialogAll.地區.value = item.地區;
+                ActDialogAll.縣市.value = item.縣市;
+                ActDialogAll.活動方式.value = item.活動方式;
+                ActDialogAll.活動種類.value = item.活動種類;
+                ActDialogAll.活動名稱.value = item.活動名稱;
+                ActDialogAll.活動介紹.value = item.活動介紹;
+                ActDialogAll.活動圖片.value = item.活動圖片;
+                ActDialogAll.門票價格.value = item.門票價格;
+                ActDialogAll.圖片.value = item.圖片;
+                ActDialogAll.營區地址.value = item.營區地址;
+                ActDialogAll.單價.value = item.單價;
+            }
+            else { item.Edit = false; }
+
+            ActD.push(item);
+        }
+        Taitung.台東縣.splice(0, ActD.length, ...ActD)
+
+    }
 
     return {
         HotActGet, EventActGet, ViewPointActGet, SportActGet, CultureActGet, WaterActGet, TourActGet, AllAreaActGet, AllCityCampGet,
         HotDialog, EventDialog, ViewPointDialog, SportDialog, CultureDialog, WaterDialog, TourDialog,
+        NorthDialog, WestDialog, SouthDialog, EastDialog,
+        NewTpDialog, TaoyuanDialog, HsinchuDialog, MiaoliDialog, NantouDialog, TaichungDialog, ChiayiDialog, TainanDialog, KaohsiungDialog, YilanDialog, HualienDialog, TaitungDialog,
         dialogVisibleArr, Event, ViewPoint, Sport, Culture, Water, Tour,
         North, West, South, East,
         NewTp, Taoyuan, Hsinchu, Miaoli, Nantou, Taichung, Chiayi, Tainan, Kaohsiung, Yilan, Hualien, Taitung,
