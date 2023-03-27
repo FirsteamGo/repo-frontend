@@ -35,12 +35,12 @@
               :src="`${whoFuncImg.MVCimages}${whoFunc.圖片}`"
               style="height: 200px; display: block; margin: 0 auto"
             /> -->
-            <div v-for="item in StoreCarts.ShopCart ">
-            <p class="m-3 myword">商品名稱 | {{item.商品名稱 }}</p>
-            <p class="m-3 myword">商品數量 | {{ item.數量 }}</p>
+            <div>
+            <p class="m-3 myword">商品名稱 | {{ data.產品名稱 }}</p>
+            <p class="m-3 myword">商品數量 | {{ data.數量 }}</p>
             <p class="m-3 myword">
               <span class="material-icons">attach_money</span> TWD<span
-                class="text-primary">{{  }}</span>
+                class="text-primary">{{ data.總價 }}</span>
             </p>
           </div>
           </div>
@@ -200,11 +200,23 @@ import { reactive, onMounted,ref } from 'vue';
 import { useCampShop } from '../../../stores/CampShop.js';
 
 const StoreCarts=useCampShop();
-const data=reactive([]);
+let data=reactive({
+  產品名稱:"",
+  數量:"",
+  單價:'',
+  總價:0,
+});
 
 
 onMounted(()=>{
-  data=StoreCarts.storesss();
+  const shopdetail=StoreCarts.storesss();
+  for(let i=0;i<shopdetail.length;i++){
+    data.產品名稱=shopdetail[i].產品名稱;
+    data.數量=parseInt(shopdetail[i].數量);
+    data.單價=parseInt(shopdetail[i].單價);
+    data.總價=data.數量*data.單價;
+    
+  }
   
 });
 
