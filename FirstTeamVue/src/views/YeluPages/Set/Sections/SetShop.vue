@@ -180,7 +180,7 @@ const insert = () => {
 
 
   });
-  console.log(p);
+  // console.log(p);
   axios
     .post(`${webApi.value}`, p)
     .then(res => { alert(res.data); })
