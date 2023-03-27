@@ -21,7 +21,7 @@ const images = reactive([
 
 <template>
     <div>
-        <el-carousel :interval="2000" arrow="always" height="400px">
+        <el-carousel :interval="2000" arrow="always" height="350px" class=" mb-3">
             <el-carousel-item v-for="item in images" :key="item">
                 <img :src=item.abc alt="carousel image" class="carousel_image_type">
             </el-carousel-item>

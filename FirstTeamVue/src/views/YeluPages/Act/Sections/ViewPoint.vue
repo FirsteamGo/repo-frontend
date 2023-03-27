@@ -100,35 +100,35 @@ onMounted(ViewPointAll.ViewPointActGet)
                         </div>
                         <!-- 主頁卡片 -->
                         <div class="card m-3 col-lg-2 col-sm-6" v-for="item in ViewPointAll.ViewPoint.景點">
-                            
-                        <div class="mb-9 mt-2 ">
-                            <ActTransparentBlogCard :image="`${ViewPointAll.MVCimages}${item.活動圖片}`" :title=item.活動名稱 />
-                        </div>
-                           
-                        <div class="d-flex row align-items-center mb-5 bottom-button-wrapper">
-                            <label class="form-lable"><span class="material-icons">pin_drop</span> {{ item.縣市
-                            }}</label>
-                            <label class="form-lable"><span class="material-icons">festival</span> {{ item.營區名稱
-                            }}</label>
-                             
-                             <label class="form-lable"><span class="material-icons">attach_money</span> TWD <span
-                                     class="text-primary">{{ item.門票價格 }}</span> /次</label>
-                       
-                        </div>
 
-                        <div class="d-flex col mb-3 bottom-button-wrapper">
-                            <el-button type="info" class="text-lg font-weight-bolder icon-move-right"
+                            <div class="mb-9 mt-2 ">
+                                <ActTransparentBlogCard :image="`${ViewPointAll.MVCimages}${item.活動圖片}`" :title=item.活動名稱 />
+                            </div>
+
+                            <div class="d-flex row align-items-center mb-5 bottom-button-wrapper">
+                                <label class="form-lable"><span class="material-icons">pin_drop</span> {{ item.縣市
+                                }}</label>
+                                <label class="form-lable"><span class="material-icons">festival</span> {{ item.營區名稱
+                                }}</label>
+
+                                <label class="form-lable"><span class="material-icons">attach_money</span> TWD <span
+                                        class="text-primary">{{ item.門票價格 }}</span> /次</label>
+
+                            </div>
+
+                            <div class="d-flex col mb-3 bottom-button-wrapper">
+                                <el-button type="info" class="text-lg font-weight-bolder icon-move-right"
                                     @click="{ ViewPointAll.ViewPointDialog(item.活動id); ViewPointAll.dialogVisibleArr[2] = true }">
                                     詳細資訊<i class="fas fa-arrow-right text-xs ms-1"></i>
-                            </el-button>
+                                </el-button>
 
                                 <!-- 重要!!!這邊要導到自選行程第二步!!!!!!! -->
                                 <!-- <RouterLink to="/pages/Yelu-pages/Self/Stepall/step2">
-                                                <el-button type="warning" class=" text-lg font-weight-bolder m-2"
-                                                    @click="ViewPointAll.ViewPointDialog(item.活動id)">
-                                                    <span class="material-icons ">add_shopping_cart</span>
-                                                </el-button>
-                                            </RouterLink> -->
+                                                    <el-button type="warning" class=" text-lg font-weight-bolder m-2"
+                                                        @click="ViewPointAll.ViewPointDialog(item.活動id)">
+                                                        <span class="material-icons ">add_shopping_cart</span>
+                                                    </el-button>
+                                                </RouterLink> -->
                             </div>
                         </div>
                     </div>
@@ -158,6 +158,10 @@ onMounted(ViewPointAll.ViewPointActGet)
                                         </h4>
                                     </label>
 
+                                </div>
+                                <div>
+                                    <label class="form-lable"><span class="material-icons">festival
+                                        </span>營區名稱 | {{ ViewPointAll.ActDialogAll.營區名稱 }}</label>
                                 </div>
 
                                 <div>
@@ -197,10 +201,8 @@ onMounted(ViewPointAll.ViewPointActGet)
 
 <style>
 .bottom-button-wrapper {
-  position: absolute;
-  bottom: 0;
- 
+    position: absolute;
+    bottom: 0;
+
 }
-
-
 </style>
