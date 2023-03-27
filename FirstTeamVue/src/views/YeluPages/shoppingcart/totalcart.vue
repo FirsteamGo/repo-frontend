@@ -34,14 +34,14 @@
                       >
                     </h5>
                     <img
-                      :src="`${Shopdata.mvc}${Shopdata.圖片}`"
+                      :src="`${mvc}${Shopdata.產品圖片}`"
                       style="height: 200px; display: block; margin: 0 auto"
                     />
                     <div>
                       <p class="m-3 myword">
-                        商品名稱 | {{ Shopdata.產品名稱 }}
+                        商品名稱 | {{ Shopdata.產品名稱+1111+Shopdata.產品圖片 }}
                       </p>
-                      <p class="m-3 myword">商品數量 | {{ Shopdata.數量 }}</p>
+                      <p class="m-3 myword">商品數量 | {{ Shopdata.數量}}</p>
                       <p class="m-3 myword">
                         <span class="material-icons">attach_money</span>
                         TWD<span class="text-primary">{{ Shopdata.總價 }}</span>
@@ -155,22 +155,22 @@
                     </tr>
                   </table>
                   <table>
-                    <!-- <tr v-for="(item, index) in props.sfitem" :key="item.自選飲食id" :value="index" class="item"> -->
-                    <tr>
+                    <tr v-for="(item, index) in SelfData.sfitem" :key="item.自選飲食id" :value="index" class="item">
+                    
                       <td style="width: 200px">
-                        <!-- <img :src="`${MVCimages}${item.圖片}`" style="width: 100px; height: 100px" /> -->
+                        <img :src="`${SelfData.MVCimages}${item.圖片}`" style="width: 100px; height: 100px" />
                       </td>
                       <td style="width: 200px">
-                        <p>{{}}</p>
+                        <p>{{item.商品名稱}}</p>
                       </td>
                       <td style="width: 300px">
-                        <p>{{}}</p>
+                        <p>{{item.商品內容}}</p>
                       </td>
                       <td style="width: 150px">
-                        <p>{{}}</p>
+                        <p>{{item.單價}}</p>
                       </td>
                       <td style="width: 60px">
-                        <p>{{}}</p>
+                        <p>{{item.需求份數}}</p>
                       </td>
                     </tr>
                     <div class="d-flex justify-content-end myword">
