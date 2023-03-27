@@ -41,7 +41,7 @@
                       <p class="m-3 myword">
                         商品名稱 | {{ Shopdata.產品名稱 }}
                       </p>
-                      <p class="m-3 myword">商品數量 | {{ Shopdata.數量}}</p>
+                      <p class="m-3 myword">商品數量 | {{ Shopdata.數量 }}</p>
                       <p class="m-3 myword">
                         <span class="material-icons">attach_money</span>
                         TWD<span class="text-primary">{{ Shopdata.總價 }}</span>
@@ -55,7 +55,7 @@
         </el-header>
 
         <h3>自選行程</h3>
-        <el-header height="1000px">
+        <el-header :height="sfcardpx">
           <!-- <table style="border-bottom:1px solid #ddd;"> -->
           <div class="container w-100 px-2">
             <div class="row">
@@ -138,46 +138,61 @@
 
               <div class="card m-3">
                 <div class="card-body">
-                  <h5>
-                    <span class="badge bg-success"
-                      ><span class="material-icons mx-2">task_alt</span
-                      >已選飲食</span
-                    >
-                  </h5>
-                  <table style="border-bottom: 1px solid #ddd">
-                    <tr class="itemHead myword">
-                      <td style="width: 200px">商品圖片</td>
-                      <td style="width: 200px">商品名稱</td>
-                      <td style="width: 300px">商品內容</td>
-                      <td style="width: 170px">單價($)</td>
-                      <td style="width: 60px">數量</td>
-                      <td style="width: 60px"></td>
-                    </tr>
-                  </table>
-                  <table>
-                    <tr v-for="(item, index) in SelfData.sfitem" :key="item.自選飲食id" :value="index" class="item">
-                    
-                      <td style="width: 200px">
-                        <img :src="`${SelfData.MVCimages}${item.圖片}`" style="width: 100px; height: 100px" />
-                      </td>
-                      <td style="width: 200px">
-                        <p>{{item.商品名稱}}</p>
-                      </td>
-                      <td style="width: 300px">
-                        <p>{{item.商品內容}}</p>
-                      </td>
-                      <td style="width: 150px">
-                        <p>{{item.單價}}</p>
-                      </td>
-                      <td style="width: 60px">
-                        <p>{{item.需求份數}}</p>
-                      </td>
-                    </tr>
-                    <div class="d-flex justify-content-end myword">
-                      <span class="material-icons">attach_money</span>TWD
-                      <span class="text-primary">{{}}</span>
+                  <header id="cartList">
+                    <h5 class="card-title">
+                      <span class="badge bg-success"
+                        ><span class="material-icons mx-2">task_alt</span
+                        >已選飲食</span
+                      >
+                    </h5>
+                    <table style="border-bottom: 1px solid #ddd">
+                      <tr class="itemHead">
+                        <td style="width: 200px">商品圖片</td>
+                        <td style="width: 200px">商品名稱</td>
+                        <td style="width: 300px">商品內容</td>
+                        <td style="width: 170px">單價($)</td>
+                        <td style="width: 60px">數量</td>
+                        <!-- <td style="width: 60px"></td> -->
+                      </tr>
+                    </table>
+
+                    <div>
+                      <table>
+                        <tr
+                          v-for="(item, index) in SelfData.sfitem"
+                          :key="item.自選飲食id"
+                          :value="index"
+                          class="item"
+                        >
+                          <td style="width: 200px">
+                            <img
+                              :src="`${mvc}${item.圖片}`"
+                              style="width: 100px; height: 100px"
+                            />
+                          </td>
+                          <td style="width: 200px">
+                            <p>{{ item.商品名稱 }}</p>
+                          </td>
+                          <td style="width: 300px">
+                            <p>{{ item.商品內容 }}</p>
+                          </td>
+                          <td style="width: 150px">
+                            <p>{{ item.單價 }}</p>
+                          </td>
+                          <td style="width: 60px">
+                            <p>{{ item.需求份數 }}</p>
+                          </td>
+                        </tr>
+                      </table>
                     </div>
-                  </table>
+                  </header>
+                  <p class="m-3 myword" style="text-align: right">
+                    <span class="material-icons">attach_money</span>飲食總計 :
+                    TWD
+                    <span id="total" class="text-primary"
+                      >{{ SelfData.ListTotal }}
+                    </span>
+                  </p>
                 </div>
               </div>
 
@@ -313,23 +328,25 @@ import { useCampShop } from "../../../stores/CampShop.js";
 import { useSelfDataAtore } from "../../../stores/SelfData.js";
 const SelfData = useSelfDataAtore();
 
-const StoreCarts=useCampShop();
-let Shopdata=reactive({
-  產品名稱:"",
-  產品圖片:"",
-  數量:0,
-  單價:0,
-  總價:0,
+const StoreCarts = useCampShop();
+let Shopdata = reactive({
+  產品名稱: "",
+  產品圖片: "",
+  數量: 0,
+  單價: 0,
+  總價: 0,
 });
 
-onMounted(()=>{
-  const shopdetail=StoreCarts.storesss();
-  for(let i=0;i<shopdetail.length;i++){
-    Shopdata.產品名稱=shopdetail[i].產品名稱;
-    Shopdata.數量=parseInt(shopdetail[i].數量);
-    Shopdata.單價=parseInt(shopdetail[i].單價);
-    Shopdata.總價=Shopdata.數量*Shopdata.單價;
-    Shopdata.產品圖片=shopdetail[i].產品圖片;
+const sfcardpx = ref(850 + SelfData.sfitem.length * 100 + "px"); //10 + SelfData.sfitem.length * 20
+
+onMounted(() => {
+  const shopdetail = StoreCarts.storesss();
+  for (let i = 0; i < shopdetail.length; i++) {
+    Shopdata.產品名稱 = shopdetail[i].產品名稱;
+    Shopdata.數量 = parseInt(shopdetail[i].數量);
+    Shopdata.單價 = parseInt(shopdetail[i].單價);
+    Shopdata.總價 = Shopdata.數量 * Shopdata.單價;
+    Shopdata.產品圖片 = shopdetail[i].產品圖片;
   }
 });
 
