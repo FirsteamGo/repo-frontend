@@ -60,6 +60,8 @@ onMounted(() => {
       whoFunc.value = ActData.ActDialogAll;
       whoFuncImg.value = ActData;
     }
+
+    SelfData.CampDialogAll = whoFunc.value;
   }
 });
 </script>
@@ -72,10 +74,14 @@ onMounted(() => {
     <el-container>
       <el-aside width="100px">
         <div>
-          <label class="form-lable">入住日期：<label>{{ SelfData.form.data[0] }}</label></label>
+          <label class="form-lable"
+            >入住日期：<label>{{ SelfData.form.data[0] }}</label></label
+          >
         </div>
         <div>
-          <label class="form-lable">退住日期：<label>{{ SelfData.form.data[1] }}</label></label>
+          <label class="form-lable"
+            >退住日期：<label>{{ SelfData.form.data[1] }}</label></label
+          >
         </div>
 
         <div>
@@ -104,7 +110,12 @@ onMounted(() => {
                     </h5>
                     <img
                       :src="`${whoFuncImg.MVCimages}${whoFunc.圖片}`"
-                      style="height: 200px;width: 280px; display: block; margin: 0 auto"
+                      style="
+                        height: 200px;
+                        width: 280px;
+                        display: block;
+                        margin: 0 auto;
+                      "
                     />
                     <p class="m-3 myword">營區名稱 | {{ whoFunc.營區名稱 }}</p>
                     <p class="m-3 myword">營區地址 | {{ whoFunc.營區地址 }}</p>
@@ -129,7 +140,12 @@ onMounted(() => {
                     </h5>
                     <img
                       :src="`${whoFuncImg.MVCimages}${whoFunc.活動圖片}`"
-                      style="height: 200px;width: 280px; display: block; margin: 0 auto"
+                      style="
+                        height: 200px;
+                        width: 280px;
+                        display: block;
+                        margin: 0 auto;
+                      "
                     />
                     <p class="m-3 myword">活動種類 | {{ whoFunc.活動名稱 }}</p>
                     <p class="m-3 myword">活動名稱 | {{ whoFunc.活動種類 }}</p>
@@ -231,5 +247,4 @@ onMounted(() => {
   cursor: pointer;
   color: maroon;
 }
-
 </style>
