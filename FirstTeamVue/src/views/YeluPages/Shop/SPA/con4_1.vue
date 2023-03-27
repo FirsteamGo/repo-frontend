@@ -1,8 +1,8 @@
 <script setup>
 import { onMounted } from "vue";
-import {useCampShop} from "../../../../stores/CampShop.js";
+import { useCampShop } from "../../../../stores/CampShop.js";
 import card2 from "../shopcards/card2.vue";
-const polarAll=useCampShop();
+const polarAll = useCampShop();
 onMounted(polarAll.polarstarProduct);
 </script>
 <template>
@@ -27,7 +27,7 @@ onMounted(polarAll.polarstarProduct);
                 @click="
                   {
                     polarAll.polarstarDialog(item.商品細項id);
-                    polarAll.dialogvision[7]=true;
+                    polarAll.dialogvision[7] = true;
                   }
                 "
                 class="detail"
@@ -57,7 +57,11 @@ onMounted(polarAll.polarstarProduct);
                     </div>
 
                     <div>
-                      <label class="form-label">總價:{{ polarAll.ShopproductsInfo.單價*polarAll.count }}</label>
+                      <label class="form-label"
+                        >總價:{{
+                          polarAll.ShopproductsInfo.單價 * polarAll.count
+                        }}</label
+                      >
                     </div>
                     <div>
                       <el-input-number
@@ -73,7 +77,7 @@ onMounted(polarAll.polarstarProduct);
                         class="btn-2"
                         @click="
                           {
-                            polarAll.dialogvision[7]=false;
+                            polarAll.dialogvision[7] = false;
                           }
                         "
                         >取消</el-button
@@ -83,7 +87,7 @@ onMounted(polarAll.polarstarProduct);
                         @click="
                           {
                             polarAll.shopCart();
-                            polarAll.dialogvision[7]=false;
+                            polarAll.dialogvision[7] = false;
                           }
                         "
                       >

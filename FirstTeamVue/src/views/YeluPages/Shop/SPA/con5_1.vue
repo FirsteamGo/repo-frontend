@@ -1,8 +1,8 @@
 <script setup>
 import { onMounted } from "vue";
-import {useCampShop} from "../../../../stores/CampShop.js";
+import { useCampShop } from "../../../../stores/CampShop.js";
 import card2 from "../shopcards/card2.vue";
-const ivecoAll=useCampShop();
+const ivecoAll = useCampShop();
 onMounted(ivecoAll.ivecoProduct);
 </script>
 <template>
@@ -27,7 +27,7 @@ onMounted(ivecoAll.ivecoProduct);
                 @click="
                   {
                     ivecoAll.ivecoDialog(item.商品細項id);
-                    ivecoAll.dialogvision[9]=true;
+                    ivecoAll.dialogvision[9] = true;
                   }
                 "
                 class="detail"
@@ -57,7 +57,11 @@ onMounted(ivecoAll.ivecoProduct);
                     </div>
 
                     <div>
-                      <label class="form-label">總價:{{ ivecoAll.ShopproductsInfo.單價 * ivecoAll.count }}</label>
+                      <label class="form-label"
+                        >總價:{{
+                          ivecoAll.ShopproductsInfo.單價 * ivecoAll.count
+                        }}</label
+                      >
                     </div>
                     <div>
                       <el-input-number
@@ -73,7 +77,7 @@ onMounted(ivecoAll.ivecoProduct);
                         class="btn-2"
                         @click="
                           {
-                            ivecoAll.dialogvision[9]=false;
+                            ivecoAll.dialogvision[9] = false;
                           }
                         "
                         >取消</el-button
@@ -82,8 +86,8 @@ onMounted(ivecoAll.ivecoProduct);
                         class="btn-1"
                         @click="
                           {
-                           ivecoAll.shopCart();
-                           ivecoAll.dialogvision[9]=false;
+                            ivecoAll.shopCart();
+                            ivecoAll.dialogvision[9] = false;
                           }
                         "
                       >

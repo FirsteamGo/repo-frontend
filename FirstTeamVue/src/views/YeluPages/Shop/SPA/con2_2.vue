@@ -1,8 +1,8 @@
 <script setup>
 import { onMounted } from "vue";
-import {useCampShop} from "../../../../stores/CampShop.js";
+import { useCampShop } from "../../../../stores/CampShop.js";
 import card2 from "../shopcards/card2.vue";
-const titanAll=useCampShop();
+const titanAll = useCampShop();
 onMounted(titanAll.titanProduct);
 </script>
 <template>
@@ -27,7 +27,7 @@ onMounted(titanAll.titanProduct);
                 @click="
                   {
                     titanAll.titanDialog(item.商品細項id);
-                    titanAll.dialogvision[4]=true;
+                    titanAll.dialogvision[4] = true;
                   }
                 "
                 class="detail"
@@ -57,7 +57,11 @@ onMounted(titanAll.titanProduct);
                     </div>
 
                     <div>
-                      <label class="form-label">總價:{{ titanAll.ShopproductsInfo.單價*titanAll.count }}</label>
+                      <label class="form-label"
+                        >總價:{{
+                          titanAll.ShopproductsInfo.單價 * titanAll.count
+                        }}</label
+                      >
                     </div>
                     <div>
                       <el-input-number
@@ -73,7 +77,7 @@ onMounted(titanAll.titanProduct);
                         class="btn-2"
                         @click="
                           {
-                            titanAll.dialogvision[4]=false;
+                            titanAll.dialogvision[4] = false;
                           }
                         "
                         >取消</el-button
@@ -83,7 +87,7 @@ onMounted(titanAll.titanProduct);
                         @click="
                           {
                             titanAll.ShopCart();
-                            titanAll.dialogvision[4]=false;
+                            titanAll.dialogvision[4] = false;
                           }
                         "
                       >

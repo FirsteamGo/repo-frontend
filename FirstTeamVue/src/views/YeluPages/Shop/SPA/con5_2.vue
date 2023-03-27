@@ -1,8 +1,8 @@
 <script setup>
 import { onMounted } from "vue";
-import {useCampShop} from "../../../../stores/CampShop.js";
+import { useCampShop } from "../../../../stores/CampShop.js";
 import card2 from "../shopcards/card2.vue";
-const adriaAll=useCampShop();
+const adriaAll = useCampShop();
 onMounted(adriaAll.adriaProduct);
 </script>
 <template>
@@ -27,7 +27,7 @@ onMounted(adriaAll.adriaProduct);
                 @click="
                   {
                     adriaAll.adriaDialog(item.商品細項id);
-                    adriaAll.dialogvision[10]=true;
+                    adriaAll.dialogvision[10] = true;
                   }
                 "
                 class="detail"
@@ -57,7 +57,11 @@ onMounted(adriaAll.adriaProduct);
                     </div>
 
                     <div>
-                      <label class="form-label">總價:{{ adriaAll.ShopproductsInfo.單價*adriaAll.count }}</label>
+                      <label class="form-label"
+                        >總價:{{
+                          adriaAll.ShopproductsInfo.單價 * adriaAll.count
+                        }}</label
+                      >
                     </div>
                     <div>
                       <el-input-number
@@ -73,7 +77,7 @@ onMounted(adriaAll.adriaProduct);
                         class="btn-2"
                         @click="
                           {
-                            adriaAll.dialogvision[10]=false;
+                            adriaAll.dialogvision[10] = false;
                           }
                         "
                         >取消</el-button
@@ -83,7 +87,7 @@ onMounted(adriaAll.adriaProduct);
                         @click="
                           {
                             adriaAll.shopCart();
-                            adriaAll.dialogvision[10]=false;
+                            adriaAll.dialogvision[10] = false;
                           }
                         "
                       >

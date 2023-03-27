@@ -1,14 +1,14 @@
 <!-- pinia test in store page -->
 <script setup>
 import { ref, reactive, computed, onMounted } from "vue";
-import {useCampShop} from "../../../../stores/CampShop.js";
+import { useCampShop } from "../../../../stores/CampShop.js";
 import card2 from "../shopcards/card2.vue";
-const ShopAll=useCampShop();
+const ShopAll = useCampShop();
 onMounted(ShopAll.Topgoods);
 </script>
 
 <template>
-   <div class="">
+  <div class="">
     <el-container>
       <el-main>
         <section class="py-3">
@@ -29,14 +29,14 @@ onMounted(ShopAll.Topgoods);
                 @click="
                   {
                     ShopAll.goodsDialog(item.商品細項id);
-                    ShopAll.dialogvision[0]=true;
+                    ShopAll.dialogvision[0] = true;
                   }
                 "
                 class="detail"
                 >更多資訊!<i class="fas fa-arrow-right text-xs ms-1"></i>
               </el-button>
             </div>
-            
+
             <el-dialog
               v-model="ShopAll.dialogvision[0]"
               class="dialog"
@@ -54,12 +54,16 @@ onMounted(ShopAll.Topgoods);
                     </div>
                     <div>
                       <label class="form-label"
-                        >價錢:{{ShopAll.ShopproductsInfo.單價 }}</label
+                        >價錢:{{ ShopAll.ShopproductsInfo.單價 }}</label
                       >
                     </div>
 
                     <div>
-                      <label class="form-label">總價:{{ ShopAll.ShopproductsInfo.單價 * ShopAll.count}}</label>
+                      <label class="form-label"
+                        >總價:{{
+                          ShopAll.ShopproductsInfo.單價 * ShopAll.count
+                        }}</label
+                      >
                     </div>
                     <div>
                       <el-input-number
@@ -68,8 +72,8 @@ onMounted(ShopAll.Topgoods);
                         :max="10"
                         :step="1"
                         class="inPut"
-                        
-                      ></el-input-number>
+                      >
+                      </el-input-number>
                     </div>
                     <div style="margin-top: 20px">
                       <el-button
@@ -112,7 +116,7 @@ onMounted(ShopAll.Topgoods);
         </section>
       </el-main>
     </el-container>
-  </div> 
+  </div>
 </template>
 
 <style>

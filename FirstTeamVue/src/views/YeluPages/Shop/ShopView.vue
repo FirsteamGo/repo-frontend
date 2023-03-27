@@ -82,7 +82,7 @@ onUnmounted(() => {
       <!--輪播牆-->
       <el-header class="head"><carousel /></el-header>
       <el-container class="navBar">
-        <navTotal/>
+        <navTotal />
         <nav1 />
         <nav2 />
         <nav3 />

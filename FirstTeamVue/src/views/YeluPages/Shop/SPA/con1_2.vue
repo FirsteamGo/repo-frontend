@@ -1,6 +1,6 @@
 <script setup>
-import { onMounted } from 'vue';
-import { useCampShop } from '../../../../stores/CampShop';
+import { onMounted } from "vue";
+import { useCampShop } from "../../../../stores/CampShop";
 import card2 from "../shopcards/card2.vue";
 const snowAll = useCampShop();
 onMounted(snowAll.snowpeakProduct);
@@ -27,7 +27,7 @@ onMounted(snowAll.snowpeakProduct);
                 @click="
                   {
                     snowAll.snowpeakDialog(item.商品細項id);
-                    snowAll.dialogvision[2]=true;
+                    snowAll.dialogvision[2] = true;
                   }
                 "
                 class="detail"
@@ -57,7 +57,11 @@ onMounted(snowAll.snowpeakProduct);
                     </div>
 
                     <div>
-                      <label class="form-label">總價:{{ snowAll.ShopproductsInfo.單價* snowAll.count }}</label>
+                      <label class="form-label"
+                        >總價:{{
+                          snowAll.ShopproductsInfo.單價 * snowAll.count
+                        }}</label
+                      >
                     </div>
                     <div>
                       <el-input-number
@@ -73,8 +77,7 @@ onMounted(snowAll.snowpeakProduct);
                         class="btn-2"
                         @click="
                           {
-                            
-                            snowAll.dialogvision[2]=false;
+                            snowAll.dialogvision[2] = false;
                           }
                         "
                         >取消</el-button
@@ -84,7 +87,7 @@ onMounted(snowAll.snowpeakProduct);
                         @click="
                           {
                             snowAll.shopCart();
-                            snowAll.dialogvision[2]=false;
+                            snowAll.dialogvision[2] = false;
                           }
                         "
                       >

@@ -1,8 +1,8 @@
 <script setup>
 import { onMounted } from "vue";
-import {useCampShop} from "../../../../stores/CampShop.js";
+import { useCampShop } from "../../../../stores/CampShop.js";
 import card2 from "../shopcards/card2.vue";
-const sadoAll=useCampShop();
+const sadoAll = useCampShop();
 onMounted(sadoAll.sadomainProduct);
 </script>
 <template>
@@ -27,7 +27,7 @@ onMounted(sadoAll.sadomainProduct);
                 @click="
                   {
                     sadoAll.sadomainDialog(item.商品細項id);
-                    sadoAll.dialogvision[3]=true;
+                    sadoAll.dialogvision[3] = true;
                   }
                 "
                 class="detail"
@@ -57,7 +57,11 @@ onMounted(sadoAll.sadomainProduct);
                     </div>
 
                     <div>
-                      <label class="form-label">總價:{{ sadoAll.ShopproductsInfo.單價 * sadoAll.count }}</label>
+                      <label class="form-label"
+                        >總價:{{
+                          sadoAll.ShopproductsInfo.單價 * sadoAll.count
+                        }}</label
+                      >
                     </div>
                     <div>
                       <el-input-number
@@ -73,7 +77,7 @@ onMounted(sadoAll.sadomainProduct);
                         class="btn-2"
                         @click="
                           {
-                            sadoAll.dialogvision[3]=false;
+                            sadoAll.dialogvision[3] = false;
                           }
                         "
                         >取消</el-button
@@ -83,7 +87,7 @@ onMounted(sadoAll.sadomainProduct);
                         @click="
                           {
                             sadoAll.shopCart();
-                            sadoAll.dialogvision[3]=false;
+                            sadoAll.dialogvision[3] = false;
                           }
                         "
                       >

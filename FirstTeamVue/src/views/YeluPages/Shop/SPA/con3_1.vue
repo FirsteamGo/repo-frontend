@@ -1,8 +1,8 @@
 <script setup>
 import { onMounted } from "vue";
-import {useCampShop} from "../../../../stores/CampShop.js";
+import { useCampShop } from "../../../../stores/CampShop.js";
 import card2 from "../shopcards/card2.vue";
-const forestAll=useCampShop();
+const forestAll = useCampShop();
 onMounted(forestAll.forestProduct);
 </script>
 <template>
@@ -27,7 +27,7 @@ onMounted(forestAll.forestProduct);
                 @click="
                   {
                     forestAll.forestDialog(item.商品細項id);
-                    forestAll.dialogvision[5]=true;
+                    forestAll.dialogvision[5] = true;
                   }
                 "
                 class="detail"
@@ -57,7 +57,11 @@ onMounted(forestAll.forestProduct);
                     </div>
 
                     <div>
-                      <label class="form-label">總價:{{ forestAll.ShopproductsInfo.單價 * forestAll.count }}</label>
+                      <label class="form-label"
+                        >總價:{{
+                          forestAll.ShopproductsInfo.單價 * forestAll.count
+                        }}</label
+                      >
                     </div>
                     <div>
                       <el-input-number
@@ -73,7 +77,7 @@ onMounted(forestAll.forestProduct);
                         class="btn-2"
                         @click="
                           {
-                            forestAll.dialogvision[5]=false;
+                            forestAll.dialogvision[5] = false;
                           }
                         "
                         >取消</el-button
@@ -82,8 +86,8 @@ onMounted(forestAll.forestProduct);
                         class="btn-1"
                         @click="
                           {
-                           forestAll.shopCart();
-                           forestAll.dialogvision[5]=false;
+                            forestAll.shopCart();
+                            forestAll.dialogvision[5] = false;
                           }
                         "
                       >

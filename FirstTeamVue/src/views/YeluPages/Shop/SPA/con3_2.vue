@@ -1,8 +1,8 @@
 <script setup>
 import { onMounted } from "vue";
-import {useCampShop} from "../../../../stores/CampShop.js";
+import { useCampShop } from "../../../../stores/CampShop.js";
 import card2 from "../shopcards/card2.vue";
-const lifeAll=useCampShop();
+const lifeAll = useCampShop();
 onMounted(lifeAll.lifecodeProduct);
 </script>
 <template>
@@ -27,7 +27,7 @@ onMounted(lifeAll.lifecodeProduct);
                 @click="
                   {
                     lifeAll.lifecodeDialog(item.商品細項id);
-                    lifeAll.dialogvision[6]=true;
+                    lifeAll.dialogvision[6] = true;
                   }
                 "
                 class="detail"
@@ -57,7 +57,11 @@ onMounted(lifeAll.lifecodeProduct);
                     </div>
 
                     <div>
-                      <label class="form-label">總價:{{ lifeAll.ShopproductsInfo.單價*lifeAll.count }}</label>
+                      <label class="form-label"
+                        >總價:{{
+                          lifeAll.ShopproductsInfo.單價 * lifeAll.count
+                        }}</label
+                      >
                     </div>
                     <div>
                       <el-input-number
@@ -73,7 +77,7 @@ onMounted(lifeAll.lifecodeProduct);
                         class="btn-2"
                         @click="
                           {
-                            lifeAll.dialogvision[6]=false;
+                            lifeAll.dialogvision[6] = false;
                           }
                         "
                         >取消</el-button
@@ -83,7 +87,7 @@ onMounted(lifeAll.lifecodeProduct);
                         @click="
                           {
                             lifeAll.shopCart();
-                            lifeAll.dialogvision[6]=false;
+                            lifeAll.dialogvision[6] = false;
                           }
                         "
                       >
