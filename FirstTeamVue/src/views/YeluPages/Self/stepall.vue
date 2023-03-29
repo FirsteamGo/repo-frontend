@@ -5,8 +5,10 @@ import CampIndex from "../Camp/Sections/CampIndex.vue";
 import step2 from "../Self/Sections/step2.vue";
 import step3 from "../Self/Sections/step3.vue";
 import selfshoppinglist from "../shoppingcart/selfshoppinglist.vue";
+import { useSelfDataAtore } from "../../../stores/SelfData.js";
 import { useRoute } from "vue-router";
 const route = useRoute();
+const SelfData = useSelfDataAtore();
 
 const dialogVisible = ref(false);
 let sf = reactive([]);
@@ -26,7 +28,10 @@ const getStorage = () => {
 //在step3.vue的 飲食項目點擊選購 傳送細項資料
 const getsf = (item) => {
   sfitem.push(item);
+  // alert(sfitem[0].商品名稱)
+  // alert(SelfData.sfitem[0].商品名稱)
 };
+SelfData.sfitem=sfitem
 
 const content = ref("CampIndex");
 const BtnCart = ref(false);

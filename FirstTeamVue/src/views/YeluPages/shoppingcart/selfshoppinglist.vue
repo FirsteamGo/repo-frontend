@@ -43,6 +43,7 @@ let ListTotal = computed(() => {
   return ListTotalData;
 });
 // console.log(ListTotal);
+SelfData.ListTotal = ListTotal;
 
 const deleteItem = (index) => {
   props.sfitem.splice(index, 1);
@@ -70,7 +71,7 @@ const formatDate = (dateString) => {
   const month = (date.getMonth() + 1).toString().padStart(2, "0");
   const day = date.getDate().toString().padStart(2, "0");
   return `${year}-${month}-${day}`;
-}
+};
 </script>
 
 
@@ -81,14 +82,24 @@ const formatDate = (dateString) => {
     <el-container>
       <el-aside width="100px">
         <div>
-          <label class="form-lable">入住日期：<label>{{ formatDate(SelfData.form.data[0]) }}</label></label>
+          <label class="form-lable"
+            >入住日期：<label>{{
+              formatDate(SelfData.form.data[0])
+            }}</label></label
+          >
         </div>
         <div>
-          <label class="form-lable">退住日期：<label>{{ formatDate(SelfData.form.data[1]) }}</label></label>
+          <label class="form-lable"
+            >退住日期：<label>{{
+              formatDate(SelfData.form.data[1])
+            }}</label></label
+          >
         </div>
 
         <div>
-          <label class="form-lable">預計人數：{{ SelfData.form.預計人數 }}</label>
+          <label class="form-lable"
+            >預計人數：{{ SelfData.form.預計人數 }}</label
+          >
         </div>
         <div>
           <label class="form-lable">備註：{{ SelfData.form.評論 }}</label>
@@ -104,19 +115,27 @@ const formatDate = (dateString) => {
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">
-                      <span class="badge bg-success"><span class="material-icons mx-2">task_alt</span>已選營地</span>
+                      <span class="badge bg-success"
+                        ><span class="material-icons mx-2">task_alt</span
+                        >已選營地</span
+                      >
                     </h5>
-                    <img :src="`${whoFuncImg.MVCimages}${whoFunc.圖片}`" style="
-                          height: 200px;
-                          width: 280px;
-                          display: block;
-                          margin: 0 auto;
-                        " />
+                    <img
+                      :src="`${whoFuncImg.MVCimages}${whoFunc.圖片}`"
+                      style="
+                        height: 200px;
+                        width: 280px;
+                        display: block;
+                        margin: 0 auto;
+                      "
+                    />
                     <p class="m-3 myword">營區名稱 | {{ whoFunc.營區名稱 }}</p>
                     <p class="m-3 myword">營區地址 | {{ whoFunc.營區地址 }}</p>
                     <p class="m-3 myword">
-                      <span class="material-icons">attach_money</span> TWD<span class="text-primary">{{ whoFunc.單價
-                      }}</span>
+                      <span class="material-icons">attach_money</span> TWD<span
+                        class="text-primary"
+                        >{{ whoFunc.單價 }}</span
+                      >
                     </p>
                   </div>
                 </div>
@@ -126,19 +145,27 @@ const formatDate = (dateString) => {
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">
-                      <span class="badge bg-success"><span class="material-icons mx-2">task_alt</span>已選活動</span>
+                      <span class="badge bg-success"
+                        ><span class="material-icons mx-2">task_alt</span
+                        >已選活動</span
+                      >
                     </h5>
-                    <img :src="`${whoFuncImg.MVCimages}${whoFunc.活動圖片}`" style="
-                          height: 200px;
-                          width: 280px;
-                          display: block;
-                          margin: 0 auto;
-                        " />
+                    <img
+                      :src="`${whoFuncImg.MVCimages}${whoFunc.活動圖片}`"
+                      style="
+                        height: 200px;
+                        width: 280px;
+                        display: block;
+                        margin: 0 auto;
+                      "
+                    />
                     <p class="m-3 myword">活動種類 | {{ whoFunc.活動名稱 }}</p>
                     <p class="m-3 myword">活動名稱 | {{ whoFunc.活動種類 }}</p>
                     <p class="m-3 myword">
-                      <span class="material-icons">attach_money</span> TWD<span class="text-primary">{{ whoFunc.門票價格
-                      }}</span>
+                      <span class="material-icons">attach_money</span> TWD<span
+                        class="text-primary"
+                        >{{ whoFunc.門票價格 }}</span
+                      >
                     </p>
                   </div>
                 </div>
@@ -151,6 +178,12 @@ const formatDate = (dateString) => {
         <el-main>
           <div id="myCart">
             <header id="cartList">
+              <h5 class="card-title">
+                <span class="badge bg-success"
+                  ><span class="material-icons mx-2">task_alt</span
+                  >已選飲食</span
+                >
+              </h5>
               <table style="border-bottom: 1px solid #ddd">
                 <tr class="itemHead">
                   <td style="width: 200px">商品圖片</td>
@@ -164,9 +197,17 @@ const formatDate = (dateString) => {
 
               <div>
                 <table>
-                  <tr v-for="(item, index) in props.sfitem" :key="item.自選飲食id" :value="index" class="item">
+                  <tr
+                    v-for="(item, index) in props.sfitem"
+                    :key="item.自選飲食id"
+                    :value="index"
+                    class="item"
+                  >
                     <td style="width: 200px">
-                      <img :src="`${MVCimages}${item.圖片}`" style="width: 100px; height: 100px" />
+                      <img
+                        :src="`${MVCimages}${item.圖片}`"
+                        style="width: 100px; height: 100px"
+                      />
                     </td>
                     <td style="width: 200px">
                       <p>{{ item.商品名稱 }}</p>
@@ -181,17 +222,21 @@ const formatDate = (dateString) => {
                       <p>{{ item.需求份數 }}</p>
                     </td>
                     <td style="width: 60px">
-                      <el-button class="p-1" type="info" @click="deleteItem(index)"><span
-                          class="material-icons">delete</span></el-button>
+                      <el-button
+                        class="p-1"
+                        type="info"
+                        @click="deleteItem(index)"
+                        ><span class="material-icons">delete</span></el-button
+                      >
                     </td>
                   </tr>
                 </table>
               </div>
             </header>
-
-            <footer style="text-align: right">
-              總計 : <span id="total">{{ ListTotal }} 元</span>
-            </footer>
+            <p class="m-3 myword" style="text-align: right">
+              <span class="material-icons">attach_money</span>飲食總計 : TWD
+              <span id="total" class="text-primary">{{ ListTotal }} </span>
+            </p>
 
             <RouterLink :to="{ name: 'totalcart' }">
               <button type="button" class="btn btn-secondary" @click="addcart">

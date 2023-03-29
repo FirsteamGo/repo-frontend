@@ -17,6 +17,9 @@ export const useSelfDataAtore = defineStore('SelfData', () => {
 
     const MVCimages = ref("https://localhost:7120/images/")
 
+    let sfitem = reactive([]);
+    const ListTotal = ref(0)
+
 
     const az = ref("1") //測試用變數
 
@@ -27,7 +30,7 @@ export const useSelfDataAtore = defineStore('SelfData', () => {
     };
 
     return {
-        form, CampDialogAll, MVCimages, //az, NorthCampGet,
+        form, CampDialogAll, MVCimages, sfitem, ListTotal, //az, NorthCampGet,
     }
 
 })
