@@ -62,10 +62,10 @@ export default [
       },
     ],
   },
-  {
-    path: "/pages/Yelu-pages/cart",
-    name: "cart",
-    component: () =>
-      import("../views/YeluPages/Shop/shopsections/ShopCart.vue"),
-  },
+  // {
+  //   path: "/pages/Yelu-pages/cart",
+  //   name: "cart",
+  //   component: () =>
+  //     import("../views/YeluPages/Shop/shopsections/ShopCart.vue"),
+  // },
 ];
